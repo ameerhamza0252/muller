@@ -11,14 +11,14 @@ export default function testimonials({blok}:{blok:any}){
     const [value,setValue]=useState(0);
     function handleValue(operation:'+'|'-'){
         if(operation=='+'){
-           if(value==testimonials.length){
+           if(value==blok.length){
             setValue(0)
            }else{
             setValue(value+1)
            }
         }else{
             if(value==0){
-                setValue(testimonials.length-1)
+                setValue(blok.length-1)
             }else{
                 setValue(value-1)
             }
@@ -48,7 +48,7 @@ export default function testimonials({blok}:{blok:any}){
                     <div className=" scale-150"><BiRightArrowAlt/></div>
                 </button>
                 <text className=" ml-[20px] text-[22px] font-medium text-black ">
-                    {value+1}/{testimonials.length}
+                    {value+1}/{blok.length}
                 </text>
             </div>
         </div>
