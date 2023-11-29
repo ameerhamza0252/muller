@@ -7,7 +7,7 @@ import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 
 export default function testimonials({blok}:{blok:any}){
     blok=blok.testimonials
-    //console.log(blok)
+    console.log(blok)
     const [value,setValue]=useState(0);
     function handleValue(operation:'+'|'-'){
         if(operation=='+'){

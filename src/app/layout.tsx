@@ -9,7 +9,6 @@ import dynamic from 'next/dynamic'
 
 import { storyblokInit, apiPlugin, StoryblokStory, getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokProvider from "../components/StoryblokProvider";
-import Home from '@/views/Home/Home';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,8 +20,11 @@ export const metadata: Metadata = {
 storyblokInit({
   accessToken: process.env.STORYBLOKTOKEN,
   use: [apiPlugin],
-  components:{
-
+  apiOptions:{
+    cache: {
+      clear: 'auto',
+      type: 'memory'
+    },
   }
 });
 
