@@ -16,7 +16,7 @@ export default async function Home() {
   );
 }
 
-export async function fetchData() {
+async function fetchData() {
   const storyblokApi = getStoryblokApi();
   return storyblokApi.get(`cdn/stories/home`, { version: "draft" });
 }
