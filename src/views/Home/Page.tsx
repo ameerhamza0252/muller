@@ -1,7 +1,7 @@
 import { StoryblokComponent } from "@storyblok/react";
 
 export default function Page({blok}:{blok:any}){
-    console.log(blok)
+    //console.log(blok)
     return(
         <>{
           (blok.block).map((n:any)=>(

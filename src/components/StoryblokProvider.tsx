@@ -7,9 +7,13 @@ import partners from "@/views/Home/partners";
 import testimonials from "@/views/Home/testimonials";
 import top from "@/views/Home/Top";
 import USPList from "@/views/Home/USPList";
-import Page from "@/views/Page";
+import Page from "@/views/Home/Page";
 import Numbers from "@/views/Home/NumberList";
-
+import Solutions from "@/views/Solutions/Solutions";
+import { Card } from "./Solutions/Solution";
+import SolutionsPage from "@/views/Solutions/SolutionsPage";
+import video from "./Solutions/video";
+import benefits from "./Solutions/benefits";
 /** 3. Initialize it as usual */
 storyblokInit({
   accessToken: process.env.STORYBLOKTOKEN,
@@ -21,7 +25,11 @@ storyblokInit({
     Top:top,
     USPList:USPList,
     page:Page,
-    NumbersList:Numbers
+    NumbersList:Numbers,
+    Solutions:Solutions,
+    Solution:Card,
+    SolutionsPage:SolutionsPage,
+    video:video,
   },
   apiOptions:{
     region:'eu',

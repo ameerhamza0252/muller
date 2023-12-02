@@ -11,14 +11,17 @@
   },
   "dependencies": {
     "@storyblok/react": "^2.4.7",
+    "clone-deep": "^4.0.1",
     "mkcert": "^3.2.0",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.12.0",
-    "storyblok-js-client": "^6.2.0"
+    "storyblok-js-client": "^6.2.0",
+    "storyblok-rich-text-react-renderer": "^2.9.0"
   },
   "devDependencies": {
+    "@types/clone-deep": "^4.0.4",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

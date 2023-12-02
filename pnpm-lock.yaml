@@ -8,6 +8,9 @@ dependencies:
   '@storyblok/react':
     specifier: ^2.4.7
     version: 2.4.7(react-dom@18.2.0)(react@18.2.0)
+  clone-deep:
+    specifier: ^4.0.1
+    version: 4.0.1
   mkcert:
     specifier: ^3.2.0
     version: 3.2.0
@@ -26,8 +29,14 @@ dependencies:
   storyblok-js-client:
     specifier: ^6.2.0
     version: 6.2.0
+  storyblok-rich-text-react-renderer:
+    specifier: ^2.9.0
+    version: 2.9.0(react@18.2.0)
 
 devDependencies:
+  '@types/clone-deep':
+    specifier: ^4.0.4
+    version: 4.0.4
   '@types/node':
     specifier: ^20
     version: 20.10.0
@@ -216,6 +225,10 @@ packages:
       tslib: 2.6.2
     dev: false
 
+  /@types/clone-deep@4.0.4:
+    resolution: {integrity: sha512-vXh6JuuaAha6sqEbJueYdh5zNBPPgG1OYumuz2UvLvriN6ABHDSW8ludREGWJb1MLIzbwZn4q4zUbUCerJTJfA==}
+    dev: true
+
   /@types/node@20.10.0:
     resolution: {integrity: sha512-D0WfRmU9TQ8I9PFx9Yc+EBHw+vSpIub4IDvQivcp26PtPrdMGAq5SDcpXEo/epqa/DXotVpekHiLNTg3iaKXBQ==}
     dependencies:
@@ -342,6 +355,15 @@ packages:
 
   /client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
+    dev: false
+
+  /clone-deep@4.0.1:
+    resolution: {integrity: sha512-neHB9xuzh/wk0dIHweyAXv2aPGZIVk3pLMe+/RNzINf17fe0OG96QroktYAUm7SM1PBnzTabaLboqqxDyMU+SQ==}
+    engines: {node: '>=6'}
+    dependencies:
+      is-plain-object: 2.0.4
+      kind-of: 6.0.3
+      shallow-clone: 3.0.1
     dev: false
 
   /commander@11.1.0:
@@ -510,6 +532,18 @@ packages:
     engines: {node: '>=0.12.0'}
     dev: true
 
+  /is-plain-object@2.0.4:
+    resolution: {integrity: sha512-h5PpgXkWitc38BBMYawTYMWJHFZJVnBquFE57xFpjB8pJFiF6gZ+bU+WyI/yqXiFR5mdLsgYNaPe8uao6Uv9Og==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      isobject: 3.0.1
+    dev: false
+
+  /isobject@3.0.1:
+    resolution: {integrity: sha512-WhB9zCku7EGTj/HQQRz5aUQEUeoQZH2bWcltRErOpymJ4boYE6wL9Tbr23krRPSZ+C5zqNSrSw+Cc7sZZ4b7vg==}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
   /jiti@1.21.0:
     resolution: {integrity: sha512-gFqAIbuKyyso/3G2qhiO2OM6shY6EPP/R0+mkDbyspxKazh8BXDC5FiFsUjlczgdNz/vfra0da2y+aHrusLG/Q==}
     hasBin: true
@@ -517,6 +551,11 @@ packages:
 
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
+    dev: false
+
+  /kind-of@6.0.3:
+    resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
+    engines: {node: '>=0.10.0'}
     dev: false
 
   /lilconfig@2.1.0:
@@ -819,6 +858,13 @@ packages:
       loose-envify: 1.4.0
     dev: false
 
+  /shallow-clone@3.0.1:
+    resolution: {integrity: sha512-/6KqX+GVUdqPuPPd2LxDDxzX6CAbjJehAAOKlNpqqUpAqPM6HeL8f+o3a+JsyGjn2lv0WY8UsTgUJjU9Ok55NA==}
+    engines: {node: '>=8'}
+    dependencies:
+      kind-of: 6.0.3
+    dev: false
+
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
@@ -829,6 +875,14 @@ packages:
 
   /storyblok-js-client@6.2.0:
     resolution: {integrity: sha512-8JzizWOsE7WIHzm7BjEgCcRDP/CJ2u7G+JYq0kGj/2TrlQQes+IKzHxfMHq2SwVj2zyBlKlT+368iQlOmPg41g==}
+    dev: false
+
+  /storyblok-rich-text-react-renderer@2.9.0(react@18.2.0):
+    resolution: {integrity: sha512-AEcWGVrs7Y5O3cFn5kbhy+Odesk5Rf5JTXAhJrFPgIXybrAfVpzZeOUYuIjjPgGvQ3M/f7PieZg/SHUQVq34QA==}
+    peerDependencies:
+      react: '>=16.0.0'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /streamsearch@1.1.0:

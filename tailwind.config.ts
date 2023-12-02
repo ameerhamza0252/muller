@@ -16,7 +16,8 @@ const config: Config = {
       'brand':'#00918E',
       'black':'#221E1F',
       'grey-2':'#595657',
-      'B-Yellow':'#FBBA00'
+      'B-Yellow':'#FBBA00',
+      'white':'#FAFBFF'
     },
     extend: {
       backgroundImage: {

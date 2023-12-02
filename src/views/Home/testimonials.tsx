@@ -7,11 +7,11 @@ import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 
 export default function testimonials({blok}:{blok:any}){
     blok=blok.testimonials
-    console.log(blok)
+    //console.log(blok)
     const [value,setValue]=useState(0);
     function handleValue(operation:'+'|'-'){
         if(operation=='+'){
-           if(value==blok.length){
+           if(value==blok.length-1){
             setValue(0)
            }else{
             setValue(value+1)
@@ -24,6 +24,7 @@ export default function testimonials({blok}:{blok:any}){
             }
         }
     }
+    //console.log(value)
     return(
         <div className=" min-h-screen flex flex-col py-[27px] lg:py-[35px] px-[20px] md:pl-[39px] md:pr-[92px] text-black">
             <text className=" text-grey-2">Testimonials</text>

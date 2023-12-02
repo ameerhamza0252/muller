@@ -1,4 +1,4 @@
-import { Card } from "@/components/Card";
+import { Card } from "@/components/Solutions/Solution";
 
 export default function Services(){
     return(
@@ -8,9 +8,7 @@ export default function Services(){
       </text>
       <text className="w-[620px] heading2 ml-[10px] mt-[30px]" >Lorem ipsum dolor amet</text>
       <div className=' flex flex-wrap xl:justify-between gap-[20px] px-[10px] mt-[65px]'>
-        <Card />
-        <Card />
-        <Card />
+        
         
       </div>
     </div>

@@ -5,9 +5,9 @@ import './globals.css'
 import { Navigation } from '@/components/navbar'
 import Footer from '@/components/footer'
 import { Storyblok } from '@/utils'
-import dynamic from 'next/dynamic'
+export const dynamic = 'force-dynamic'
 
-import { storyblokInit, apiPlugin, StoryblokStory, getStoryblokApi } from "@storyblok/react/rsc";
+import { storyblokInit, apiPlugin, StoryblokStory, getStoryblokApi, RichTextSchema } from "@storyblok/react/rsc";
 import StoryblokProvider from "../components/StoryblokProvider";
 
 const inter = Inter({ subsets: ['latin'] })
@@ -25,7 +25,7 @@ storyblokInit({
       clear: 'auto',
       type: 'memory'
     },
-  }
+  },
 });
 
 export default async function RootLayout({
