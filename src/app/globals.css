@@ -40,3 +40,8 @@ body {
   font-size: 80px;
   line-height: 84px;
 }
+
+input[type=checkbox] {
+  border: 2px solid red;
+  border-radius: 4px;
+}
