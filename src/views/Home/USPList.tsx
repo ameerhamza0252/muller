@@ -2,7 +2,7 @@ import Pagelink from "@/components/link";
 
 export default function USPList({blok}:{blok:any}){
   const variant=blok.variant
-  //console.log(blok.variant)
+  //console.log(blok)
   blok=blok.usplist;
   
     return(

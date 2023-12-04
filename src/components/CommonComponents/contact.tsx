@@ -2,7 +2,10 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function Contact({contacts}:{contacts:any}) {
+export default function Contact({blok}:{blok:any}) {
+    console.log('CONTACTS OPEN')
+    const contacts=blok.contacts;
+    console.log(contacts[0])
     const [count,setCount]=useState(0)
     return(
         <div className=" min-h-screen flex flex-col lx-[20px] lg:px-[64px] py-[40px] lg:py-[112px] text-black gap-[30px] lg:gap-[80px]">
@@ -15,10 +18,10 @@ export default function Contact({contacts}:{contacts:any}) {
                 <div className=" flex flex-col gap-[29px]">
                 {
                     contacts.map((c:any,i:number)=>(
-                        <button className={`grid grid-cols-1 text-start gap-[24px] pl-[32px] ${count==i?"border-l-2":null} border-brand`} onClick={()=>setCount(i)} >
+                        <button className={`grid grid-cols-1 text-start gap-[24px] pl-[32px] ${count==i?"border-l-2":null} border-brand`} onClick={()=>setCount(i)} key={c._uid} >
                         <text className=" heading4">{c.country}</text>
                         <text className=" ">{c.name}</text>
-                        <text className=" font-['DM_Mono'] font-[500] text-[18px]">{c.link}</text>
+                        <text className=" font-['DM_Mono'] font-[500] text-[18px]">L</text>
                         </button>
                     ))
                 }

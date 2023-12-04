@@ -1,4 +1,4 @@
-import { Card } from "@/components/Solutions/Solution";
+import { Card } from "@/components/CommonComponents/Card";
 
 export default function Services(){
     return(

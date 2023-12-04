@@ -1,4 +1,4 @@
-import { Card } from "@/components/Solutions/Solution";
+import { Card } from "@/components/CommonComponents/Card";
 import { StoryblokComponent, getStoryblokApi, storyblokEditable } from "@storyblok/react";
 
 export default async function Solutions({blok}:{blok:any}){
@@ -13,7 +13,7 @@ export default async function Solutions({blok}:{blok:any}){
       <div className=' flex flex-wrap xl:justify-between gap-[20px] px-[10px] mt-[65px]'>
         {blok.solutions.map(async (s_uuid:string)=>{
           const {data}=await fetchData(s_uuid)
-          //console.log(s_uuid)
+          
           return(
             <StoryblokComponent blok={data.stories[0].content} uuid={s_uuid} />
           )

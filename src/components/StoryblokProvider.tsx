@@ -10,10 +10,15 @@ import USPList from "@/views/Home/USPList";
 import Page from "@/views/Home/Page";
 import Numbers from "@/views/Home/NumberList";
 import Solutions from "@/views/Solutions/Solutions";
-import { Card } from "./Solutions/Solution";
+import { Card } from "./CommonComponents/Card";
 import SolutionsPage from "@/views/Solutions/SolutionsPage";
-import video from "./Solutions/video";
-import benefits from "./Solutions/benefits";
+import video from "./video";
+import ServicesPage from "@/views/ServicesPage";
+import STop from "./CommonComponents/stop";
+import Benefits from "./CommonComponents/benefits";
+import Services from "./Services/Services";
+import Info from "./CommonComponents/info";
+import Contact from "./CommonComponents/contact";
 /** 3. Initialize it as usual */
 storyblokInit({
   accessToken: process.env.STORYBLOKTOKEN,
@@ -28,8 +33,15 @@ storyblokInit({
     NumbersList:Numbers,
     Solutions:Solutions,
     Solution:Card,
+    Service:Card, 
     SolutionsPage:SolutionsPage,
     video:video,
+    servicespage:ServicesPage,
+    stop:STop,
+    benefits:Benefits,
+    Services:Services,
+    info:Info,
+    contacts:Contact
   },
   apiOptions:{
     region:'eu',

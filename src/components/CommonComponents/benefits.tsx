@@ -2,8 +2,9 @@
 import Image from "next/image";
 import { useState } from "react";
 
-export default function Benefits({benefits}:{benefits:any}){
-    //console.log(benefits)
+export default function Benefits({blok}:{blok:any}){
+    const benefits=blok.benefits
+    console.log(benefits)
     const [count,setCount]=useState(0)
     return (
         <div className=" bg-black min-h-screen py-[112px] px-[64px]">
