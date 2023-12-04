@@ -6,7 +6,7 @@ import { Navigation } from "./navbar";
 import partners from "@/views/Home/partners";
 import testimonials from "@/views/Home/testimonials";
 import top from "@/views/Home/Top";
-import USPList from "@/views/Home/USPList";
+import USPList from "@/components/CommonComponents/USPList";
 import Page from "@/views/Home/Page";
 import Numbers from "@/views/Home/NumberList";
 import Solutions from "@/views/Solutions/Solutions";

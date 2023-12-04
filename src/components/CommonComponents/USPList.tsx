@@ -7,7 +7,7 @@ export default function USPList({blok}:{blok:any}){
   
     return(
         <div className={` relative flex flex-col h-auto py-[95px] px-[24px] lg:px-[41px] font-[300px] ${variant!='black'?'text-black':' bg-black text-white'} `}  id='services'>
-        <text className=' text-[21px] text-[#595657]'>
+        <text className=' text-[21px] text-white'>
           Our approach
         </text>
         

@@ -10,7 +10,8 @@ const config: Config = {
   ],
   theme: {
     fontFamily:{
-      'Helvectica':"Helvectica Neue"
+      'Helvectica':"Helvectica Neue",
+      'DM_Mono':"DM Mono"
     },
     colors:{
       'brand':'#00918E',
@@ -18,7 +19,8 @@ const config: Config = {
       'grey-2':'#595657',
       'B-Yellow':'#FBBA00',
       'white':'#FAFBFF',
-      'B-grey':'#E7E9EA'
+      'B-grey':'#E7E9EA',
+      'Light-Grey':'#F4F4F4'
     },
     extend: {
       backgroundImage: {
