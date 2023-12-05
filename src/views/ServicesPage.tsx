@@ -1,7 +1,7 @@
 import { StoryblokComponent } from "@storyblok/react";
 
 export default async function ServicesPage({blok}:{blok:any}) {
-    console.log(blok)
+    //console.log(blok)
     return(
         <>
             {

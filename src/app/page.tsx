@@ -1,4 +1,3 @@
-import { storyblokInit, apiPlugin } from "@storyblok/react";
 import {
   getStoryblokApi,
 } from "@storyblok/react/rsc";
@@ -18,5 +17,5 @@ export default async function Home() {
 
 async function fetchData() {
   const storyblokApi = getStoryblokApi();
-  return storyblokApi.get(`cdn/stories/home`, { version: "draft" });
+  return storyblokApi.get(`cdn/stories/home`, { version: "published" });
 }

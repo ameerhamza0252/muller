@@ -3,12 +3,11 @@ import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 
 /** 2. Import your components */
 import { Navigation } from "./navbar";
-import partners from "@/views/Home/partners";
-import testimonials from "@/views/Home/testimonials";
-import top from "@/views/Home/Top";
+import partners from "@/components/Home/partners";
+import testimonials from "@/components/Home/testimonials";
+import top from "@/components/Home/Top";
 import USPList from "@/components/CommonComponents/USPList";
-import Page from "@/views/Home/Page";
-import Numbers from "@/views/Home/NumberList";
+import Numbers from "@/components/Home/NumberList";
 import Solutions from "@/views/Solutions/Solutions";
 import { Card } from "./CommonComponents/Card";
 import SolutionsPage from "@/views/Solutions/SolutionsPage";
@@ -19,6 +18,7 @@ import Benefits from "./CommonComponents/benefits";
 import Services from "./Services/Services";
 import Info from "./CommonComponents/info";
 import Contact from "./CommonComponents/contact";
+import Home from "../views/Home";
 /** 3. Initialize it as usual */
 storyblokInit({
   accessToken: process.env.STORYBLOKTOKEN,
@@ -29,10 +29,10 @@ storyblokInit({
     testimonials:testimonials,
     Top:top,
     USPList:USPList,
-    page:Page,
+    page:Home,
     NumbersList:Numbers,
     Solutions:Solutions,
-    Solution:Card,
+    solution:Card,
     Service:Card, 
     SolutionsPage:SolutionsPage,
     video:video,

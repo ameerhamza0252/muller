@@ -1,11 +1,12 @@
 "use client"
+import { storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
 import { useState } from "react";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 
 
 
-export default function testimonials({blok}:{blok:any}){
+const testimonials=({blok}:{blok:any})=>{
     blok=blok.testimonials
     //console.log(blok)
     const [value,setValue]=useState(0);
@@ -24,9 +25,10 @@ export default function testimonials({blok}:{blok:any}){
             }
         }
     }
-    //console.log(value)
+    console.log(value)
+    //window.alert("testimonials")
     return(
-        <div className=" min-h-screen flex flex-col py-[27px] lg:py-[35px] px-[20px] md:pl-[39px] md:pr-[92px] text-black">
+        <div className=" min-h-screen flex flex-col py-[27px] lg:py-[35px] px-[20px] md:pl-[39px] md:pr-[92px] text-black" {...storyblokEditable(blok)}>
             <text className=" text-grey-2">Testimonials</text>
             <div className="flex flex-col justify-between w-[580px] py-[85px] gap-[45px] self-end">
                 <text className="h-max-[580px] text-[35px] overflow-hidden leading-[39px]">
@@ -42,10 +44,10 @@ export default function testimonials({blok}:{blok:any}){
                     <Image src="/Icon/Google Play.svg" alt="google play" width={70} height={70} />
             </div>
             <div className=" flex gap-[20px] items-baseline">
-                <button onClick={()=>handleValue('-')} className=" flex w-[65px] h-[65px] rounded-full border-[1px] text-brand border-brand items-center justify-center">
+                <button onClick={()=>{value>=blok.length?setValue(0):setValue(value+1)}} className=" flex w-[65px] h-[65px] rounded-full border-[1px] text-brand border-brand items-center justify-center">
                     <div className=" scale-150"><BiLeftArrowAlt /></div>
                 </button>
-                <button onClick={()=>handleValue('+')} className=" flex w-[65px] h-[65px] rounded-full border-[1px] text-brand border-brand items-center justify-center">
+                <button onClick={()=>{value<0?setValue(blok.length-1):setValue(0)}} className=" flex w-[65px] h-[65px] rounded-full border-[1px] text-brand border-brand items-center justify-center">
                     <div className=" scale-150"><BiRightArrowAlt/></div>
                 </button>
                 <text className=" ml-[20px] text-[22px] font-medium text-black ">
@@ -56,3 +58,4 @@ export default function testimonials({blok}:{blok:any}){
     )
 }
 
+export default testimonials
