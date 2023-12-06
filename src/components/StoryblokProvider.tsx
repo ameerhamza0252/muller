@@ -48,8 +48,8 @@ storyblokInit({
     region:'eu',
     cache: {
       clear: 'auto',
-      type: 'memory'
-    }
+      type: 'none',
+    },
   }
 });
 
