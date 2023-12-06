@@ -1,3 +1,4 @@
+"use client"
 import { BiRightArrowAlt } from "react-icons/bi"
 
 export default function Pagelink({text,url,variant="white"}:{text?:string,url?:string,variant?:string}){

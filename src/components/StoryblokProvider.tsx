@@ -4,7 +4,6 @@ import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 /** 2. Import your components */
 import { Navigation } from "./navbar";
 import partners from "@/components/Home/partners";
-import testimonials from "@/components/Home/testimonials";
 import top from "@/components/Home/Top";
 import USPList from "@/components/CommonComponents/USPList";
 import Numbers from "@/components/Home/NumberList";
@@ -18,7 +17,9 @@ import Benefits from "./CommonComponents/benefits";
 import Services from "./Services/Services";
 import Info from "./CommonComponents/info";
 import Contact from "./CommonComponents/contact";
-import Home from "../views/Home";
+import Home from "./Home/Home";
+import Testimonials from "./Home/testimonials";
+import TEST from "./Home/testimonials";
 /** 3. Initialize it as usual */
 storyblokInit({
   accessToken: process.env.STORYBLOKTOKEN,
@@ -26,7 +27,7 @@ storyblokInit({
   components: {
     Navigation:Navigation,
     Partners:partners,
-    testimonials:testimonials,
+    testimonials:Testimonials,
     Top:top,
     USPList:USPList,
     page:Home,

@@ -1,4 +1,3 @@
-import { storyblokInit, apiPlugin } from "@storyblok/react";
 import {
   getStoryblokApi,
 } from "@storyblok/react/rsc";

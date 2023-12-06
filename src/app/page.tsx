@@ -9,9 +9,9 @@ export default async function Home() {
   const { data } = await fetchData();
   //console.log(data)
   return (
-    <div>
+    <>
       <StoryblokStory story={data.story} />
-    </div>
+    </>
   );
 }
 
