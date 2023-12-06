@@ -3,9 +3,10 @@ import { StoryblokComponent, getStoryblokApi } from "@storyblok/react";
 import StoryblokStory from "@storyblok/react/story";
 
 export default async function Service({params:{slug}}:{params:{slug:string}}) {
-   //console.log(slug)
+   console.log(slug)
    const {data}=await fetchData(slug)
-   const service=data.stories[0];
+   const service=data.stories[0]
+   console.log(service);
    console.log("Servie SLUG")
    //console.log(service)
  return(
@@ -15,7 +16,7 @@ export default async function Service({params:{slug}}:{params:{slug:string}}) {
  )
 }
 
-async function fetchData(s_uuid:any) {
+async function fetchData(slug:any) {
    const storyblokApi = getStoryblokApi();
-   return storyblokApi.get(`cdn/stories/`, { version: "published", by_uuids:s_uuid});
+   return storyblokApi.get(`cdn/stories/`, { version: "published", by_slugs:"*/"+slug});
  }

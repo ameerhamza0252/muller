@@ -6,12 +6,12 @@ import { render } from "storyblok-rich-text-react-renderer"
 
 
 export default async function ItemsCards({items}:{items:any}) {
-    console.log(items)
+    //console.log(items)
     return(
         <>
             {items.map(async (s_uuid:string)=>{
             const {data}=await fetchData(s_uuid)
-            //console.log(data.stories[0].content)
+            console.log(data.stories[0])
             const blok=data.stories[0].content
             const stop=blok.blocks.filter((b:any)=>b.component=="stop")
             const info=blok.blocks.filter((b:any)=>b.component=="info")
@@ -21,7 +21,7 @@ export default async function ItemsCards({items}:{items:any}) {
                 <text className=' heading2 w-[80%]'>{info[0].title}</text>
                 <div className="w-[90%] border-b-[1px] border-[#00918E]" ></div>
                 <text className=' w-[90%] h-min-[165px] overflow-hidden  my-[8px]'>{render(info[0].description)}</text>
-                <Link href={`/Solutions/${s_uuid}`} ><Pagelink text="Click me" /></Link>
+                <Link href={`${data.stories[0].full_slug}`} ><Pagelink text="Click me" /></Link>
               </div>
             )
           })}

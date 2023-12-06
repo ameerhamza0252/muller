@@ -7,7 +7,7 @@ import { render } from "storyblok-rich-text-react-renderer";
 
 export default async function Solutions({blok}:{blok:any}){
   console.log('Solutions')
-  console.log(blok)
+  //console.log(blok)
     return(
       <div className=" flex flex-col h-auto py-[95px] px-[24px] xl:px-[34px] font-[400px] text-[#221E1F]" >
           <text className=' text-[21px]'>{blok.title}</text>

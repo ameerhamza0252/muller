@@ -7,9 +7,10 @@ import { render } from 'storyblok-rich-text-react-renderer';
 
 
 export default async function SingleSolution({params:{slug}}:{params:{slug:string}}) {
-   //console.log(slug)
+   console.log(slug)
    const {data}=await fetchData(slug)
-//   console.log(data.stories[0].content)
+   console.log('After Fetch in Solution')
+   console.log(data)
 //   const solution=data.stories[0].content;
    //console.log(data)
  return(
@@ -19,7 +20,7 @@ export default async function SingleSolution({params:{slug}}:{params:{slug:strin
  )
 }
 
-async function fetchData(s_uuid:any) {
+async function fetchData(slug:any) {
    const storyblokApi = getStoryblokApi();
-   return storyblokApi.get(`cdn/stories/`, { version: "published", by_uuids:s_uuid});
+   return storyblokApi.get(`cdn/stories/`, { version: "published", by_slugs:"*/"+slug});
  }
