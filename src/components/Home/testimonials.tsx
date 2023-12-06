@@ -1,20 +1,3 @@
-
-/*
-export default function TEST({blok}:{blok:any}){
-    
-    const [count,setCount]=useState(0)
-    console.log(count)
-    return (
-        <div className=" flex flex-col bg-black min-h-screen py-[112px] px-[64px] gap-[20px] md:gap-[40px] lg:gap-[72px]">
-            <button onClick={()=>{setCount(count+1)}} >+</button>
-            <text>{count}</text>
-            <button onClick={()=>{setCount(count-1)}} >-</button>
-        </div>
-    )
-}
-*/
-
-
 "use client"
 import { storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
@@ -22,7 +5,7 @@ import { Suspense, useState } from "react";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 
 const Testimonials=({blok}:{blok:any})=>{
-    console.log(blok)
+    //console.log(blok)
     //blok=blok.testimonials
     //console.log(blok)
     const [value,setValue]=useState(0);
