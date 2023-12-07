@@ -7,7 +7,7 @@ export default function top({blok}:{blok:any}){
   //console.log(blok) 
     return(
       <div className={` flex flex-col w-full min-h-screen bg-cover justify-end `} style={{backgroundImage:`url(${blok.image.filename})`}} >
-          <div className=' flex flex-col min-h-[226px] w-[750px] top-[327px] left-[31px]'>
+          <div className=' flex flex-col min-h-[226px] w-[750px] top-[327px] ml-[31px]'>
             <text className=' text-[80px] leading-[84px]'>{blok.Title}</text>
             <text className=" mt-[36px] overflow-hidden ">{blok.description}</text>
             <Pagelink variant="white" />

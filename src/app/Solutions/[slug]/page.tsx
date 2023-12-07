@@ -7,10 +7,10 @@ import { render } from 'storyblok-rich-text-react-renderer';
 
 
 export default async function SingleSolution({params:{slug}}:{params:{slug:string}}) {
-   console.log(slug)
+   //console.log(slug)
    const {data}=await fetchData(slug)
    console.log('After Fetch in Solution')
-   console.log(data)
+   //console.log(data)
 //   const solution=data.stories[0].content;
    //console.log(data)
  return(

@@ -34,6 +34,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   const { data } = await fetchData();
+  
   return (
     <StoryblokProvider>
       <html lang="en">
@@ -48,5 +49,5 @@ export default async function RootLayout({
 }
 export async function fetchData() {
   const storyblokApi = getStoryblokApi();
-  return storyblokApi.get(`cdn/stories/navigation`, { version: "published" });
+  return storyblokApi.get(`cdn/stories/navigation`, { version: "draft" });
 }
