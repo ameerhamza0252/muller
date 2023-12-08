@@ -13,7 +13,7 @@ export default function USPList({blok}:{blok:any}){
         
         <div className=' flex xl:justify-between gap-[20px] px-[10px] mt-[65px] items-end'>
           <text className="w-[620px] heading2 ml-[10px] mt-[30px]" >Our USP</text>
-          <Pagelink variant={variant} /> 
+          <Pagelink variant="yellow" /> 
         </div>
         <div className=" w-[800px] lg:w-[1017px] xl:w-[1300px] self-end flex flex-col mt-[150px] px-5 ">
           {

@@ -20,6 +20,8 @@ import Contact from "./CommonComponents/contact";
 import Home from "./Home/Home";
 import Testimonials from "./Home/testimonials";
 import TEST from "./Home/testimonials";
+import AboutusStory from "@/views/About us/Aboutus";
+import { AboutTop } from "./About/About";
 /** 3. Initialize it as usual */
 storyblokInit({
   accessToken: process.env.STORYBLOKTOKEN,
@@ -42,7 +44,9 @@ storyblokInit({
     benefits:Benefits,
     Services:Services,
     info:Info,
-    contacts:Contact
+    contacts:Contact,
+    About:AboutusStory,
+    abouttop:AboutTop,
   },
   apiOptions:{
     region:'eu',

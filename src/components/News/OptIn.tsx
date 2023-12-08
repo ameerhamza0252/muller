@@ -12,7 +12,7 @@ export default async function OptIn({blok}:{blok:any}) {
                         <hr className=" w-[25px] border-B-Yellow" />
                         <text className=" text-[14px] leading-[22.6px] font-DM_Mono text-start">By clicking Sign Up, you confirm that you agree with our Terms and Conditions and a third one.</text>
                     </div>
-                    <Pagelink variant="black" />
+                    <Pagelink variant="yellow" />
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@ export default function Needs(){
                     <input  className=" mr-2 border-none checked:border-0 ring-B-Yellow " type="checkbox" color="red" />
                     <text>By clicking Sign Up, you confirm that you agree with our Terms and Conditions.</text>
                 </div>
-                <Pagelink />
+                <Pagelink variant="green" />
             </div>
         </div>
     )

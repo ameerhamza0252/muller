@@ -6,8 +6,8 @@ import {
 import StoryblokStory from "@storyblok/react/story";
 
 export default async function Home() {
-  const storyblokApi = getStoryblokApi();
-  const forcv= await storyblokApi.get(`cdn/stories`, { version: "draft" });
+  //const storyblokApi = getStoryblokApi();
+  //const forcv= await storyblokApi.get(`cdn/stories`, { version: "draft" });
   //console.log(forcv.data.cv)
   const { data } = await fetchData();
   

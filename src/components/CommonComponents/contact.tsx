@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function Contact({blok}:{blok:any}) {
     console.log('CONTACTS OPEN')
     const contacts=blok.contacts;
-    console.log(contacts[0])
+    //console.log(contacts[0])
     const [count,setCount]=useState(0)
     return(
         <div className=" min-h-screen flex flex-col lx-[20px] lg:px-[64px] py-[40px] lg:py-[112px] text-black gap-[30px] lg:gap-[80px]">
