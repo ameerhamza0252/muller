@@ -7,21 +7,20 @@ import partners from "@/components/Home/partners";
 import top from "@/components/Home/Top";
 import USPList from "@/components/CommonComponents/USPList";
 import Numbers from "@/components/Home/NumberList";
-import Solutions from "@/views/Solutions/Solutions";
 import { Card } from "./CommonComponents/Card";
 import SolutionsPage from "@/views/Solutions/SolutionsPage";
 import video from "./video";
 import ServicesPage from "@/views/ServicesPage";
 import STop from "./CommonComponents/stop";
 import Benefits from "./CommonComponents/benefits";
-import Services from "./Services/Services";
 import Info from "./CommonComponents/info";
 import Contact from "./CommonComponents/contact";
 import Home from "./Home/Home";
 import Testimonials from "./Home/testimonials";
-import TEST from "./Home/testimonials";
 import AboutusStory from "@/views/About us/Aboutus";
 import { AboutTop, Achievements, History, Organization, Philosophy } from "./About/About";
+import SolutionsList from "@/views/Solutions/Solutions";
+import ServicesList from "./Services/Services";
 /** 3. Initialize it as usual */
 storyblokInit({
   accessToken: process.env.STORYBLOKTOKEN,
@@ -34,7 +33,7 @@ storyblokInit({
     USPList:USPList,
     page:Home,
     NumbersList:Numbers,
-    Solutions:Solutions,
+    SolutionsList:SolutionsList,
     solution:Card,
     Service:Card, 
     SolutionsPage:SolutionsPage,
@@ -42,7 +41,7 @@ storyblokInit({
     servicespage:ServicesPage,
     stop:STop,
     benefits:Benefits,
-    Services:Services,
+    ServicesList:ServicesList,
     info:Info,
     contacts:Contact,
     About:AboutusStory,

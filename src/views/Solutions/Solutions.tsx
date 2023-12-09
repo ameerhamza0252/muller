@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { render } from "storyblok-rich-text-react-renderer";
 
-export default async function Solutions({blok}:{blok:any}){
+export default async function SolutionsList({blok}:{blok:any}){
   console.log('Solutions')
   //console.log(blok)
     return(

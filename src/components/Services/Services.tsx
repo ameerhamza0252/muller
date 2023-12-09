@@ -6,7 +6,7 @@ import Pagelink from "../link";
 import { render } from "storyblok-rich-text-react-renderer";
 import ItemsCards from "../CommonComponents/ItemCard";
 
-export default async function Services({blok}:{blok:any}){
+export default async function ServicesList({blok}:{blok:any}){
   console.log('Services')
   //console.log(blok)
     return(

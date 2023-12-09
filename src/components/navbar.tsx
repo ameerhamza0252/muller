@@ -2,11 +2,15 @@ import { Storyblok } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
 
+function capitalizeFirstLetter(string:string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 export function Navigation({blok}:{blok:any}){
     //const {data}=await Storyblok.get('cdn/stories/navigation', {version:"published"});
     //const items=data.story.content.name;
-    //console.log(blok.name[2])
+    console.log("NAVBAR")
+    console.log((blok.name[2].link.cached_url.split("/")))
     return(
         <div className=" absolute w-full h-[70px] flex justify-between text-white">
             <div className=" h-[35px] w-[166px] bg-[url('/Icon/muller-technology-logo1.svg')] mt-[13px] ml-[18px]"></div>
@@ -15,7 +19,7 @@ export function Navigation({blok}:{blok:any}){
                     blok.name.map((i:any)=>{
                         //console.log(i)
                         return((
-                            <Link href={"/"+i.title} key={i._uid} ><text  >{i.title}</text></Link>
+                            <Link href={i.link.cached_url=="home"?"/":"/"+capitalizeFirstLetter(i.link.cached_url.split("/")[0])} key={i._uid} ><text  >{i.name}</text></Link>
                         ))
                     })
                 }

@@ -6,6 +6,7 @@ import {
 import StoryblokStory from "@storyblok/react/story";
 
 export default async function SolutionsPage() {
+  console.log("Solutions Page")
   const { data } = await fetchData();
   //console.log(data)
   return (
@@ -17,5 +18,5 @@ export default async function SolutionsPage() {
 
 async function fetchData() {
   const storyblokApi = getStoryblokApi();
-  return storyblokApi.get(`cdn/stories/solutionspage`, { version: "draft" });
+  return storyblokApi.get(`cdn/stories/Solutions/`, { version: "draft" });
 }

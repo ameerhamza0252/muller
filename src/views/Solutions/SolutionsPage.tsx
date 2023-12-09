@@ -8,9 +8,7 @@ export default async function SolutionsPage({blok}:{blok:any}){
     return(
         <>
         {blok.blocks.map((b:any)=>(
-                <>
                 <StoryblokComponent key={b._uid} blok={b} />
-                </>
             ))}
 
         </>
