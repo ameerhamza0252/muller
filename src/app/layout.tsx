@@ -1,4 +1,4 @@
-export const revalidate=true;
+//export const revalidate=true;
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
@@ -23,7 +23,7 @@ storyblokInit({
   apiOptions:{
     cache: {
       clear: 'auto',
-      type: 'memory'
+      type: 'none'
     },
   },
 });

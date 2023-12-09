@@ -1,12 +1,11 @@
 import { getStoryblokApi } from "@storyblok/react"
 import Image from "next/image"
-import Link from "next/link"
 import Pagelink from "../link"
 import { render } from "storyblok-rich-text-react-renderer"
 
 
 export default async function ItemsCards({items}:{items:any}) {
-    //console.log(items)
+    console.log(items)
     return(
         <>
             {items.map(async (s_uuid:string)=>{
@@ -21,7 +20,7 @@ export default async function ItemsCards({items}:{items:any}) {
                 <text className=' heading2 w-[80%]'>{info[0].title}</text>
                 <div className="w-[90%] border-b-[1px] border-[#00918E]" ></div>
                 <text className=' w-[90%] h-min-[165px] overflow-hidden  my-[8px]'>{render(info[0].description)}</text>
-                <Link href={`${data.stories[0].full_slug}`} ><Pagelink text="Click me" /></Link>
+                <Pagelink url={data.stories[0].full_slug} text="Click me" />
               </div>
             )
           })}

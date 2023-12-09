@@ -21,7 +21,7 @@ import Home from "./Home/Home";
 import Testimonials from "./Home/testimonials";
 import TEST from "./Home/testimonials";
 import AboutusStory from "@/views/About us/Aboutus";
-import { AboutTop } from "./About/About";
+import { AboutTop, Achievements, History, Organization, Philosophy } from "./About/About";
 /** 3. Initialize it as usual */
 storyblokInit({
   accessToken: process.env.STORYBLOKTOKEN,
@@ -47,6 +47,10 @@ storyblokInit({
     contacts:Contact,
     About:AboutusStory,
     abouttop:AboutTop,
+    philosophy:Philosophy,
+    history:History,
+    organization:Organization,
+    achievements:Achievements
   },
   apiOptions:{
     region:'eu',

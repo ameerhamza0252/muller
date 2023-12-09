@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-export async function Navigation({blok}:{blok:any}){
+export function Navigation({blok}:{blok:any}){
     //const {data}=await Storyblok.get('cdn/stories/navigation', {version:"published"});
     //const items=data.story.content.name;
     //console.log(blok.name[2])
@@ -15,7 +15,7 @@ export async function Navigation({blok}:{blok:any}){
                     blok.name.map((i:any)=>{
                         //console.log(i)
                         return((
-                            <Link href={"/"+i.title} ><text key={i._uid} >{i.title}</text></Link>
+                            <Link href={"/"+i.title} key={i._uid} ><text  >{i.title}</text></Link>
                         ))
                     })
                 }

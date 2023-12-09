@@ -7,7 +7,7 @@ import { render } from "storyblok-rich-text-react-renderer";
 import ItemsCards from "../CommonComponents/ItemCard";
 
 export default async function Services({blok}:{blok:any}){
-  console.log('Service')
+  console.log('Services')
   //console.log(blok)
     return(
         <div className=" flex flex-col h-auto py-[95px] px-[24px] xl:px-[34px] font-[400px] text-[#221E1F] " {...storyblokEditable(blok)} >
