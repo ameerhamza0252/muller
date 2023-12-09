@@ -1,7 +1,3 @@
-import MarketPoints from "@/components/Markets/marketpoints";
-import MarketTop from "@/components/Markets/markettop";
-import Needs from "@/components/Markets/needs";
-import Projects from "@/components/Markets/projects";
 import { getStoryblokApi } from "@storyblok/react";
 import StoryblokStory from "@storyblok/react/story";
 
