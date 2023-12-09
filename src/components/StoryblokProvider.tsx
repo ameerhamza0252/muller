@@ -21,6 +21,11 @@ import AboutusStory from "@/views/About us/Aboutus";
 import { AboutTop, Achievements, History, Organization, Philosophy } from "./About/About";
 import SolutionsList from "@/views/Solutions/Solutions";
 import ServicesList from "./Services/Services";
+import MarketsView from "@/views/Markets/Markets";
+import MarketTop from "./Markets/markettop";
+import MarketPoints from "./Markets/marketpoints";
+import Projects from "./Markets/projects";
+import SignUpMarkets from "./Markets/signup";
 /** 3. Initialize it as usual */
 storyblokInit({
   accessToken: process.env.STORYBLOKTOKEN,
@@ -49,7 +54,15 @@ storyblokInit({
     philosophy:Philosophy,
     history:History,
     organization:Organization,
-    achievements:Achievements
+    achievements:Achievements,
+    
+
+    //
+    markets:MarketsView,
+    markettop:MarketTop,
+    marketpoints:MarketPoints,
+    projects:Projects,
+    signup:SignUpMarkets
   },
   apiOptions:{
     region:'eu',

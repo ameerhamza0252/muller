@@ -5,7 +5,7 @@ import { render } from "storyblok-rich-text-react-renderer"
 
 
 export default async function ItemsCards({items}:{items:any}) {
-    console.log(items)
+    //console.log(items)
     return(
         <>
             {items.map(async (s_uuid:string)=>{

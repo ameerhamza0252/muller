@@ -10,7 +10,7 @@ export function Navigation({blok}:{blok:any}){
     //const {data}=await Storyblok.get('cdn/stories/navigation', {version:"published"});
     //const items=data.story.content.name;
     console.log("NAVBAR")
-    console.log((blok.name[2].link.cached_url.split("/")))
+    //console.log((blok.name[2].link.cached_url.split("/")))
     return(
         <div className=" absolute w-full h-[70px] flex justify-between text-white">
             <div className=" h-[35px] w-[166px] bg-[url('/Icon/muller-technology-logo1.svg')] mt-[13px] ml-[18px]"></div>
