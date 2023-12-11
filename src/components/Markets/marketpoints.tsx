@@ -5,7 +5,7 @@ export default function MarketPoints({blok}:{blok:any}){
     //console.log(blok.points[0])
     const {points}=blok
     return(
-        <div className=" flex flex-col lg:flex-row px-[20px] py-[40px] lg:px-[64px] lg:py-[112px] gap-[48px] text-black" {...storyblokEditable(blok)}>
+        <div className=" flex flex-col lg:flex-row lg:flex-wrap justify-evenly px-[20px] py-[40px] lg:px-[64px] lg:py-[112px] gap-[48px] text-black" {...storyblokEditable(blok)}>
             
                 {
                     points.map((point:any)=>(

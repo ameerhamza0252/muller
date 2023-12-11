@@ -20,7 +20,7 @@ export default function Projects({blok}:{blok:any}){
                         <div className=" grid grid-cols-1 md:grid-cols-2 lg:max-h-[150px] ">
                             <div>
                                 <text className=" heading4 ">{project.name}</text>
-                                <div className=" flex gap-[8px] font-[DM Mono] text-black text-[14px] leading-[22.4px] font-[500] mt-[16px] ">
+                                <div className=" flex flex-wrap gap-[8px] font-[DM Mono] text-black text-[14px] leading-[22.4px] font-[500] mt-[16px] ">
                                     {
                                         project.tags.map((tag:any)=>(
                                             <div className=" h-[30px] bg-B-Yellow px-[8px] py-[4px]" key={tag._uid} >{tag.name}</div>
@@ -28,7 +28,7 @@ export default function Projects({blok}:{blok:any}){
                                     }
                                 </div>
                             </div>
-                            <text>{project.overview}</text>
+                            <text className=" overflow-hidden max-h-[220px]">{project.overview}</text>
                         </div>
                     </div>
                 ))
