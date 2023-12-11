@@ -49,6 +49,12 @@ body {
   line-height: 84px;
 }
 
+.Text-16{
+font-size: 16px;
+font-weight: 400;
+line-height: 26px;
+}
+
 input[type=checkbox] {
   border: 2px solid red;
   border-radius: 4px;

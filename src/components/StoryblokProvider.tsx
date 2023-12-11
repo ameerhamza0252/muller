@@ -26,6 +26,11 @@ import MarketTop from "./Markets/markettop";
 import MarketPoints from "./Markets/marketpoints";
 import Projects from "./Markets/projects";
 import SignUpMarkets from "./Markets/signup";
+import NewsView from "@/views/News/NewsPage";
+import NewsTop from "./News/N-Top";
+import BlogSection from "./News/BlogSection";
+import NewsSection from "./News/NewsSection";
+import Signup from "./News/Signup";
 /** 3. Initialize it as usual */
 storyblokInit({
   accessToken: process.env.STORYBLOKTOKEN,
@@ -62,7 +67,15 @@ storyblokInit({
     markettop:MarketTop,
     marketpoints:MarketPoints,
     projects:Projects,
-    signup:SignUpMarkets
+    signup:SignUpMarkets,
+
+    //News
+    NewsPage:NewsView,
+    NewsTop:NewsTop,
+    BlogsSection:BlogSection,
+    NewsSection:NewsSection,
+    NewsLetter:Signup,
+
   },
   apiOptions:{
     region:'eu',

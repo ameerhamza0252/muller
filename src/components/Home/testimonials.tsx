@@ -27,7 +27,7 @@ const Testimonials=({blok}:{blok:any})=>{
     //console.log(value)
     //window.alert("testimonials")
     return(
-        <>
+        
             <Suspense fallback={<div>Hehehe,,, an error</div>} >
             <div className=" min-h-screen flex flex-col py-[27px] lg:py-[35px] px-[20px] md:pl-[39px] md:pr-[92px] text-black" >
             <text className=" text-grey-2">Testimonials</text>
@@ -57,7 +57,7 @@ const Testimonials=({blok}:{blok:any})=>{
             </div>
         </div>
         </Suspense>
-        </>
+        
     )
 }
 

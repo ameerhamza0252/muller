@@ -4,11 +4,11 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { Navigation } from '@/components/navbar'
 import Footer from '@/components/footer'
-import { Storyblok } from '@/utils'
 export const dynamic = 'force-dynamic'
 
 import { storyblokInit, apiPlugin, StoryblokStory, getStoryblokApi, RichTextSchema } from "@storyblok/react/rsc";
 import StoryblokProvider from "../components/StoryblokProvider";
+import { Providers } from './providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -39,9 +39,11 @@ export default async function RootLayout({
     <StoryblokProvider>
       <html lang="en" >
       <body className={inter.className}>
-        <StoryblokStory story={data.story} />
-        {children}
-        <Footer/>
+        <Providers>
+          <StoryblokStory story={data.story} />
+          {children}
+          <Footer/>
+        </Providers>
       </body>
     </html>
     </StoryblokProvider>

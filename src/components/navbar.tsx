@@ -1,6 +1,7 @@
-import { Storyblok } from "@/utils";
+"use client"
 import Image from "next/image";
 import Link from "next/link";
+import MenueButton from "./NavBar/menu";
 
 function capitalizeFirstLetter(string:string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -23,6 +24,7 @@ export function Navigation({blok}:{blok:any}){
                         ))
                     })
                 }
+                <MenueButton/>
                 <Image src="/Icon/Youtube.svg" alt="youtube" width={24} height={24} />
                 <Image src="/Icon/LinkedIn3.svg" alt="linkedin" width={24} height={24} />
             </div>

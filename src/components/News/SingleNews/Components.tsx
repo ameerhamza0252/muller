@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useState } from "react"
 import { render } from "storyblok-rich-text-react-renderer";
+import { NewsCard } from "../NewsSection";
 
 export function HeadingsDescription({blok}:{blok:any}){
     const content=blok;
@@ -31,5 +32,18 @@ export function HeadingsDescription({blok}:{blok:any}){
                 
             </div>
         </>
+    )
+}
+
+export function DiscoverNews({blok}:{blok:any}){
+    return(
+        <div className=" min-h-screen flex flex-col bg-black text-white px-[20px] lg:px-[64px] py-[40px] lg:py-[112px]">
+            <text className=" mb-[16px] Text-16 ">Latest</text>
+            <text className=" heading2 mb-[24px] ">Discover our latest news</text>
+            <text className=" mb-[80px]">Stay updated with our latest news articles.</text>
+            <div className=" flex ">
+                <NewsCard blok={2} variant="black" />
+            </div>
+        </div>
     )
 }

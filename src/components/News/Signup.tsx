@@ -1,6 +1,6 @@
 import Pagelink from "../link";
 
-export default async function OptIn({blok}:{blok:any}) {
+export default async function Signup({blok}:{blok:any}) {
     return(
         <div className=" h-screen flex items-center justify-center text-center bg-black text-white">
             <div className=" flex flex-col gap-[24px] px-[20px] md:px-0 md:w-3/4 ">
