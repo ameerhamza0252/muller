@@ -1,4 +1,4 @@
-import { HeadingsDescription } from "@/views/News/NewsPage";
+import { HeadingsDescription } from "@/components/News/SingleNews/Components";
 import { getStoryblokApi } from "@storyblok/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,7 +10,7 @@ export default async function News({params:{slug}}:{params:{slug:string}}) {
 
     const {data}=await fetchData(slug);
     const {content}=data.stories[0];
-    console.log(content.socials)
+    //console.log(content.socials)
     //let ml=0;
     return(
         <div className=" px-[30px] lg:px-[64px]">

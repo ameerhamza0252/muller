@@ -49,5 +49,5 @@ export default async function RootLayout({
 }
 export async function fetchData() {
   const storyblokApi = getStoryblokApi();
-  return storyblokApi.get(`cdn/stories/navigation`, { version: "draft" });
+  return storyblokApi.get(`cdn/stories/navigation`, { version: "published" });
 }

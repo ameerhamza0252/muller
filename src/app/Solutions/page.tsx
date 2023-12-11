@@ -18,5 +18,5 @@ export default async function SolutionsPage() {
 
 async function fetchData() {
   const storyblokApi = getStoryblokApi();
-  return storyblokApi.get(`cdn/stories/Solutions/`, { version: "draft" });
+  return storyblokApi.get(`cdn/stories/Solutions/`, { version: "published" });
 }

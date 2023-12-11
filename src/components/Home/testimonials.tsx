@@ -24,7 +24,7 @@ const Testimonials=({blok}:{blok:any})=>{
             }
         }
     }
-    console.log(value)
+    //console.log(value)
     //window.alert("testimonials")
     return(
         <>
