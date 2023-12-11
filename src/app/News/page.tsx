@@ -3,7 +3,7 @@ import NewsTop from "@/components/News/N-Top";
 import NewsSection from "@/components/News/News";
 import OptIn from "@/components/News/OptIn";
 
-export default async function News() {
+export default async function NewsPage() {
     return(
         <>
             <NewsTop blok={2} />

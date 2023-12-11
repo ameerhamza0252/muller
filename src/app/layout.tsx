@@ -37,7 +37,7 @@ export default async function RootLayout({
   
   return (
     <StoryblokProvider>
-      <html lang="en">
+      <html lang="en" >
       <body className={inter.className}>
         <StoryblokStory story={data.story} />
         {children}

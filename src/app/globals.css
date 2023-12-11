@@ -31,8 +31,14 @@ body {
   line-height: 77px;
 }
 
-.heading4{
+.heading3{
   font-weight: 400;
+  font-size: 60px;
+  line-height: 66px;
+}
+
+.heading4{
+  font-weight: 300;
   font-size: 30px;
   line-height: 33px;
 }

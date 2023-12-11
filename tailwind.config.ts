@@ -13,6 +13,9 @@ const config: Config = {
       'Helvectica':"Helvectica Neue",
       'DM_Mono':"DM Mono"
     },
+    fontSize:{
+      "Text-14":"14px"
+    },
     colors:{
       'brand':'#00918E',
       'black':'#221E1F',
@@ -20,7 +23,7 @@ const config: Config = {
       'B-Yellow':'#FBBA00',
       'white':'#FAFBFF',
       'B-grey':'#E7E9EA',
-      'Light-Grey':'#F4F4F4'
+      'Light-Grey':'#F4F4F4',
     },
     extend: {
       backgroundImage: {
@@ -33,7 +36,7 @@ const config: Config = {
       'md':'700px',
       'lg':'1180px',
       'xl':'1900px',
-    }
+    },
   },
   plugins: [],
 }
