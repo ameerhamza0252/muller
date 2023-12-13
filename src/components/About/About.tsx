@@ -42,16 +42,15 @@ export function History({blok}:{blok:any}){
                         <text className=" heading2">{blok.heading}</text>
                         <Pagelink url={blok.link.url} variant="green" />
                     </div>
-                    <div className=" lg:w-[40%] flex flex-col gap-[29px]">
+                    <div className=" lg:w-[40%] flex flex-col gap-[29px] ">
                         {blok.historyevents.map((event:any,index:number)=>(
                         <div className=" flex flex-col gap-[16px]" key={event._uid} >
-                            <div className=" flex gap-[20px] md:gap-[40px]">
-                                <Image src="/Icon/Relume.svg" width={48} height={48} alt=""/>
+                            <div className=" flex gap-[20px] md:gap-[40px]  ">
+                                <Image src={blok.icon.filename} width={48} height={48} alt={blok.icon.alt}/>
                                 <text className=" heading4">{event.heading}</text>
                             </div>
-                            <div className=" flex gap-[20px] md:gap-[40px]">
-                                <div className=" flex justify-center w-[48px] pl-3 pt-3"><div className={index==blok.historyevents.length-1?'':'border-B-Yellow border-l-[2px] '}></div></div>
-                                <text className="">{event.description}</text>
+                            <div className=" flex gap-[20px] ">
+                                <text className={` flex justify-center ml-[24px] pl-[40px] pt-3 ${index==blok.historyevents.length-1?'':'border-B-Yellow border-l-[2px]'} `}>{event.description}</text>
                             </div>
                         </div>
                         ))}
@@ -77,10 +76,10 @@ export function Organization({blok}:{blok:any}){
     return(
         <div className=" min-h-screen flex flex-col pl-[20px] pr-[10px] py-[10px] lg:pl-[76px] lg:pr-[49px] lg:py-[35px] text-black " {...storyblokEditable(blok)}>
                 <text>{blok.title}</text>
-                <div className=" flex justify-between md:justify-normal md:gap-[24px] mt-[40px] lg:mt-[108px]">
+                <div className=" flex justify-between md:flex-none md:justify-normal md:grid md:grid-cols-3 lg:grid-cols-4 md:gap-[24px] mt-[40px] lg:mt-[108px]">
                     {
                         countries.map((country:any,index:number)=>(
-                            <button className={`min-w-[180px] px-[34px] ${index==value?'border-b-brand text-brand':'border-b-black'} border-b-[1px] pb-[10px]`} key={country._uid} onClick={()=>setValue(index)} >{country.countryname}</button>
+                            <button className={`min-w-[180px] max-w-[300px] px-[34px] ${index==value?'border-b-brand text-brand':'border-b-black'} border-b-[1px] pb-[10px]`} key={country._uid} onClick={()=>setValue(index)} >{country.countryname}</button>
                         ))
                     }
                 </div>

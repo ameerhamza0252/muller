@@ -1,6 +1,7 @@
+"use client"
 import Image from "next/image";
 
-export default async function CareerPost() {
+export default function CareerPost() {
     return(
         <>
             <div className=" min-h-screen flex flex-col items-center gap-[30px] lg:gap-[80px] py-[40px] lg:py-[112px]">
@@ -47,11 +48,147 @@ export default async function CareerPost() {
                     </div>
                 </div>
             </div>
-            <div className=" flex min-h-screen justify-center items-center bg-black text-white py-[40px] lg:py-[112px] px-[30px] lg:px-[64px]">
-                <div className=" w-3/5">
-
-                </div>
-            </div>
+            
+            <GetInTouch />
+            <FAQs blok={2} />
         </>
     )
 }
+
+
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import * as z from "zod"
+
+import { Button } from "@/components/ui/button"
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { Textarea } from "@/components/ui/textarea"
+import { Input } from "@/components/ui/input"
+import Pagelink from "@/components/link";
+
+const FormSchema = z.object({
+  name: z
+    .string({required_error:'required'}),
+  email: z.string({required_error:'required'}).email(),
+  message:z.string({required_error:'required'})
+})
+
+export function GetInTouch() {
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+  })
+
+  function onSubmit(data: z.infer<typeof FormSchema>) {
+    
+  }
+
+  return (
+    <div className=" flex  min-h-screen justify-center items-center bg-black text-white py-[40px] lg:py-[112px] px-[30px] lg:px-[64px]">
+        <div className="grid grid-cols-1 w-full md:min-w-[543px] max-w-[560px] min-h-[543px] ">
+            <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 text-[16px] font-[400] leading-[24px]">
+                <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Full Name</FormLabel>
+                    <FormControl>
+                        <input {...field} placeholder="Placeholder here" type="text"  className=" min-w-full border-b-[1px] p-[12px] border-b-B-Yellow h-[58px] bg-black placeholder:text-B-grey y"  />
+                    </FormControl>
+                    
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Email Address</FormLabel>
+                    <FormControl>
+                    <input {...field} placeholder="Placeholder here" type="email"  className=" min-w-full border-b-[1px] p-[12px] border-b-B-Yellow h-[58px] bg-black placeholder:text-B-grey y"  />
+                    </FormControl>
+                    
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Message</FormLabel>
+                    <FormControl>
+                    <textarea {...field} placeholder=" Enter your message"  className=" min-w-full border-b-[1px] p-[12px] border-b-B-Yellow h-[156px] bg-black placeholder:text-B-grey y"  />
+                    </FormControl>
+                    <FormDescription className=" flex text-[14px] leading-[22.4px] font-DM_Mono">
+                    <hr className=" w-[20px] mt-[13px] mr-3 border-B-Yellow" /> confirm that you agree with our Terms and Conditions.
+                    </FormDescription>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                <Pagelink variant="white" text="Sign up here" />
+            </form>
+            </Form>
+        </div>
+    </div>
+  )
+}
+
+
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+  } from "@/components/ui/accordion"
+
+  export function FAQs({blok}:{blok:any}){
+    return(
+        <div className=" flex flex-col gap-[20px] md:gap-[80px] px-[20px] md:px-[64px] py-[40px] md:py-[112px]">
+            <div className=" grid grid-cols-1 gap-[24px]">
+                <text className=" heading2">FAQs</text>
+                <text>Find answers to common questions about our job application process, company culture, and employee benefits.</text>
+            </div>
+            <Accordion type="single" className="" collapsible>
+                <AccordionItem value="item-1" className=" gap-0">
+                    <AccordionTrigger className=" py-[20px] ">What is the application process?</AccordionTrigger>
+                    <AccordionContent >
+                        <text>What is the application process?</text>
+                    </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-2" className=" gap-0">
+                    <AccordionTrigger className=" py-[20px] ">What is the application process?</AccordionTrigger>
+                    <AccordionContent >
+                        <text>What is the application process?</text>
+                    </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-3" className=" gap-0">
+                    <AccordionTrigger className=" py-[20px] ">What is the application process?</AccordionTrigger>
+                    <AccordionContent >
+                        <text>What is the application process?</text>
+                    </AccordionContent>
+                </AccordionItem>
+            </Accordion>
+            <div className=" flex flex-col gap-[16px]">
+                <text className=" heading3">Still have questions?</text>
+                <text>Contact us for further assistance.</text>
+                {
+                    blok.link&&blok.link.length>0?<Pagelink variant="green" text="Find out more" />:null
+                }
+            </div>
+        </div>
+    )
+  }
