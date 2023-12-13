@@ -62,20 +62,17 @@ export function History({blok}:{blok:any}){
 }
 
 export function Organization({blok}:{blok:any}){
-    //console.log(blok)
     const [department,setDepartment]=useState(0);
     const [value,setValue]=useState(0);
     
     useEffect(()=>{
         setDepartment(0)
     },[value])
-    //console.log("department : ",department)
     const {countries}=blok;
-    const {departments}=countries[value];
+    const {departments}=countries[value]?countries[value]:countries[0];
     const {employees}=departments[department]?departments[department]:departments[0];
     const {hiring}=blok
-    //console.log("Hiring : ",hiring)
-    //console.log(employees[0].socials)
+
     
     return(
         <div className=" min-h-screen flex flex-col pl-[20px] pr-[10px] py-[10px] lg:pl-[76px] lg:pr-[49px] lg:py-[35px] text-black " {...storyblokEditable(blok)}>

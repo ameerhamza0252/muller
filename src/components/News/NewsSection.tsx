@@ -1,7 +1,9 @@
 import { getStoryblokApi } from "@storyblok/react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function NewsSection({blok}:{blok:any}) {
+    //console.log(blok)
     //console.log("News Section Start")
     const newsPromises = blok.newslist.map(async (uuid: string) => ((await fetchData(uuid)).data));
     const newslist = await Promise.all(newsPromises);
@@ -46,7 +48,7 @@ export function NewsCard({blok,variant="white"}:{blok:any,variant?:string}){
                 <text className=" font-[500]">{content.readtime}</text>
             </div>
             <div className="flex flex-col gap-[8px]">
-                <text className=" heading4">{content.name}</text>
+                <Link href={"News/"+blok.slug}><text className=" heading4">{content.name}</text></Link>
                 <text className=" text-[16px] leading-[25.6px]">{content.overview}</text>
             </div>
         </div>

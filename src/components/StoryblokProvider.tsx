@@ -31,6 +31,9 @@ import NewsTop from "./News/N-Top";
 import BlogSection from "./News/BlogSection";
 import NewsSection from "./News/NewsSection";
 import Signup from "./News/Signup";
+import { DiscoverNews } from "./News/SingleNews/Components";
+import SingleNews from "@/views/News/SingleNews";
+import Tagline from "./Home/tagline";
 /** 3. Initialize it as usual */
 storyblokInit({
   accessToken: process.env.STORYBLOKTOKEN,
@@ -39,6 +42,7 @@ storyblokInit({
     Navigation:Navigation,
     Partners:partners,
     testimonials:Testimonials,
+    tagline:Tagline,
     Top:top,
     USPList:USPList,
     page:Home,
@@ -75,6 +79,8 @@ storyblokInit({
     BlogsSection:BlogSection,
     NewsSection:NewsSection,
     NewsLetter:Signup,
+    DiscoverLatest:DiscoverNews,
+    News:SingleNews,
 
   },
   apiOptions:{
