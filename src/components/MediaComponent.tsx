@@ -18,7 +18,7 @@ const ReactPlayer = dynamic(
 function MediaRenderer({url,type,width,height,alt="",muted=true}:{url:string,type:string,width?:number,height?:number, alt:string,muted?:boolean}) {
     
     if(type=='video'){
-    return <ReactPlayer muted={muted} loop playing={true}  style={{position:'inherit'}} width={width?width:'100%'} height={height?height:'100%'} url={url} />
+    return <ReactPlayer controls={false} muted={muted} loop playing={true}  style={{position:'inherit'}} width={width?width:'100%'} height={height?height:'100%'} url={url} />
     }else if(type=='image'){
         return <Image src={url} alt={alt} fill />
     }else if(type=='audio'){

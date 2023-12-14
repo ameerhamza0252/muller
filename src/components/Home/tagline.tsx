@@ -1,12 +1,13 @@
 "use client"
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Tagline({blok}:{blok:any}){
     //console.log(blok)
     const [value,setValue]=useState(0);
     const locations=blok.locations[0].locationlist
-    //console.log(locations)
+    console.log(locations[0])
     return(
         <div className=" min-h-screen flex flex-col md:px-[64px] py-[112px] gap-[80px] text-black">
             <div className=" grid grid-cols-1">
@@ -21,7 +22,7 @@ export default function Tagline({blok}:{blok:any}){
                         
                         <text className=" text-[30px] leading-[33px]">{l.country}</text>
                         <text className=" leading-[33.6px] mt-[16px] mb-[24px]">{l.location}</text>
-                        <text className=" font-['DM_Mono'] font-[500] text-[18px]">{l.link}</text>
+                        <Link href={l.link}><text className=" font-['DM_Mono'] font-[500] text-[18px]">{l.linktext}</text></Link>
                         
                         </button>
                     ))}
