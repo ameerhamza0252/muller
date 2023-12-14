@@ -1,7 +1,7 @@
 import MediaRenderer from "./MediaComponent"
 
 export default function Media({blok}:{blok:any}){
-    console.log(blok)
+    //console.log(blok)
     const {media}=blok
     return(
         <div className=" relative h-screen  " >

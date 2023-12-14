@@ -14,7 +14,7 @@ export default async function ServicesList({blok}:{blok:any}){
         <div className=" flex flex-col h-auto py-[95px] px-[24px] xl:px-[34px] font-[400px] text-[#221E1F] " >
           <text className=' text-[21px]'>{blok.title}</text>
           <text className="w-[620px] heading2 ml-[10px] mt-[30px]" >{blok.heading}</text>
-          <div className=' flex flex-wrap xl:justify-between gap-[20px] px-[10px] mt-[65px]'>
+          <div className=' grid grid-cols-1 md:grid-cols-2 justify-center gap-[20px] px-[10px] mt-[65px]'>
             <ItemsCard blok={blok.services} />
           </div>
         </div>

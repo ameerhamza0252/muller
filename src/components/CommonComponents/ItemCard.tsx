@@ -22,12 +22,14 @@ export default function ItemsCard({blok}:{blok:any}) {
         <>
           {
             data&&data.map((blok:any)=>{
-              const stop=blok.content.blocks.filter((b:any)=>b.component=="stop")
+              const stop=blok.content.blocks.filter((b:any)=>b.component=="stop")[0]
               const info=blok.content.blocks.filter((b:any)=>b.component=="info")
               return(
-                <div className=' flex flex-col md:w-[450px] lg:w-[700px] justify-start xl:w-[800px]  min-h-[600px] h-[936px] xl:h-auto px-[10px] gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
-                  <Image src={stop[0].image.filename} alt={stop[0].image.alt} width={520} height={358} style={{width:'100%',objectFit:'contain'}} />
-                  <text className=' heading2 w-[80%]'>{info[0].title}</text>
+                <div className=' flex flex-col md:w-[450px] lg:w-[700px] justify-stretch xl:w-[800px]  min-h-[600px] h-[936px] xl:h-auto px-[10px] gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
+                  <div className=' relative w-full h-[358px]'>
+                      <Image src={stop.image.filename} alt={stop.image.alt} fill  style={{width:'100%',objectFit:'contain'}} />
+                  </div>
+                  <text className=' heading2 w-[80%]'>{stop.title}</text>
                   <div className="w-[90%] border-b-[1px] border-[#00918E]" ></div>
                   <text className=' w-[90%] h-min-[165px] overflow-hidden  my-[8px]'>{render(info[0].description)}</text>
                   <Pagelink url={blok.full_slug} text="Click me" />
