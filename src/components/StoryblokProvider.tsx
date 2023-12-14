@@ -60,6 +60,8 @@ storyblokInit({
     ServicesList:ServicesList,
     info:Info,
     contacts:Contact,
+
+    //About
     About:AboutusStory,
     abouttop:AboutTop,
     philosophy:Philosophy,

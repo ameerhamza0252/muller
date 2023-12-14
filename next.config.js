@@ -4,7 +4,12 @@ const nextConfig = {
         STORYBLOKTOKEN:"5CfG9JjJmhJDh4uvQIDN2wtt",
     },
     images:{
-        domains:['a.storyblok.com']
+        domains:['a.storyblok.com'],
+        
+    },
+    i18n:{
+        locales: ['en', 'de'],
+      defaultLocale: 'en',
     }
 }
 

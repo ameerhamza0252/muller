@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { storyblokEditable } from "@storyblok/react";
 
 export function Organization({blok}:{blok:any}){
+    console.log(blok)
     const [department,setDepartment]=useState(0);
     const [value,setValue]=useState(0);
     
@@ -16,8 +17,9 @@ export function Organization({blok}:{blok:any}){
     const {departments}=countries[value]?countries[value]:countries[0];
     const {employees}=departments[department]?departments[department]:departments[0];
     const {hiring}=blok
-
-    
+    console.log(departments[department])
+    console.log(department)
+    //alert(department)
     return(
         <div className=" min-h-screen flex flex-col pl-[20px] pr-[10px] py-[10px] lg:pl-[76px] lg:pr-[49px] lg:py-[35px] text-black " {...storyblokEditable(blok)}>
                 <text>{blok.title}</text>
@@ -28,10 +30,10 @@ export function Organization({blok}:{blok:any}){
                         ))
                     }
                 </div>
-                <div className=" lg:h-[570px] flex flex-col md:grid md:grid-cols-4">
-                    <div className=" flex items-center justify-center col-span-3">
+                <div className=" min-h-[300px] pt-10 lg:h-[570px] flex flex-col md:grid md:grid-cols-4">
+                    <div className=" flex flex-wrap gap-[10px] justify-center col-span-3">
                         {
-                            employees.length>0?employees.map((emp:any)=>(
+                            employees.map((emp:any)=>(
                                 <div className=" w-[266px] min-h-[300px] flex flex-col items-center gap-[24px]" key={emp._uid}>
                                     <Image src={emp.profileimage.filename} width={80} height={80} alt={emp.profileimage.alt} className=" justify-self-center rounded-full" />
                                     <div className=" flex flex-col text-center font-[Roboto]">
@@ -47,7 +49,7 @@ export function Organization({blok}:{blok:any}){
                                         }
                                     </div>
                                 </div>
-                            )):null
+                            ))
                         }
                     </div>
                     <div className=" max-w-[400px] flex flex-col text-center">
