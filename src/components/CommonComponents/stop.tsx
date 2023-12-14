@@ -4,13 +4,13 @@ import Link from "next/link";
 import MediaRenderer from "../MediaComponent";
 
 export default function STop({blok}:{blok:any}){
-    console.log(blok)
+    //console.log(blok.media[0].media)
     const variant=blok.variant;
     return(
-        <div className={` relative flex flex-col justify-end w-full h-screen bg-cover text-white z-10 `}  {...storyblokEditable(blok)} >
-            <div className=" absolute w-[100%] bg-brand h-[100%] shadow-inner "  onPlay={()=>console.log('Playing')} >
+        <div className={` relative flex flex-col justify-end w-full h-screen bg-cover text-white z-10 ${!blok.media?'bg-black':''} `}  {...storyblokEditable(blok)} >
+            <div className=" absolute w-[100%] h-[100%] shadow-inner "  onPlay={()=>console.log('Playing')} >
             {
-                blok.media.map((m:any)=>(
+                blok.media&&blok.media.map((m:any)=>(
                     <MediaRenderer url={m.media.filename} alt={m.media.alt} type={m.type} key={m._uid} />
                 ))
             }
@@ -18,9 +18,9 @@ export default function STop({blok}:{blok:any}){
             <div className=" flex flex-col z-30 py-5">
                 {
                     variant=='right'||variant=='left'?(
-                        <div className={`m-2 md:m-8 w-[40%] flex flex-col ${variant=='right'?'self-end':variant=='left'?'':''} bg-B-Yellow`}>
-                            <text className="m-2 md:m-8  heading1 bg-grey-2 ">{blok.heading}</text>
-                            <text className="m-2 md:m-8 lg:max-w-[80%] bg-Light-Grey  " >{blok.description}</text>
+                        <div className={`m-2 md:m-8 w-[40%] flex flex-col ${variant=='right'?'self-end':variant=='left'?'':''} `}>
+                            <text className="m-2 md:m-8  heading1 ">{blok.heading}</text>
+                            <text className="m-2 md:m-8 lg:max-w-[80%]  " >{blok.description}</text>
                         </div>
                     ):
                     variant=='left-right'?(

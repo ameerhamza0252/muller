@@ -13,7 +13,7 @@ export function Navigation({blok}:{blok:any}){
     console.log("NAVBAR")
     //console.log((blok.name[2].link.cached_url.split("/")))
     return(
-        <div className=" absolute w-full h-[70px] flex justify-between text-white z-20">
+        <div className=" absolute hidden md:visible w-full h-[70px] md:flex justify-between text-white z-20">
             <div className=" h-[35px] w-[166px] bg-[url('/Icon/muller-technology-logo1.svg')] mt-[13px] ml-[18px]"></div>
             <div className=" flex justify-end items-center w-auto bg-[#00918E] gap-[20px] px-[20px] py-[15px] text-[21px] font-[400] rounded-bl-[8px]">
                 {

@@ -20,7 +20,7 @@ function MediaRenderer({url,type,width,height,alt=""}:{url:string,type:string,wi
     if(type=='video'){
     return <ReactPlayer playing={true}  style={{position:'inherit'}} width={width?width:'100%'} height={height?height:'100%'} url={url} />
     }else if(type=='image'){
-        return <Image src={url} alt={alt} width={width} height={height} />
+        return <Image src={url} alt={alt} fill />
     }else if(type=='audio'){
         <ReactPlayer width={width} height={height} url={url} />
     }

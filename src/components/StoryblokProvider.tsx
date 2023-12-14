@@ -9,7 +9,7 @@ import USPList from "@/components/CommonComponents/USPList";
 import Numbers from "@/components/Home/NumberList";
 import { Card } from "./CommonComponents/Card";
 import SolutionsPage from "@/views/Solutions/SolutionsPage";
-import video from "./video";
+import video from "./Media";
 import ServicesPage from "@/views/ServicesPage";
 import STop from "./CommonComponents/stop";
 import Benefits from "./CommonComponents/benefits";
@@ -35,6 +35,7 @@ import { DiscoverNews } from "./News/SingleNews/Components";
 import SingleNews from "@/views/News/SingleNews";
 import Tagline from "./Home/tagline";
 import { Organization } from "./About/AboutClientComponents";
+import Media from "./Media";
 /** 3. Initialize it as usual */
 storyblokInit({
   accessToken: process.env.STORYBLOKTOKEN,
@@ -65,6 +66,8 @@ storyblokInit({
     history:History,
     organization:Organization,
     achievements:Achievements,
+
+    Media:Media,
     
 
     //
