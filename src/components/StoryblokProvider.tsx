@@ -18,7 +18,7 @@ import Contact from "./CommonComponents/contact";
 import Home from "./Home/Home";
 import Testimonials from "./Home/testimonials";
 import AboutusStory from "@/views/About us/Aboutus";
-import { AboutTop, Achievements, History, Organization, Philosophy } from "./About/About";
+import { AboutTop, Achievements, History, Philosophy } from "./About/About";
 import SolutionsList from "@/views/Solutions/Solutions";
 import ServicesList from "./Services/Services";
 import MarketsView from "@/views/Markets/Markets";
@@ -34,6 +34,7 @@ import Signup from "./News/Signup";
 import { DiscoverNews } from "./News/SingleNews/Components";
 import SingleNews from "@/views/News/SingleNews";
 import Tagline from "./Home/tagline";
+import { Organization } from "./About/AboutClientComponents";
 /** 3. Initialize it as usual */
 storyblokInit({
   accessToken: process.env.STORYBLOKTOKEN,

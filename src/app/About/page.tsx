@@ -1,4 +1,3 @@
-import AboutusView from "@/views/About us/Aboutus";
 import { getStoryblokApi } from "@storyblok/react";
 import StoryblokStory from "@storyblok/react/story";
 
