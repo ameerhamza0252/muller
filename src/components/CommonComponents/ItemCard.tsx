@@ -26,13 +26,13 @@ export default function ItemsCard({blok}:{blok:any}) {
               const info=blok.content.blocks.filter((b:any)=>b.component=="info")
               //console.log(stop)
               return(
-                <div className=' flex flex-col md:w-[450px] lg:w-[700px] justify-stretch xl:w-[800px]  min-h-[600px] h-[936px] xl:h-auto px-[10px] gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
+                <div className=' flex flex-col md:w-[450px] lg:w-[700px] xl:w-[800px]  min-h-[600px] lg:h-[936px] xl:h-auto justify-stretch px-[10px] gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
                   <div className=' relative w-full min-h-[358px] lg:h-[450px]'>
                       <Image src={stop.image.filename} alt={stop.image.alt} fill />
                   </div>
-                  <text className=' heading2 w-[80%]'>{stop.heading}</text>
-                  <div className="w-[90%] border-b-[1px] border-[#00918E]" ></div>
-                  <text className=' w-[90%] h-min-[165px] overflow-hidden  my-[8px]'>{render(info[0].description)}</text>
+                  <text className=' heading2 max-h-[200px] overflow-hidden w-[80%]'>{stop.heading}</text>
+                  <div className="w-[90%] border-b-[1px] border-brand" ></div>
+                  <text className=' w-[90%] h-[150px] overflow-hidden  my-[8px]'>{render(info[0].description)}</text>
                   <Pagelink url={blok.full_slug} text="Click me" />
                 </div>
               )
