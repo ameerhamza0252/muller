@@ -30,7 +30,7 @@ export function Organization({blok}:{blok:any}){
                         ))
                     }
                 </div>
-                <div className=" min-h-[300px] pt-10 lg:h-[570px] flex flex-col md:grid md:grid-cols-4">
+                <div className=" min-h-[300px] pt-10 lg:pt-[100px] lg:h-[570px] flex flex-col md:grid md:grid-cols-4">
                     <div className=" flex flex-wrap gap-[10px] justify-center col-span-3">
                         {
                             employees.map((emp:any)=>(
