@@ -17,8 +17,8 @@ export function Organization({blok}:{blok:any}){
     const {departments}=countries[value]?countries[value]:countries[0];
     const {employees}=departments[department]?departments[department]:departments[0];
     const {hiring}=blok
-    console.log(departments[department])
-    console.log(department)
+    //console.log(departments[department])
+    //console.log(department)
     //alert(department)
     return(
         <div className=" min-h-screen flex flex-col pl-[20px] pr-[10px] py-[10px] lg:pl-[76px] lg:pr-[49px] lg:py-[35px] text-black " {...storyblokEditable(blok)}>
