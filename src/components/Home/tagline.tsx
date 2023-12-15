@@ -7,7 +7,7 @@ export default function Tagline({blok}:{blok:any}){
     //console.log(blok)
     const [value,setValue]=useState(0);
     const locations=blok.locations[0].locationlist
-    console.log(locations[0])
+    //console.log(locations[0])
     return(
         <div className=" min-h-screen flex flex-col md:px-[64px] py-[112px] gap-[80px] text-black">
             <div className=" grid grid-cols-1">
