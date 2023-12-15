@@ -67,18 +67,20 @@ export async function Achievements({blok}:{blok:any}){
     return(
         <div className=" flex flex-col md:max-lg-min-h-screen pb-[100px] md:pb-0 xl:pb-[200px] px-[20px] lg:px-[61px] py-[34px] text-black ">
                 <text className="">{blok.title}</text>
-                <div className=" flex gap-[177px] mt-[20px] justify-between">
-                    <div className=" lg:w-[40%] flex flex-col gap-[35px] mt-[150px]">
+                <div className=" grid grid-cols-1 md:grid-cols-2 gap-[177px] mt-[20px] justify-between">
+                    <div className=" flex flex-col gap-[35px] mt-[150px]">
                         <text className=" heading2">{blok.heading}</text>
                         <text className=" mx-h-[235px] overflow-hidden mb-[10px]">{blok.overview}</text>
-                        <Pagelink text={blok.link.Lable} url={blok.link.urk} variant="green" />
+                        <Pagelink text={blok.link.Lable} url={blok.link.url} variant="green" />
                     </div>
-                    <div className=" grid items-center ">
-                    {
-                        blok.media.map((m:any)=>(
-                            <MediaRenderer url={m.media.filename} alt={m.media.alt} type={m.type} key={m._uid} />
-                        ))
-                    }
+                    <div className=" relative w-full flex items-center ">
+                        <div className=" absolute w-[100%] h-[100%] shadow-inner "  onPlay={()=>console.log('Playing')} >
+                            {
+                                blok.media.map((m:any)=>(
+                                    <MediaRenderer muted={true} url={m.media.filename} alt={m.media.alt} type={m.type} key={m._uid} />
+                                ))
+                            }
+                        </div>
                     </div>
                 </div>
         </div>
