@@ -26,7 +26,7 @@ export default function ItemsCard({blok}:{blok:any}) {
               const info=blok.content.blocks.filter((b:any)=>b.component=="info")
               //console.log(stop)
               return(
-                <div className=' flex flex-col md:w-[450px] lg:w-[700px] xl:w-[800px]  min-h-[600px] lg:h-[936px] xl:h-auto justify-stretch px-[10px] gap-[20px] py-[18px] xl:py-[30px] text-center' key={blok.uuid} >
+                <div className=' flex flex-col md:w-[450px] lg:w-[700px] xl:w-[800px]  min-h-[600px] lg:h-[936px] xl:h-auto justify-stretch px-[10px] gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
                   <div className=' relative w-full min-h-[358px] lg:h-[450px]'>
                       <Image src={stop.image.filename} alt={stop.image.alt} fill />
                   </div>
