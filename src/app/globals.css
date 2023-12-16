@@ -31,6 +31,16 @@ body {
   line-height: 77px;
 }
 
+.DM_Roboto_H2{
+font-family: Roboto;
+font-size: 48px;
+font-weight: 700;
+line-height: 58px;
+letter-spacing: 0em;
+text-align: center;
+
+}
+
 .heading3{
   font-weight: 400;
   font-size: 60px;
@@ -53,6 +63,36 @@ body {
 font-size: 16px;
 font-weight: 400;
 line-height: 26px;
+}
+
+.Roboto_Text-16{
+font-family: Roboto;
+font-size: 16px;
+font-weight: 600;
+line-height: 24px;
+letter-spacing: 0em;
+text-align: center;
+
+}
+
+.Text-18{
+font-family: Helvetica Neue;
+font-size: 21px;
+font-weight: 400;
+line-height: 34px;
+letter-spacing: 0em;
+text-align: left;
+
+}
+
+.Roboto_Text-18{
+font-family: Roboto;
+font-size: 18px;
+font-weight: 400;
+line-height: 27px;
+letter-spacing: 0em;
+text-align: center;
+
 }
 
 input[type=checkbox] {

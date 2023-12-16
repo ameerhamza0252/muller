@@ -10,6 +10,7 @@ import {
 import MediaRenderer from "../MediaComponent";
 import Link from "next/link";
 import { capitalizeFirstLetter } from "../navbar";
+import { storyblokEditable } from "@storyblok/react";
 
 export default function CareersList({blok}:{blok:any}){
     const [value,setValue]=useState(0)
@@ -20,7 +21,7 @@ export default function CareersList({blok}:{blok:any}){
     return(
         <>
             
-            <div className=" flex flex-col px-[20] lg:px-[64px] py-[50px] lg:py-[112px] gap-[50px]">
+            <div className=" flex flex-col px-[20] lg:px-[64px] py-[50px] lg:py-[112px] gap-[50px]" {...storyblokEditable(blok)}>
                 <div className="grid grid-cols-1">
                     <text className=" mb-[16px]">{blok.title}</text>
                     <text className=" heading2">{blok.heading}</text>
@@ -68,7 +69,7 @@ export function CareersTop({blok}:{blok:any}){
     //console.log(blok)
     const link=blok.link[0]
     return(
-        <div className=" relative flex min-h-screen bg-cover bg-[#00000080]/50 items-center justify-center p-5 text-white " style={{backgroundColor:"#00000080/0.5",backgroundImage:`url(/Icon/Solution.png)`}}>
+        <div className=" relative flex min-h-screen bg-cover bg-[#00000080]/50 items-center justify-center p-5 text-white " style={{backgroundColor:"#00000080/0.5"}} {...storyblokEditable(blok)}>
             <div className=" absolute w-[100%] h-[100%] shadow-inner "  onPlay={()=>console.log('Playing')} >
                 {
                     blok.media&&blok.media.map((m:any)=>(
@@ -87,7 +88,7 @@ export function CareersTop({blok}:{blok:any}){
 
 export function CareersFAQ({blok}:{blok:any}){
     return(
-        <div className=" grid grid-cols-1 lg:grid-cols-2 px-[20] lg:px-[64px] py-[50px] lg:py-[112px] gap-[50px] ">
+        <div className=" grid grid-cols-1 lg:grid-cols-2 px-[20] lg:px-[64px] py-[50px] lg:py-[112px] gap-[50px] " {...storyblokEditable(blok)}>
             <div className=" flex flex-col">
                 <text className=" heading2 mb-[24px]">Frequently Asked Questions</text>
                 <text className=" mb-[32px]">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.</text>
@@ -113,7 +114,7 @@ export function IndividualsApply({blok}:{blok:any}){
     const link=blok.link[0]
     //console.log(link)
     return(
-        <div className="relative flex h-[400px] bg-cover items-center p-5 text-white" style={{background:`url(/Icon/Solution.png)`, backgroundColor:"#00000080",backgroundBlendMode:"overlay"}}>
+        <div className="relative flex h-[400px] bg-cover items-center p-5 text-white" style={{background:`url(/Icon/Solution.png)`, backgroundColor:"#00000080",backgroundBlendMode:"overlay"}} {...storyblokEditable(blok)}>
                 <div className=" absolute w-[100%] h-[100%] shadow-inner "  onPlay={()=>console.log('Playing')} >
                     {
                         blok.media&&blok.media.map((m:any)=>(

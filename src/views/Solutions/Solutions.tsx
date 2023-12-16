@@ -14,7 +14,7 @@ export default async function SolutionsList({blok}:{blok:any}){
           <text className="w-[620px] heading2 ml-[10px] mt-[30px]" >{blok.heading}</text>
           <div className=' grid grid-cols-1 md:grid-cols-2 justify-center gap-[20px] px-[10px] mt-[65px]'>
              
-                <ItemsCard blok={blok.solutions}/>
+                <ItemsCard buttontext={blok.buttontext} blok={blok.solutions}/>
              
           </div>
       </div>

@@ -19,7 +19,7 @@ import Pagelink from "@/components/link";
 export function CareerTop({blok}:{blok:any}){
     //console.log(blok)
     return(
-        <div className=" min-h-screen flex flex-col items-center gap-[30px] lg:gap-[80px] py-[40px] lg:py-[112px]">
+        <div className=" min-h-screen flex flex-col items-center gap-[30px] lg:gap-[80px] py-[40px] lg:py-[112px]" {...storyblokEditable(blok)}>
                 <div className=" w-full lg:w-3/5 flex flex-col gap-[24px] px-[30px] lg:px-[64px]">
                     <text className=" text-[16px] leading-[25.6px]">{blok.category}</text>
                     <text className=" heading1">{blok.title}</text>
@@ -45,7 +45,7 @@ export function CareerTop({blok}:{blok:any}){
 export async function CareerDescription({blok}:{blok:any}){
     //console.log(blok)
     return(
-        <div className=" flex items-center justify-center lg:gap-[80px] py-[40px] lg:py-[112px]">
+        <div className=" flex items-center justify-center lg:gap-[80px] py-[40px] lg:py-[112px]" {...storyblokEditable(blok)}>
                 <div className=" w-3/4">
                     <text className="">{render(blok.description)}</text>
                     <div className=" flex items-end justify-between mt-[24px] lg:mt-[64px]">
@@ -89,17 +89,18 @@ export async function CareerDescription({blok}:{blok:any}){
     function onSubmit(data: z.infer<typeof FormSchema>) {
       console.log(data)
     }
-   //console.log(blok)
+   const {color_variant}=blok;
+   const border=color_variant=="black"?"border-b-B-Yellow":"border-b-brand";
     return (
-      <div className=" flex flex-col  min-h-screen justify-center items-center bg-black text-white gap-[20px] md:gap-[40px] lg:gap-[80px] py-[40px] lg:py-[112px] px-[30px] lg:px-[64px]">
-        <div className=" flex flex-col text-center font-DM_Mono">
-            <text className=" text-[16px] leading-[24px] font-[600] mb-[16px]">{blok.title}</text>
-            <text className=" heading2 mb-[24px]">{blok.heading}</text>
-            <text className=" text-[18px] leading-[27px]">{blok.overview}</text>
+      <div className={`flex flex-col  min-h-screen justify-center items-center ${color_variant=="black"?"bg-black text-white":''} gap-[20px] md:gap-[40px] lg:gap-[80px] py-[40px] lg:py-[112px] px-[30px] lg:px-[64px]`} {...storyblokEditable(blok)}>
+        <div className={` flex flex-col ${blok.textalign}`}>
+            <text className={`${color_variant=="black"?"Roboto_Text-16":''} mb-[16px]`}>{blok.title}</text>
+            <text className={`${color_variant=="black"?" font-['Roboto'] text-[48px] font-[700] leading-[57px]":"heading2"} mb-[24px]`}>{blok.heading}</text>
+            <text className={` ${color_variant=="black"?" font-['Roboto'] text-[18px] font-[400]":"text-[18px] leading-[27px]"}`}>{blok.overview}</text>
         </div>
           <div className="grid grid-cols-1 w-full md:min-w-[543px] max-w-[560px] min-h-[543px] ">
               <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 text-[16px] font-[400] leading-[24px]">
+              <form onSubmit={form.handleSubmit(onSubmit)} className={`w-full space-y-6 text-[16px] font-[400] leading-[24px] ${color_variant=="black"?"font-['Roboto']":""}`}>
                   <FormField
                   control={form.control}
                   name="name"
@@ -107,7 +108,7 @@ export async function CareerDescription({blok}:{blok:any}){
                       <FormItem>
                       <FormLabel>Full Name</FormLabel>
                       <FormControl>
-                          <input {...field} placeholder={blok.nameplaceholder!=''?blok.nameplaceholder:"Your name"} className=" min-w-full border-b-[1px] p-[12px] border-b-B-Yellow h-[58px] bg-black placeholder:text-B-grey y"  />
+                          <input {...field} placeholder={blok.nameplaceholder!=''?blok.nameplaceholder:"Your name"} className={` min-w-full h-[58px]  p-[12px] ${border} border-b-[1px] ${color_variant=="white"?"placeholder:text-grey-2":"placeholder:text-B-grey bg-black font-DM_Mono font-[500] "}`}  />
                       </FormControl>
                       
                       <FormMessage />
@@ -121,7 +122,7 @@ export async function CareerDescription({blok}:{blok:any}){
                       <FormItem>
                       <FormLabel>Email Address</FormLabel>
                       <FormControl>
-                          <input {...field} placeholder={blok.emailplaceholder!=''?blok.emailplaceholder:"Your email"}  className=" min-w-full border-b-[1px] p-[12px] border-b-B-Yellow h-[58px] bg-black placeholder:text-B-grey y"  />
+                          <input {...field} placeholder={blok.emailplaceholder!=''?blok.emailplaceholder:"Your email"}  className={` min-w-full border-b-[1px] p-[12px] ${border} h-[58px] ${color_variant=="white"?"placeholder:text-grey-2 bg-white":"placeholder:text-B-grey bg-black font-DM_Mono font-[500]"} `}  />
                       </FormControl>
                       
                       <FormMessage />
@@ -135,14 +136,14 @@ export async function CareerDescription({blok}:{blok:any}){
                       <FormItem>
                       <FormLabel>Message</FormLabel>
                       <FormControl>
-                      <textarea {...field} placeholder={blok.messageplaceholder!=''?blok.messageplaceholder:"Your Message"}  className=" min-w-full border-b-[1px] p-[12px] border-b-B-Yellow h-[156px] bg-black placeholder:text-B-grey y"  />
+                      <textarea {...field} placeholder={blok.messageplaceholder!=''?blok.messageplaceholder:"Your Message"}  className={` min-w-full border-b-[1px] p-[12px] ${border} h-[156px] font-Helvectica ${color_variant=="white"?"placeholder:text-grey-2 bg-white":"placeholder:text-B-grey bg-black font-DM_Mono font-[500]"} `}  />
                       </FormControl>
                       <FormMessage />
                       </FormItem>
                   )}
                   />
-                    <div className="  flex text-[14px] leading-[22.4px] font-DM_Mono"><hr className=" w-[20px] mt-[13px] mr-3 border-B-Yellow" /> {blok.disclaimer}</div>
-                  <button type="submit" ><Pagelink variant="white" text="Sign up here" /></button>
+                    <div className="  flex text-[14px] leading-[22.4px] font-DM_Mono"><hr className={`w-[20px] mt-[13px] border-[1px] mr-3 ${border}`} /> {blok.disclaimer}</div>
+                  <button className=" w-full" type="submit" ><Pagelink  variant={color_variant=="white"?"green":"white"} text="Sign up here" /></button>
               </form>
               </Form>
           </div>
@@ -157,13 +158,14 @@ import {
     AccordionItem,
     AccordionTrigger,
   } from "@/components/ui/accordion"
+import { storyblokEditable } from "@storyblok/react"
 
   export function FAQs({blok}:{blok:any}){
     //console.log(blok)
     const link=blok.link[0]
-    console.log(blok)
+    //console.log(blok)
     return(
-        blok.variant=="vertical"?(<div className=" flex flex-col gap-[20px] md:gap-[80px] px-[20px] md:px-[64px] py-[40px] md:py-[112px]">
+        blok.variant=="vertical"?(<div className=" flex flex-col gap-[20px] md:gap-[80px] px-[20px] md:px-[64px] py-[40px] md:py-[112px]" {...storyblokEditable(blok)}>
             <div className=" grid grid-cols-1 gap-[24px]">
                 <text className=" heading2">{blok.title}</text>
                 <text>{blok.overview}</text>
@@ -174,7 +176,7 @@ import {
                         <AccordionItem value={question._uid} className=" gap-0" key={question._uid}>
                             <AccordionTrigger className=" py-[20px] ">{question.heading}</AccordionTrigger>
                             <AccordionContent >
-                                <text>{question.answer}</text>
+                                <text>{question.description}</text>
                             </AccordionContent>
                         </AccordionItem>
                     ))

@@ -6,7 +6,7 @@ import { render } from "storyblok-rich-text-react-renderer"
 import { useEffect, useState } from "react";
 
 
-export default function ItemsCard({blok}:{blok:any}) {
+export default function ItemsCard({blok,buttontext}:{blok:any,buttontext:string}) {
   //console.log("Inside Card")
   //console.log(blok)
   const { data, error, isLoading }=useSWR(blok,getDataList)
@@ -23,7 +23,7 @@ export default function ItemsCard({blok}:{blok:any}) {
           {
             data&&data.map((blok:any)=>{
               const stop=blok.content.blocks.filter((b:any)=>b.component=="stop")[0]
-              const info=blok.content.blocks.filter((b:any)=>b.component=="info")
+              //const info=blok.content.blocks.filter((b:any)=>b.component=="info")
               //console.log(stop)
               return(
                 <div className=' flex flex-col md:w-[450px] lg:w-[700px] xl:w-[800px]  min-h-[600px] lg:h-[936px] xl:h-auto justify-stretch px-[10px] gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
@@ -33,7 +33,7 @@ export default function ItemsCard({blok}:{blok:any}) {
                   <text className=' heading2 max-h-[200px] overflow-hidden w-[80%]'>{stop.heading}</text>
                   <div className="w-[90%] border-b-[1px] border-brand" ></div>
                   <text className=' w-[90%] h-[150px] overflow-hidden  my-[8px]'>{stop.description}</text>
-                  <Pagelink url={blok.full_slug} text="Click me" />
+                  <Pagelink url={blok.full_slug} text={buttontext!=''?buttontext:'View more'} />
                 </div>
               )
             })

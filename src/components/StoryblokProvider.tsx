@@ -40,6 +40,8 @@ import CareersView from "@/views/Careers/page";
 import CareersList, { CareersTop, IndividualsApply } from "./Career/CareersPage";
 import { CareerDescription, CareerTop, FAQs, GetInTouch } from "./Career/SingleCareer";
 import SingleCareer from "@/views/Careers/SingleCareer";
+import ContactView from "@/views/Contact/Page";
+import { ContactTopGrid, GetInTouchGrid } from "./Contact/components";
 /** 3. Initialize it as usual */
 storyblokInit({
   accessToken: process.env.STORYBLOKTOKEN,
@@ -102,6 +104,12 @@ storyblokInit({
     CareerTop:CareerTop,
     CareerDescription:CareerDescription,
     GetInTouch:GetInTouch,
+
+    //
+    ContactPage:ContactView,
+    Contact_TopGrid:ContactTopGrid,
+    Contact_GetInTouchGrid:GetInTouchGrid,
+
 
   },
   apiOptions:{
