@@ -31,13 +31,14 @@ export function Philosophy({blok}:{blok:any}){
 
 export function History({blok}:{blok:any}){
     //console.log(blok)
+    const link=blok.link;
     return(
         <div className=" min-h-screen p-[20px] lg:p-none lg:pt-[40px] lg:px-[64px] flex flex-col gap-[20px] md:gap-[40px] lg:gap-[80px] xl:gap-[120px] text-black" {...storyblokEditable(blok)}>
                 <text className="">{blok.title}</text>
                 <div className=" flex flex-col gap-[20px] lg:gap-0 lg:flex-row lg:justify-between">
                     <div className="  lg:w-[50%] flex flex-col gap-[10px] md:gap-[20px] lg:gap-[32px] xl:gap-[50px]">
                         <text className=" heading2">{blok.heading}</text>
-                        <Pagelink url={blok.link.url} variant="green" />
+                        <Pagelink url={link[0].url.url} text={link[0].Lable} variant="green" />
                     </div>
                     <div className=" lg:w-[40%] flex flex-col gap-[29px] ">
                         {blok.historyevents.map((event:any,index:number)=>(

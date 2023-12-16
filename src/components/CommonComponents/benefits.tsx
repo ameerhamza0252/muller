@@ -5,14 +5,14 @@ import Pagelink from "../link";
 
 export default function Benefits({blok}:{blok:any}){
     const benefits=blok.benefits
-    //console.log(benefits)
+    console.log(benefits)
     const [count,setCount]=useState(0)
     return (
         <div className=" flex flex-col bg-black min-h-screen py-[112px] px-[64px] gap-[20px] md:gap-[40px] lg:gap-[72px] text-white">
-            <text className=" ">Benefits</text>
+            <text className=" ">{blok.title}</text>
             <div className=" grid grid-cols-1 lg:grid-cols-2 lg:flex-row justify-between items-center lg:min-h-[500px] mb-[10px] ">
-               <div className="  relative w-[300px] h-[400px] lg:w-[496px] lg:h-[640px] xl:w-[90%] xl:h-[900px]">
-               <Image src={benefits[count].media.filename} fill alt={benefits[0].media.alt} />
+               <div className=" relative w-[300px] h-[400px] lg:w-[90%] lg:h-[90%] xl:w-[90%] xl:h-[900px] xl:bg-B-Yellow">
+               <Image src={benefits[count].media.filename} fill objectFit="contain" alt={benefits[0].media.alt} style={{backgroundAttachment:"fixed"}} />
                </div>
                 <div className=" flex flex-col items-start py-[20px] gap-[40px]">
                   {

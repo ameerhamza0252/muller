@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { storyblokEditable } from "@storyblok/react";
 
 export function Organization({blok}:{blok:any}){
-    console.log(blok)
+    //console.log(blok)
     const [department,setDepartment]=useState(0);
     const [value,setValue]=useState(0);
     

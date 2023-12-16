@@ -7,7 +7,7 @@ export default function STop({blok}:{blok:any}){
     //console.log(blok.media[0].media)
     const variant=blok.variant;
     return(
-        <div className={` relative flex flex-col justify-end w-full h-screen bg-cover text-white z-10 ${!blok.media?'bg-black':''} `}  {...storyblokEditable(blok)} >
+        <div className={` relative flex flex-col justify-end w-full h-screen bg-cover text-white ${!blok.media?'bg-black':''} `}  {...storyblokEditable(blok)} >
             <div className=" absolute w-[100%] h-[100%] shadow-inner "  onPlay={()=>console.log('Playing')} >
             {
                 blok.media&&blok.media.map((m:any)=>(

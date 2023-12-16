@@ -7,7 +7,7 @@ import MediaRenderer from "../MediaComponent";
 export default function top({blok}:{blok:any}){
   //console.log(blok) 
     return(
-      <div className={` relative flex flex-col min-h-screen justify-end text-white z-10 `} /*style={{backgroundImage:`url(${blok.image.filename})`}} */ >
+      <div className={` relative flex flex-col min-h-screen justify-end text-white  `} /*style={{backgroundImage:`url(${blok.image.filename})`}} */ >
         <div className=" absolute w-[100%] h-[100%] shadow-inner "  onPlay={()=>console.log('Playing')} >
         {
             blok.media&&blok.media.map((m:any)=>(
