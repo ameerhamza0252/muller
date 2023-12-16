@@ -18,12 +18,11 @@ export default function Tagline({blok}:{blok:any}){
             <div className=" flex justify-between items-center">
                 <div className="h-auto flex flex-col gap-[29px]  ">
                     {locations&&locations.map((l:any,i:number)=>(
-                        <button onClick={()=>{setValue(i)}} key={l._uid} className={`flex flex-col  pl-[27px] ${value==i?"border-l-[1px]":null} border-brand`}>
+                        <button onMouseOver={()=>setValue(i)} key={l._uid} className={` flex flex-col  pl-[27px] ${value==i?"border-l-[1px]":null} border-brand`}>
                         
                         <text className=" text-[30px] leading-[33px]">{l.country}</text>
                         <text className=" leading-[33.6px] mt-[16px] mb-[24px]">{l.location}</text>
                         <Link href={l.link}><text className=" font-['DM_Mono'] font-[500] text-[18px]">{l.linktext}</text></Link>
-                        
                         </button>
                     ))}
                 </div>
