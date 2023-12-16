@@ -35,7 +35,7 @@ export function Organization({blok}:{blok:any}){
                         {
                             employees.map((emp:any)=>(
                                 <div className=" w-[266px] min-h-[300px] flex flex-col items-center gap-[24px]" key={emp._uid}>
-                                    <Image src={emp.profileimage.filename} width={80} height={80} alt={emp.profileimage.alt} className=" justify-self-center rounded-full" />
+                                    <Image src={emp.profileimage.filename} width={150} height={150} alt={emp.profileimage.alt} className=" justify-self-center rounded-full" />
                                     <div className=" flex flex-col text-center font-[Roboto]">
                                         <text className=" text-[20px] leading-[30px] font-[600]">{emp.name}</text>
                                         <text className=" text-[18px] leading-[27px] text-B-Yellow">{emp.jobtitle}</text>

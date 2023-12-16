@@ -3,15 +3,15 @@ import Image from "next/image";
 import Link from "next/link";
 import MenueButton from "./NavBar/menu";
 
-function capitalizeFirstLetter(string:string) {
+export function capitalizeFirstLetter(string:string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 export function Navigation({blok}:{blok:any}){
     //const {data}=await Storyblok.get('cdn/stories/navigation', {version:"published"});
     //const items=data.story.content.name;
-    console.log("NAVBAR")
-    //console.log((blok.name[2].link.cached_url.split("/")))
+    //console.log("NAVBAR")
+    //console.log((blok.name[0]))
     return(
         <div className=" absolute hidden md:visible w-full h-[70px] md:flex justify-between text-white z-20">
             <div className=" h-[35px] w-[166px] bg-[url('/Icon/muller-technology-logo1.svg')] mt-[13px] ml-[18px]"></div>
@@ -20,7 +20,7 @@ export function Navigation({blok}:{blok:any}){
                     blok.name.map((i:any)=>{
                         //console.log(i)
                         return((
-                            <Link href={i.link.cached_url=="home"?"/":"/"+capitalizeFirstLetter(i.link.cached_url.split("/")[0])} key={i._uid} ><text  >{i.name}</text></Link>
+                            <Link href={i.url.cached_url=="home"?"/":"/"+capitalizeFirstLetter(i.url.cached_url.split("/")[0])} key={i._uid} ><text >{i.Lable}</text></Link>
                         ))
                     })
                 }

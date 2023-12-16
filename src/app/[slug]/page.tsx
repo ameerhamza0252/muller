@@ -1,6 +1,7 @@
 import { getStoryblokApi } from "@storyblok/react";
 import { render } from "storyblok-rich-text-react-renderer";
 
+
 export default async function Page({params:{slug}}:{params:{slug:any}}){
     //console.log(slug)
     const {data}=await fetchData(slug)

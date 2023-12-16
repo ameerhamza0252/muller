@@ -36,6 +36,10 @@ import SingleNews from "@/views/News/SingleNews";
 import Tagline from "./Home/tagline";
 import { Organization } from "./About/AboutClientComponents";
 import Media from "./Media";
+import CareersView from "@/views/Careers/page";
+import CareersList, { CareersTop, IndividualsApply } from "./Career/CareersPage";
+import { CareerDescription, CareerTop, FAQs, GetInTouch } from "./Career/SingleCareer";
+import SingleCareer from "@/views/Careers/SingleCareer";
 /** 3. Initialize it as usual */
 storyblokInit({
   accessToken: process.env.STORYBLOKTOKEN,
@@ -71,7 +75,6 @@ storyblokInit({
 
     Media:Media,
     
-
     //
     markets:MarketsView,
     markettop:MarketTop,
@@ -87,6 +90,18 @@ storyblokInit({
     NewsLetter:Signup,
     DiscoverLatest:DiscoverNews,
     News:SingleNews,
+
+    //
+    Careers:CareersView,
+    CareersTop:CareersTop,
+    CurrentOpenings:CareersList,
+    FAQ:FAQs,
+    individualsapply:IndividualsApply,
+    /**/
+    Career:SingleCareer,
+    CareerTop:CareerTop,
+    CareerDescription:CareerDescription,
+    GetInTouch:GetInTouch,
 
   },
   apiOptions:{

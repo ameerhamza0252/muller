@@ -9,6 +9,9 @@ export const dynamic = 'force-dynamic'
 import { storyblokInit, apiPlugin, StoryblokStory, getStoryblokApi, RichTextSchema } from "@storyblok/react/rsc";
 import StoryblokProvider from "../components/StoryblokProvider";
 import { Providers } from './providers'
+import cloneDeep from "clone-deep";
+
+const mySchema = cloneDeep(RichTextSchema)
 
 const inter = Inter({ subsets: ['latin'] })
 

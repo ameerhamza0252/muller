@@ -1,13 +1,17 @@
-import CareersList, { CareersFAQ, CareersTop, IndividualsApply } from "@/components/Career/CareersPage";
-import { FAQs } from "@/components/Career/SingleCareer";
+import { getStoryblokApi } from "@storyblok/react";
+import StoryblokStory from "@storyblok/react/story";
 
 export default async function Careers(){
+    const {data}=await fetchData()
+    //console.log(data)
     return(
         <>
-            <CareersTop blok={2} />
-            <CareersList blok={2} />
-            <CareersFAQ blok={2} />
-            <IndividualsApply blok={2} />
+            <StoryblokStory story={data.story} />
         </>
     )
 }
+
+async function fetchData() {
+    const storyblokApi = getStoryblokApi();
+    return storyblokApi.get(`cdn/stories/careers/`, { version: "published" });
+  }
