@@ -25,7 +25,7 @@ export function Navigation({blok}:{blok:any}){
     //const {data}=await Storyblok.get('cdn/stories/navigation', {version:"published"});
     //const items=data.story.content.name;
     //console.log("NAVBAR")
-    console.log(blok.name[3].items[0])
+    //console.log(blok.name[3])
     
     /**
      * <Link href={i.url.cached_url=="home"?"/":"/"+capitalizeFirstLetter(i.url.cached_url.split("/")[0])}legacyBehavior passHref >
@@ -46,10 +46,10 @@ export function Navigation({blok}:{blok:any}){
                     <div className="dropdown" key={n._uid}>
                         <Link href={n.link.cached_url=="home"?"/":"/"+capitalizeFirstLetter(n.link.cached_url.split("/")[0])} className="dropbtn">{n.lable}</Link>
                         {
-                            n.items.length>0?(<div className="dropdown-content bg-brand p-[15px] rounded-bl-[8px] rounded-br-[8px] Text-16 ">
+                            n.items.length&&n.items.length>0?(<div className="dropdown-content bg-brand p-[15px] rounded-bl-[8px] rounded-br-[8px] Text-16 ">
                             {
                                 n.items.map((item:any)=>(
-                                    <Link href={item.url.linktype=="story"?item.url.cached_url:capitalizeFirstLetter(n.link.cached_url.split("/")[0])+item.url.url} className=" py-[8px] border-b" key={item._uid}>{item.Lable}</Link>
+                                    <Link href={item.url.linktype=="story"?"/"+item.url.cached_url:"/"+capitalizeFirstLetter(n.link.cached_url.split("/")[0])+item.url.url} className=" py-[8px] border-b " key={item._uid}>{item.Lable}</Link>
                                 ))
                             }
                         </div>):null
