@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Pagelink from "../link";
-import { GetInTouch } from "../Career/SingleCareer";
+import { GetInTouch } from "../Career/SingleCareerClient";
 import MediaRenderer from "../MediaComponent";
 
 export function ContactTopGrid({blok}:{blok:any}){

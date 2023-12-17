@@ -38,11 +38,12 @@ import { Organization } from "./About/AboutClientComponents";
 import Media from "./Media";
 import CareersView from "@/views/Careers/page";
 import CareersList, { CareersTop, IndividualsApply } from "./Career/CareersPage";
-import { CareerDescription, CareerTop, FAQs, GetInTouch } from "./Career/SingleCareer";
+import {  FAQs, GetInTouch } from "./Career/SingleCareerClient";
 import SingleCareer from "@/views/Careers/SingleCareer";
 import ContactView from "@/views/Contact/Page";
 import { ContactTopGrid, GetInTouchGrid } from "./Contact/components";
 import Footer from "./footer";
+import { CareerDescription, CareerTop } from "./Career/SingleCareerServer";
 /** 3. Initialize it as usual */
 storyblokInit({
   accessToken: process.env.STORYBLOKTOKEN,

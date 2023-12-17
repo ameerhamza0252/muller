@@ -1,4 +1,4 @@
-import { GetInTouch } from "@/components/Career/SingleCareer";
+import { GetInTouch } from "@/components/Career/SingleCareerClient";
 import Pagelink from "@/components/link";
 import { getStoryblokApi } from "@storyblok/react";
 import StoryblokStory from "@storyblok/react/story";
