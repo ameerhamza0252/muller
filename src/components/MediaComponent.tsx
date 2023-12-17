@@ -23,11 +23,10 @@ function MediaRenderer({url,type,width,height,alt="",muted=true}:{url:string,typ
     return <ReactPlayer config={{
         youtube: {
           playerVars: { 
-            showinfo: 0,
+            showinfo: 1,
             modestbranding: 1,
-            controls: 0,
-            
-          }
+            controls: 1,
+          },
         }
       }}
       onPlay={()=>(setLoading(false))} controls={false} muted={muted} loop playing={true}  style={{position:'inherit'}} width={width?width:'100%'} height={height?height:'100%'} url={url} />

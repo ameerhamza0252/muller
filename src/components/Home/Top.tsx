@@ -19,7 +19,11 @@ export default function top({blok}:{blok:any}){
           <div className={` flex flex-col min-h-[226px] w-[60%] gap-[30px] ml-[31px] z-30 mb-3`}>
             <text className=' text-[80px] leading-[84px]'>{blok.Title}</text>
             <text className=" overflow-hidden ">{blok.description}</text>
-            <Pagelink url={blok.link[0].url.url} text={blok.link[0].Lable} variant="white" />
+            {
+              blok.link.map((link:any)=>(
+                <Pagelink url={link.url.url} text={link.Lable} variant="white" />
+              ))
+            }
           </div>     
           <Link href="#solutuions" className=' self-center z-20 mb-5 ' ><Image src="/Icon/down.svg" alt='scroll' className=" self-end" width={50} height={50} /></Link>
     </div>

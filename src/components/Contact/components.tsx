@@ -41,7 +41,7 @@ export function GetInTouchGrid({blok}:{blok:any}){
     //console.log(blok)
     return(
         <div className=" min-h-screen md:h-screen grid grid-cols-1 md:grid-cols-2 justify-between px-[20px] md:px-[64px] py-[40px] lg:py-[112px] gap-4">
-                <div className=" relative h-[90%] ">
+                <div className=" relative h-[90%] pointer-events-none ">
                 {
                     blok.media&&blok.media.map((m:any)=>(
                         <MediaRenderer muted={true} url={m.media.filename} alt={m.media.alt} type={m.type} key={m._uid} />

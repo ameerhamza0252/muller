@@ -7,7 +7,7 @@ export function capitalizeFirstLetter(string:string) {
 
 const triggers=['Solutions','Services']
 
-export function Navigation({blok}:{blok:any}){
+export async function Navigation({blok}:{blok:any}){
     //console.log(blok.socials[0].image.filename)
     //const {data}=await Storyblok.get('cdn/stories/navigation', {version:"published"});
     //const items=data.story.content.name;
