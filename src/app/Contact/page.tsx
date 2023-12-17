@@ -16,5 +16,5 @@ export default async function Contact(){
 
 async function fetchData() {
     const storyblokApi = getStoryblokApi();
-    return storyblokApi.get(`cdn/stories/contact/`, { version: "published" });
+    return storyblokApi.get(`cdn/stories/Contact/`, { version: "published" });
   }

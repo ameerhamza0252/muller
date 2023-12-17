@@ -82,6 +82,7 @@ export async function CareerDescription({blok}:{blok:any}){
   })
   
   export function GetInTouch({blok}:{blok:any}) {
+    console.log(blok)
     const form = useForm<z.infer<typeof FormSchema>>({
       resolver: zodResolver(FormSchema),
     })
@@ -143,7 +144,7 @@ export async function CareerDescription({blok}:{blok:any}){
                   )}
                   />
                     <div className="  flex text-[14px] leading-[22.4px] font-DM_Mono"><hr className={`w-[20px] mt-[13px] border-[1px] mr-3 ${border}`} /> {blok.disclaimer}</div>
-                  <button className=" w-full" type="submit" ><Pagelink  variant={color_variant=="white"?"green":"white"} text="Sign up here" /></button>
+                  <button className=" w-full" type="submit" ><Pagelink  variant={color_variant=="white"?"green":"white"} text={blok.button_text} /></button>
               </form>
               </Form>
           </div>
