@@ -1,19 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import MenueButton from "./NavBar/menu";
-import SubMenue from "./SubMenu";
-import {
-    NavigationMenu,
-    NavigationMenuContent,
-    NavigationMenuIndicator,
-    NavigationMenuItem,
-    NavigationMenuLink,
-    NavigationMenuList,
-    NavigationMenuTrigger,
-    NavigationMenuViewport,
-  } from "@/components/ui/navigation-menu"
-  import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
-
 
 export function capitalizeFirstLetter(string:string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -22,7 +8,7 @@ export function capitalizeFirstLetter(string:string) {
 const triggers=['Solutions','Services']
 
 export function Navigation({blok}:{blok:any}){
-    console.log(blok.socials[0].image.filename)
+    //console.log(blok.socials[0].image.filename)
     //const {data}=await Storyblok.get('cdn/stories/navigation', {version:"published"});
     //const items=data.story.content.name;
     //console.log("NAVBAR")

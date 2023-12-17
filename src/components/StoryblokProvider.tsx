@@ -38,7 +38,7 @@ import { Organization } from "./About/AboutClientComponents";
 import Media from "./Media";
 import CareersView from "@/views/Careers/page";
 import CareersList, { CareersTop, IndividualsApply } from "./Career/CareersPage";
-import {  FAQs, GetInTouch } from "./Career/SingleCareerClient";
+import { FAQs, GetInTouch } from "./Career/SingleCareerClient";
 import SingleCareer from "@/views/Careers/SingleCareer";
 import ContactView from "@/views/Contact/Page";
 import { ContactTopGrid, GetInTouchGrid } from "./Contact/components";
