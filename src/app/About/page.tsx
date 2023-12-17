@@ -11,5 +11,5 @@ export default async function Aboutus() {
 
 async function fetchData() {
     const storyblokApi = getStoryblokApi();
-    return storyblokApi.get(`cdn/stories/about`, { version: "published"});
+    return storyblokApi.get(`cdn/stories/About`, { version: "published"});
   }

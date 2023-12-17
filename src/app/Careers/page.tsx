@@ -13,5 +13,5 @@ export default async function Careers(){
 
 async function fetchData() {
     const storyblokApi = getStoryblokApi();
-    return storyblokApi.get(`cdn/stories/careers/`, { version: "published" });
+    return storyblokApi.get(`cdn/stories/Careers/`, { version: "published" });
   }

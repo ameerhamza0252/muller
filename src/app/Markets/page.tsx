@@ -13,5 +13,5 @@ export default async function Markets() {
 
 async function fetchData() {
     const storyblokApi = getStoryblokApi();
-    return storyblokApi.get(`cdn/stories/markets/`, { version: "published" });
+    return storyblokApi.get(`cdn/stories/Markets/`, { version: "published" });
   }

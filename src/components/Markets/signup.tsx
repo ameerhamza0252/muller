@@ -8,12 +8,16 @@ export default function SignUpMarkets({blok}:{blok:any}){
             <text className=" heading2">{blok.heading}</text>
             <div className="  grid grid-cols-1 justify-between items-start md:h-[276px] ">
                 <text className=" font-[Roboto]">{blok.overview}</text>
-                <text className=" p-[12px] text-grey-2 font-[] border-b-brand border-b-[1px]">Placeholder</text>
+                <input className=" p-[12px] text-grey-2 font-[] border-b-brand border-b-[1px]" placeholder={blok.placeholder} />
                 <div className=" flex items-center gap-[20px]">
                     <hr className=" w-[30px]  border-brand" />
                     <text>{blok.disclaimer}</text>
                 </div>
-                <Pagelink variant="green" text={blok.link[0].Lable} url={blok.link[0].url.url} />
+                {
+                    blok.link.map((link:any)=>(
+                        <Pagelink variant="green" text={link.Lable} url={link.url.linktype=="email"?"mailto:"+link.url.url:link.url.url} />
+                    ))
+                }
             </div>
         </div>
     )
