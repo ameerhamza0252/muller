@@ -17,7 +17,7 @@ export default function Projects({blok}:{blok:any}){
                 projects.map((project:any)=>{
                     const [isExpanded,setIsExpanded]=useState(false)
                     return (
-                        <div className=" lg:w-[90%] xl:w-full flex flex-col items-center gap-[24px] xl:px-[20px]" key={project._uid}>
+                        <div className=" lg:w-[90%] xl:w-full flex flex-col items-center gap-[24px] xl:px-[20px] py-5" id={blok.anchor_id}  key={project._uid}>
                             <div className=" relative w-full h-[400px] lg:h-[640px] xl:h-[900px]">
                                 <Image src={project.image.filename} fill alt={project.image.alt} />
                             </div>
@@ -32,7 +32,10 @@ export default function Projects({blok}:{blok:any}){
                                         }
                                     </div>
                                 </div>
-                                <span onClick={()=>setIsExpanded(!isExpanded)} className={`${!isExpanded?"overflow-hidden max-h-[220px]":""} transition-all animate-out ease-in-out duration-1000`}>{project.overview}</span>
+                                <div className=" flex flex-col justify-between gap-[10px] text-start">
+                                <button onClick={()=>setIsExpanded(!isExpanded)} className={`${!isExpanded?"overflow-hidden max-h-[220px]":" max-h-min"} text-start transition-all animate-out ease-in-out duration-1000`}>{project.overview}</button>
+                                
+                                </div>
                             </div>
                         </div>
                     )
@@ -41,3 +44,5 @@ export default function Projects({blok}:{blok:any}){
         </div>
     )
 }
+
+/**{!isExpanded?<button onClick={()=>setIsExpanded(true)}>Read more...</button>:<button onClick={()=>setIsExpanded(false)}>Read less...</button>} */
