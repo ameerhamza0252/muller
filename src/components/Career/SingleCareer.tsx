@@ -100,7 +100,7 @@ export async function CareerDescription({blok}:{blok:any}){
         </div>
           <div className="grid grid-cols-1 w-full md:min-w-[543px] max-w-[560px] min-h-[543px] ">
               <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className={`w-full space-y-6 text-[16px] font-[400] leading-[24px] ${color_variant=="black"?"font-['Roboto']":""}`}>
+              <form action={"mailto:"+blok.email.email} method="post" encType="text/plain" className={`w-full space-y-6 text-[16px] font-[400] leading-[24px] ${color_variant=="black"?"font-['Roboto']":""}`}>
                   <FormField
                   control={form.control}
                   name="name"
