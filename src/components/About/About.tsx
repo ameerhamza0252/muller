@@ -5,7 +5,7 @@ import { storyblokEditable } from "@storyblok/react"
 export function AboutTop({blok}:{blok:any}){
     //console.log(blok)
     return(
-        <div className=" flex flex-col md:flex-row h-screen md:h-[400px] lg:h-[650px] xl:h-[800px] text-white" {...storyblokEditable(blok)}>
+        <div className=" flex flex-col md:flex-row h-screen md:h-[400px] lg:h-[650px] xl:h-[800px] text-white" id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <div className=" md:w-[50%] h-[50%] md:h-full flex items-center justify-center  bg-cover " style={{backgroundImage:`url('${blok.leftimage.filename}')`}}>
                     <text className=" mt-[40%] mx-3 text-[40px] leading-[24px] sm:max-xl:w-[80%] lg:w-[80%] lg:text-[80px] lg:leading-[84px]">{blok.title}</text>
                 </div>
@@ -19,7 +19,7 @@ export function AboutTop({blok}:{blok:any}){
 export function Philosophy({blok}:{blok:any}){
     //console.log(blok)
     return(
-        <div className=" min-h-screen flex flex-col px-[15px] lg:px-0 lg:pl-[32px] xl:pl-[5%] lg:pr-[72px] xl:pr-[10%] bg-black text-white " {...storyblokEditable(blok)}>
+        <div className=" min-h-screen flex flex-col px-[15px] lg:px-0 lg:pl-[32px] xl:pl-[5%] lg:pr-[72px] xl:pr-[10%] bg-black text-white " id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <text className=" mt-[10px] md:mt-[20px] lg:mt-[40px] xl:mt-[70px] text-[#E7E9EA]">{blok.title}</text>
                 <div className=" flex flex-col justify-between lg:flex-row mt-[10px] md:mt-[30px] lg:mt-[68px] xl-[200px]">
                     <text className=" heading2 w-[40%]">{blok.heading}</text>
@@ -33,7 +33,7 @@ export function History({blok}:{blok:any}){
     //console.log(blok)
     const link=blok.link;
     return(
-        <div className=" min-h-screen p-[20px] lg:p-none lg:pt-[40px] lg:px-[64px] flex flex-col gap-[20px] md:gap-[40px] lg:gap-[80px] xl:gap-[120px] text-black" {...storyblokEditable(blok)}>
+        <div className=" min-h-screen p-[20px] lg:p-none lg:pt-[40px] lg:px-[64px] flex flex-col gap-[20px] md:gap-[40px] lg:gap-[80px] xl:gap-[120px] text-black" id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <text className="">{blok.title}</text>
                 <div className=" flex flex-col gap-[20px] lg:gap-0 lg:flex-row lg:justify-between">
                     <div className="  lg:w-[50%] flex flex-col gap-[10px] md:gap-[20px] lg:gap-[32px] xl:gap-[50px]">
@@ -66,7 +66,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 export async function Achievements({blok}:{blok:any}){
     //console.log(blok)
     return(
-        <div className=" flex flex-col md:max-lg-min-h-screen pb-[100px] md:pb-0 xl:pb-[200px] px-[20px] lg:px-[61px] py-[34px] text-black ">
+        <div className=" flex flex-col md:max-lg-min-h-screen pb-[100px] md:pb-0 xl:pb-[200px] px-[20px] lg:px-[61px] py-[34px] text-black " id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <text className="">{blok.title}</text>
                 <div className=" grid grid-cols-1 md:grid-cols-2 gap-[177px] mt-[20px] justify-between">
                     <div className=" flex flex-col gap-[35px] mt-[150px]">

@@ -2,19 +2,27 @@ import useSWR from 'swr'
 import { getStoryblokApi } from "@storyblok/react"
 import Image from "next/image"
 import Pagelink from "../link"
-import { render } from "storyblok-rich-text-react-renderer"
-import { useEffect, useState } from "react";
-
+import { Skeleton, SkeletonCircle, SkeletonText } from '@chakra-ui/react'
 
 export default function ItemsCard({blok,buttontext}:{blok:any,buttontext:string}) {
   //console.log("Inside Card")
   //console.log(blok)
   const { data, error, isLoading }=useSWR(blok,getDataList)
   console.log('ItemsCards Fetched')
-  //console.log(data)
   if(isLoading){
     return(
-      <div>Loading ....</div>
+      <>
+        <Skeleton isLoaded={!isLoading} fitContent={true}  > 
+          <div className=' flex flex-col md:w-[450px] lg:w-[700px] xl:w-[800px]  min-h-[600px] lg:h-[936px] xl:h-auto justify-stretch px-[10px] gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
+          
+          </div>
+      </Skeleton>
+      <Skeleton isLoaded={!isLoading} fitContent={true}  > 
+      <div className=' flex flex-col md:w-[450px] lg:w-[700px] xl:w-[800px]  min-h-[600px] lg:h-[936px] xl:h-auto justify-stretch px-[10px] gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
+      
+        </div>
+    </Skeleton>
+      </>
     )
   }
   if (error) return "An error has occurred"
@@ -26,15 +34,17 @@ export default function ItemsCard({blok,buttontext}:{blok:any,buttontext:string}
               //const info=blok.content.blocks.filter((b:any)=>b.component=="info")
               //console.log(stop)
               return(
-                <div className=' flex flex-col md:w-[450px] lg:w-[700px] xl:w-[800px]  min-h-[600px] lg:h-[936px] xl:h-auto justify-stretch px-[10px] gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
-                  <div className=' relative w-full min-h-[358px] lg:h-[450px]'>
-                      <Image src={stop.image.filename} alt={stop.image.alt} fill />
+                <Skeleton isLoaded={!isLoading} fitContent={true}  > 
+                    <div className=' flex flex-col md:w-[450px] lg:w-[700px] xl:w-[800px]  min-h-[600px] lg:h-[936px] xl:h-auto justify-stretch px-[10px] gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
+                    <div className=' relative w-full min-h-[358px] lg:h-[450px]'>
+                        <Image src={stop.image.filename} placeholder='empty' alt={stop.image.alt} fill />
+                    </div>
+                    <text className=' heading2 max-h-[200px] overflow-hidden w-[80%]'>{stop.heading}</text>
+                    <div className="w-[90%] border-b-[1px] border-brand" ></div>
+                    <text className=' w-[90%] h-[150px] overflow-hidden  my-[8px]'>{stop.description}</text>
+                    <Pagelink url={blok.full_slug} text={buttontext!=''?buttontext:'View more'} />
                   </div>
-                  <text className=' heading2 max-h-[200px] overflow-hidden w-[80%]'>{stop.heading}</text>
-                  <div className="w-[90%] border-b-[1px] border-brand" ></div>
-                  <text className=' w-[90%] h-[150px] overflow-hidden  my-[8px]'>{stop.description}</text>
-                  <Pagelink url={blok.full_slug} text={buttontext!=''?buttontext:'View more'} />
-                </div>
+                </Skeleton>
               )
             })
           }

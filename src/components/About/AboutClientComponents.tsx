@@ -21,7 +21,7 @@ export function Organization({blok}:{blok:any}){
     //console.log(department)
     //alert(department)
     return(
-        <div className=" min-h-screen flex flex-col pl-[20px] pr-[10px] py-[10px] lg:pl-[76px] lg:pr-[49px] lg:py-[35px] text-black " {...storyblokEditable(blok)}>
+        <div className=" min-h-screen flex flex-col pl-[20px] pr-[10px] py-[10px] lg:pl-[76px] lg:pr-[49px] lg:py-[35px] text-black " id={blok.component} {...storyblokEditable(blok)}>
                 <text>{blok.title}</text>
                 <div className=" flex justify-between md:flex-none md:justify-normal md:grid md:grid-cols-3 lg:grid-cols-4 md:gap-[24px] mt-[40px] lg:mt-[108px]">
                     {

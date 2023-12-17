@@ -1,4 +1,4 @@
-
+"use client"
 import {
     Menu,
     MenuButton,
@@ -10,11 +10,13 @@ import {
     MenuDivider,
   } from '@chakra-ui/react'
   import { Button, ButtonGroup } from '@chakra-ui/react'
+import { useState } from 'react'
 
   export default function MenueButton(){
+    const [open,setOpen]=useState(false)
     return(
         <Menu>
-        <MenuButton as={Button}>
+        <MenuButton onMouseLeave={()=>setOpen(false)} onMouseOver={()=>setOpen(true)}>
             Actions
         </MenuButton>
         <MenuList>

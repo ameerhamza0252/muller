@@ -18,9 +18,9 @@ const ReactPlayer = dynamic(
 function MediaRenderer({url,type,width,height,alt="",muted=true}:{url:string,type:string,width?:number,height?:number, alt:string,muted?:boolean}) {
     
     if(type=='video'){
-    return <ReactPlayer controls={false} muted={muted} loop playing={true}  style={{position:'inherit'}} width={width?width:'100%'} height={height?height:'100%'} url={url} />
+    return <Suspense fallback={<div className=' bg-B-Yellow w-full h-full text-white' style={{position:'inherit'}}>Fetching for you ....</div>}><ReactPlayer controls={false} muted={muted} loop playing={true}  style={{position:'inherit'}} width={width?width:'100%'} height={height?height:'100%'} url={url} /></Suspense>
     }else if(type=='image'){
-        return <Image src={url} alt={alt} fill />
+        return <Suspense fallback={<div></div>}><Image src={url} alt={alt} fill /></Suspense>
     }else if(type=='audio'){
         <ReactPlayer width={width} height={height} url={url} />
     }
