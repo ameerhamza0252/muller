@@ -1,5 +1,7 @@
+"use client"
 import { storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Projects({blok}:{blok:any}){
     //console.log(blok)
@@ -12,26 +14,29 @@ export default function Projects({blok}:{blok:any}){
                 <text>{blok.overview}</text>
             </div>
             {
-                projects.map((project:any)=>(
-                    <div className=" lg:w-[90%] xl:w-full flex flex-col items-center gap-[24px] xl:px-[20px]" key={project._uid}>
-                        <div className=" relative w-full h-[400px] lg:h-[640px] xl:h-[900px]">
-                            <Image src={project.image.filename} fill alt={project.image.alt} />
-                        </div>
-                        <div className=" grid grid-cols-1 md:grid-cols-2 lg:max-h-[150px] ">
-                            <div>
-                                <text className=" heading4 ">{project.name}</text>
-                                <div className=" flex flex-wrap gap-[8px] font-[DM Mono] text-black text-[14px] leading-[22.4px] font-[500] mt-[16px] ">
-                                    {
-                                        project.tags.map((tag:any)=>(
-                                            <div className=" h-[30px] bg-B-Yellow px-[8px] py-[4px]" key={tag._uid} >{tag.name}</div>
-                                        ))
-                                    }
-                                </div>
+                projects.map((project:any)=>{
+                    const [isExpanded,setIsExpanded]=useState(false)
+                    return (
+                        <div className=" lg:w-[90%] xl:w-full flex flex-col items-center gap-[24px] xl:px-[20px]" key={project._uid}>
+                            <div className=" relative w-full h-[400px] lg:h-[640px] xl:h-[900px]">
+                                <Image src={project.image.filename} fill alt={project.image.alt} />
                             </div>
-                            <text className=" overflow-hidden max-h-[220px]">{project.overview}</text>
+                            <div className={`grid grid-cols-1 md:grid-cols-2 transition-all animate-out ease-in-out duration-1000 ${!isExpanded?"max-h-[150px]":""} `}>
+                                <div>
+                                    <text className=" heading4 ">{project.name}</text>
+                                    <div className=" flex flex-wrap gap-[8px] font-[DM Mono] text-black text-[14px] leading-[22.4px] font-[500] mt-[16px] ">
+                                        {
+                                            project.tags.map((tag:any)=>(
+                                                <div className=" h-[30px] bg-B-Yellow px-[8px] py-[4px]" key={tag._uid} >{tag.name}</div>
+                                            ))
+                                        }
+                                    </div>
+                                </div>
+                                <span onClick={()=>setIsExpanded(!isExpanded)} className={`${!isExpanded?"overflow-hidden max-h-[220px]":""} transition-all animate-out ease-in-out duration-1000`}>{project.overview}</span>
+                            </div>
                         </div>
-                    </div>
-                ))
+                    )
+                })
             }
         </div>
     )

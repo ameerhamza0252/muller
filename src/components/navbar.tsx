@@ -45,7 +45,7 @@ export function Navigation({blok}:{blok:any}){
             {
                 blok.name.map((n:any)=>(
                     <div className="dropdown" key={n._uid}>
-                        <Link href={n.link.cached_url=="home"?"/":"/"+capitalizeFirstLetter(n.link.cached_url.split("/")[0])} className="dropbtn">{n.lable}</Link>
+                        <Link href={n.link.cached_url=="home"?"/":"/"+capitalizeFirstLetter(n.link.cached_url)} className="dropbtn">{n.lable}</Link>
                         {
                             n.items.length&&n.items.length>0?(<div className="dropdown-content bg-brand p-[15px] rounded-bl-[8px] rounded-br-[8px] Text-16 ">
                             {
