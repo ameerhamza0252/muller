@@ -2,8 +2,8 @@ import Pagelink from "@/components/link";
 
 export default function USPList({blok}:{blok:any}){
   const variant=blok.variant
-  //console.log(blok)
-  const link=blok.link[0];
+  //console.log(blok.link)
+  const links=blok.link
   const {usplist}=blok;
   
     return(
@@ -11,7 +11,11 @@ export default function USPList({blok}:{blok:any}){
         <text className=' text-[21px]'>{blok.title}</text>
         <div className=' flex md:justify-between gap-[20px] px-[10px] mt-[65px] items-end'>
           <text className="w-[620px] heading2 ml-[10px] mt-[30px]" >{blok.heading}</text>
-          <Pagelink url={link.url.url} text={link.Lable} variant={variant=="white"?"green":"yellow"} /> 
+          {
+            links.map((link:any)=>(
+              <Pagelink url={link.url.url} text={link.Lable} variant={variant=="white"?"green":"yellow"} /> 
+            ))
+          }
         </div>
         <div className=" w-[800px] lg:w-3/4 self-end flex flex-col mt-[150px] px-5 ">
           {
