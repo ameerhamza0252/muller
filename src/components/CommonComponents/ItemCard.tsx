@@ -8,7 +8,7 @@ export default function ItemsCard({blok,buttontext}:{blok:any,buttontext:string}
   //console.log("Inside Card")
   //console.log(blok)
   const { data, error, isLoading }=useSWR(blok,getDataList)
-  console.log('ItemsCards Fetched')
+  //console.log('ItemsCards Fetched')
   if(isLoading){
     return(
       <>

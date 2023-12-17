@@ -42,12 +42,17 @@ import { CareerDescription, CareerTop, FAQs, GetInTouch } from "./Career/SingleC
 import SingleCareer from "@/views/Careers/SingleCareer";
 import ContactView from "@/views/Contact/Page";
 import { ContactTopGrid, GetInTouchGrid } from "./Contact/components";
+import Footer from "./footer";
 /** 3. Initialize it as usual */
 storyblokInit({
   accessToken: process.env.STORYBLOKTOKEN,
   use: [apiPlugin],
   components: {
+
+    //Globals
     Navigation:Navigation,
+    footer:Footer,
+
     Partners:partners,
     testimonials:Testimonials,
     tagline:Tagline,

@@ -1,18 +1,28 @@
 import Image from "next/image"
 import Pagelink from "../link"
 import { storyblokEditable } from "@storyblok/react"
+import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider';
 
 export function AboutTop({blok}:{blok:any}){
-    //console.log(blok)
+    //console.log(blok.leftmedia[0])
+    /**
+     * <text className=" mt-[40%] mx-3 text-[40px] leading-[24px] sm:max-xl:w-[80%] lg:w-[80%] lg:text-[80px] lg:leading-[84px]">{blok.title}</text>
+     * <text className=" w-[60%] mb-3 md:mb-8 mr-3 md:mr-8 xl:mr-14">{blok.overview}</text>
+     * 
+     */
     return(
-        <div className=" flex flex-col md:flex-row h-screen md:h-[400px] lg:h-[650px] xl:h-[800px] text-white" id={blok.anchor_id} {...storyblokEditable(blok)}>
-                <div className=" md:w-[50%] h-[50%] md:h-full flex items-center justify-center  bg-cover " style={{backgroundImage:`url('${blok.leftimage.filename}')`}}>
-                    <text className=" mt-[40%] mx-3 text-[40px] leading-[24px] sm:max-xl:w-[80%] lg:w-[80%] lg:text-[80px] lg:leading-[84px]">{blok.title}</text>
-                </div>
-                <div className=" md:w-[50%] h-[50%] md:h-full flex justify-end items-end bg-cover " style={{backgroundImage:`url('${blok.rightimage.filename}')`}}>
-                    <text className=" w-[60%] mb-3 md:mb-8 mr-3 md:mr-8 xl:mr-14">{blok.overview}</text>
-                </div>
+        <div className=" relative flex flex-col h-screen md:h-[400px] lg:h-[650px] xl:h-[800px] justify-end text-white" id={blok.anchor_id} {...storyblokEditable(blok)}>
+            <div className=" absolute w-[100%] h-[100%] ">
+                <ReactCompareSlider className=" absolute w-[100%] h-[100%]  "
+                    itemOne={<MediaRenderer muted={true} type={blok.leftmedia[0].type} url={blok.leftmedia[0].media.filename} alt={blok.leftmedia[0].media.alt} />}
+                    itemTwo={<MediaRenderer muted={true} type={blok.rightmedia[0].type} url={blok.rightmedia[0].media.filename} alt={blok.rightmedia[0].media.alt} />}
+                    />
             </div>
+            <div className=" flex flex-col z-30 gap-[20px] mx-[20px] mb-[20px] lg:mb-[32px]">
+                <text className=" md:w-[40%] heading1 ">{blok.title}</text>
+                <text className=" md:w-[40%] self-end mb-3 ">{blok.overview}</text>
+            </div>
+        </div>
     )
 }
 

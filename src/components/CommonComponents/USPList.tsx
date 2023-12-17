@@ -13,7 +13,7 @@ export default function USPList({blok}:{blok:any}){
           <text className="w-[620px] heading2 ml-[10px] mt-[30px]" >{blok.heading}</text>
           {
             links.map((link:any)=>(
-              <Pagelink url={link.url.url} text={link.Lable} variant={variant=="white"?"green":"yellow"} /> 
+              <Pagelink key={link._uid} url={link.url.url} text={link.Lable} variant={variant=="white"?"green":"yellow"} /> 
             ))
           }
         </div>

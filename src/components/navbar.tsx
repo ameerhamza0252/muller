@@ -22,6 +22,7 @@ export function capitalizeFirstLetter(string:string) {
 const triggers=['Solutions','Services']
 
 export function Navigation({blok}:{blok:any}){
+    console.log(blok.socials[0].image.filename)
     //const {data}=await Storyblok.get('cdn/stories/navigation', {version:"published"});
     //const items=data.story.content.name;
     //console.log("NAVBAR")
@@ -38,8 +39,8 @@ export function Navigation({blok}:{blok:any}){
      * 
      */
     return(
-        <div className=" absolute hidden md:visible w-full h-[70px] md:flex justify-between text-white z-20">
-            <div className=" h-[35px] w-[166px] bg-[url('/Icon/muller-technology-logo1.svg')] mt-[13px] ml-[18px]"></div>
+        <div className=" absolute hidden md:visible w-full h-[70px] md:flex justify-between text-white z-20 pl-3">
+            <Link href={blok.logo_link.cached_url=="home"?"/":blok.logo_link.url}><Image height={35} width={166} src={blok.logo.filename} alt={blok.logo.alt} /></Link>
             <div className="  flex justify-end items-center w-auto bg-[#00918E]  px-[20px] py-[15px] text-[21px] font-[400] rounded-bl-[8px] gap-[20px]">
             {
                 blok.name.map((n:any)=>(
@@ -57,8 +58,12 @@ export function Navigation({blok}:{blok:any}){
                     </div>
                 ))
             }
-                <Image src="/Icon/Youtube.svg" alt="youtube" width={24} height={24} />
-                <Image src="/Icon/LinkedIn3.svg" alt="linkedin" width={24} height={24} />
+            {
+                blok.socials.map((social:any)=>(
+                    <Link href={social.url.url} target="_blank"><Image src={social.image.filename} alt={social.image.alt} width={24} height={24} key={social._uid} /></Link>
+                ))
+            }
+                
             </div>
         </div>
     )

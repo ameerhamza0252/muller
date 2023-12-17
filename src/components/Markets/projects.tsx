@@ -5,7 +5,7 @@ export default function Projects({blok}:{blok:any}){
     //console.log(blok)
     const {projects}=blok;
     return(
-        <div className=" flex flex-col bg-black text-white px-[20px] xl:px-[40px] pt-[20px] pb-[40px] lg:pb-[112px] gap-[30px] lg:gap-y-[90px] items-center " {...storyblokEditable(blok)}>
+        <div className=" flex flex-col bg-black text-white px-[20px] xl:px-[40px] pt-[20px] pb-[40px] lg:pb-[112px] gap-[30px] lg:gap-y-[90px] items-center " id={blok.anchor_id} {...storyblokEditable(blok)}>
             <text className=" text-B-grey self-start">{blok.title}</text>
             <div className=" flex flex-col text-center gap-[24px]">
                 <text className=" heading2">{blok.heading}</text>

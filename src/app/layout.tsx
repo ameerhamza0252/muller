@@ -36,23 +36,25 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const { data } = await fetchData();
+  const header = (await fetchData('navigation')).data;
+  const footer = (await fetchData('footer')).data; 
+  //console.log(footer) 
   
   return (
     <StoryblokProvider>
       <html lang="en" >
       <body className={inter.className+"scroll-smooth"}>
         <Providers>
-          <StoryblokStory story={data.story} />
+          <StoryblokStory story={header.story} />
           {children}
-          <Footer/>
+          <StoryblokStory story={footer.story} />
         </Providers>
       </body>
     </html>
     </StoryblokProvider>
   )
 }
-export async function fetchData() {
+export async function fetchData(component:"navigation"|"footer") {
   const storyblokApi = getStoryblokApi();
-  return storyblokApi.get(`cdn/stories/navigation`, { version: "published" });
+  return storyblokApi.get(`cdn/stories/${component}`, { version: "published" });
 }

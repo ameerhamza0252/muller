@@ -4,7 +4,7 @@ import Pagelink from "../link";
 export default function SignUpMarkets({blok}:{blok:any}){
     //console.log(blok.link)
     return(
-        <div className="  grid grid-cols-1 md:grid-cols-2 px-[20px] py-[40px] lg:px-[64px] lg:py-[112px] gap-[20px] md:gap-0 md:justify-between items-center md:items-start text-black " {...storyblokEditable(blok)}>
+        <div className="  grid grid-cols-1 md:grid-cols-2 px-[20px] py-[40px] lg:px-[64px] lg:py-[112px] gap-[20px] md:gap-0 md:justify-between items-center md:items-start text-black " id={blok.anchor_id} {...storyblokEditable(blok)}>
             <text className=" heading2">{blok.heading}</text>
             <div className="  grid grid-cols-1 justify-between items-start md:h-[276px] ">
                 <text className=" font-[Roboto]">{blok.overview}</text>
