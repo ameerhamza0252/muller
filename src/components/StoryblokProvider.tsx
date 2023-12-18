@@ -44,6 +44,7 @@ import ContactView from "@/views/Contact/Page";
 import { ContactTopGrid, GetInTouchGrid } from "./Contact/components";
 import Footer from "./footer";
 import { CareerDescription, CareerTop } from "./Career/SingleCareerServer";
+import Premade_Slider from "./Solutions/ClientComponents";
 /** 3. Initialize it as usual */
 storyblokInit({
   accessToken: process.env.STORYBLOKTOKEN,
@@ -72,6 +73,9 @@ storyblokInit({
     ServicesList:ServicesList,
     info:Info,
     contacts:Contact,
+
+    //
+    SolutionsThatWorkTogether:Premade_Slider,
 
     //About
     About:AboutusStory,

@@ -5,7 +5,7 @@ import Pagelink from "../link";
 
 export default function Benefits({blok}:{blok:any}){
     const benefits=blok.benefits
-    console.log(benefits)
+    //console.log(benefits)
     const [count,setCount]=useState(0)
     return (
         <div className=" flex flex-col bg-black min-h-screen py-[112px] px-[64px] gap-[20px] md:gap-[40px] lg:gap-[72px] text-white">

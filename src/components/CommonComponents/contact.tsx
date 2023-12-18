@@ -3,6 +3,7 @@ import { storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import Premade_Slider, { SolutionsThatWorkTogether } from "../Solutions/ClientComponents";
 
 export default function Contact({blok}:{blok:any}) {
     //console.log('CONTACTS OPEN')
@@ -10,7 +11,8 @@ export default function Contact({blok}:{blok:any}) {
     //console.log(contacts[0])
     const [count,setCount]=useState(0)
     return(
-        <div className=" min-h-screen flex flex-col lx-[20px] lg:px-[64px] py-[40px] lg:py-[112px] text-black gap-[30px] lg:gap-[80px]" {...storyblokEditable(blok)}>
+        <>
+            <div className=" min-h-screen flex flex-col lx-[20px] lg:px-[64px] py-[40px] lg:py-[112px] text-black gap-[30px] lg:gap-[80px]" {...storyblokEditable(blok)}>
             <div className=" flex flex-col gap-[24px]">
                 <text>{blok.title}</text>
                 <text className=" heading1">{blok.heading}</text>
@@ -33,5 +35,6 @@ export default function Contact({blok}:{blok:any}) {
                 </div>
             </div>
         </div>
+        </>
     )
 }

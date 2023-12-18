@@ -159,3 +159,16 @@ input[type=checkbox] {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.indicator {
+  justify-self: end;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  background: #FBBA0066;
+  margin: 0 0 0 8px;
+}
+
+.indicator.active {
+  background: #FBBA00;
+}
