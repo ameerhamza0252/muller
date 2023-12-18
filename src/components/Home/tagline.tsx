@@ -10,18 +10,18 @@ export default function Tagline({blok}:{blok:any}){
     //console.log(locations[0])
     return(
         <div className=" min-h-screen flex flex-col md:px-[64px] py-[112px] gap-[80px] text-black">
-            <div className=" grid grid-cols-1">
+            <div className=" grid grid-cols-1 px-[10px] md:px-0">
                 <text>{blok.title}</text>
                 <text className=" mt-[16px] mb-[24px] heading2">{blok.title}</text>
                 <text>{blok.tagline}</text>
             </div>
-            <div className=" flex justify-between items-center">
-                <div className="h-auto flex flex-col gap-[29px]  ">
+            <div className=" flex flex-col md:flex-row gap-10 md:gap-0  md:justify-between items-center">
+                <div className="h-auto max-w-[400px] flex flex-col gap-[29px] px-[20px] ">
                     {locations&&locations.map((l:any,i:number)=>(
-                        <button onMouseOver={()=>setValue(i)} key={l._uid} className={` flex flex-col  pl-[27px] ${value==i?"border-l-[1px]":null} border-brand`}>
+                        <button onMouseOver={()=>setValue(i)} key={l._uid} className={` flex flex-col pl-[10px] md:pl-[27px] text-start ${value==i?"border-l-[1px]":null} border-brand`}>
                         
-                        <text className=" text-[30px] leading-[33px]">{l.country}</text>
-                        <text className=" leading-[33.6px] mt-[16px] mb-[24px]">{l.location}</text>
+                        <text className=" heading3">{l.country}</text>
+                        <text className=" lg:leading-[33.6px] mt-[16px] mb-[24px]">{l.location}</text>
                         <Link href={l.link}><text className=" font-['DM_Mono'] font-[500] text-[18px]">{l.linktext}</text></Link>
                         </button>
                     ))}

@@ -25,11 +25,70 @@ body {
   color:#221E1F;
 }
 
+.heading1{
+  font-weight: 400;
+  font-size: 80px;
+  line-height: 84px;
+}
+
+/* For screens smaller than 600px */
+@media (max-width: 600px) {
+  .heading1 {
+    font-size: 40px;
+    line-height: 44px;
+  }
+}
+
+/* For screens between 600px and 1200px */
+@media (min-width: 601px) and (max-width: 1200px) {
+  .heading1 {
+    font-size: 60px;
+    line-height: 64px;
+  }
+}
+
+/* For screens larger than 1200px */
+@media (min-width: 1201px) {
+  .heading1 {
+    font-size: 80px;
+    line-height: 84px;
+  }
+}
+
+
 .heading2{
   font-weight: 300;
   font-size: 70px;
   line-height: 77px;
 }
+
+/* For screens smaller than 600px */
+@media (max-width: 600px) {
+  .heading2 {
+    font-size: 30px;
+    line-height: 33px;
+  }
+}
+
+/* For screens between 600px and 1200px */
+@media (min-width: 601px) and (max-width: 1200px) {
+  .heading2 {
+    font-size: 50px;
+    line-height: 55px;
+  }
+}
+
+/* For screens larger than 1200px */
+@media (min-width: 1201px) {
+  .heading2 {
+    font-size: 70px;
+    line-height: 77px;
+  }
+}
+
+
+
+
 
 .DM_Roboto_H2{
 font-family: Roboto;
@@ -47,52 +106,124 @@ text-align: center;
   line-height: 66px;
 }
 
+/* For screens smaller than 600px */
+@media (max-width: 600px) {
+  .heading3 {
+    font-size: 25px;
+    line-height: 28px;
+  }
+}
+
+/* For screens between 600px and 1200px */
+@media (min-width: 601px) and (max-width: 1200px) {
+  .heading3 {
+    font-size: 35px;
+    line-height: 38px;
+  }
+}
+
+/* For screens larger than 1200px */
+@media (min-width: 1201px) {
+  .heading3 {
+    font-size: 45px;
+    line-height: 48px;
+  }
+}
+
 .heading4{
   font-weight: 300;
   font-size: 30px;
   line-height: 33px;
 }
 
-.heading1{
-  font-weight: 400;
-  font-size: 80px;
-  line-height: 84px;
+/* For screens smaller than 600px */
+@media (max-width: 600px) {
+  .heading4 {
+    font-size: 15px;
+    line-height: 16px;
+  }
 }
 
+/* For screens between 600px and 1200px */
+@media (min-width: 601px) and (max-width: 1200px) {
+  .heading4 {
+    font-size: 20px;
+    line-height: 22px;
+  }
+}
+
+/* For screens larger than 1200px */
+@media (min-width: 1201px) {
+  .heading4 {
+    font-size: 30px;
+    line-height: 33px;
+  }
+}
+
+
 .Text-16{
-font-size: 16px;
-font-weight: 400;
-line-height: 26px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+/* For screens smaller than 600px */
+@media (max-width: 600px) {
+  .Text-16 {
+    font-size: 12px;
+    line-height: 18px;
+  }
 }
 
 .Roboto_Text-16{
-font-family: Roboto;
-font-size: 16px;
-font-weight: 600;
-line-height: 24px;
-letter-spacing: 0em;
-text-align: center;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+}
 
+/* For screens smaller than 600px */
+@media (max-width: 600px) {
+  .Roboto_Text-16 {
+    font-size: 12px;
+    line-height: 18px;
+  }
 }
 
 .Text-18{
-font-family: Helvetica Neue;
-font-size: 21px;
-font-weight: 400;
-line-height: 34px;
-letter-spacing: 0em;
-text-align: left;
+  font-family: 'Helvetica Neue';
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 34px;
+  letter-spacing: 0em;
+  text-align: left;
+}
 
+/* For screens smaller than 600px */
+@media (max-width: 600px) {
+  .Text-18 {
+    font-size: 14px;
+    line-height: 22px;
+  }
 }
 
 .Roboto_Text-18{
-font-family: Roboto;
-font-size: 18px;
-font-weight: 400;
-line-height: 27px;
-letter-spacing: 0em;
-text-align: center;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: center;
+}
 
+/* For screens smaller than 600px */
+@media (max-width: 600px) {
+  .Roboto_Text-18 {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 
 input[type=checkbox] {

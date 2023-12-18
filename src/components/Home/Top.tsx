@@ -16,16 +16,16 @@ export default function top({blok}:{blok:any}){
         }
         <div className="absolute w-[100%] h-[100%] inner-darker"></div>
         </div>
-          <div className={` flex flex-col min-h-[226px] w-[60%] gap-[30px] ml-[31px] z-30 mb-3`}>
-            <text className=' text-[80px] leading-[84px]'>{blok.Title}</text>
-            <text className=" overflow-hidden ">{blok.description}</text>
+          <div className={` flex flex-col min-h-[226px] lg:w-[60%] gap-[30px] mx-[10px] md:mx-[31px] z-30 mb-3`}>
+            <text className=' heading1 h-[170px] overflow-hidden'>{blok.Title}</text>
+            <text className=" h-[150px] md:h-[300px] overflow-hidden ">{blok.description}</text>
             {
               blok.link.map((link:any)=>(
                 <Pagelink url={link.url.url} text={link.Lable} variant="white" />
               ))
             }
           </div>     
-          <Link href="#solutuions" className=' self-center z-20 mb-5 ' ><Image src="/Icon/down.svg" alt='scroll' className=" self-end" width={50} height={50} /></Link>
+          <Link href="#solutuions" className=' self-center z-20 mb-5 ' ><Image src="/Icon/down.svg" alt='scroll' className=" scale-75 md:scale-100 self-end" width={50} height={50} /></Link>
     </div>
     )
 }

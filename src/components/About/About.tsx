@@ -29,10 +29,10 @@ export function AboutTop({blok}:{blok:any}){
 export function Philosophy({blok}:{blok:any}){
     //console.log(blok)
     return(
-        <div className=" min-h-screen flex flex-col px-[15px] lg:px-0 lg:pl-[32px] xl:pl-[5%] lg:pr-[72px] xl:pr-[10%] bg-black text-white " id={blok.anchor_id} {...storyblokEditable(blok)}>
+        <div className=" min-h-screen flex flex-col py-[10px] px-[15px] lg:px-0 lg:pl-[32px] xl:pl-[5%] lg:pr-[72px] xl:pr-[10%] bg-black text-white " id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <text className=" mt-[10px] md:mt-[20px] lg:mt-[40px] xl:mt-[70px] text-[#E7E9EA]">{blok.title}</text>
                 <div className=" flex flex-col justify-between lg:flex-row mt-[10px] md:mt-[30px] lg:mt-[68px] xl-[200px]">
-                    <text className=" heading2 w-[40%]">{blok.heading}</text>
+                    <text className=" heading2 lg:w-[40%]">{blok.heading}</text>
                     <text className=" lg:w-[40%] mt-[5%]  " >{blok.description}</text>
                 </div>
             </div>

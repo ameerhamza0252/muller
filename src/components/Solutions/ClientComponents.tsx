@@ -102,22 +102,22 @@ const responsiveSettings = [
     {
         breakpoint: 1900,
         settings: {
-            slidesToShow: 6,
-            slidesToScroll: 6
+            slidesToShow: 3,
+            slidesToScroll: 1
         }
     },
     {
         breakpoint: 1200,
         settings: {
-            slidesToShow: 4,
-            slidesToScroll: 4
+            slidesToShow: 3,
+            slidesToScroll: 1
         }
     },
     {
         breakpoint: 700,
         settings: {
             slidesToShow: 2,
-            slidesToScroll: 2
+            slidesToScroll: 1
         }
     },{
         breakpoint: 400,
@@ -187,8 +187,8 @@ const Premade_Slider = ({blok}:{blok:any}) => {
                         const stop=s.content.blocks.filter((b:any)=>b.component=="stop")[0]
                         //const cardimage=s.content.cardimage?s.content.cardimage:null;
                     return (
-                        <div className=" flex w-[310px]" key={s.uuid}>
-                            <div className=" flex flex-col gap-4 ">
+                        <div className=" flex justify-center " key={s.uuid}>
+                            <div className=" flex w-[310px] flex-col gap-4 ">
                             <div className=" relative h-[304px] " style={{backgroundPosition:"center"}}>
                                 <Image src={s.content.cardimage?s.content.cardimage.filename:''} alt={s.content.cardimage?s.content.cardimage.alt:""} fill objectFit="contain" />
                             </div>
@@ -196,8 +196,8 @@ const Premade_Slider = ({blok}:{blok:any}) => {
                                 <text className=" heading4">{stop.heading}</text>
                                 <text className=" text-[16px]">{stop.description}</text>
                             </div>
-                            <Link href={"/"+s.full_slug} className=" text-center text-[18px] font-[500] font-DM_Mono leading-[28.8px] border-brand border-b py-2 ">Button for text</Link>
-                        </div>
+                            <Link href={"/"+s.full_slug} className=" text-center text-[18px] font-[500] font-DM_Mono leading-[28.8px] border-brand border-b py-2 ">{blok.Card_Button_Text}</Link>
+                         </div>
                         </div>
                     )})
                 }

@@ -8,8 +8,8 @@ import { capitalizeFirstLetter } from "./navbar";
 export default function Footer({blok}:{blok:any}){
     //console.log(blok)
     return (
-        <div className=" flex flex-col px-[20px] py-[40px] md:px-[64px] md:py-[80px] gap-y-[80px] text-black font-[500] text-[14px] font-['DM_Mono']">
-            <div className=" flex justify-between">
+        <div className=" flex flex-col px-[10px] md:px-[30px] lg:px-[64px] py-[20px] md:py-[40px] lg:py-[80px] gap-y-[20px] md:gap-y-[40px] lg:gap-y-[80px] text-black font-[500] text-[14px] font-['DM_Mono']">
+            <div className=" flex flex-col md:flex-row justify-between ">
                 <div className=" w-auto md:w-[500px] grid grid-cols-1 gap-[24px]">
                 <Link href={blok.logo_link.cached_url=="home"?"/":blok.logo_link.url}><Image src={blok.logo.filename} width={166} height={36} alt={blok.logo.alt}/></Link>
                     <text className=" font-['DM Mono'] text-[14px] leading-[22.4px]">{blok.message}</text>
@@ -27,15 +27,15 @@ export default function Footer({blok}:{blok:any}){
                     }
                 </div>
             </div>
-            <div className=" flex justify-between border-t-[1px] font-[400] border-brand pt-[32px]">
-                <div className=" flex flex-wrap gap-x-[24px] lg:gap-x-[30px]">
+            <div className=" flex flex-col md:flex-row justify-between border-t-[1px] border-brand pt-[32px] gap-[20px] md:gap-0">
+                <div className=" flex flex-wrap gap-x-[24px] gap-y-[15px] lg:gap-x-[30px]">
                     {
                         blok.corporate_links.map((link:any)=>(
                             <Link href={link.url.url}>{link.Lable}</Link>
                         ))
                     }
                 </div>
-                <div className=" flex gap-2 scale-150 text-brand">
+                <div className=" flex flex-wrap gap-2 md:scale-150 text-brand  ">
                 {
                     blok.socials.map((social:any)=>(
                         <Link href={social.url.url} target="_blank"><Image src={social.image.filename} alt={social.image.alt} width={24} height={24} key={social._uid} /></Link>

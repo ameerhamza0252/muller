@@ -13,12 +13,12 @@ export default function ItemsCard({blok,buttontext}:{blok:any,buttontext:string}
     return(
       <>
         <Skeleton isLoaded={!isLoading} fitContent={true}  > 
-          <div className=' flex flex-col md:w-[450px] lg:w-[700px] xl:w-[800px]  min-h-[600px] lg:h-[936px] xl:h-auto justify-stretch px-[10px] gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
+        <div className=' self-center flex flex-col w-[300px] md:w-[450px] lg:w-[700px] xl:w-[800px] min-h-[400px] md:min-h-[600px] lg:h-[936px] xl:h-auto justify-stretch px-[10px] gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
           
           </div>
       </Skeleton>
       <Skeleton isLoaded={!isLoading} fitContent={true}  > 
-      <div className=' flex flex-col md:w-[450px] lg:w-[700px] xl:w-[800px]  min-h-[600px] lg:h-[936px] xl:h-auto justify-stretch px-[10px] gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
+      <div className=' self-center flex flex-col w-[300px] md:w-[450px] lg:w-[700px] xl:w-[800px] min-h-[400px] md:min-h-[600px] lg:h-[936px] xl:h-auto justify-stretch px-[10px] gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
       
         </div>
     </Skeleton>
@@ -35,7 +35,7 @@ export default function ItemsCard({blok,buttontext}:{blok:any,buttontext:string}
               //console.log(stop)
               return(
                 <Skeleton isLoaded={!isLoading} fitContent={true}  > 
-                    <div className=' flex flex-col md:w-[450px] lg:w-[700px] xl:w-[800px]  min-h-[600px] lg:h-[936px] xl:h-auto justify-stretch px-[10px] gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
+                    <div className=' flex flex-col w-full md:w-[450px] lg:w-[700px] xl:w-[800px] min-h-[400px] md:min-h-[600px] lg:h-[936px] xl:h-auto justify-stretch px-[10px] gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
                     <div className=' relative w-full min-h-[358px] lg:h-[450px]'>
                         <Image src={stop.image.filename} placeholder='empty' alt={stop.image.alt} fill />
                     </div>
