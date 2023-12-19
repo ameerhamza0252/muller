@@ -314,3 +314,22 @@ input[type=checkbox] {
 .indicator.active {
   background: #FBBA00;
 }
+
+
+@layer components {
+  .animate-upward {
+    animation: marquee 30s linear infinite;
+  }
+  .animate-downward{
+    animation: reverse-marquee 30s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100%); }
+  }
+
+  @keyframes reverse-marquee {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+  }
+}

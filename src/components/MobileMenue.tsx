@@ -51,7 +51,7 @@ export function MobileMenue({blok}:{blok:any}){
             <Accordion className=" flex flex-col gap-[10px] text-center" allowToggle>
             {
                 blok.name.map((n:any,index:number)=>(
-                    <AccordionItem className=" w-full flex justify-evenly min-h-[37px] ">
+                    <AccordionItem className=" w-full flex flex-col justify-evenly min-h-[37px] ">
                         
                         <AccordionButton className="  ">
                            <AccordionIcon scale={250} direction={90} />

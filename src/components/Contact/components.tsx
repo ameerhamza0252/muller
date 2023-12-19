@@ -2,10 +2,17 @@ import Image from "next/image";
 import Pagelink from "../link";
 import { GetInTouch } from "../Career/SingleCareerClient";
 import MediaRenderer from "../MediaComponent";
+  // in code ES6
+import InfiniteScroll from 'react-infinite-scroll-component';
+
 
 export function ContactTopGrid({blok}:{blok:any}){
     //console.log(blok.image_list1)
     const link=blok.link[0]
+
+    function fetch_list_1(){
+        return blok.image_list1
+    }
     return(
         <div className=" min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-between gap-[20px] px-[10px] md:px-[64px] py-[40px] " id="image-grid">
                 <div className=" flex flex-col gap-[24px]">
@@ -13,24 +20,47 @@ export function ContactTopGrid({blok}:{blok:any}){
                     <text>{blok.subheading}</text>
                     <Pagelink url={link.url.url} text={link.Lable} variant="green" />
                 </div>
-                <div className=" w-full grid grid-cols-2 gap-[16px] ">
-                    <div className="  flex flex-col w-full overflow-auto scroll-m-2 scroll-smooth h-screen snap-y snap-mandatory gap-[16px]">
+                <div className=" relative grid grid-cols-2 gap-[16px] ">
+                    <div className=" h-screen flex flex-col  w-full overflow-auto gap-[16px] ">
+                        <div className=" flex flex-col gap-[16px] animate-upward">
+                        {
+                        blok.image_list1&&blok.image_list1.map((image:any)=>(
+                            <div className=" relative snap-always snap-center w-full md:w-[264px] min-h-[250px] md:min-h-[340px]">
+                                <Image src={image.filename} priority fill alt={image.alt} key={image._uid} />
+                            </div>
+                        ))
+                        }
+                        </div>
+                        <div className=" flex flex-col gap-[16px] animate-upward">
                         {
                         blok.image_list1&&blok.image_list1.map((image:any)=>(
                             <div className=" relative  snap-always snap-center w-full md:w-[264px] min-h-[250px] md:min-h-[340px]">
                                 <Image src={image.filename} priority fill alt={image.alt} key={image._uid} />
                             </div>
                         ))
-                    }
+                        }
+                        </div>
                     </div>
-                    <div className=" flex flex-col overflow-y-auto scroll-smooth h-screen snap-y snap-mandatory gap-[16px]">
-                    {
-                        blok.image_list2&&blok.image_list2.map((image:any)=>(
-                            <div className=" relative  snap-always snap-center ww-full md:w-[264px] min-h-[250px] md:min-h-[340px]">
-                                <Image src={image.filename} fill alt={image.alt} key={image._uid}  />
+                    
+                    <div className=" h-screen flex flex-col  w-full overflow-auto gap-[16px] ">
+                        <div className=" flex flex-col gap-[16px] animate-downward">
+                        {
+                        blok.image_list1&&blok.image_list1.map((image:any)=>(
+                            <div className=" relative snap-always snap-center w-full md:w-[264px] min-h-[250px] md:min-h-[340px]">
+                                <Image src={image.filename} priority fill alt={image.alt} key={image._uid} />
                             </div>
                         ))
-                    }
+                        }
+                        </div>
+                        <div className=" flex flex-col gap-[16px] animate-downward">
+                        {
+                        blok.image_list1&&blok.image_list1.map((image:any)=>(
+                            <div className=" relative  snap-always snap-center w-full md:w-[264px] min-h-[250px] md:min-h-[340px]">
+                                <Image src={image.filename} priority fill alt={image.alt} key={image._uid} />
+                            </div>
+                        ))
+                        }
+                        </div>
                     </div>
                 </div>
             </div>
