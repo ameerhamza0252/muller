@@ -33,9 +33,8 @@ import {
 
 export function MobileMenue({blok}:{blok:any}){
     const [isOpen,setIsOpen]=useState(false);
-    const [current,setCurrent]=useState(0)
 
-    return <div className={`w-full absolute flex justify-between z-50 min-h-[37px] lg:invisible  lg:hidden ${!isOpen?"bg-brand":""}`}>
+    return <div className={`w-full absolute flex justify-between z-50 min-h-[37px] lg:invisible  lg:hidden ${isOpen?"bg-brand":""}`}>
             <Link href={blok.logo_link.cached_url=="home"?"/":blok.logo_link.url}><Image className=" drop-shadow-2xl z-40" height={35} width={166} src={blok.logo.filename} alt={blok.logo.alt} /></Link>
             <div className={` flex flex-row-reverse items-center gap-[10px] md:gap-[20px]  px-[20px] rounded-bl-[8px] bg-brand`}>
             {
