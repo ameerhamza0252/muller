@@ -6,7 +6,7 @@ import MediaRenderer from '../MediaComponent'
 export default function Numbers({blok}:{blok:any}){
     //console.log(blok.media[0])
     return(
-        <div className=" relative h-screen flex items-center md:flex-row justify-between bg-cover text-white " {...storyblokEditable(blok)} >
+        <div className=" relative h-screen flex items-center md:flex-row justify-between bg-cover text-white " id={blok.anchor_id} {...storyblokEditable(blok)} >
             <div className=" absolute w-[100%] h-[100%] shadow-inner z-10 "  onPlay={()=>console.log('Playing')} >
             {
                 blok.media&&blok.media.map((m:any)=>(

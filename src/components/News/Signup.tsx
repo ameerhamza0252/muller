@@ -1,9 +1,10 @@
+import { storyblokEditable } from "@storyblok/react";
 import Pagelink from "../link";
 
 export default async function Signup({blok}:{blok:any}) {
     //console.log(blok)
     return(
-        <div className=" h-screen flex items-center justify-center text-center bg-black text-white">
+        <div className=" h-screen flex items-center justify-center text-center bg-black text-white" id={blok.anchor_id} {...storyblokEditable(blok)}>
             <div className=" flex flex-col gap-[24px] px-[20px] md:px-0 md:w-3/4 ">
                 <text className=" heading4">{blok.heading}</text>
                 <text className=" ">{blok.overview}</text>

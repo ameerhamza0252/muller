@@ -5,7 +5,7 @@ import { render } from "storyblok-rich-text-react-renderer"
 export async function CareerTop({blok}:{blok:any}){
     //console.log(blok)
     return(
-        <div className=" min-h-screen flex flex-col items-center gap-[30px] lg:gap-[80px] py-[50px] lg:py-[112px]" {...storyblokEditable(blok)}>
+        <div className=" min-h-screen flex flex-col items-center gap-[30px] lg:gap-[80px] py-[50px] lg:py-[112px]" id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <div className=" w-full lg:w-3/5 flex flex-col gap-[24px] px-[30px] lg:px-[64px]">
                     <text className=" text-[16px] leading-[25.6px]">{blok.category}</text>
                     <text className=" heading1">{blok.title}</text>
@@ -31,7 +31,7 @@ export async function CareerTop({blok}:{blok:any}){
 export async function CareerDescription({blok}:{blok:any}){
     //console.log(blok)
     return(
-        <div className=" flex items-center justify-center lg:gap-[80px] px-[10px] py-[40px] lg:py-[112px]" {...storyblokEditable(blok)}>
+        <div className=" flex items-center justify-center lg:gap-[80px] px-[10px] py-[40px] lg:py-[112px]" id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <div className=" w-full md:w-3/4 ">
                     <text className="">{render(blok.description)}</text>
                     <div className=" flex items-end justify-between mt-[24px] lg:mt-[64px]">

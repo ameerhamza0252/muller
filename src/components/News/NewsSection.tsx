@@ -1,4 +1,4 @@
-import { getStoryblokApi } from "@storyblok/react";
+import { getStoryblokApi, storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,7 +12,7 @@ export default async function NewsSection({blok}:{blok:any}) {
     //console.log("NewsList Fetched");
     //console.log(blok)
     return(
-        <div className=" flex flex-col py-[40px] lg:py-[112px] px-[20px] lg:px-[64px] gap-[80px]">
+        <div className=" flex flex-col py-[40px] lg:py-[112px] px-[20px] lg:px-[64px] gap-[80px]" id={blok.anchor_id} {...storyblokEditable(blok)}>
             <div className=" flex flex-col gap-[16px]">
                 <text>{blok.title}</text>
                 <div className=" flex justify-between ">

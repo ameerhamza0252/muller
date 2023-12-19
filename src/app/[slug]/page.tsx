@@ -6,9 +6,9 @@ export default async function Page({params:{slug}}:{params:{slug:any}}){
     //console.log(slug)
     const {data}=await fetchData(slug)
     const story=data.stories[0]
-    console.log(story)
+    //console.log(story)
     return(
-        <div className=" min-h-screen px-[20x] py-[40px] lg:px-[64px] lg:py-[112px] ">
+        <div className=" min-h-screen px-[20px] py-[40px] lg:py-[112px] ">
             {render(story.content.pagedata)}
         </div>
     )

@@ -12,7 +12,7 @@ export function HeadingsDescription({blok}:{blok:any}){
     const [value,setValue]=useState(0)
     return (
         <>
-            <div className=" grid grid-cols-3" {...storyblokEditable(blok)}>
+            <div className=" grid grid-cols-3" {...storyblokEditable(blok)} id={blok.anchor_id}>
                 <div className=" flex flex-col col-span-2  gap-[40px]">
                     {content.headings.map((h:any)=>(
                         <div className=" flex flex-col gap-[16px]"  key={h._uid}>
@@ -42,7 +42,7 @@ export async function DiscoverNews({blok}:{blok:any}){
     const newslist = await Promise.all(newsPromises);
     //console.log(newslist)
     return(
-        <div className=" min-h-screen flex flex-col bg-black text-white px-[20px] lg:px-[64px] py-[40px] lg:py-[112px]" {...storyblokEditable(blok)} >
+        <div className=" min-h-screen flex flex-col bg-black text-white px-[20px] lg:px-[64px] py-[40px] lg:py-[112px]" id={blok.anchor_id} {...storyblokEditable(blok)} >
             <text className=" mb-[16px] Text-16 ">Latest</text>
             <text className=" heading2 mb-[24px] ">Discover our latest news</text>
             <text className=" mb-[80px]">Stay updated with our latest news articles.</text>
@@ -63,7 +63,7 @@ export function DiscoverNewsCard({blok,variant="white"}:{blok:any,variant?:strin
     const {content}=blok;
     //console.log(blok.slug)
     return(
-        <div className={`flex flex-col md:w-[336px] gap-[24px] ${variant=='black'?'bg-black text-white':null}`}>
+        <div className={`flex flex-col md:w-[336px] gap-[24px] ${variant=='black'?'bg-black text-white':null}`} id={blok.anchor_id}>
             <div className=" relative h-[300px]">
                 <Image src={content.image.filename} alt={content.image.alt} fill />
             </div>

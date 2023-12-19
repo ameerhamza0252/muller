@@ -30,11 +30,12 @@ import {
     CollapsibleContent,
     CollapsibleTrigger,
   } from "@/components/ui/collapsible"
+import { storyblokEditable } from "@storyblok/react"
 
 export function MobileMenue({blok}:{blok:any}){
     const [isOpen,setIsOpen]=useState(false);
 
-    return <div className={`w-full absolute flex justify-between z-50 min-h-[37px] lg:invisible  lg:hidden ${isOpen?"bg-brand":""}`}>
+    return <div className={`w-full absolute flex justify-between z-50 min-h-[37px] lg:invisible  lg:hidden ${isOpen?"bg-brand":""}`} {...storyblokEditable(blok)}>
             <Link href={blok.logo_link.cached_url=="home"?"/":blok.logo_link.url}><Image className=" drop-shadow-2xl z-40" height={35} width={166} src={blok.logo.filename} alt={blok.logo.alt} /></Link>
             <div className={` flex flex-row-reverse items-center gap-[10px] md:gap-[20px]  px-[20px] rounded-bl-[8px] bg-brand`}>
             {
@@ -50,7 +51,7 @@ export function MobileMenue({blok}:{blok:any}){
             <Accordion className=" flex flex-col gap-[10px] text-center" allowToggle>
             {
                 blok.name.map((n:any,index:number)=>(
-                    <AccordionItem className=" w-full flex flex-col justify-evenly min-h-[37px] ">
+                    <AccordionItem className=" w-full flex flex-col justify-evenly min-h-[37px] " key={n._uid}>
                         
                         <AccordionButton className="  ">
                            <AccordionIcon scale={250} direction={90} />

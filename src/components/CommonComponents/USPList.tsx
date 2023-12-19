@@ -1,4 +1,5 @@
 import Pagelink from "@/components/link";
+import { storyblokEditable } from "@storyblok/react";
 
 export default function USPList({blok}:{blok:any}){
   const variant=blok.variant
@@ -7,7 +8,7 @@ export default function USPList({blok}:{blok:any}){
   const {usplist}=blok;
   
     return(
-        <div className={` relative flex flex-col h-auto py-[40px] md:py-[95px] px-[10px] md:px-[20px] lg:px-[41px] font-[300] ${variant!='black'?'text-black':' bg-black text-white'} `}  id='services'>
+        <div className={` relative flex flex-col h-auto py-[40px] md:py-[95px] px-[10px] md:px-[20px] lg:px-[41px] font-[300] ${variant!='black'?'text-black':' bg-black text-white'} `}  id={blok.anchor_id} {...storyblokEditable(blok)}>
         <text className=' text-[21px]'>{blok.title}</text>
         <div className=' flex md:justify-between gap-[20px] lg:px-[10px] mt-[30px] lg:mt-[65px] items-end'>
           <text className=" heading2 ml-[10px] mt-[15px] lg:mt-[30px]" >{blok.heading}</text>

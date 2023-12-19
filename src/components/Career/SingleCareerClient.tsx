@@ -19,7 +19,7 @@ import Pagelink from "@/components/link";
 export function CareerTop({blok}:{blok:any}){
     //console.log(blok)
     return(
-        <div className=" min-h-screen flex flex-col items-center gap-[30px] lg:gap-[80px] py-[40px] lg:py-[112px]" {...storyblokEditable(blok)}>
+        <div className=" min-h-screen flex flex-col items-center gap-[30px] lg:gap-[80px] py-[40px] lg:py-[112px]" id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <div className=" w-full lg:w-3/5 flex flex-col gap-[24px] px-[30px] lg:px-[64px]">
                     <text className=" text-[16px] leading-[25.6px]">{blok.category}</text>
                     <text className=" heading1">{blok.title}</text>
@@ -45,7 +45,7 @@ export function CareerTop({blok}:{blok:any}){
 export async function CareerDescription({blok}:{blok:any}){
     //console.log(blok)
     return(
-        <div className=" flex items-center justify-center lg:gap-[80px] py-[40px] lg:py-[112px]" {...storyblokEditable(blok)}>
+        <div className=" flex items-center justify-center lg:gap-[80px] py-[40px] lg:py-[112px]" id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <div className=" w-3/4">
                     <text className="">{render(blok.description)}</text>
                     <div className=" flex items-end justify-between mt-[24px] lg:mt-[64px]">
@@ -93,7 +93,7 @@ export async function CareerDescription({blok}:{blok:any}){
    const {color_variant}=blok;
    const border=color_variant=="black"?"border-b-B-Yellow":"border-b-brand";
     return (
-      <div className={`flex flex-col  min-h-screen justify-center items-center ${color_variant=="black"?"bg-black text-white":''} gap-[20px] md:gap-[40px] lg:gap-[80px] py-[40px] lg:py-[112px] px-[30px] lg:px-[64px]`} {...storyblokEditable(blok)}>
+      <div className={`flex flex-col  min-h-screen justify-center items-center ${color_variant=="black"?"bg-black text-white":''} gap-[20px] md:gap-[40px] lg:gap-[80px] py-[40px] lg:py-[112px] px-[30px] lg:px-[64px]`} id={blok.anchor_id} {...storyblokEditable(blok)}>
         <div className={` flex flex-col ${blok.textalign}`}>
             <text className={`${color_variant=="black"?"Roboto_Text-16":''} mb-[16px]`}>{blok.title}</text>
             <text className={`${color_variant=="black"?" font-['Roboto'] text-[48px] font-[700] leading-[57px]":"heading2"} mb-[24px]`}>{blok.heading}</text>
@@ -166,7 +166,7 @@ import { storyblokEditable } from "@storyblok/react"
     const link=blok.link[0]
     //console.log(blok)
     return(
-        blok.variant=="vertical"?(<div className=" flex flex-col gap-[20px] md:gap-[80px] px-[10px] md:px-[64px] py-[40px] md:py-[112px]" {...storyblokEditable(blok)}>
+        blok.variant=="vertical"?(<div className=" flex flex-col gap-[20px] md:gap-[80px] px-[10px] md:px-[64px] py-[40px] md:py-[112px]" id={blok.anchor_id} {...storyblokEditable(blok)}>
             <div className=" grid grid-cols-1 gap-[24px]">
                 <text className=" heading2">{blok.title}</text>
                 <text>{blok.overview}</text>

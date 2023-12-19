@@ -1,10 +1,11 @@
+import { storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function BlogSection({blok}:{blok:any}) {
     //console.log(blok.blogs)
     return(
-        <div className=" flex flex-col px-[20px] lg:px-[68px] pt-[13px] pb-[40px] lg:pb-[113px] ">
+        <div className=" flex flex-col px-[20px] lg:px-[68px] pt-[13px] pb-[40px] lg:pb-[113px] " id={blok.anchor_id} {...storyblokEditable(blok)}>
             <text className=" pl-2">{blok.title}</text>
             <div className=" flex flex-col self-center md:text-center ">
                 <text className=" heading1">{blok.heading}</text>

@@ -4,6 +4,7 @@ import { GetInTouch } from "../Career/SingleCareerClient";
 import MediaRenderer from "../MediaComponent";
   // in code ES6
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { storyblokEditable } from "@storyblok/react";
 
 
 export function ContactTopGrid({blok}:{blok:any}){
@@ -14,7 +15,7 @@ export function ContactTopGrid({blok}:{blok:any}){
         return blok.image_list1
     }
     return(
-        <div className=" min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-between gap-[20px] px-[10px] md:px-[64px] py-[40px] " id="image-grid">
+        <div className=" min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-between gap-[20px] px-[10px] md:px-[64px] py-[40px] " id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <div className=" flex flex-col gap-[24px]">
                     <text className=" heading1">{blok.heading}</text>
                     <text>{blok.subheading}</text>
@@ -70,7 +71,7 @@ export function ContactTopGrid({blok}:{blok:any}){
 export function GetInTouchGrid({blok}:{blok:any}){
     //console.log(blok)
     return(
-        <div className=" min-h-screen grid grid-cols-1 lg:grid-cols-2 items-center lg:justify-between md:px-[64px] py-[40px] lg:py-[112px] gap-4">
+        <div className=" min-h-screen grid grid-cols-1 lg:grid-cols-2 items-center lg:justify-between md:px-[64px] py-[40px] lg:py-[112px] gap-4" id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <div className=" relative min-h-[400px] lg:h-[600px] w-[90%] md:h-[90%] pointer-events-none ">
                 {
                     blok.media&&blok.media.map((m:any)=>(

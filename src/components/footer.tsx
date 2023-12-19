@@ -3,12 +3,13 @@ import Link from "next/link";
 import { FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import { TfiLinkedin } from "react-icons/tfi";
 import { capitalizeFirstLetter } from "./navbar";
+import { storyblokEditable } from "@storyblok/react";
 
 
 export default function Footer({blok}:{blok:any}){
     //console.log(blok)
     return (
-        <div className=" flex flex-col px-[10px] md:px-[30px] lg:px-[64px] py-[20px] md:py-[40px] lg:py-[80px] gap-y-[20px] md:gap-y-[40px] lg:gap-y-[80px] text-black font-[500] text-[14px] font-['DM_Mono']">
+        <div className=" flex flex-col px-[10px] md:px-[30px] lg:px-[64px] py-[20px] md:py-[40px] lg:py-[80px] gap-y-[20px] md:gap-y-[40px] lg:gap-y-[80px] text-black font-[500] text-[14px] font-['DM_Mono']" {...storyblokEditable(blok)}>
             <div className=" flex flex-col md:flex-row justify-between ">
                 <div className=" w-auto md:w-[500px] grid grid-cols-1 gap-[24px]">
                 <Link href={blok.logo_link.cached_url=="home"?"/":blok.logo_link.url}><Image src={blok.logo.filename} width={166} height={36} alt={blok.logo.alt}/></Link>

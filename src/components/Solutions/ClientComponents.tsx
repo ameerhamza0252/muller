@@ -1,12 +1,14 @@
 "use client"
 
 import { Skeleton } from "@chakra-ui/react";
-import { getStoryblokApi } from "@storyblok/react";
+import { getStoryblokApi, storyblokEditable } from "@storyblok/react";
 import Image from "next/image"
 import Link from "next/link";
 import { useState } from "react"
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi"
 
+
+/**
 const slides=[{url:"https://a.storyblok.com/f/263886/3998x2671/46132ccecc/muller_l2183997.webp",alt:"alt_name"},
 {url:"https://a.storyblok.com/f/263886/3998x2671/46132ccecc/muller_l2183997.webp",alt:"alt_name"},
 {url:"https://a.storyblok.com/f/263886/3998x2671/46132ccecc/muller_l2183997.webp",alt:"alt_name"},
@@ -93,6 +95,7 @@ export function SolutionsThatWorkTogether({ blok }: { blok: any }) {
       </div>
     );
   }
+*/
 
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
@@ -170,7 +173,7 @@ const Premade_Slider = ({blok}:{blok:any}) => {
   console.log(data)
 
     return (
-        <div className="flex flex-col lg:px-[64px] py-[40px] lg:py-[112px] gap-[40px] md:gap-[80px]">
+        <div className="flex flex-col lg:px-[64px] py-[40px] lg:py-[112px] gap-[40px] md:gap-[80px]" id={blok.anchor_id} {...storyblokEditable(blok)} >
             <div className="flex flex-col gap-[16px] mb-[40px]">
             <text>{blok.title}</text>
             <text className="heading3">{blok.heading}</text>
