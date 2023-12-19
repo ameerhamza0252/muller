@@ -12,7 +12,7 @@ export default async function SolutionsList({blok}:{blok:any}){
         <div className=" flex flex-col h-auto py-[30px] lg:py-[95px] px-[10px] md:px-[24px] xl:px-[34px] " >
           <text className=' text-[21px]'>{blok.title}</text>
           <text className=" max-w-[600px] heading2 ml-[10px] mt-[30px]" >{blok.heading}</text>
-          <div className=' grid grid-cols-1 md:grid-cols-2 justify-center gap-[20px] lg:px-[10px] mt-[30px] lg:mt-[65px]'>
+          <div className=' grid grid-cols-1 md:grid-cols-2 w-full justify-center gap-[20px] lg:px-[10px] mt-[30px] lg:mt-[65px]'>
              
                 <ItemsCard buttontext={blok.buttontext} blok={blok.solutions}/>
              

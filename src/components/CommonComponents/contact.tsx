@@ -25,7 +25,7 @@ export default function Contact({blok}:{blok:any}) {
                         <button className={`grid grid-cols-1 text-start gap-[24px] pl-[32px] ${count==i?"border-l-2":null} border-brand`} onClick={()=>setCount(i)} key={c._uid} >
                         <text className=" heading4">{c.country}</text>
                         <text className=" ">{c.name}</text>
-                        <Link href={c.link.url} className=" font-['DM_Mono'] font-[500] text-[18px]">{c.link_text}</Link>
+                        <Link href={c.link.linktype=="email"?"mailto:"+c.link.url:c.link.url} className=" font-['DM_Mono'] font-[500] text-[18px]">{c.link_text}</Link>
                         </button>
                     ))
                 }

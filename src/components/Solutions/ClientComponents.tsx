@@ -170,24 +170,24 @@ const Premade_Slider = ({blok}:{blok:any}) => {
   console.log(data)
 
     return (
-        <div className="flex flex-col px-[20px] lg:px-[64px] py-[40px] lg:py-[112px] gap-[80px]">
+        <div className="flex flex-col lg:px-[64px] py-[40px] lg:py-[112px] gap-[40px] md:gap-[80px]">
             <div className="flex flex-col gap-[16px] mb-[40px]">
             <text>{blok.title}</text>
             <text className="heading3">{blok.heading}</text>
-            <div className="flex justify-between">
+            <div className="flex flex-col md:flex-row px-2 justify-between gap-[10px]">
                 <text>{blok.overview}</text>
                 <Link href={blok.button_link.fieldtype=="story"?blok.button_link.cached_url:blok.button_link.url} className="px-[24px] py-[12px] border-b border-b-brand">
                 {blok.button_text}
                 </Link>
             </div>
             </div>
-            <Slide indicators={(index)=><div className=" indicator"></div>} {...props} autoplay={false} slidesToShow={3} responsive={responsiveSettings} >
+            <Slide indicators={(index)=><div className=" indicator"></div>} {...props} autoplay={false} responsive={responsiveSettings} >
                 {
                     data&&data.map((s:any)=>{
                         const stop=s.content.blocks.filter((b:any)=>b.component=="stop")[0]
                         //const cardimage=s.content.cardimage?s.content.cardimage:null;
                     return (
-                        <div className=" flex justify-center " key={s.uuid}>
+                        <div className=" flex w-full justify-center " key={s.uuid}>
                             <div className=" flex w-[310px] flex-col gap-4 ">
                             <div className=" relative h-[304px] " style={{backgroundPosition:"center"}}>
                                 <Image src={s.content.cardimage?s.content.cardimage.filename:''} alt={s.content.cardimage?s.content.cardimage.alt:""} fill objectFit="contain" />

@@ -82,7 +82,7 @@ export async function CareerDescription({blok}:{blok:any}){
   })
   
   export function GetInTouch({blok}:{blok:any}) {
-    console.log(blok)
+    //console.log(blok)
     const form = useForm<z.infer<typeof FormSchema>>({
       resolver: zodResolver(FormSchema),
     })
@@ -166,12 +166,12 @@ import { storyblokEditable } from "@storyblok/react"
     const link=blok.link[0]
     //console.log(blok)
     return(
-        blok.variant=="vertical"?(<div className=" flex flex-col gap-[20px] md:gap-[80px] px-[20px] md:px-[64px] py-[40px] md:py-[112px]" {...storyblokEditable(blok)}>
+        blok.variant=="vertical"?(<div className=" flex flex-col gap-[20px] md:gap-[80px] px-[10px] md:px-[64px] py-[40px] md:py-[112px]" {...storyblokEditable(blok)}>
             <div className=" grid grid-cols-1 gap-[24px]">
                 <text className=" heading2">{blok.title}</text>
                 <text>{blok.overview}</text>
             </div>
-            <Accordion type="single" className="" collapsible>
+            <Accordion type="single" className=" w-full " collapsible>
                 {
                     blok.questions.map((question:any)=>(
                         <AccordionItem value={question._uid} className=" gap-0" key={question._uid}>

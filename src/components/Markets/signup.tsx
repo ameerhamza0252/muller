@@ -6,7 +6,7 @@ export default function SignUpMarkets({blok}:{blok:any}){
     return(
         <div className="  grid grid-cols-1 md:grid-cols-2 px-[20px] py-[40px] lg:px-[64px] lg:py-[112px] gap-[20px] md:gap-0 md:justify-between items-center md:items-start text-black " id={blok.anchor_id} {...storyblokEditable(blok)}>
             <text className=" heading2">{blok.heading}</text>
-            <div className="  grid grid-cols-1 justify-between items-start md:h-[276px] ">
+            <div className="  grid grid-cols-1 justify-between items-start gap-[20px] md:h-[276px] ">
                 <text className=" font-[Roboto]">{blok.overview}</text>
                 <input className=" p-[12px] text-grey-2 font-[] border-b-brand border-b-[1px]" placeholder={blok.placeholder} />
                 <div className=" flex items-center gap-[20px]">

@@ -18,10 +18,10 @@ export default function Projects({blok}:{blok:any}){
                     const [isExpanded,setIsExpanded]=useState(false)
                     return (
                         <div className=" lg:w-[90%] xl:w-full flex flex-col items-center gap-[24px] xl:px-[20px] py-5" id={blok.anchor_id}  key={project._uid}>
-                            <div className=" relative w-full h-[400px] lg:h-[640px] xl:h-[900px]">
+                            <div className=" relative w-full h-[400px] lg:h-[640px] xl:h-[900px] z-10">
                                 <Image src={project.image.filename} fill alt={project.image.alt} />
                             </div>
-                            <div className={`grid grid-cols-1 md:grid-cols-2 transition-all animate-out ease-in-out duration-1000 ${!isExpanded?"max-h-[150px]":""} `}>
+                            <div className={`grid grid-cols-1 md:grid-cols-2  transition-all animate-out ease-in-out duration-1000 } `}>
                                 <div>
                                     <text className=" heading4 ">{project.name}</text>
                                     <div className=" flex flex-wrap gap-[8px] font-[DM Mono] text-black text-[14px] leading-[22.4px] font-[500] mt-[16px] ">
@@ -32,8 +32,8 @@ export default function Projects({blok}:{blok:any}){
                                         }
                                     </div>
                                 </div>
-                                <div className=" flex flex-col justify-between gap-[10px] text-start">
-                                <button onClick={()=>setIsExpanded(!isExpanded)} className={`${!isExpanded?"overflow-hidden max-h-[220px]":" max-h-min"} text-start transition-all animate-out ease-in-out duration-1000`}>{project.overview}</button>
+                                <div className=" flex flex-col justify-between gap-[10px]  text-start">
+                                <button onClick={()=>setIsExpanded(!isExpanded)} className={` overflow-clip max-h-[300px] text-start transition-all animate-out ease-in-out duration-1000`}>{project.overview}</button>
                                 
                                 </div>
                             </div>

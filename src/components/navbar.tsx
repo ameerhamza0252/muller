@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { PopoverDemo } from "./MobileMenue";
+import { MobileMenue } from "./MobileMenue";
 
 export function capitalizeFirstLetter(string:string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -27,7 +27,7 @@ export async function Navigation({blok}:{blok:any}){
      */
     return(
         <>
-        <div className=" absolute invisible hidden md:visible w-full h-[70px] md:flex justify-between text-white z-20 pl-3">
+        <div className=" absolute invisible hidden lg:visible w-full h-[70px] md:flex justify-between text-white z-20 pl-3">
             <Link href={blok.logo_link.cached_url=="home"?"/":blok.logo_link.url}><Image height={35} width={166} src={blok.logo.filename} alt={blok.logo.alt} /></Link>
             <div className="  flex justify-end items-center w-auto bg-[#00918E]  px-[20px] py-[15px] text-[21px] font-[400] rounded-bl-[8px] gap-[20px]">
             {
@@ -54,12 +54,7 @@ export async function Navigation({blok}:{blok:any}){
                 
             </div>
         </div>
-        <div className="w-full absolute flex justify-between z-20 bg-brand md:invisible md:hidden ">
-            <Link href={blok.logo_link.cached_url=="home"?"/":blok.logo_link.url}><Image height={35} width={166} src={blok.logo.filename} alt={blok.logo.alt} /></Link>
-            <div>
-                <PopoverDemo />
-            </div>
-        </div>
+        <MobileMenue blok={blok} />
         </>
     )
 }

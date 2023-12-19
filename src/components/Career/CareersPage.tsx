@@ -27,14 +27,14 @@ export default function CareersList({blok}:{blok:any}){
                     <text className=" heading2">{blok.heading}</text>
                     <text className="">{blok.overview}</text>
                 </div>
-                <div className=" flex justify-between md:justify-normal md:gap-[24px] mt-[40px] lg:mt-[108px]">
+                <div className=" flex flex-col md:flex-row justify-between md:justify-normal md:gap-[24px] mt-[40px] lg:mt-[108px]">
                     {
                         countries.map((country:any,index:number)=>(
                             <button className={`min-w-[180px] px-[34px] ${index==value?'border-b-brand text-brand':'border-b-black'} border-b-[1px] pb-[10px]`} key={country._uid} onClick={()=>setValue(index)} >{country.country}</button>
                         ))
                     }
                 </div>
-                <div className=" flex flex-col">
+                <div className=" flex flex-col px-1">
                 <Accordion type="single" className="" collapsible>
                     {departments.map((department:any)=>(
                     <AccordionItem value={department._uid} className=" gap-0" key={department._uid}>
@@ -50,7 +50,7 @@ export default function CareersList({blok}:{blok:any}){
                                             </div>
                                             <Link href={capitalizeFirstLetter(job.buttonlink.cached_url)} target="_blank" className=" min-w-[117px] border-b-brand border-b  px-[20px] py-[8px]">Apply</Link>
                                         </div>
-                                        <text className=" w-3/4">{job.overview}</text>
+                                        <text className=" md:w-3/4">{job.overview}</text>
                                     </div>
                                 ))
                             }
@@ -114,7 +114,7 @@ export function IndividualsApply({blok}:{blok:any}){
     const link=blok.link[0]
     //console.log(link)
     return(
-        <div className="relative flex h-[400px] bg-cover items-center p-5 text-white" style={{background:`url(/Icon/Solution.png)`, backgroundColor:"#00000080",backgroundBlendMode:"overlay"}} {...storyblokEditable(blok)}>
+        <div className="relative flex h-[400px] bg-cover items-center text-white" style={{ backgroundColor:"#00000080",backgroundBlendMode:"overlay"}} {...storyblokEditable(blok)}>
                 <div className=" absolute w-[100%] h-[100%] shadow-inner "  onPlay={()=>console.log('Playing')} >
                     {
                         blok.media&&blok.media.map((m:any)=>(
@@ -122,7 +122,7 @@ export function IndividualsApply({blok}:{blok:any}){
                         ))
                     }
                 </div>
-                <div className=" w-3/4 grid grid-cols-1 gap-[24px] z-10 ">
+                <div className="  w-full md:w-3/4 grid grid-cols-1 gap-[24px] p-5 z-10 ">
                     <text className=" heading2">{blok.heading}</text>
                     <text>{blok.overview}</text>
                     <Pagelink text={link.Lable} url={link.url.url} variant="white" />

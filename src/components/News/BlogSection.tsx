@@ -6,7 +6,7 @@ export default async function BlogSection({blok}:{blok:any}) {
     return(
         <div className=" flex flex-col px-[20px] lg:px-[68px] pt-[13px] pb-[40px] lg:pb-[113px] ">
             <text className=" pl-2">{blok.title}</text>
-            <div className=" flex flex-col self-center text-center ">
+            <div className=" flex flex-col self-center md:text-center ">
                 <text className=" heading1">{blok.heading}</text>
                 <text>{blok.overview}</text>
             </div>

@@ -18,7 +18,7 @@ export default function top({blok}:{blok:any}){
         </div>
           <div className={` flex flex-col min-h-[226px] lg:w-[60%] gap-[30px] mx-[10px] md:mx-[31px] z-30 mb-3`}>
             <text className=' heading1'>{blok.Title}</text>
-            <text className=" h-[150px] md:h-[300px] overflow-hidden ">{blok.description}</text>
+            <text className=" h-[150px] md:max-h-[310px] overflow-hidden ">{blok.description}</text>
             {
               blok.link.map((link:any)=>(
                 <Pagelink url={link.url.url} text={link.Lable} variant="white" />

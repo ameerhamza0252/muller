@@ -31,7 +31,7 @@ function MediaRenderer({url,type,width,height,alt="",muted=true}:{url:string,typ
       }}
       onPlay={()=>(setLoading(false))} controls={false} muted={muted} loop playing={true}  style={{position:'inherit'}} width={width?width:'100%'} height={height?height:'100%'} url={url} />
     }else if(type=='image'){
-        return <Suspense fallback={<div></div>}><Image src={url} alt={alt} fill /></Suspense>
+        return <Suspense fallback={<div></div>}><Image src={url} alt={alt} fill objectFit='cover' /></Suspense>
     }else if(type=='audio'){
         <ReactPlayer width={width} height={height} url={url} />
     }

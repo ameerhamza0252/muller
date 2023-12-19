@@ -15,7 +15,7 @@ export default function Tagline({blok}:{blok:any}){
                 <text className=" mt-[16px] mb-[24px] heading2">{blok.title}</text>
                 <text>{blok.tagline}</text>
             </div>
-            <div className=" flex flex-col md:flex-row gap-10 md:gap-0  md:justify-between items-center">
+            <div className=" flex flex-col lg:flex-row gap-10 lg:gap-0  md:justify-between ">
                 <div className="h-auto max-w-[400px] flex flex-col gap-[29px] px-[20px] ">
                     {locations&&locations.map((l:any,i:number)=>(
                         <button onMouseOver={()=>setValue(i)} key={l._uid} className={` flex flex-col pl-[10px] md:pl-[27px] text-start ${value==i?"border-l-[1px]":null} border-brand`}>

@@ -11,7 +11,7 @@ export function AboutTop({blok}:{blok:any}){
      * 
      */
     return(
-        <div className=" relative flex flex-col h-screen md:h-[400px] lg:h-[650px] xl:h-[800px] justify-end text-white" id={blok.anchor_id} {...storyblokEditable(blok)}>
+        <div className=" relative flex flex-col w-full bg-brand h-screen md:h-[400px] lg:h-[650px] xl:h-[800px] justify-end text-white" id={blok.anchor_id} {...storyblokEditable(blok)}>
             <div className=" absolute w-[100%] h-[100%] ">
                 <ReactCompareSlider className=" absolute w-[100%] h-[100%]  "
                     itemOne={<MediaRenderer muted={true} type={blok.leftmedia[0].type} url={blok.leftmedia[0].media.filename} alt={blok.leftmedia[0].media.alt} />}
@@ -84,8 +84,8 @@ export async function Achievements({blok}:{blok:any}){
                         <text className=" mx-h-[235px] overflow-hidden mb-[10px]">{blok.overview}</text>
                         <Pagelink text={blok.link.Lable} url={blok.link.url} variant="green" />
                     </div>
-                    <div className=" relative w-full flex items-center bg-brand min-h-[400px] ">
-                        <div className=" absolute w-[100%] h-[100%] shadow-inner "  onPlay={()=>console.log('Playing')} >
+                    <div className=" relative w-full flex items-center min-h-[400px] ">
+                        <div className=" absolute w-[100%] h-[100%] max-h-min shadow-inner "  onPlay={()=>console.log('Playing')} >
                             {
                                 blok.media.map((m:any)=>(
                                     <MediaRenderer muted={true} url={m.media.filename} alt={m.media.alt} type={m.type} key={m._uid} />

@@ -23,7 +23,7 @@ export default async function NewsSection({blok}:{blok:any}) {
                     <button className=" self-end px-[24px] py-[12px] border-b-[1px] border-brand">Button</button>
                 </div>
             </div>
-            <div className=" flex flex-wrap gap-5">
+            <div className=" flex  flex-wrap gap-5">
                 {
                     newslist.map((news)=>(
                         <NewsCard blok={news.stories[0]} key={news.stories[0].uuid} />
@@ -39,7 +39,7 @@ export function NewsCard({blok,variant="white"}:{blok:any,variant?:string}){
     //console.log(blok)
     const {content}=blok;
     return(
-        <div className={`flex flex-col md:w-[336px] gap-[24px] ${variant=='black'?'bg-black text-white':null}`}>
+        <div className={`flex flex-col w-full md:w-[336px] gap-[24px] ${variant=='black'?'bg-black text-white':null}`}>
             <div className=" relative h-[300px]">
                 <Image src={content.image.filename} alt={content.image.alt} fill />
             </div>
