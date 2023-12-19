@@ -8,10 +8,10 @@ export default function Benefits({blok}:{blok:any}){
     //console.log(benefits)
     const [count,setCount]=useState(0)
     return (
-        <div className=" flex flex-col bg-black min-h-screen py-[112px] px-[64px] gap-[20px] md:gap-[40px] lg:gap-[72px] text-white">
+        <div className=" flex flex-col bg-black min-h-screen py-[50px]  lg:py-[112px] px-[10px] md:px-[64px] gap-[20px] md:gap-[40px] lg:gap-[72px] text-white">
             <text className=" ">{blok.title}</text>
             <div className=" grid grid-cols-1 lg:grid-cols-2 lg:flex-row justify-between items-center lg:min-h-[500px] mb-[10px] ">
-               <div className=" relative w-[300px] h-[400px] lg:w-[90%] lg:h-[90%] xl:w-[90%] xl:h-[900px] xl:bg-B-Yellow">
+               <div className=" relative min-w-[300px] min-h-[400px] lg:w-[90%] lg:h-[90%] xl:w-[90%] xl:h-[900px] xl:bg-B-Yellow">
                <Image src={benefits[count].media.filename} fill objectFit="contain" alt={benefits[0].media.alt} style={{backgroundAttachment:"fixed"}} />
                </div>
                 <div className=" flex flex-col items-start py-[20px] gap-[40px]">

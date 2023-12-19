@@ -78,13 +78,13 @@ export async function Achievements({blok}:{blok:any}){
     return(
         <div className=" flex flex-col md:max-lg-min-h-screen pb-[100px] md:pb-0 xl:pb-[200px] px-[20px] lg:px-[61px] py-[34px] text-black " id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <text className="">{blok.title}</text>
-                <div className=" grid grid-cols-1 md:grid-cols-2 gap-[177px] mt-[20px] justify-between">
-                    <div className=" flex flex-col gap-[35px] mt-[150px]">
+                <div className=" grid grid-cols-1 md:grid-cols-2 gap-[50px] lg:gap-[177px] mt-[20px] justify-between">
+                    <div className=" flex flex-col gap-[35px] mt-[30px] md:mt-[70px] lg:mt-[150px]">
                         <text className=" heading2">{blok.heading}</text>
                         <text className=" mx-h-[235px] overflow-hidden mb-[10px]">{blok.overview}</text>
                         <Pagelink text={blok.link.Lable} url={blok.link.url} variant="green" />
                     </div>
-                    <div className=" relative w-full flex items-center ">
+                    <div className=" relative w-full flex items-center bg-brand min-h-[400px] ">
                         <div className=" absolute w-[100%] h-[100%] shadow-inner "  onPlay={()=>console.log('Playing')} >
                             {
                                 blok.media.map((m:any)=>(

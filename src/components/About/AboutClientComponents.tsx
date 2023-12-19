@@ -21,17 +21,17 @@ export function Organization({blok}:{blok:any}){
     //console.log(department)
     //alert(department)
     return(
-        <div className=" min-h-screen flex flex-col pl-[20px] pr-[10px] py-[10px] lg:pl-[76px] lg:pr-[49px] lg:py-[35px] text-black " id={blok.component} {...storyblokEditable(blok)}>
+        <div className=" min-h-screen flex flex-col pl-[20px] pr-[10px] py-[20px] lg:pl-[76px] lg:pr-[49px] lg:py-[35px] text-black " id={blok.component} {...storyblokEditable(blok)}>
                 <text>{blok.title}</text>
-                <div className=" flex justify-between md:flex-none md:justify-normal md:grid md:grid-cols-3 lg:grid-cols-4 md:gap-[24px] mt-[40px] lg:mt-[108px]">
+                <div className=" grid grid-cols-1 self-center md:self-start justify-center md:justify-normal md:grid-cols-3 lg:grid-cols-4 md:gap-[24px] mt-[40px] lg:mt-[108px]">
                     {
                         countries.map((country:any,index:number)=>(
-                            <button className={`min-w-[180px] max-w-[300px] px-[34px] ${index==value?'border-b-brand text-brand':'border-b-black'} border-b-[1px] pb-[10px]`} key={country._uid} onClick={()=>setValue(index)} >{country.countryname}</button>
+                            <button className={` min-w-[270px] md:max-w-[300px] px-[34px] ${index==value?'border-b-brand text-brand':'border-b-black'} border-b-[1px] pb-[10px]`} key={country._uid} onClick={()=>setValue(index)} >{country.countryname}</button>
                         ))
                     }
                 </div>
-                <div className=" min-h-[300px] pt-10 lg:pt-[100px] lg:h-[570px] flex flex-col md:grid md:grid-cols-4">
-                    <div className=" flex flex-wrap gap-[10px] justify-center col-span-3">
+                <div className=" min-h-[300px] pt-10 lg:pt-[100px] lg:min-h-[570px] flex flex-col justify-evenly md:justify-normal md:grid md:grid-cols-4">
+                    <div className=" flex flex-wrap gap-[5px] md:gap-[10px] justify-center col-span-3">
                         {
                             employees.map((emp:any)=>(
                                 <div className=" w-[266px] min-h-[300px] flex flex-col items-center gap-[24px]" key={emp._uid}>
