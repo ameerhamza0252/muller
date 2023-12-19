@@ -33,6 +33,14 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      animation: {
+        typewriter: "typewriter 4s steps(40) forwards", // Adjust the duration and steps as needed
+      },
+      keyframes: {
+        typewriter: {
+          to: { width: "100%" },
+        },
+      },
     },
     screens:{
       'md':'700px',

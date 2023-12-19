@@ -4,6 +4,17 @@
 
 .hide-scroll::-webkit-scrollbar { background: transparent; /* make scrollbar transparent */ width: 0px; }
 
+.typed-h {
+  overflow: hidden;
+  animation: typing 1s forwards;
+  animation-delay: 2s; /* Add this line */
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

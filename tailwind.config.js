@@ -17,6 +17,14 @@ module.exports = {
         'lg':'1180px',
         'xl':'1900px',
       },
+      animation: {
+        typewriter: "typewriter 4s steps(40) forwards", // Adjust the duration and steps as needed
+      },
+      keyframes: {
+        typewriter: {
+          to: { width: "100%" },
+        },
+      },
     
     fontFamily:{
       'Helvectica':"Helvectica Neue",
