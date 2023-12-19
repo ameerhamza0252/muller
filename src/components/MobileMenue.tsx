@@ -33,6 +33,7 @@ import {
 import { storyblokEditable } from "@storyblok/react"
 import {  IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
+import { RxCross1 } from "react-icons/rx";
 
 
 
@@ -50,24 +51,24 @@ export function MobileMenue({blok}:{blok:any}){
             }
             <Popover>
             <PopoverTrigger onClick={()=>(setIsOpen(!isOpen))} className=" bg-brand" asChild>
-                <Button className=" flex flex-col gap-[6px] items-end "><hr className=" w-[35px]"/><hr className=" w-[20px]"/></Button>
+                <Button className=" flex flex-col gap-[6px] items-end text-white ">{isOpen?<RxCross1/>:<><hr className=" w-[35px]"/><hr className=" w-[20px]"/></>}</Button>
             </PopoverTrigger>
             <PopoverContent className="w-screen min-h-screen flex flex-col text-center bg-brand -mt-2 border-0 text-white">
             <Accordion className=" flex flex-col gap-[10px] text-center" allowToggle>
             {
                 blok.name.map((n:any,index:number)=>(
                     <AccordionItem className=" w-full flex flex-col justify-evenly min-h-[37px] " key={n._uid}>
-                        <div className=" flex items-center justify-center">
+                        <div className=" grid grid-cols-2 items-center justify-center">
                         {
                             n.items.length>0?
-                                <AccordionButton onClick={()=>expanded==index?setExpanded(-99):setExpanded(index)} className="  ">
+                                <AccordionButton w={"auto"} justifySelf={'end'}  alignSelf={"self-start"} onClick={()=>expanded==index?setExpanded(-99):setExpanded(index)} className="  ">
                                 {expanded==index?<IoIosArrowDown/>:<IoIosArrowForward />}
                                 </AccordionButton>
-                                :<div className=" w-full invisible">2</div>
+                                :<div className=" w-full invisible"><IoIosArrowDown/></div>
                         }
-                        <Link href={n.link.cached_url=="home"?"/":"/"+capitalizeFirstLetter(n.link.cached_url)} className=" w-full">{n.lable}</Link>
+                        <Link href={n.link.cached_url=="home"?"/":"/"+capitalizeFirstLetter(n.link.cached_url)} className=" justify-self-start ">{n.lable}</Link>
                         </div>
-                        <AccordionPanel className=" grid grid-cols-1 ">
+                        <AccordionPanel className=" flex flex-col ">
                         {
                             n.items.map((item:any)=>(
                                 <Link href={item.url.linktype=="story"?"/"+item.url.cached_url:"/"+capitalizeFirstLetter(n.link.cached_url.split("/")[0])+item.url.url} className=" w-full py-[8px] border-b border-white " key={item._uid}>{item.Lable}</Link>
