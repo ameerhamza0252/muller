@@ -21,7 +21,7 @@ export function ContactTopGrid({blok}:{blok:any}){
                     <Pagelink url={link.url.url} text={link.Lable} variant="green" />
                 </div>
                 <div className=" relative grid grid-cols-2 gap-[16px] ">
-                    <div className=" h-screen flex flex-col  w-full overflow-auto gap-[16px] ">
+                    <div className=" h-screen flex flex-col  w-full overflow-auto gap-[16px] hide-scroll ">
                         <div className=" flex flex-col gap-[16px] animate-upward">
                         {
                         blok.image_list1&&blok.image_list1.map((image:any)=>(
@@ -42,7 +42,7 @@ export function ContactTopGrid({blok}:{blok:any}){
                         </div>
                     </div>
                     
-                    <div className=" h-screen flex flex-col  w-full overflow-auto gap-[16px] ">
+                    <div className=" h-screen flex flex-col  w-full overflow-auto gap-[16px] hide-scroll ">
                         <div className=" flex flex-col gap-[16px] animate-downward">
                         {
                         blok.image_list1&&blok.image_list1.map((image:any)=>(

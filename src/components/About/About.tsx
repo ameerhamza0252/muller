@@ -18,8 +18,7 @@ export function AboutTop({blok}:{blok:any}){
                     itemTwo={<MediaRenderer muted={true} type={blok.rightmedia[0].type} url={blok.rightmedia[0].media.filename} alt={blok.rightmedia[0].media.alt} />}
                     />
             </div>
-            {/**Dark overlay */}
-            <div className=" w-[100%] h-[100%] bg-black/30 absolute z-20 "></div>
+            {/**Dark overlay <div className=" w-[100%] h-[100%] bg-black/30 absolute z-20 "></div> */}
             <div className=" flex flex-col z-30 gap-[20px] mx-[20px] mb-[20px] lg:mb-[32px]">
                 <text className=" md:w-[40%] heading1 ">{blok.title}</text>
                 <text className=" md:w-[40%] self-end mb-3 ">{blok.overview}</text>
