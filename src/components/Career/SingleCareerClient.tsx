@@ -99,7 +99,7 @@ export async function CareerDescription({blok}:{blok:any}){
             <text className={`${color_variant=="black"?" font-['Roboto'] text-[48px] font-[700] leading-[57px]":"heading2"} mb-[24px]`}>{blok.heading}</text>
             <text className={` ${color_variant=="black"?" font-['Roboto'] text-[18px] font-[400]":"text-[18px] leading-[27px]"}`}>{blok.overview}</text>
         </div>
-          <div className="grid grid-cols-1 w-full md:min-w-[543px] max-w-[560px] min-h-[543px] ">
+          <div className="grid grid-cols-1 w-full md:min-w-[520px] max-w-[560px] min-h-[543px] ">
               <Form {...form}>
               <form action={"mailto:"+blok.email.email} method="post" encType="text/plain" className={`w-full space-y-6 text-[16px] font-[400] leading-[24px] ${color_variant=="black"?"font-['Roboto']":""}`}>
                   <FormField
