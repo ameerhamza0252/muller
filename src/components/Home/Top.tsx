@@ -14,7 +14,8 @@ export default function top({blok}:{blok:any}){
                 <MediaRenderer muted={true} url={m.media.filename} alt={m.media.alt} type={m.type} key={m._uid} />
             ))
         }
-        <div className="absolute w-[100%] h-[100%] inner-darker"></div>
+        {/**Dark overlay */}
+        <div className="absolute w-[100%] h-[100%] inner-darker bg-black/30 z-20"></div>
         </div>
           <div className={` flex flex-col min-h-[226px] lg:w-[60%] gap-[30px] mx-[10px] md:mx-[31px] z-30 mb-3`}>
             <text className=' heading1'>{blok.Title}</text>

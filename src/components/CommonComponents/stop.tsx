@@ -15,6 +15,8 @@ export default function STop({blok}:{blok:any}){
                 ))
             }
             </div>
+            {/**Dark overlay */}
+            <div className=" w-[100%] h-[100%] bg-black/30 absolute z-20 "></div>
             <div className=" flex flex-col z-30 py-5">
                 {
                     variant=='right'||variant=='left'?(
