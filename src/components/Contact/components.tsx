@@ -8,7 +8,7 @@ import { storyblokEditable } from "@storyblok/react";
 
 
 export function ContactTopGrid({blok}:{blok:any}){
-    //console.log(blok.image_list1)
+    console.log(blok)
     const link=blok.link[0]
 
     function fetch_list_1(){

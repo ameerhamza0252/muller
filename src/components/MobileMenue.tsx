@@ -31,9 +31,14 @@ import {
     CollapsibleTrigger,
   } from "@/components/ui/collapsible"
 import { storyblokEditable } from "@storyblok/react"
+import {  IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
+
+
 
 export function MobileMenue({blok}:{blok:any}){
     const [isOpen,setIsOpen]=useState(false);
+    const [expanded,setExpanded]=useState(-99)
 
     return <div className={`w-full absolute flex justify-between z-50 min-h-[37px] lg:invisible  lg:hidden ${isOpen?"bg-brand":""}`} {...storyblokEditable(blok)}>
             <Link href={blok.logo_link.cached_url=="home"?"/":blok.logo_link.url}><Image className=" drop-shadow-2xl z-40" height={35} width={166} src={blok.logo.filename} alt={blok.logo.alt} /></Link>
@@ -52,19 +57,23 @@ export function MobileMenue({blok}:{blok:any}){
             {
                 blok.name.map((n:any,index:number)=>(
                     <AccordionItem className=" w-full flex flex-col justify-evenly min-h-[37px] " key={n._uid}>
-                        
-                        <AccordionButton className="  ">
-                           <AccordionIcon scale={250} direction={90} />
-                        </AccordionButton>
+                        <div className=" flex items-center justify-center">
+                        {
+                            n.items.length>0?
+                                <AccordionButton onClick={()=>expanded==index?setExpanded(-99):setExpanded(index)} className="  ">
+                                {expanded==index?<IoIosArrowDown/>:<IoIosArrowForward />}
+                                </AccordionButton>
+                                :<div className=" w-full invisible">2</div>
+                        }
                         <Link href={n.link.cached_url=="home"?"/":"/"+capitalizeFirstLetter(n.link.cached_url)} className=" w-full">{n.lable}</Link>
-                          
-                    <AccordionPanel className=" grid grid-cols-1 ">
-                    {
-                        n.items.map((item:any)=>(
-                            <Link href={item.url.linktype=="story"?"/"+item.url.cached_url:"/"+capitalizeFirstLetter(n.link.cached_url.split("/")[0])+item.url.url} className=" w-full py-[8px] border-b border-white " key={item._uid}>{item.Lable}</Link>
-                        ))
-                    }
-                    </AccordionPanel>
+                        </div>
+                        <AccordionPanel className=" grid grid-cols-1 ">
+                        {
+                            n.items.map((item:any)=>(
+                                <Link href={item.url.linktype=="story"?"/"+item.url.cached_url:"/"+capitalizeFirstLetter(n.link.cached_url.split("/")[0])+item.url.url} className=" w-full py-[8px] border-b border-white " key={item._uid}>{item.Lable}</Link>
+                            ))
+                        }
+                        </AccordionPanel>
                     </AccordionItem>
                 ))
             }
