@@ -50,7 +50,7 @@ export default function Tagline({blok}:{blok:any}){
                         </button>
                     ))}
                 </div>
-                <div onMouseOver={()=>setIsHovered(true)} onMouseOut={()=>setIsHovered(false)} className=" relative md:w-[542px] md:h-[440px]"><Image src={locations[value].image[current]&&locations[value].image[current].filename} fill objectFit="contain" alt="location" /></div>
+                <div onMouseOver={()=>setIsHovered(true)} onMouseOut={()=>setIsHovered(false)} className=" h-[300px] relative md:w-[542px] md:h-[440px]"><Image src={locations[value].image[current]&&locations[value].image[current].filename} fill objectFit="contain" alt="location" /></div>
             </div>
         </div>
     )

@@ -53,7 +53,7 @@ export function MobileMenue({blok}:{blok:any}){
             <PopoverTrigger onClick={()=>(setIsOpen(!isOpen))} className=" bg-brand" asChild>
                 <Button className=" flex flex-col gap-[6px] items-end text-white ">{isOpen?<RxCross1/>:<><hr className=" w-[35px]"/><hr className=" w-[20px]"/></>}</Button>
             </PopoverTrigger>
-            <PopoverContent className="w-screen min-h-screen flex flex-col text-center bg-brand -mt-2 border-0 text-white">
+            <PopoverContent className=" w-screen min-h-screen flex flex-col text-center bg-brand -mt-2 border-0 text-white bg-cover" >
             <Accordion className=" flex flex-col gap-[10px] text-center" allowToggle>
             {
                 blok.name.map((n:any,index:number)=>(
@@ -69,9 +69,13 @@ export function MobileMenue({blok}:{blok:any}){
                         <Link href={n.link.cached_url=="home"?"/":"/"+capitalizeFirstLetter(n.link.cached_url)} className=" justify-self-start ">{n.lable}</Link>
                         </div>
                         <AccordionPanel className=" flex flex-col ">
+                            
                         {
                             n.items.map((item:any)=>(
-                                <Link href={item.url.linktype=="story"?"/"+item.url.cached_url:"/"+capitalizeFirstLetter(n.link.cached_url.split("/")[0])+item.url.url} className=" w-full py-[8px] border-b border-white " key={item._uid}>{item.Lable}</Link>
+                                <div className="grid grid-cols-2 w-full  border-b border-white">
+                                    <div className=" w-full"></div>
+                                <Link href={item.url.linktype=="story"?"/"+item.url.cached_url:"/"+capitalizeFirstLetter(n.link.cached_url.split("/")[0])+item.url.url} className=" text-start justify-self-start py-[8px] " key={item._uid}>{item.Lable}</Link>
+                                </div>
                             ))
                         }
                         </AccordionPanel>

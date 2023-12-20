@@ -43,10 +43,12 @@ export default async function RootLayout({
   return (
     <StoryblokProvider>
       <html lang="en" >
-      <body className={inter.className}>
+      <body className={inter.className+" relative"}>
         <Providers>
           <StoryblokStory story={header.story} />
-          {children}
+          <div>
+            {children}
+          </div>
           <StoryblokStory story={footer.story} />
         </Providers>
       </body>

@@ -21,7 +21,7 @@ export function Organization({blok}:{blok:any}){
     //console.log(department)
     //alert(department)
     return(
-        <div className=" min-h-screen flex flex-col pl-[20px] pr-[10px] py-[20px] lg:pl-[76px] lg:pr-[49px] lg:py-[35px] text-black " id={blok.component} {...storyblokEditable(blok)}>
+        <div className=" min-h-screen flex flex-col pl-[20px] pr-[10px] py-[20px] lg:pl-[76px] lg:pr-[49px] lg:py-[35px] text-black " id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <text>{blok.title}</text>
                 <div className=" grid grid-cols-1 self-center md:self-start justify-center md:justify-normal md:grid-cols-3 lg:grid-cols-4 md:gap-[24px] mt-[40px] lg:mt-[108px]">
                     {
@@ -35,7 +35,7 @@ export function Organization({blok}:{blok:any}){
                         {
                             employees.map((emp:any)=>(
                                 <div className=" w-[266px] min-h-[300px] flex flex-col items-center gap-[24px]" key={emp._uid}>
-                                    <Image src={emp.profileimage.filename} width={150} height={150} alt={emp.profileimage.alt} className=" justify-self-center rounded-full" />
+                                    <Image src={emp.profileimage.filename} width={150} height={150} alt={emp.profileimage.alt} className=" justify-self-center" />
                                     <div className=" flex flex-col text-center font-[Roboto]">
                                         <text className=" text-[20px] leading-[30px] font-[600]">{emp.name}</text>
                                         <text className=" text-[18px] leading-[27px] text-B-Yellow">{emp.jobtitle}</text>

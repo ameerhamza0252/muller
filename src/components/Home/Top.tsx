@@ -5,7 +5,7 @@ import Pagelink from "../link";
 import MediaRenderer from "../MediaComponent";
 
 export default function top({blok}:{blok:any}){
-  //console.log(blok) 
+  //console.log(blok.Title.split('').map((i:string)=>{setTimeout(()=>{ return i;},500);return i;})) 
     return(
       <div className={` relative flex flex-col min-h-screen justify-end text-white  `} /*style={{backgroundImage:`url(${blok.image.filename})`}} */ >
         <div className=" absolute w-[100%] h-[100%] pointer-events-none "  onPlay={()=>console.log('Playing')} >
