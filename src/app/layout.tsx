@@ -43,7 +43,7 @@ export default async function RootLayout({
   return (
     <StoryblokProvider>
       <html lang="en" >
-      <body className={inter.className+"scroll-smooth"}>
+      <body className={inter.className}>
         <Providers>
           <StoryblokStory story={header.story} />
           {children}

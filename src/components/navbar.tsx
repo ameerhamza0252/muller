@@ -42,14 +42,15 @@ export async function Navigation({blok}:{blok:any}){
                                     <Link href={item.url.linktype=="story"?"/"+item.url.cached_url:"/"+capitalizeFirstLetter(n.link.cached_url.split("/")[0])+item.url.url} className=" py-[8px] border-b " key={item._uid}>{item.Lable}</Link>
                                 ))
                             }
-                        </div>):null
-                        }
+                            </div>)
+                            :null
+                            }
                     </div>
                 ))
             }
             {
                 blok.socials.map((social:any)=>(
-                    <Link href={social.url.url} target="_blank"><Image src={social.image.filename} alt={social.image.alt} width={24} height={24} key={social._uid} /></Link>
+                    <Link href={social.url.url} target="_blank" key={social._uid}><Image src={social.image.filename} alt={social.image.alt} width={24} height={24} /></Link>
                 ))
             }
                 

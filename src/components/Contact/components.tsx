@@ -21,7 +21,7 @@ export function ContactTopGrid({blok}:{blok:any}){
                     <text>{blok.subheading}</text>
                     <Pagelink url={link.url.url} text={link.Lable} variant="green" />
                 </div>
-                <div className="grid h-screen w-full md:w-auto grid-cols-2 overflow-auto gap-[16px]  ">
+                <div className="grid h-screen w-full md:w-auto grid-cols-2 overflow-auto gap-[16px] pointer-events-none ">
                     <div className=" md:h-screen flex flex-col  w-full overflow-auto gap-[16px] hide-scroll ">
                         <div className=" flex flex-col gap-[16px] animate-upward">
                         {

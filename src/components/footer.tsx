@@ -32,14 +32,14 @@ export default function Footer({blok}:{blok:any}){
                 <div className=" flex flex-wrap gap-x-[24px] gap-y-[15px] lg:gap-x-[30px]">
                     {
                         blok.corporate_links.map((link:any)=>(
-                            <Link href={link.url.url}>{link.Lable}</Link>
+                            <Link href={link.url.url} key={link._uid}>{link.Lable}</Link>
                         ))
                     }
                 </div>
                 <div className=" flex flex-wrap gap-2 md:scale-150 text-brand  ">
                 {
                     blok.socials.map((social:any)=>(
-                        <Link href={social.url.url} target="_blank"><Image src={social.image.filename} alt={social.image.alt} width={24} height={24} key={social._uid} /></Link>
+                        <Link href={social.url.url} target="_blank" key={social._uid}><Image src={social.image.filename} alt={social.image.alt} width={24} height={24} key={social._uid} /></Link>
                     ))
                 }
                 </div>
