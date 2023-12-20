@@ -3,7 +3,8 @@ import StoryblokStory from "@storyblok/react/story";
 
 export default async function Markets() {
     const {data}=await fetchData()
-    
+
+
     return(
         <>
             <StoryblokStory story={data.story} />

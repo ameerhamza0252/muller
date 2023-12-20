@@ -14,7 +14,7 @@ export default function Loading() {
     }, []);
 
     return (
-        <div className={`h-screen w-screen bg-cover z-50 ${loading ? 'zoom' :""}`} style={{backgroundImage:`url(/loading_image.png)`}}>
+        <div className={`h-screen w-screen bg-cover z-50 ${loading ? 'zoom' :""}`} style={{backgroundImage:`url(/loading_image.svg)`}}>
         </div>
     );
 }
