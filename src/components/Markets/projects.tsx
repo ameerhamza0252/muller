@@ -17,7 +17,7 @@ export default function Projects({blok}:{blok:any}){
                 projects.map((project:any)=>{
                     const [isExpanded,setIsExpanded]=useState(false)
                     return (
-                        <div className=" lg:w-[90%] xl:w-full flex flex-col items-center gap-[24px] xl:px-[20px] py-5" id={blok.anchor_id}  key={project._uid}>
+                        <div className=" lg:w-[90%] xl:w-full flex flex-col items-center gap-[24px] xl:px-[20px] py-5" id={project.anchor_id}  key={project._uid}>
                             <div className=" relative w-full h-[400px] lg:h-[640px] xl:h-[900px] z-10">
                                 <Image src={project.image.filename} fill alt={project.image.alt} />
                             </div>
