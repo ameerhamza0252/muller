@@ -12,7 +12,7 @@ type Props = {
   
 export async function generateMetadata({params,searchParams}:Props,parent:ResolvingMetadata):Promise<Metadata>{
   const {data}= (await fetchData());
-  const {meta_data}=data.stories[0].content
+  const {meta_data}=data.story.content
   
   return{
     title:meta_data[0].title,
