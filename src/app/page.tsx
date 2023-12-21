@@ -10,12 +10,19 @@ import type { Metadata, ResolvingMetadata } from 'next'
 export async function generateMetadata():Promise<Metadata>{
   const {data}= (await fetchData());
   const {meta_data}=data.story.content
-  return{
-    title:meta_data[0].title,
-    description:meta_data[0].description,
-    keywords:meta_data[0].keywords,
-    openGraph:{
-      images:[meta_data[0].image.filename]
+  if(meta_data[0]){
+    return{
+      title:meta_data[0].title,
+      description:meta_data[0].description,
+      keywords:meta_data[0].keywords,
+      openGraph:{
+        images:[meta_data[0].image.filename]
+      }
+    }
+  }else{
+    return{
+      title:"Muller",
+      description:"We are muller"
     }
   }
 }
