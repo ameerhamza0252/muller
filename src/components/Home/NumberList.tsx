@@ -18,7 +18,7 @@ export default function Numbers({blok}:{blok:any}){
                 <text className=' heading2 '>{blok.title}</text>
                 <div className='h-[440px] grid grid-cols-2 grid-rows-2 rounded-[10px] border-collapse border-[1px] divide-x divide-y  '>
                     {blok.numbers.map((n:any)=>(
-                        <div key={n._uid} className=' max-w-[220px] h-[220px] flex flex-col items-center justify-center '>
+                        <div key={n._uid} className=' w-full md:max-w-[220px] h-[220px] flex flex-col items-center justify-center '>
                             <text className=' heading2 text-[45px] leading-[49px]'>
                                 {n.number}
                             </text>

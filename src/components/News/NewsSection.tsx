@@ -39,6 +39,7 @@ export function NewsCard({blok,variant="white"}:{blok:any,variant?:string}){
     //console.log(blok)
     const {content}=blok;
     return(
+        <Link href={"News/"+blok.slug}>
         <div className={`flex flex-col w-full md:w-[336px] gap-[24px] ${variant=='black'?'bg-black text-white':null}`}>
             <div className=" relative h-[300px]">
                 <Image src={content.image.filename} alt={content.image.alt} fill />
@@ -48,10 +49,10 @@ export function NewsCard({blok,variant="white"}:{blok:any,variant?:string}){
                 <text className=" font-[500]">{content.readtime}</text>
             </div>
             <div className="flex flex-col gap-[8px]">
-                <Link href={"News/"+blok.slug}><text className=" heading4">{content.name}</text></Link>
+                <text className=" heading4">{content.name}</text>
                 <text className=" text-[16px] leading-[25.6px]">{content.overview}</text>
             </div>
-        </div>
+        </div></Link>
     )
 }
 

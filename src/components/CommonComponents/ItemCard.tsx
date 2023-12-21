@@ -35,9 +35,9 @@ export default function ItemsCard({blok,buttontext}:{blok:any,buttontext:string}
               //console.log(stop)
               return(
                 <Skeleton isLoaded={!isLoading} fitContent={true}  > 
-                    <div className=' flex flex-col w-full md:w-[400px] lg:w-[550px] xl:w-[800px] min-h-[400px] md:min-h-[600px] lg:h-[936px] xl:h-auto justify-stretch px-[10px] gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
-                    <div className=' relative w-full min-h-[358px] lg:h-[450px]'>
-                        <Image src={stop.image.filename} placeholder='empty' alt={stop.image.alt} fill />
+                    <div className=' flex flex-col  w-full md:w-[400px] lg:w-[550px] xl:w-[800px] min-h-[400px] md:min-h-[600px] lg:h-[936px] xl:h-auto justify-stretch gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
+                    <div className=' relative w-full min-h-[358px] lg:min-h-[450px]'>
+                        <Image src={stop.image.filename} placeholder='empty' objectFit='cover' alt={stop.image.alt} fill />
                     </div>
                     <text className=' heading2 max-h-[200px] overflow-hidden w-[80%]'>{stop.heading}</text>
                     <div className="w-[90%] border-b-[1px] border-brand" ></div>

@@ -10,7 +10,7 @@ export default function MarketPoints({blok}:{blok:any}){
                 {
                     points.map((point:any)=>(
                         <div className=" lg:w-[325px] flex flex-col gap-[24px]" key={point._uid}>
-                            <Image src={blok.icon.filename} width={48} height={48} alt={blok.icon.alt} />
+                            <Image src={blok.icon.filename} width={100} height={100} objectFit="cover" alt={blok.icon.alt} />
                             <text className=" heading4">{point.heading}</text>
                             <text>{point.description}</text>
                         </div>

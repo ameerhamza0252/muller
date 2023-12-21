@@ -12,7 +12,7 @@ export function HeadingsDescription({blok}:{blok:any}){
     const [value,setValue]=useState(0)
     return (
         <>
-            <div className=" grid grid-cols-3" {...storyblokEditable(blok)} id={blok.anchor_id}>
+            <div className=" grid grid-cols-3 pb-[20px] md:pb-[40px]" {...storyblokEditable(blok)} id={blok.anchor_id}>
                 <div className=" flex flex-col col-span-2  gap-[40px]">
                     {content.headings.map((h:any)=>(
                         <div className=" flex flex-col gap-[16px]"  key={h._uid}>

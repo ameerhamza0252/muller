@@ -10,6 +10,7 @@ import { storyblokInit, apiPlugin, StoryblokStory, getStoryblokApi, RichTextSche
 import StoryblokProvider from '@/components/StoryblokProvider'
 import { Providers } from './providers'
 import cloneDeep from "clone-deep";
+import Redux_Providers from '@/components/Provider'
 
 const mySchema = cloneDeep(RichTextSchema)
 
@@ -44,13 +45,15 @@ export default async function RootLayout({
     <StoryblokProvider>
       <html lang="en" >
       <body className={inter.className+" relative"}>
-        <Providers>
-          <StoryblokStory story={header.story} />
-          <div>
-            {children}
-          </div>
-          <StoryblokStory story={footer.story} />
-        </Providers>
+        <Redux_Providers>
+          <Providers>
+            <StoryblokStory story={header.story} />
+            <div>
+              {children}
+            </div>
+            <StoryblokStory story={footer.story} />
+          </Providers>
+        </Redux_Providers>
       </body>
     </html>
     </StoryblokProvider>

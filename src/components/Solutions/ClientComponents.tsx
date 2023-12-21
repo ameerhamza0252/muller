@@ -179,7 +179,7 @@ const Premade_Slider = ({blok}:{blok:any}) => {
             <text className="heading3">{blok.heading}</text>
             <div className="flex flex-col md:flex-row px-2 justify-between gap-[10px]">
                 <text>{blok.overview}</text>
-                <Link href={blok.button_link.fieldtype=="story"?blok.button_link.cached_url:blok.button_link.url} className="px-[24px] py-[12px] border-b border-b-brand">
+                <Link href={blok.button_link.fieldtype=="story"?blok.button_link.cached_url:blok.button_link.url} className=" max-w-[150px] md:w-auto px-[24px] py-[12px] border-b border-b-brand">
                 {blok.button_text}
                 </Link>
             </div>

@@ -31,7 +31,7 @@ export default function Contact({blok}:{blok:any}) {
                 }
                 </div>
                 <div className=" relative w-full h-[300px] lg:w-[541px] lg:h-[446px]">
-                    <Image src={contacts[count].image.filename} alt={contacts[count].image.alt} fill />
+                    <Image src={contacts[count].image.filename} alt={contacts[count].image.alt} objectFit="contain" fill />
                 </div>
             </div>
         </div>

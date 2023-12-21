@@ -34,14 +34,22 @@ import { storyblokEditable } from "@storyblok/react"
 import {  IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 import { RxCross1 } from "react-icons/rx";
+import { useDispatch, useSelector } from "react-redux"
+import { RootState } from "@/state_stores/MobileMenueStore"
+import { mobile_state_toggle } from "@/state_stores/Mobile_Menue_Slice"
 
 
 
 export function MobileMenue({blok}:{blok:any}){
     const [isOpen,setIsOpen]=useState(false);
     const [expanded,setExpanded]=useState(-99)
+    const dispatch=useDispatch()
+    const mobile_state=useSelector((state:RootState)=>state.Mobile_Menue_Slice.opened);
 
-    return <div className={`w-full absolute flex justify-between z-50 min-h-[37px] lg:invisible  lg:hidden ${isOpen?"bg-brand":""}`} {...storyblokEditable(blok)}>
+    console.log("Redux State", mobile_state)
+    //const mobile_menue_state
+
+    return <div className={`w-full absolute flex justify-between z-50 min-h-[37px] lg:invisible  lg:hidden ${mobile_state?"bg-brand":""}`} {...storyblokEditable(blok)}>
             <Link href={blok.logo_link.cached_url=="home"?"/":blok.logo_link.url}><Image className=" drop-shadow-2xl z-40" height={35} width={166} src={blok.logo.filename} alt={blok.logo.alt} /></Link>
             <div className={` flex flex-row-reverse items-center gap-[10px] md:gap-[20px]  px-[20px] rounded-bl-[8px] bg-brand`}>
             {
@@ -50,8 +58,8 @@ export function MobileMenue({blok}:{blok:any}){
                 ))
             }
             <Popover>
-            <PopoverTrigger onClick={()=>(setIsOpen(!isOpen))} className=" bg-brand" asChild>
-                <Button className=" flex flex-col gap-[6px] items-end text-white ">{isOpen?<RxCross1/>:<><hr className=" w-[35px]"/><hr className=" w-[20px]"/></>}</Button>
+            <PopoverTrigger onClick={()=>(dispatch(mobile_state_toggle()))} className=" bg-brand" asChild>
+                <Button className=" flex flex-col gap-[6px] items-end text-white ">{mobile_state?<RxCross1/>:<><hr className=" w-[35px]"/><hr className=" w-[20px]"/></>}</Button>
             </PopoverTrigger>
             <PopoverContent className=" w-screen min-h-screen flex flex-col text-center bg-brand -mt-2 border-0 text-white bg-cover" >
             <Accordion className=" flex flex-col gap-[10px] text-center" allowToggle>
