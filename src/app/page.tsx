@@ -7,7 +7,7 @@ import StoryblokStory from "@storyblok/react/story";
 
 
 import type { Metadata, ResolvingMetadata } from 'next'
-export async function generateMetadata(parent:ResolvingMetadata):Promise<Metadata>{
+export async function generateMetadata():Promise<Metadata>{
   const {data}= (await fetchData());
   const {meta_data}=data.story.content
   return{
