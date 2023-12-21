@@ -9,7 +9,7 @@ export default function Tagline({blok}:{blok:any}){
     //console.log(blok)
     const [value,setValue]=useState(0);
     const [current,setCurrent]=useState(0)
-    const [isHovered,setIsHovered]=useState(false)
+    //const [isHovered,setIsHovered]=useState(false)
     const locations=blok.locations[0].locationlist
 
     function handleLocationChange(index:number){
@@ -18,7 +18,8 @@ export default function Tagline({blok}:{blok:any}){
         setCurrent(0)
     }
 
-    useEffect(() => {
+    /**
+     * useEffect(() => {
         let interval: NodeJS.Timeout;
         if (isHovered) {
             interval = setInterval(() => {
@@ -28,6 +29,8 @@ export default function Tagline({blok}:{blok:any}){
         }
         return () => clearInterval(interval); // This is important to clear the interval when the component unmounts
     }, [isHovered]); // The effect will run again if `isHovered`, `value`, or `locations` changes
+     * 
+     */
     
     
 
@@ -50,7 +53,7 @@ export default function Tagline({blok}:{blok:any}){
                         </button>
                     ))}
                 </div>
-                <div onMouseOver={()=>setIsHovered(true)} onMouseOut={()=>setIsHovered(false)} className=" h-[300px] relative md:w-[542px] md:h-[440px]"><Image src={locations[value].image[current]&&locations[value].image[current].filename} fill objectFit="contain" alt="location" /></div>
+                <div onMouseOver={()=>setCurrent((current+1)%locations[value].image.length)} className=" h-[300px] relative md:w-[542px] md:h-[440px]"><Image src={locations[value].image[current]&&locations[value].image[current].filename} fill objectFit="contain" alt={locations[value].image[current].alt} /></div>
             </div>
         </div>
     )

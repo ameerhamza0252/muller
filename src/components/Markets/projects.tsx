@@ -1,11 +1,20 @@
 "use client"
 import { storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function Projects({blok}:{blok:any}){
-    //console.log(blok)
+    const [isOverflowing, setIsOverflowing] = useState(false);
+    const [showMore, setShowMore] = useState(false);
+    const textRef = useRef(null)
     const {projects}=blok;
+
+    const xl=310;
+    const lg=63;
+    const md=63;
+    const sm=30;
+    let max_words:number=sm;
+    
     return(
         <div className=" flex flex-col bg-black text-white px-[20px] xl:px-[40px] pt-[20px] pb-[40px] lg:pb-[112px] gap-[30px] lg:gap-y-[90px] items-center " id={blok.anchor_id} {...storyblokEditable(blok)}>
             <text className=" text-B-grey self-start">{blok.title}</text>
@@ -33,8 +42,12 @@ export default function Projects({blok}:{blok:any}){
                                     </div>
                                 </div>
                                 <div className=" flex flex-col justify-between gap-[10px]  text-start">
-                                <button onClick={()=>setIsExpanded(!isExpanded)} className={` overflow-clip max-h-[300px] text-start transition-all animate-out ease-in-out duration-1000`}>{project.overview}</button>
-                                
+                                <div className={` overflow-ellipsis text-start transition-all animate-out ease-in-out duration-1000 md:${max_words=md} lg:${max_words=lg} xl:${max_words=xl}`}>{isExpanded?project.overview:(project.overview).slice(0,max_words)}</div>
+                                {
+                                    (project.overview.length)>max_words+1?
+                                    <button onClick={()=>setIsExpanded(!isExpanded)} className={`bg-B-Yellow`} >{!isExpanded?"Read more ...":"Read less ..."}</button>
+                                    :null
+                                }
                                 </div>
                             </div>
                         </div>

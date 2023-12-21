@@ -5,6 +5,21 @@ import {
 // 1. Import the Storyblok client
 import StoryblokStory from "@storyblok/react/story";
 
+
+import type { Metadata, ResolvingMetadata } from 'next'
+export async function generateMetadata(parent:ResolvingMetadata):Promise<Metadata>{
+  const {data}= (await fetchData());
+  const {meta_data}=data.story.content
+  return{
+    title:meta_data[0].title,
+    description:meta_data[0].description,
+    keywords:meta_data[0].keywords,
+    openGraph:{
+      images:[meta_data[0].image.filename]
+    }
+  }
+}
+
 export default async function Home() {
   //const storyblokApi = getStoryblokApi();
   //const forcv= await storyblokApi.get(`cdn/stories`, { version: "draft" });
