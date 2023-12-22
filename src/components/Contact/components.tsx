@@ -2,18 +2,13 @@ import Image from "next/image";
 import Pagelink from "../link";
 import { GetInTouch } from "../Career/SingleCareerClient";
 import MediaRenderer from "../MediaComponent";
-  // in code ES6
-import InfiniteScroll from 'react-infinite-scroll-component';
 import { storyblokEditable } from "@storyblok/react";
 
 
 export function ContactTopGrid({blok}:{blok:any}){
-    console.log(blok)
+    //console.log(blok)
     const link=blok.link[0]
 
-    function fetch_list_1(){
-        return blok.image_list1
-    }
     return(
         <div className=" min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-between gap-[20px] px-[10px] md:px-[64px] py-[40px] " id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <div className=" flex flex-col gap-[24px]">

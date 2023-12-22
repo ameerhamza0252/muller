@@ -7,23 +7,23 @@ import StoryblokStory from "@storyblok/react/story";
 
 
 import type { Metadata, ResolvingMetadata } from 'next'
-export async function generateMetadata():Promise<Metadata>{
+export const generateMetadata=async():Promise<Metadata>=>{
   const {data}= (await fetchData());
-  const meta_data=data.story.content
-  if(meta_data[0]){
+  const {meta_data}=data.story.content
+  if(!meta_data){
+    console.log("No meta_data found")
     return{
+      title:"Muller"
+    }
+  }
+  
+  return{
       title:meta_data[0].title,
       description:meta_data[0].description,
       keywords:meta_data[0].keywords,
       openGraph:{
         images:[meta_data[0].image.filename]
       }
-    }
-  }else{
-    return{
-      title:"Muller",
-      description:"We are muller"
-    }
   }
 }
 

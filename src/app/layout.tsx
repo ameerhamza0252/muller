@@ -4,13 +4,12 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 export const dynamic = 'force-dynamic'
 
-import { storyblokInit, apiPlugin, StoryblokStory, getStoryblokApi, RichTextSchema } from "@storyblok/react/rsc";
+import { storyblokInit, apiPlugin, StoryblokStory, getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokProvider from '@/components/StoryblokProvider'
 import { Providers } from './providers'
 import cloneDeep from "clone-deep";
 import Redux_Providers from '@/components/Provider'
 
-const mySchema = cloneDeep(RichTextSchema)
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,10 +18,10 @@ storyblokInit({
   accessToken: process.env.STORYBLOKTOKEN,
   use: [apiPlugin],
   apiOptions:{
-    cache: {
-      clear: 'auto',
-      type: 'none'
-    },
+    cache:{
+      clear:"auto",
+      type:"none"
+    }
   },
 });
 
