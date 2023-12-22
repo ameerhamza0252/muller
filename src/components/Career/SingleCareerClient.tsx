@@ -47,7 +47,7 @@ export async function CareerDescription({blok}:{blok:any}){
     return(
         <div className=" flex items-center justify-center lg:gap-[80px] py-[40px] lg:py-[112px]" id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <div className=" w-3/4">
-                    <text className="">{render(blok.description)}</text>
+                    <text className="max-w-none prose text-[21px]">{render(blok.description)}</text>
                     <div className=" flex items-end justify-between mt-[24px] lg:mt-[64px]">
                             <div className=" flex flex-col gap-[16px] text-[18px] leading-[28.8px] font-DM_Mono">
                                 <text className=" font-[500]">{blok.sharelable}</text>

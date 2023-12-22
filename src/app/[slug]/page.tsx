@@ -1,5 +1,6 @@
 import { getStoryblokApi } from "@storyblok/react";
-import { render } from "storyblok-rich-text-react-renderer";
+//import { render } from "storyblok-rich-text-react-renderer";
+import {render} from 'storyblok-rich-text-react-renderer-ts';
 
 // import type { Metadata, ResolvingMetadata } from 'next'
 

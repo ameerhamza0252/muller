@@ -1,15 +1,16 @@
 "use client"
 import Link from "next/link";
 import { useState } from "react"
-import { render } from "storyblok-rich-text-react-renderer";
-import { NewsCard } from "../NewsSection";
-import { getStoryblokApi, storyblokEditable } from "@storyblok/react";
+import {render} from 'storyblok-rich-text-react-renderer-ts';
+
+import { getStoryblokApi, renderRichText, storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
 import Pagelink from "@/components/link";
 
 export function HeadingsDescription({blok}:{blok:any}){
     const content=blok;
     const [value,setValue]=useState(0)
+
     return (
         <>
             <div className=" grid grid-cols-3 pb-[20px] md:pb-[40px]" {...storyblokEditable(blok)} id={blok.anchor_id}>
@@ -17,7 +18,7 @@ export function HeadingsDescription({blok}:{blok:any}){
                     {content.headings.map((h:any)=>(
                         <div className=" flex flex-col gap-[16px]"  key={h._uid}>
                             <text className={`text-[${h.textsize}px] font-[${h.fontweight}] `}  id={h.heading}>{h.heading}</text>
-                            <text>{render(h.description)}</text>
+                            <text className=" max-w-none prose text-[21px] ">{render(h.description)}</text>
                         </div>
                     ))}
                 </div>

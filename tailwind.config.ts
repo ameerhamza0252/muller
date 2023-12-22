@@ -62,6 +62,6 @@ const config: Config = {
       "accordion-up": "accordion-up 0.2s ease-out",
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography'),],
 }
 export default config
