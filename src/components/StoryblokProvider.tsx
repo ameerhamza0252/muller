@@ -100,6 +100,7 @@ storyblokInit({
     BlogsSection:BlogSection,
     NewsSection:NewsSection,
     NewsLetter:Signup,
+    //Single_News
     DiscoverLatest:DiscoverNews,
     News:SingleNews,
 

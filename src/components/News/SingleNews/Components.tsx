@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState } from "react"
 import {render} from 'storyblok-rich-text-react-renderer-ts';
 
-import { getStoryblokApi, renderRichText, storyblokEditable } from "@storyblok/react";
+import { getStoryblokApi, storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
 import Pagelink from "@/components/link";
 

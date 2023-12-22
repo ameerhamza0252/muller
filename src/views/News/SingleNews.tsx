@@ -3,7 +3,7 @@ import { StoryblokComponent } from "@storyblok/react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function SingleNews({blok}:{blok:any}){
+export default async function SingleNews({blok}:{blok:any}){
     //console.log(blok)
     const content=blok;
     return(

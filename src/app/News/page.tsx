@@ -33,6 +33,6 @@ export default async function NewsPage() {
 
 async function fetchData() {
     const storyblokApi = getStoryblokApi();
-    return storyblokApi.get(`cdn/stories/News`, { version: "draft"});
+    return storyblokApi.get(`cdn/stories/News`, { version: "published"});
   }
   

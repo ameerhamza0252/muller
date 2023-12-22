@@ -1,5 +1,4 @@
-import { HeadingsDescription } from "@/components/News/SingleNews/Components";
-import { StoryblokComponent, getStoryblokApi } from "@storyblok/react";
+import {  getStoryblokApi } from "@storyblok/react";
 import StoryblokStory from "@storyblok/react/story";
 
 // import { Metadata, ResolvingMetadata } from "next";
