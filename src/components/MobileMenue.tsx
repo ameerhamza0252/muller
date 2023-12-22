@@ -36,7 +36,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { RxCross1 } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "@/state_stores/MobileMenueStore"
-import { mobile_state_toggle } from "@/state_stores/Mobile_Menue_Slice"
+import { menue_close, mobile_state_toggle } from "@/state_stores/Mobile_Menue_Slice"
 
 
 
@@ -57,7 +57,7 @@ export function MobileMenue({blok}:{blok:any}){
                     <Link href={social.url.url} target="_blank"><Image src={social.image.filename} alt={social.image.alt} width={24} height={24} key={social._uid} /></Link>
                 ))
             }
-            <Popover>
+            <Popover open={mobile_state}>
             <PopoverTrigger onClick={()=>(dispatch(mobile_state_toggle()))} className=" bg-brand" asChild>
                 <Button className=" flex flex-col gap-[6px] items-end text-white ">{mobile_state?<RxCross1/>:<><hr className=" w-[35px]"/><hr className=" w-[20px]"/></>}</Button>
             </PopoverTrigger>
@@ -74,15 +74,14 @@ export function MobileMenue({blok}:{blok:any}){
                                 </AccordionButton>
                                 :<div className=" w-full invisible"><IoIosArrowDown/></div>
                         }
-                        <Link href={n.link.cached_url=="home"?"/":"/"+capitalizeFirstLetter(n.link.cached_url)} className=" justify-self-start ">{n.lable}</Link>
+                        <Link onClick={()=>(dispatch(menue_close()))} href={n.link.cached_url=="home"?"/":"/"+capitalizeFirstLetter(n.link.cached_url)} className=" justify-self-start ">{n.lable}</Link>
                         </div>
                         <AccordionPanel className=" flex flex-col ">
-                            
                         {
                             n.items.map((item:any)=>(
                                 <div className="grid grid-cols-2 w-full  border-b border-white">
                                     <div className=" w-full"></div>
-                                <Link href={item.url.linktype=="story"?"/"+item.url.cached_url:"/"+capitalizeFirstLetter(n.link.cached_url.split("/")[0])+item.url.url} className=" text-start justify-self-start py-[8px] " key={item._uid}>{item.Lable}</Link>
+                                <Link onClick={()=>(dispatch(menue_close()))} href={item.url.linktype=="story"?"/"+item.url.cached_url:"/"+capitalizeFirstLetter(n.link.cached_url.split("/")[0])+item.url.url} className=" text-start justify-self-start py-[8px] " key={item._uid}>{item.Lable}</Link>
                                 </div>
                             ))
                         }

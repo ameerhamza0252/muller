@@ -6,10 +6,10 @@ const mobileMenue=createSlice({
     name:'mobile_menu_state',
     initialState,
     reducers:{
-        menue_opened(state){
+        menue_open(state){
             state.opened=true;
         },
-        menue_closed(state){
+        menue_close(state){
             state.opened=false;
         },
         mobile_state_toggle(state){
@@ -18,5 +18,5 @@ const mobileMenue=createSlice({
     }
 })
 
-export const {menue_opened,menue_closed,mobile_state_toggle}=mobileMenue.actions
+export const {menue_open,menue_close,mobile_state_toggle}=mobileMenue.actions
 export default mobileMenue.reducer;
