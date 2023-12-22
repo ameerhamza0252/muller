@@ -2,8 +2,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { Navigation } from '@/components/navbar'
-import Footer from '@/components/footer'
 export const dynamic = 'force-dynamic'
 
 import { storyblokInit, apiPlugin, StoryblokStory, getStoryblokApi, RichTextSchema } from "@storyblok/react/rsc";
@@ -38,9 +36,10 @@ export default async function RootLayout({
   //console.log(footer) 
   
   return (
-    <StoryblokProvider>
+    
       <html lang="en" >
-      <body className={inter.className+" relative"}>
+        <StoryblokProvider>
+      <body className={inter.className}>
         <Redux_Providers>
           <Providers>
             <StoryblokStory story={header.story} />
@@ -51,8 +50,9 @@ export default async function RootLayout({
           </Providers>
         </Redux_Providers>
       </body>
+      </StoryblokProvider>
     </html>
-    </StoryblokProvider>
+    
   )
 }
 export async function fetchData(component:"navigation"|"footer") {

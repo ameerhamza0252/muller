@@ -9,7 +9,7 @@ import StoryblokStory from "@storyblok/react/story";
 import type { Metadata, ResolvingMetadata } from 'next'
 export async function generateMetadata():Promise<Metadata>{
   const {data}= (await fetchData());
-  const {meta_data}=data.story.content
+  const meta_data=data.story.content
   if(meta_data[0]){
     return{
       title:meta_data[0].title,

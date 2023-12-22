@@ -34,7 +34,7 @@ export default function Tagline({blok}:{blok:any}){
     
     
 
-    console.log(locations[0])
+    //console.log(locations[0])
     return(
         <div className=" min-h-screen flex flex-col md:px-[64px] py-[112px] gap-[80px] text-black" id={blok.anchor_id} {...storyblokEditable(blok)}>
             <div className=" grid grid-cols-1 px-[10px] md:px-0">
