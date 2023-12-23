@@ -8,7 +8,7 @@ type Props = {
     searchParams: { [key: string]: string | string[] | undefined }
   }
   
-export const generateMetadata=async(parent:ResolvingMetadata):Promise<Metadata>=>{
+export const generateMetadata=async():Promise<Metadata>=>{
   const {data}=await fetchData()
   const {meta_data}=data.story.content
   console.log(data)
