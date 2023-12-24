@@ -132,12 +132,14 @@ const responsiveSettings = [
 ];
 
 const Premade_Slider = ({blok}:{blok:any}) => {
-    //console.log(blok)
+
+  const {colors}=blok;
+  
     const props={
-        prevArrow:<button className=" flex w-[48px] h-[48px] rounded-full border-[1px] text-brand border-brand items-center justify-center">
+        prevArrow:<button className=" flex w-[48px] h-[48px] rounded-full border-[1px] items-center justify-center" style={{borderColor:colors[0].border_color,color:colors[0].border_color}}>
         <div className=" scale-150"><BiLeftArrowAlt /></div>
     </button>,
-        nextArrow:<button className=" flex w-[48px] h-[48px] rounded-full border-[1px] text-brand border-brand items-center justify-center">
+        nextArrow:<button className=" flex w-[48px] h-[48px] rounded-full border-[1px] items-center justify-center" style={{borderColor:colors[0].border_color,color:colors[0].border_color}}>
         <div className=" scale-150"><BiRightArrowAlt/></div>
     </button>,
     }
@@ -170,17 +172,17 @@ const Premade_Slider = ({blok}:{blok:any}) => {
     return <div>Error .....</div>
   }
 
-  console.log(data)
-
+  //console.log(data)
+  
     return (
-        <div className="flex flex-col lg:px-[64px] py-[40px] lg:py-[112px] gap-[40px] md:gap-[80px]" id={blok.anchor_id} {...storyblokEditable(blok)} >
+        <div className="flex flex-col lg:px-[64px] py-[40px] lg:py-[112px] gap-[40px] md:gap-[80px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)} >
             <div className="flex flex-col gap-[16px] mb-[40px]">
             <text>{blok.title}</text>
             <text className="heading3">{blok.heading}</text>
             <div className="flex flex-col md:flex-row px-2 justify-between gap-[10px]">
                 <text>{blok.overview}</text>
-                <Link href={blok.button_link.fieldtype=="story"?blok.button_link.cached_url:blok.button_link.url} className=" max-w-[150px] md:w-auto px-[24px] py-[12px] border-b border-b-brand">
-                {blok.button_text}
+                <Link href={blok.button_link.fieldtype=="story"?blok.button_link.cached_url:blok.button_link.url} className=" max-w-[150px] md:w-auto px-[24px] py-[12px] border-b " style={{borderBottomColor:colors[0].border_color}}>
+                  {blok.button_text}
                 </Link>
             </div>
             </div>
@@ -199,7 +201,7 @@ const Premade_Slider = ({blok}:{blok:any}) => {
                                 <text className=" heading4">{stop.heading}</text>
                                 <text className=" text-[16px]">{stop.description}</text>
                             </div>
-                            <Link href={"/"+s.full_slug} className=" text-center text-[18px] font-[500] font-DM_Mono leading-[28.8px] border-brand border-b py-2 ">{blok.Card_Button_Text}</Link>
+                            <Link href={"/"+s.full_slug} className=" text-center text-[18px] font-[500] font-DM_Mono leading-[28.8px] border-b py-2 " style={{borderColor:colors[0].border_color}}>{blok.Card_Button_Text}</Link>
                          </div>
                         </div>
                     )})

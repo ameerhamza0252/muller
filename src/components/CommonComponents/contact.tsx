@@ -7,12 +7,13 @@ import Premade_Slider from "../Solutions/ClientComponents";
 
 export default function Contact({blok}:{blok:any}) {
     //console.log('CONTACTS OPEN')
-    const contacts=blok.contacts;
+    const {contacts}=blok;
     //console.log(contacts[0])
     const [count,setCount]=useState(0)
+    const {colors}=blok;
     return(
         <>
-            <div className=" min-h-screen flex flex-col px-[20px] lg:px-[64px] py-[40px] lg:py-[112px] text-black gap-[30px] lg:gap-[80px]" id={blok.anchor_id} {...storyblokEditable(blok)}>
+            <div className=" min-h-screen flex flex-col px-[20px] lg:px-[64px] py-[40px] lg:py-[112px] gap-[30px] lg:gap-[80px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
             <div className=" flex flex-col gap-[24px]">
                 <text>{blok.title}</text>
                 <text className=" heading1">{blok.heading}</text>
@@ -22,7 +23,7 @@ export default function Contact({blok}:{blok:any}) {
                 <div className=" flex flex-col w-full gap-[29px]">
                 {
                     contacts.map((c:any,i:number)=>(
-                        <button className={`grid grid-cols-1 text-start gap-[24px] pl-[32px] ${count==i?"border-l-2":null} border-brand`} onClick={()=>setCount(i)} key={c._uid} >
+                        <button className={`grid grid-cols-1 text-start gap-[24px] pl-[32px]`} style={{borderLeft:count==i?`1px solid ${colors[0].border_color}`:''}} onClick={()=>setCount(i)} key={c._uid} >
                         <text className=" heading4">{c.country}</text>
                         <text className=" ">{c.name}</text>
                         <Link href={c.link.linktype=="email"?"mailto:"+c.link.url:c.link.url} className=" font-['DM_Mono'] font-[500] text-[18px]">{c.link_text}</Link>
