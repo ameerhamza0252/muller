@@ -11,6 +11,7 @@ export default function Tagline({blok}:{blok:any}){
     const [current,setCurrent]=useState(0)
     //const [isHovered,setIsHovered]=useState(false)
     const locations=blok.locations[0].locationlist
+    const {colors}=blok;
 
     function handleLocationChange(index:number){
         console.log("Location changed")
@@ -36,7 +37,7 @@ export default function Tagline({blok}:{blok:any}){
 
     //console.log(locations[0])
     return(
-        <div className=" min-h-screen flex flex-col md:px-[64px] py-[112px] gap-[80px] " style={{backgroundColor:blok.background_color,color:blok.text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
+        <div className=" min-h-screen flex flex-col md:px-[64px] py-[112px] gap-[80px] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
             <div className=" grid grid-cols-1 px-[10px] md:px-0">
                 <text>{blok.title}</text>
                 <text className=" mt-[16px] mb-[24px] heading2">{blok.title}</text>
@@ -45,7 +46,7 @@ export default function Tagline({blok}:{blok:any}){
             <div className=" flex flex-col md:flex-row gap-10 lg:gap-0  md:justify-between ">
                 <div className="h-auto max-w-[400px] flex flex-col gap-[29px] px-[20px] ">
                     {locations&&locations.map((l:any,i:number)=>(
-                        <button onClick={()=>handleLocationChange(i)} key={l._uid} className={` flex flex-col pl-[10px] md:pl-[27px] text-start`} style={{borderLeft:value==i?`1px solid ${blok.border_color}`:0}}>
+                        <button onClick={()=>handleLocationChange(i)} key={l._uid} className={` flex flex-col pl-[10px] md:pl-[27px] text-start`} style={{borderLeft:value==i?`1px solid ${colors[0].border_color}`:0}}>
                         
                         <text className=" heading3">{l.country}</text>
                         <text className=" lg:leading-[33.6px] mt-[16px] mb-[24px]">{l.location}</text>
