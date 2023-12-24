@@ -9,14 +9,14 @@ type Props = {
   
 export const generateMetadata=async():Promise<Metadata>=>{
   const {data}= await fetchData();
-  console.log(data)
+  //console.log(data)
   const {meta_data}=data.story.content
   if(!meta_data){
     return{
       title:"Muller"
     }
   }
-  console.log(meta_data)
+  //console.log(meta_data)
   return{
     title:meta_data[0].title,
     description:meta_data[0].description,

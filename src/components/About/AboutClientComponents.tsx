@@ -17,16 +17,14 @@ export function Organization({blok}:{blok:any}){
     const {departments}=countries[value]?countries[value]:countries[0];
     const {employees}=departments[department]?departments[department]:departments[0];
     const {hiring}=blok
-    //console.log(departments[department])
-    //console.log(department)
-    //alert(department)
+    const {colors}=blok;
     return(
-        <div className=" min-h-screen flex flex-col pl-[20px] pr-[10px] py-[20px] lg:pl-[76px] lg:pr-[49px] lg:py-[35px] text-black " id={blok.anchor_id} {...storyblokEditable(blok)}>
+        <div className=" min-h-screen flex flex-col pl-[20px] pr-[10px] py-[20px] lg:pl-[76px] lg:pr-[49px] lg:py-[35px] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <text>{blok.title}</text>
                 <div className=" grid grid-cols-1 self-center md:self-start justify-center md:justify-normal md:grid-cols-3 lg:grid-cols-4 md:gap-[24px] mt-[40px] lg:mt-[108px]">
                     {
                         countries.map((country:any,index:number)=>(
-                            <button className={` min-w-[270px] md:max-w-[300px] px-[34px] ${index==value?'border-b-brand text-brand':'border-b-black'} border-b-[1px] pb-[10px]`} key={country._uid} onClick={()=>setValue(index)} >{country.countryname}</button>
+                            <button className={` min-w-[270px] md:max-w-[300px] px-[34px] border-b-[1px] pb-[10px]`} style={{borderBottomColor:index==value?colors[0].border_color:'',color:index==value?colors[0].border_color:''}} key={country._uid} onClick={()=>setValue(index)} >{country.countryname}</button>
                         ))
                     }
                 </div>
@@ -55,7 +53,7 @@ export function Organization({blok}:{blok:any}){
                     <div className=" max-w-[400px] flex flex-col text-center">
                         {
                             departments.map((dep:any,index:number)=>(
-                                <button className={`min-w-[270px] border-b-[1px] ${index==department?' border-brand text-brand':'border-black'} px-[34px] pb-[11px] pt-[16px]`} key={dep._uid} onClick={()=>setDepartment(index)} >{dep.name}</button>
+                                <button className={`min-w-[270px] border-b-[1px] px-[34px] pb-[11px] pt-[16px]`} style={{borderBottomColor:index==department?colors[0].border_color:'',color:index==department?colors[0].border_color:''}} key={dep._uid} onClick={()=>setDepartment(index)} >{dep.name}</button>
                             ))
                         }
                     </div>
@@ -63,7 +61,7 @@ export function Organization({blok}:{blok:any}){
                 <div className=" flex flex-col mt-[40px] lg:mt-[97px] gap-[19px] self-center text-center items-center text-black ">
                     <text className=" heading4">{hiring[0].title}</text>
                     <text>{hiring[0].overview}</text>
-                    <Pagelink text="" url={hiring[0].link.url} />
+                    <Pagelink text={hiring[0].link_text} variant={colors[0].link_variant} url={hiring[0].link.url} />
                 </div>
             </div>
     )
