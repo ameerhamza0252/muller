@@ -19,7 +19,7 @@ import Home from "./Home/Home";
 import Testimonials from "./Home/testimonials";
 import AboutusStory from "@/views/About us/Aboutus";
 import { AboutTop, Achievements, History, Philosophy } from "./About/About";
-import SolutionsList from "@/views/Solutions/Solutions";
+import SolutionsList from "@/components/Solutions/Solutions";
 import ServicesList from "./Services/Services";
 import MarketsView from "@/views/Markets/Markets";
 import MarketTop from "./Markets/markettop";

@@ -6,7 +6,7 @@ export default function partners({blok}:{blok:any}){
     //blok=blok[0];
     //console.log(blok.partners[0])
     return(
-        <div className=" min-h-screen flex flex-col bg-[#221E1F] text-white px-[30px] lg:px-[42px] xxl:px-[60px] py-[119px] " id={blok.anchor_id} {...storyblokEditable(blok)} key={blok._uid} data-test="feature">
+        <div className=" min-h-screen flex flex-col px-[30px] lg:px-[42px] xxl:px-[60px] py-[119px] " style={{backgroundColor:blok.background_color,color:blok.text_color}} id={blok.anchor_id} {...storyblokEditable(blok)} key={blok._uid} data-test="feature">
             
                 <text className=" heading2 ">{blok.heading}</text>
                 <text className=" md:w-[592px] xl:[700px] mt-[40px] ">{blok.description}</text>

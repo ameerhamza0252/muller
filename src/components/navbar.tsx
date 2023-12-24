@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MobileMenue } from "./MobileMenue";
 import { storyblokEditable } from "@storyblok/react";
+import Header from "./Hamburg_Menue";
 
 export function capitalizeFirstLetter(string:string) {
     return string.charAt(0).toUpperCase() + string.slice(1);

@@ -6,7 +6,7 @@
 
 .typed-h {
   overflow: hidden;
-  animation: typing 1s forwards;
+  animation: typing 3.5s steps(40,end);
   animation-delay: 2s; /* Add this line */
 }
 

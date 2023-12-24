@@ -42,9 +42,7 @@ export default async function RootLayout({
         <Redux_Providers>
           <Providers>
             <StoryblokStory story={header.story} />
-            <div>
               {children}
-            </div>
             <StoryblokStory story={footer.story} />
           </Providers>
         </Redux_Providers>

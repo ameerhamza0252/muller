@@ -41,12 +41,12 @@ import { menue_close, mobile_state_toggle } from "@/state_stores/Mobile_Menue_Sl
 
 
 export function MobileMenue({blok}:{blok:any}){
-    const [isOpen,setIsOpen]=useState(false);
+    //const [isOpen,setIsOpen]=useState(false);
     const [expanded,setExpanded]=useState(-99)
     const dispatch=useDispatch()
     const mobile_state=useSelector((state:RootState)=>state.Mobile_Menue_Slice.opened);
 
-    console.log("Redux State", mobile_state)
+    //console.log("Redux State", mobile_state)
     //const mobile_menue_state
 
     return <div className={`w-full absolute flex justify-between z-50 min-h-[37px] lg:invisible  lg:hidden ${mobile_state?"bg-brand":""}`} {...storyblokEditable(blok)}>
@@ -61,7 +61,7 @@ export function MobileMenue({blok}:{blok:any}){
             <PopoverTrigger onClick={()=>(dispatch(mobile_state_toggle()))} className=" bg-brand" asChild>
                 <Button className=" flex flex-col gap-[6px] items-end text-white ">{mobile_state?<RxCross1/>:<><hr className=" w-[35px]"/><hr className=" w-[20px]"/></>}</Button>
             </PopoverTrigger>
-            <PopoverContent className=" w-screen min-h-screen flex flex-col text-center bg-brand -mt-2 border-0 text-white bg-cover" >
+            <PopoverContent className=" sticky w-screen min-h-screen flex flex-col text-center bg-brand -mt-2 border-0 text-white bg-cover" >
             <Accordion className=" flex flex-col gap-[10px] text-center" allowToggle>
             {
                 blok.name.map((n:any,index:number)=>(

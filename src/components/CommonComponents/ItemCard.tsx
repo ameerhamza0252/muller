@@ -2,11 +2,11 @@ import useSWR from 'swr'
 import { getStoryblokApi } from "@storyblok/react"
 import Image from "next/image"
 import Pagelink from "../link"
-import { Skeleton, SkeletonCircle, SkeletonText } from '@chakra-ui/react'
+import { Skeleton } from '@chakra-ui/react'
 
-export default function ItemsCard({blok,buttontext}:{blok:any,buttontext:string}) {
+export default function ItemsCard({blok,buttontext,link_variant,divider_color}:{blok:any,buttontext:string,link_variant:string,divider_color:string}) {
   //console.log("Inside Card")
-  //console.log(blok)
+  //const divider_color=divider_color;
   const { data, error, isLoading }=useSWR(blok,getDataList)
   //console.log('ItemsCards Fetched')
   if(isLoading){
@@ -40,9 +40,9 @@ export default function ItemsCard({blok,buttontext}:{blok:any,buttontext:string}
                         <Image src={stop.image.filename} placeholder='empty' objectFit='cover' alt={stop.image.alt} fill />
                     </div>
                     <text className=' heading2 max-h-[200px] overflow-hidden w-[80%]'>{stop.heading}</text>
-                    <div className="w-[90%] border-b-[1px] border-brand" ></div>
-                    <text className=' w-[90%] h-[150px] overflow-hidden  my-[8px]'>{stop.description}</text>
-                    <Pagelink url={blok.full_slug} text={buttontext!=''?buttontext:'View more'} />
+                    <div className={`w-[90%] border-b-[1px] `} style={{borderColor:divider_color}} ></div>
+                    <text className={`w-[90%] h-[150px] overflow-hidden my-[8px]`}>{stop.description}</text>
+                    <Pagelink variant={link_variant} url={blok.full_slug} text={buttontext!=''?buttontext:'View more'} />
                   </div>
                 </Skeleton>
               )
