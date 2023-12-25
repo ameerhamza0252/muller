@@ -6,6 +6,8 @@ import {render} from 'storyblok-rich-text-react-renderer-ts';
 import { getStoryblokApi, storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
 import Pagelink from "@/components/link";
+import useSWR from "swr";
+import { Skeleton } from "@chakra-ui/react";
 
 export function HeadingsDescription({blok}:{blok:any}){
     const content=blok;
@@ -38,22 +40,26 @@ export function HeadingsDescription({blok}:{blok:any}){
     )
 }
 
-export async function DiscoverNews({blok}:{blok:any}){
-    const newsPromises = blok.News.map(async (uuid: string) => ((await fetchData(uuid)).data));
-    const newslist = await Promise.all(newsPromises);
-    //console.log(newslist)
+export function DiscoverNews({blok}:{blok:any}){
+    const {data,error,isLoading}=useSWR(blok.News,getDataList);
+    if(error){
+        return <div className="flex text-center min-h-[300px] items-center " style={{backgroundColor:'red',opacity:.5}}>Error</div>
+    }
+    //console.log(blok)
     return(
         <div className=" min-h-screen flex flex-col bg-black text-white px-[20px] lg:px-[64px] py-[40px] lg:py-[112px]" id={blok.anchor_id} {...storyblokEditable(blok)} >
-            <text className=" mb-[16px] Text-16 ">Latest</text>
-            <text className=" heading2 mb-[24px] ">Discover our latest news</text>
-            <text className=" mb-[80px]">Stay updated with our latest news articles.</text>
+            <text className=" mb-[16px] Text-16 ">{blok.title}</text>
+            <text className=" heading2 mb-[24px] ">{blok.heading}</text>
+            <text className=" mb-[80px]">{blok.overview}</text>
+            <Skeleton className=" min-h-[300px]" isLoaded={!isLoading}>
             <div className=" flex flex-wrap gap-5">
                 {
-                    newslist.map((news:any)=>(
-                        <DiscoverNewsCard blok={news.stories[0]} variant="black" key={news.stories[0].uuid} />
+                    data&&data.map((news:any)=>(
+                        <DiscoverNewsCard blok={news} variant="black" key={news.uuid} />
                     ))
                 }
             </div>
+            </Skeleton>
         </div>
     )
 }
@@ -84,4 +90,10 @@ export function DiscoverNewsCard({blok,variant="white"}:{blok:any,variant?:strin
 async function fetchData(uuid:string) {
     const storyblokApi = getStoryblokApi();
     return storyblokApi.get(`cdn/stories/`, { version: "published",by_uuids:uuid});
+  }
+
+  export async function getDataList(solutions:string[]){
+    const promisList=solutions.map(async(s_uuid:string) =>(await fetchData(s_uuid)).data.stories[0])
+      const dataResults = await Promise.all(promisList);
+      return dataResults;
   }
