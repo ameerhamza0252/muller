@@ -4,8 +4,9 @@ import Image from "next/image";
 export default function MarketPoints({blok}:{blok:any}){
     //console.log(blok.points[0])
     const {points}=blok
+    const {colors}=blok;
     return(
-        <div className=" flex flex-col lg:flex-row lg:flex-wrap justify-evenly px-[20px] py-[40px] lg:px-[64px] lg:py-[112px] gap-[48px] text-black" id={blok.anchor_id} {...storyblokEditable(blok)}>
+        <div className=" flex flex-col lg:flex-row lg:flex-wrap justify-evenly px-[20px] py-[40px] lg:px-[64px] lg:py-[112px] gap-[48px] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
             
                 {
                     points.map((point:any)=>(
