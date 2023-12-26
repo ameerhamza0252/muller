@@ -9,18 +9,19 @@ import Pagelink from "@/components/link";
 import useSWR from "swr";
 import { Skeleton } from "@chakra-ui/react";
 
-export function HeadingsDescription({blok}:{blok:any}){
+export function HeadingsDescription({blok,Colors,SelectedColor}:{blok:any,Colors:any,SelectedColor:any}){
     const content=blok;
     const [value,setValue]=useState(0)
+    const [hovered,setHovered]=useState<number|null>(null)
 
     return (
         <>
-            <div className=" grid grid-cols-3 pb-[20px] md:pb-[40px]" {...storyblokEditable(blok)} id={blok.anchor_id}>
+            <div className=" grid grid-cols-3 py-[20px] md:py-[40px] px-[30px] lg:px-[64px]" style={{backgroundColor:Colors[0].background_color,color:Colors[0].text_color}} {...storyblokEditable(blok)} id={blok.anchor_id}>
                 <div className=" flex flex-col col-span-2  gap-[40px]">
                     {content.headings.map((h:any)=>(
                         <div className=" flex flex-col gap-[16px]"  key={h._uid}>
-                            <text className={`text-[${h.textsize}px] font-[${h.fontweight}] `}  id={h.heading}>{h.heading}</text>
-                            <text className=" max-w-none prose text-[21px] ">{render(h.description)}</text>
+                            <text className={`text-[${h.textsize}px] font-[${h.fontweight}]`}  id={h.heading}>{h.heading}</text>
+                            <text className=" max-w-none prose text-[21px]" style={{color:Colors[0].text_color}}>{render(h.description)}</text>
                         </div>
                     ))}
                 </div>
@@ -30,7 +31,7 @@ export function HeadingsDescription({blok}:{blok:any}){
                         content.headings.map((h:any,index:number)=>{
                             //console.log(value)
                             return (
-                            <Link onClick={()=>setValue(index)} className={`ml-[${index*20}px] px-[16px] py-[12px] ${index==value?'bg-Light-Grey':null} hover:bg-Light-Grey `} href={"#"+h.heading} key={h._uid}>{h.heading}</Link>
+                            <Link onMouseOver={()=>setHovered(index)} onMouseLeave={()=>setHovered(null)} onClick={()=>setValue(index)} className={`ml-[${index*20}px] px-[16px] py-[12px]`} style={{backgroundColor:index==value||index==hovered?SelectedColor:""}} href={"#"+h.heading} key={h._uid}>{h.heading}</Link>
                         )})
                     }
                 </div>
@@ -46,8 +47,9 @@ export function DiscoverNews({blok}:{blok:any}){
         return <div className="flex text-center min-h-[300px] items-center " style={{backgroundColor:'red',opacity:.5}}>Error</div>
     }
     //console.log(blok)
+    const {colors}=blok;
     return(
-        <div className=" min-h-screen flex flex-col bg-black text-white px-[20px] lg:px-[64px] py-[40px] lg:py-[112px]" id={blok.anchor_id} {...storyblokEditable(blok)} >
+        <div className=" min-h-screen flex flex-col px-[20px] lg:px-[64px] py-[40px] lg:py-[112px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)} >
             <text className=" mb-[16px] Text-16 ">{blok.title}</text>
             <text className=" heading2 mb-[24px] ">{blok.heading}</text>
             <text className=" mb-[80px]">{blok.overview}</text>
@@ -55,7 +57,7 @@ export function DiscoverNews({blok}:{blok:any}){
             <div className=" flex flex-wrap gap-5">
                 {
                     data&&data.map((news:any)=>(
-                        <DiscoverNewsCard blok={news} variant="black" key={news.uuid} />
+                        <DiscoverNewsCard link_variant={colors[0].link_variant} tag_color={blok.card_tag_color} tag_text_color={blok.card_tag_text_color} blok={news} key={news.uuid} />
                     ))
                 }
             </div>
@@ -64,25 +66,25 @@ export function DiscoverNews({blok}:{blok:any}){
     )
 }
 
-export function DiscoverNewsCard({blok,variant="white"}:{blok:any,variant?:string}){
+export function DiscoverNewsCard({blok,link_variant,tag_color,tag_text_color}:{blok:any,link_variant:string,tag_color:string,tag_text_color:string}){
     
     //console.log(blok)
     const {content}=blok;
     //console.log(blok.slug)
     return(
-        <div className={`flex flex-col md:w-[336px] gap-[24px] ${variant=='black'?'bg-black text-white':null}`} id={blok.anchor_id}>
+        <div className={`flex flex-col md:w-[336px] gap-[24px] `} id={blok.anchor_id}>
             <div className=" relative h-[300px]">
                 <Image src={content.image.filename} alt={content.image.alt} fill />
             </div>
             <div className=" flex gap-[16px] text-[DM Mono] text-[14px] items-center ">
-                <text className={`py-[4px] px-[8px] ${variant=="black"?"text-B-Yellow":null}`}>{content.category}</text>
+                <text className={`py-[4px] px-[8px] `} style={{backgroundColor:tag_color,color:tag_text_color}}>{content.category}</text>
                 <text className=" font-[500]">{content.readtime}</text>
             </div>
             <div className="flex flex-col gap-[8px]">
                 <text className=" heading4">{content.name}</text>
                 <text className=" text-[16px] leading-[25.6px]">{content.overview}</text>
             </div>
-            <Pagelink url={blok.slug} variant="white" width="200px" />
+            <Pagelink url={blok.slug} variant={link_variant} width="200px" />
         </div>
     )
 }

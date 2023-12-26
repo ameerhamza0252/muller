@@ -6,12 +6,16 @@ import Link from "next/link";
 export default function SingleNews({blok}:{blok:any}){
     //console.log(blok)
     const content=blok;
+    const {TopColors}=blok;
+    const {top_tag_color}=blok;
+    const {top_tag_text_color}=blok;
+    const {HeadingsColors}=blok;
+    const {heading_selected_color}=blok;
     return(
         <>
-            <div className=" px-[30px] lg:px-[64px]">
-            <div className=" min-h-screen flex flex-col text-black pb-[60px] pt-[80px] lg:pt-[170px] lg:pb-[112px] font-[500] " id="top">
+            <div className=" min-h-screen flex flex-col font-[500] pb-[60px] pt-[80px] lg:pt-[170px] lg:pb-[112px] px-[30px] lg:px-[64px] " style={{backgroundColor:TopColors[0].background_color,color:TopColors[0].text_color}} id="top">
                 <div className=" flex text-[14px] gap-[16px] font-DM_Mono mb-[16px] items-center ">
-                    <text className=" bg-B-grey px-[8px] py-[4px]">{content.category}</text>
+                    <text className=" px-[8px] py-[4px]" style={{backgroundColor:top_tag_color,color:top_tag_text_color}}>{content.category}</text>
                     <text>{content.readtime}</text>
                 </div>
                 <text className=" heading1 mb-[40px] lg:mb-[80px] ">{content.name}</text>
@@ -25,9 +29,7 @@ export default function SingleNews({blok}:{blok:any}){
                     </div>
                 </div>
             </div>
-            <HeadingsDescription blok={content} />
-            
-        </div>
+            <HeadingsDescription Colors={HeadingsColors} SelectedColor={heading_selected_color} blok={content} />
         {
             blok.blocks&&blok.blocks.map((nested:any)=>(
                 <StoryblokComponent blok={nested} key={nested._uid} />
