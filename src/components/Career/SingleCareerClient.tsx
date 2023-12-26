@@ -165,8 +165,11 @@ import { storyblokEditable } from "@storyblok/react"
     //console.log(blok)
     const link=blok.link[0]
     //console.log(blok)
+    const {colors}=blok;
+    //console.log("FAQ HERE")
+    //console.log(colors)
     return(
-        blok.variant=="vertical"?(<div className=" flex flex-col gap-[20px] md:gap-[80px] px-[10px] md:px-[64px] py-[40px] md:py-[112px]" id={blok.anchor_id} {...storyblokEditable(blok)}>
+        blok.variant=="vertical"?(<div className=" flex flex-col gap-[20px] md:gap-[80px] px-[10px] md:px-[64px] py-[40px] md:py-[112px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
             <div className=" grid grid-cols-1 gap-[24px]">
                 <text className=" heading2">{blok.title}</text>
                 <text>{blok.overview}</text>
@@ -187,16 +190,16 @@ import { storyblokEditable } from "@storyblok/react"
                 <text className=" heading3">{link.heading}</text>
                 <text>{link.subheading}</text>
                 {
-                    blok.link&&blok.link.length>0?<Pagelink variant="green" text={link.Lable} url={link.link.url} />:null
+                    blok.link&&blok.link.length>0?<Pagelink variant={colors[0].link_variant} text={link.Lable} url={link.link.url} />:null
                 }
             </div>
         </div>)
         :(
-            <div className=" grid grid-cols-1 lg:grid-cols-2 px-[20] lg:px-[64px] py-[50px] lg:py-[112px] gap-[50px] ">
+            <div className=" grid grid-cols-1 lg:grid-cols-2 px-[20] lg:px-[64px] py-[50px] lg:py-[112px] gap-[50px] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <div className=" flex flex-col">
                     <text className=" heading2 mb-[24px]">{blok.title}</text>
                     <text className=" mb-[32px]">{blok.overview}</text>
-                    <Pagelink variant="green" />
+                    <Pagelink variant={colors[0].link_variant} />
                 </div>
                 <div className=" flex flex-col ">
                     <Accordion type="single" collapsible>

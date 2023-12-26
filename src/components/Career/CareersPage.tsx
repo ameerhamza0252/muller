@@ -17,11 +17,15 @@ export default function CareersList({blok}:{blok:any}){
     //console.log(blok)
     const {countries}=blok;
     const {departments}=countries[value];
+    const {button_text}=countries[value]
     //console.log(departments[0].jobs[0].buttonlink)
+    const {colors}=blok;
+    const {selected_color}=blok
+    const {button_border_color}=blok;
     return(
         <>
             
-            <div className=" flex flex-col px-[20] lg:px-[64px] py-[50px] lg:py-[112px] gap-[50px]" id={blok.anchor_id} {...storyblokEditable(blok)}>
+            <div className=" flex flex-col px-[20] lg:px-[64px] py-[50px] lg:py-[112px] gap-[50px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <div className="grid grid-cols-1">
                     <text className=" mb-[16px]">{blok.title}</text>
                     <text className=" heading2">{blok.heading}</text>
@@ -30,7 +34,7 @@ export default function CareersList({blok}:{blok:any}){
                 <div className=" flex flex-col md:flex-row justify-between md:justify-normal md:gap-[24px] mt-[40px] lg:mt-[108px]">
                     {
                         countries.map((country:any,index:number)=>(
-                            <button className={`min-w-[180px] px-[34px] ${index==value?'border-b-brand text-brand':'border-b-black'} border-b-[1px] pb-[10px]`} key={country._uid} onClick={()=>setValue(index)} >{country.country}</button>
+                            <button className={`min-w-[180px] px-[34px] border-b-[1px] pb-[10px]`} style={{borderBottomColor:index==value?selected_color:"black",color:index==value?selected_color:""}} key={country._uid} onClick={()=>setValue(index)} >{country.country}</button>
                         ))
                     }
                 </div>
@@ -48,7 +52,7 @@ export default function CareersList({blok}:{blok:any}){
                                                 <text className=" heading4">{job.heading}</text>
                                                 <text className=" font-['DM Mono'] text-[18px] font-[400]">{job.location}</text>
                                             </div>
-                                            <Link href={capitalizeFirstLetter(job.buttonlink.cached_url)} target="_blank" className=" min-w-[117px] border-b-brand border-b  px-[20px] py-[8px]">Apply</Link>
+                                            <Link href={capitalizeFirstLetter(job.buttonlink.cached_url)} target="_blank" className=" min-w-[117px] border-b  px-[20px] py-[8px]" style={{borderBottomColor:button_border_color}}>{button_text}</Link>
                                         </div>
                                         <text className=" md:w-3/4">{job.overview}</text>
                                     </div>
@@ -86,35 +90,14 @@ export function CareersTop({blok}:{blok:any}){
     )
 }
 
-export function CareersFAQ({blok}:{blok:any}){
-    return(
-        <div className=" grid grid-cols-1 lg:grid-cols-2 px-[20] lg:px-[64px] py-[50px] lg:py-[112px] gap-[50px] " id={blok.anchor_id} {...storyblokEditable(blok)}>
-            <div className=" flex flex-col">
-                <text className=" heading2 mb-[24px]">Frequently Asked Questions</text>
-                <text className=" mb-[32px]">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.</text>
-                <Pagelink variant="green" />
-            </div>
-            <div className=" flex flex-col ">
-                <Accordion type="single" collapsible>
-                <AccordionItem value="item-2" className=" gap-0  ">
-                    <AccordionTrigger className=" py-[20px] text-[18px] leading-[28.8px] font-[500] font-DM_Mono">What is the hiring process?</AccordionTrigger>
-                    <AccordionContent className=" flex flex-col py-[32px] gap-[32px] lg:gap-[64px]" >
-                        <text>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.</text>
-                    </AccordionContent>
-                </AccordionItem>
-                
-                </Accordion>
-            </div>
-        </div>
-    )
-}
-
 export function IndividualsApply({blok}:{blok:any}){
     //console.log(blok)
     const link=blok.link[0]
     //console.log(link)
+    const {text_color}=blok;
+    const {link_variant}=blok;
     return(
-        <div className="relative flex h-[400px] bg-cover items-center text-white" style={{ backgroundColor:"#00000080",backgroundBlendMode:"overlay"}} id={blok.anchor_id} {...storyblokEditable(blok)}>
+        <div className="relative flex h-[400px] bg-cover items-center text-white" style={{ backgroundColor:"#00000080",backgroundBlendMode:"overlay",color:text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <div className=" absolute w-[100%] h-[100%] shadow-inner "  onPlay={()=>console.log('Playing')} >
                     {
                         blok.media&&blok.media.map((m:any)=>(
@@ -125,7 +108,7 @@ export function IndividualsApply({blok}:{blok:any}){
                 <div className="  w-full md:w-3/4 grid grid-cols-1 gap-[24px] p-5 z-10 ">
                     <text className=" heading2">{blok.heading}</text>
                     <text>{blok.overview}</text>
-                    <Pagelink text={link.Lable} url={link.url.url} variant="white" />
+                    <Pagelink text={link.Lable} url={link.url.url} variant={link_variant} />
                 </div>
             </div>
     )
