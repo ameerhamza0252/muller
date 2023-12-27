@@ -46,22 +46,24 @@ export function MobileMenue({blok}:{blok:any}){
     const dispatch=useDispatch()
     const mobile_state=useSelector((state:RootState)=>state.Mobile_Menue_Slice.opened);
 
+    const {background_color}=blok;
+    const {text_color}=blok;
     //console.log("Redux State", mobile_state)
     //const mobile_menue_state
 
-    return <div className={`w-full absolute flex justify-between z-50 min-h-[37px] lg:invisible  lg:hidden ${mobile_state?"bg-brand":""}`} {...storyblokEditable(blok)}>
+    return <div className={`w-full absolute flex justify-between z-50 min-h-[37px] lg:invisible  lg:hidden `} style={{backgroundColor:mobile_state?background_color:""}} {...storyblokEditable(blok)}>
             <Link href={blok.logo_link.cached_url=="home"?"/":blok.logo_link.url}><Image className=" drop-shadow-2xl z-40" height={35} width={166} src={blok.logo.filename} alt={blok.logo.alt} /></Link>
-            <div className={` flex flex-row-reverse items-center gap-[10px] md:gap-[20px]  px-[20px] rounded-bl-[8px] bg-brand`}>
+            <div className={` flex flex-row-reverse items-center gap-[10px] md:gap-[20px]  px-[20px] rounded-bl-[8px] `} style={{backgroundColor:background_color}}>
             {
                 blok.socials.map((social:any)=>(
                     <Link href={social.url.url} target="_blank"><Image src={social.image.filename} alt={social.image.alt} width={24} height={24} key={social._uid} /></Link>
                 ))
             }
             <Popover open={mobile_state}>
-            <PopoverTrigger onClick={()=>(dispatch(mobile_state_toggle()))} className=" bg-brand" asChild>
+            <PopoverTrigger onClick={()=>(dispatch(mobile_state_toggle()))} style={{backgroundColor:background_color}} asChild>
                 <Button className=" flex flex-col gap-[6px] items-end text-white ">{mobile_state?<RxCross1/>:<><hr className=" w-[35px]"/><hr className=" w-[20px]"/></>}</Button>
             </PopoverTrigger>
-            <PopoverContent className=" sticky w-screen min-h-screen flex flex-col text-center bg-brand -mt-2 border-0 text-white bg-cover" >
+            <PopoverContent className=" sticky w-screen min-h-screen flex flex-col text-center -mt-2 border-0 bg-cover" style={{backgroundColor:background_color,color:text_color}}>
             <Accordion className=" flex flex-col gap-[10px] text-center" allowToggle>
             {
                 blok.name.map((n:any,index:number)=>(
