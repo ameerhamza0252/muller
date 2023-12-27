@@ -91,9 +91,10 @@ export async function CareerDescription({blok}:{blok:any}){
       console.log(data)
     }
    const {color_variant}=blok;
+   const {colors}=blok;
    const border=color_variant=="black"?"border-b-B-Yellow":"border-b-brand";
     return (
-      <div className={`flex flex-col  min-h-screen justify-center items-center ${color_variant=="black"?"bg-black text-white":''} gap-[20px] md:gap-[40px] lg:gap-[80px] py-[40px] lg:py-[112px] px-[30px] lg:px-[64px]`} id={blok.anchor_id} {...storyblokEditable(blok)}>
+      <div className={`flex flex-col  min-h-screen justify-center items-center gap-[20px] md:gap-[40px] lg:gap-[80px] py-[40px] lg:py-[112px] px-[30px] lg:px-[64px]`} style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
         <div className={` flex flex-col ${blok.textalign}`}>
             <text className={`${color_variant=="black"?"Roboto_Text-16":''} mb-[16px]`}>{blok.title}</text>
             <text className={`${color_variant=="black"?" font-['Roboto'] text-[48px] font-[700] leading-[57px]":"heading2"} mb-[24px]`}>{blok.heading}</text>
@@ -109,7 +110,7 @@ export async function CareerDescription({blok}:{blok:any}){
                       <FormItem>
                       <FormLabel>Full Name</FormLabel>
                       <FormControl>
-                          <input {...field} placeholder={blok.nameplaceholder!=''?blok.nameplaceholder:"Your name"} className={` min-w-full h-[58px]  p-[12px] ${border} border-b-[1px] ${color_variant=="white"?"placeholder:text-grey-2":"placeholder:text-B-grey bg-black font-DM_Mono font-[500] "}`}  />
+                          <input {...field} placeholder={blok.nameplaceholder!=''?blok.nameplaceholder:"Your name"} className={` min-w-full h-[58px]  p-[12px] border-b-[1px] ${color_variant=="white"?"placeholder:text-grey-2":"placeholder:text-B-grey font-DM_Mono font-[500] "}`} style={{backgroundColor:"transparent",borderBottomColor:colors[0].border_color}}  />
                       </FormControl>
                       
                       <FormMessage />
@@ -123,7 +124,7 @@ export async function CareerDescription({blok}:{blok:any}){
                       <FormItem>
                       <FormLabel>Email Address</FormLabel>
                       <FormControl>
-                          <input {...field} placeholder={blok.emailplaceholder!=''?blok.emailplaceholder:"Your email"}  className={` min-w-full border-b-[1px] p-[12px] ${border} h-[58px] ${color_variant=="white"?"placeholder:text-grey-2 bg-white":"placeholder:text-B-grey bg-black font-DM_Mono font-[500]"} `}  />
+                          <input {...field} placeholder={blok.emailplaceholder!=''?blok.emailplaceholder:"Your email"}  className={` min-w-full border-b-[1px] p-[12px] h-[58px] ${color_variant=="white"?"placeholder:text-grey-2 bg-white":"placeholder:text-B-grey font-DM_Mono font-[500]"} `} style={{backgroundColor:"transparent",borderBottomColor:colors[0].border_color}}  />
                       </FormControl>
                       
                       <FormMessage />
@@ -137,14 +138,14 @@ export async function CareerDescription({blok}:{blok:any}){
                       <FormItem>
                       <FormLabel>Message</FormLabel>
                       <FormControl>
-                      <textarea {...field} placeholder={blok.messageplaceholder!=''?blok.messageplaceholder:"Your Message"}  className={` min-w-full border-b-[1px] p-[12px] ${border} h-[156px] font-Helvectica ${color_variant=="white"?"placeholder:text-grey-2 bg-white":"placeholder:text-B-grey bg-black font-DM_Mono font-[500]"} `}  />
+                      <textarea {...field} placeholder={blok.messageplaceholder!=''?blok.messageplaceholder:"Your Message"}  className={` min-w-full border-b-[1px] p-[12px] h-[156px] font-Helvectica ${color_variant=="white"?"placeholder:text-grey-2 bg-white":"placeholder:text-B-grey font-DM_Mono font-[500]"} `} style={{backgroundColor:"transparent",borderBottomColor:colors[0].border_color}} />
                       </FormControl>
                       <FormMessage />
                       </FormItem>
                   )}
                   />
-                    <div className="  flex text-[14px] leading-[22.4px] font-DM_Mono"><hr className={`w-[20px] mt-[13px] border-[1px] mr-3 ${border}`} /> {blok.disclaimer}</div>
-                  <button className=" w-full" type="submit" ><Pagelink  variant={color_variant=="white"?"green":"white"} text={blok.button_text} /></button>
+                    <div className="  flex text-[14px] leading-[22.4px] font-DM_Mono"><hr className={`w-[20px] mt-[13px] border-[1px] mr-3`} style={{borderColor:colors[0].border_color}} /> {blok.disclaimer}</div>
+                  <button className=" w-full" type="submit" ><Pagelink  variant={colors[0].link_variant} text={blok.button_text} /></button>
               </form>
               </Form>
           </div>
