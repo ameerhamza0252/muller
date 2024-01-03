@@ -10,7 +10,10 @@ export default function Contact({blok}:{blok:any}) {
     const {contacts}=blok;
     //console.log(contacts[0])
     const [count,setCount]=useState(0)
-    const {colors}=blok;
+    let {colors}=blok;
+    if(!colors){
+        colors=[{}];
+    }
     return(
         <>
             <div className=" min-h-screen flex flex-col px-[20px] lg:px-[64px] py-[40px] lg:py-[112px] gap-[30px] lg:gap-[80px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>

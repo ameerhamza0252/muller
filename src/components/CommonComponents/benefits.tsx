@@ -8,8 +8,14 @@ export default function Benefits({blok}:{blok:any}){
     const benefits=blok.benefits
     //console.log(benefits)
     const [count,setCount]=useState(0)
-    const {colors}=blok;
-    const {link}=blok;
+    let {colors}=blok;
+    if(!colors){
+        colors=[{}];
+    }
+    let {link}=blok;
+    if(!link){
+        link=[{}]
+    }
     return (
         <div className=" flex flex-col bg-black min-h-screen py-[50px]  lg:py-[112px] px-[10px] md:px-[64px] gap-[20px] md:gap-[40px] lg:gap-[72px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
             <text className=" ">{blok.title}</text>
@@ -28,7 +34,7 @@ export default function Benefits({blok}:{blok:any}){
                   }
                 </div>
             </div>
-            <div className="flex justify-end"><Pagelink text={link[0].Lable} url={link[0].url.url} variant={colors[0].link_variant} /></div>
+            <div className="flex justify-end"><Pagelink text={link[0].Lable} url={link[0].url?link[0].url.url:""} variant={colors[0].link_variant} /></div>
         </div>
     )
 }
