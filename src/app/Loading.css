@@ -7,7 +7,7 @@
 }
 
 .zoom {
-    animation: zoom-in 5s forwards;
+    animation: zoom-in 5s forwards infinite;
     background-position: center; /* This centers the background image */
 }
 
