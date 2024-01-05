@@ -3,12 +3,22 @@ import { storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
 import { Suspense, useState } from "react";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
+import MediaRenderer from "../MediaComponent";
+import ReactPlayer from "react-player";
+
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+  } from "@/components/ui/dialog"
+  
 
 const Testimonials=({blok}:{blok:any})=>{
-    //console.log(blok)
-    //blok=blok.testimonials
-    //console.log(blok)
     const [value,setValue]=useState(0);
+    //const [play,setPlay]=useState(false)
     function handleValue(operation:'+'|'-'){
         if(operation=='+'){
            if(value>=blok.testimonials.length-1){
@@ -24,8 +34,7 @@ const Testimonials=({blok}:{blok:any})=>{
             }
         }
     }
-    //console.log(value)
-    //window.alert("testimonials")
+    const {video}=blok;
     return(
         
             <Suspense fallback={<div>Hehehe,,, an error</div>} >
@@ -39,12 +48,34 @@ const Testimonials=({blok}:{blok:any})=>{
                     <text className=" font-medium">{blok.testimonials[value].name}</text>
                     <text>{blok.testimonials[value].position}</text>
                 </div>
-                
             </div>
-            <div className=" w-[70px] md:w-[110px] h-[70px] md:h-[110px] flex items-center justify-center rounded-full border-[1px] border-brand self-center -left-10">
-                    <div className=" relative  w-[30px] md:w-[70px]  h-[30px] md:h-[70px] ">
-                    <Image src="/Icon/Google Play.svg" alt="google play" fill /></div>
-            </div>
+            {
+                video.filename!=""?
+                <div className=" self-center">
+                    <Dialog>
+                        <DialogTrigger>
+                        <div className=" w-[70px] md:w-[110px] h-[70px] md:h-[110px] flex items-center justify-center rounded-full border-[1px] border-brand -left-10">
+                            <div className=" relative  w-[30px] md:w-[70px]  h-[30px] md:h-[70px] ">
+                            <Image src="/Icon/Google Play.svg" alt="google play" fill />
+                            </div>
+                        </div>
+                        </DialogTrigger>
+                        <DialogContent className=" p-0 h-[300px]">
+                        <ReactPlayer config={{
+                            youtube: {
+                                playerVars: { 
+                                showinfo: 1,
+                                modestbranding: 1,
+                                controls: 0,
+                                },
+                            }
+                            }}
+                            controls={false} muted={true} loop playing={true}  style={{position:'absolute',pointerEvents:'none'}} width={'100%'} height={'100%'} url={video.filename} />
+                        </DialogContent>
+                    </Dialog>
+                </div>
+              :null
+            }
             <div className=" flex gap-[20px] items-baseline">
                 <button onClick={()=>handleValue('-')} className=" flex w-[30px] md:w-[65px] h-[30px] md:h-[65px] rounded-full border-[1px] items-center justify-center" style={{color:blok.button_color,borderColor:blok.button_color}}>
                     <div className=" md:scale-150"><BiLeftArrowAlt /></div>
