@@ -28,12 +28,13 @@ export function AboutTop({blok}:{blok:any}){
 }
 
 export function Philosophy({blok}:{blok:any}){
-    //console.log("Philisophy")
-    //console.log(blok)
-    const {colors}=blok;
+    let {colors}=blok;
+    if(!colors){
+        colors=[]
+    }
     return(
         <div className=" min-h-screen flex flex-col py-[10px] px-[15px] lg:px-0 lg:pl-[32px] xl:pl-[5%] lg:pr-[72px] xl:pr-[10%] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
-                <text className=" mt-[10px] md:mt-[20px] lg:mt-[40px] xl:mt-[70px] text-[#E7E9EA]">{blok.title}</text>
+                <text className=" mt-[10px] md:mt-[20px] lg:mt-[40px] xl:mt-[70px]" style={{color:colors[0].text_color}}>{blok.title}</text>
                 <div className=" flex flex-col justify-between lg:flex-row mt-[10px] md:mt-[30px] lg:mt-[68px] xl-[200px]">
                     <text className=" heading2 lg:w-[40%]">{blok.heading}</text>
                     <text className=" lg:w-[40%] mt-[5%]  " >{blok.description}</text>
@@ -43,11 +44,13 @@ export function Philosophy({blok}:{blok:any}){
 }
 
 export function History({blok}:{blok:any}){
-    //console.log(blok)
-    const {colors}=blok;
+    let {colors}=blok;
+    if(!colors){
+        colors=[]
+    }
     const link=blok.link;
     return(
-        <div className=" min-h-screen p-[20px] lg:p-none lg:pt-[40px] lg:px-[64px] flex flex-col gap-[20px] md:gap-[40px] lg:gap-[80px] xl:gap-[120px] text-black" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
+        <div className=" min-h-screen p-[20px] lg:p-none lg:pt-[40px] lg:px-[64px] flex flex-col gap-[20px] md:gap-[40px] lg:gap-[80px] xl:gap-[120px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <text className="">{blok.title}</text>
                 <div className=" flex flex-col gap-[20px] lg:gap-0 lg:flex-row lg:justify-between">
                     <div className="  lg:w-[50%] flex flex-col gap-[10px] md:gap-[20px] lg:gap-[32px] xl:gap-[50px]">
@@ -74,11 +77,13 @@ export function History({blok}:{blok:any}){
 
 
 import MediaRenderer  from "../MediaComponent"
-import { color } from "@chakra-ui/react";
 
 export async function Achievements({blok}:{blok:any}){
     //console.log(blok)
-    const {colors}=blok;
+    let {colors}=blok;
+    if(!colors){
+        colors=[]
+    }
     return(
         <div className=" flex flex-col md:max-lg:min-h-screen pb-[100px] xl:pb-[200px] px-[20px] lg:px-[61px] py-[34px] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <text className="">{blok.title}</text>

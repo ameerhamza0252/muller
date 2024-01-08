@@ -51,7 +51,7 @@ export function MobileMenue({blok}:{blok:any}){
     //console.log("Redux State", mobile_state)
     //const mobile_menue_state
 
-    return <div className={`w-full absolute flex justify-between z-50 min-h-[37px] lg:invisible  lg:hidden `} style={{backgroundColor:mobile_state?background_color:""}} {...storyblokEditable(blok)}>
+    return <div className={`w-full sticky flex justify-between z-50 top-0 min-h-[37px] lg:invisible  lg:hidden `} style={{backgroundColor:mobile_state?background_color:""}} {...storyblokEditable(blok)}>
             <Link href={blok.logo_link.cached_url=="home"?"/":blok.logo_link.url}><Image className=" drop-shadow-2xl z-40" height={35} width={166} src={blok.logo.filename} alt={blok.logo.alt} /></Link>
             <div className={` flex flex-row-reverse items-center gap-[10px] md:gap-[20px]  px-[20px] rounded-bl-[8px] `} style={{backgroundColor:background_color}}>
             {

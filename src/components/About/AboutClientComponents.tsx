@@ -42,7 +42,7 @@ export function Organization({blok}:{blok:any}){
                                         <DialogTrigger>
                                             <EmployeeCard employee={dep.department_head[0]} jobrole_color={jobrole_text_color} />
                                         </DialogTrigger>
-                                        <DialogContent className=" overflow-scroll max-h-screen max-w-none flex flex-wrap gap-[5px] md:gap-[10px] justify-center " style={{backgroundColor:blok.popup_background_color,color:colors[0].text_color}}>
+                                        <DialogContent className=" overflow-auto max-h-screen max-w-none flex flex-wrap gap-[5px] md:gap-[10px] justify-center hide-scroll " style={{backgroundColor:blok.popup_background_color,color:colors[0].text_color}}>
                                             {
                                                 dep.employees.map((emp:any)=>(
                                                     <EmployeeCard employee={emp} jobrole_color={jobrole_text_color} />
