@@ -28,7 +28,7 @@ export default function top({blok}:{blok:any}){
           
           <text className=' heading1 '><Typewriter
           onInit={(typewriter)=>{
-            typewriter.typeString(blok.Title).callFunction(()=>{setTitle(true)}).changeDelay(10).start()
+            typewriter.typeString(blok.Title).callFunction(()=>{setTitle(true)}).changeDelay(5).start()
           }}
           options={{cursor:""}}
           /></text>
