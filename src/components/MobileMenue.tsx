@@ -51,10 +51,10 @@ export function MobileMenue({blok}:{blok:any}){
                 <Button className=" flex flex-col gap-[6px] items-end text-white ">{mobile_state?<RxCross1/>:<><hr className=" w-[35px]"/><hr className=" w-[20px]"/></>}</Button>
             </PopoverTrigger>
             <PopoverContent className=" sticky w-screen min-h-screen flex flex-col text-center -mt-2 border-0 bg-cover" style={{backgroundColor:background_color,color:text_color}}>
-            <Accordion className=" flex flex-col gap-[10px] text-center" allowToggle>
+            <Accordion className=" flex flex-col gap-[10px] text-center " allowToggle>
             {
                 blok.name.map((n:any,index:number)=>(
-                    <AccordionItem className=" w-full flex flex-col justify-evenly min-h-[37px] " key={n._uid}>
+                    <AccordionItem className=" w-full flex flex-col justify-evenly min-h-[37px] pr-[10%] " key={n._uid}>
                         <div className=" grid grid-cols-2 items-center justify-center">
                         {
                             n.items.length>0?
