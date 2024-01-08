@@ -15,6 +15,7 @@ export default async function BlogSection({blok}:{blok:any}) {
             <div className=" flex flex-wrap mt-[50px] lg:mt-[105px]">
                 {
                     blok.blogs.map((blog:any)=>(
+                        <Link href={blog.link.url}>
                         <div className=" flex flex-col md:w-[500px] gap-[24px]" key={blog._uid}>
                             <div className=" relative h-[400px]">
                                 <Image src={blog.image.filename} alt={blog.image.alt} fill />
@@ -24,10 +25,11 @@ export default async function BlogSection({blok}:{blok:any}) {
                                 <text className=" font-[500]">{blog.time}</text>
                             </div>
                             <div className="flex flex-col gap-[8px]">
-                                <Link href={blog.link.url}><text className=" heading4">{blog.name}</text></Link>
+                                <text className=" heading4">{blog.name}</text>
                                 <text className=" text-[16px] leading-[25.6px]">{blog.overview}</text>
                             </div>
                         </div>
+                        </Link>
                     ))
                 }
             </div>

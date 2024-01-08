@@ -39,7 +39,7 @@ export default function ItemsCard({blok,buttontext,link_variant,divider_color}:{
                     <div className=' relative w-full min-h-[358px] lg:min-h-[450px]'>
                         <Image src={stop.image.filename} placeholder='empty' objectFit='cover' alt={stop.image.alt} fill />
                     </div>
-                    <text className=' heading2 max-h-[200px] overflow-hidden w-[80%]'>{stop.heading}</text>
+                    <text className=' heading2 max-h-[200px] overflow-hidden '>{stop.heading}</text>
                     <div className={`w-[90%] border-b-[1px] `} style={{borderColor:divider_color}} ></div>
                     <text className={`w-[90%] h-[150px] overflow-hidden my-[8px]`}>{stop.description}</text>
                     <Pagelink variant={link_variant} url={blok.full_slug} text={buttontext!=''?buttontext:'View more'} />

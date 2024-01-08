@@ -34,7 +34,7 @@ const Testimonials=({blok}:{blok:any})=>{
             }
         }
     }
-    const {video}=blok;
+    const {video}=blok.testimonials[value];
     return(
         
             <Suspense fallback={<div>Hehehe,,, an error</div>} >
@@ -50,8 +50,8 @@ const Testimonials=({blok}:{blok:any})=>{
                 </div>
             </div>
             {
-                video.filename!=""?
-                <div className=" self-center">
+                video&&video.filename!=""?
+                <div className=" absolute self-center">
                     <Dialog>
                         <DialogTrigger>
                         <div className=" w-[70px] md:w-[110px] h-[70px] md:h-[110px] flex items-center justify-center rounded-full border-[1px] border-brand -left-10">
