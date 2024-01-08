@@ -54,8 +54,8 @@ export function MobileMenue({blok}:{blok:any}){
             <Accordion className=" flex flex-col gap-[10px] text-center " allowToggle>
             {
                 blok.name.map((n:any,index:number)=>(
-                    <AccordionItem className=" w-full flex flex-col justify-evenly min-h-[37px] pr-[10%] " key={n._uid}>
-                        <div className=" grid grid-cols-2 items-center justify-center">
+                    <AccordionItem className=" w-full flex flex-col justify-evenly min-h-[37px] " key={n._uid}>
+                        <div className=" grid grid-cols-2 items-center justify-center pr-[10%] ">
                         {
                             n.items.length>0?
                                 <AccordionButton w={"auto"} justifySelf={'end'}  alignSelf={"self-start"} onClick={()=>expanded==index?setExpanded(-99):setExpanded(index)} className="  ">
@@ -65,10 +65,10 @@ export function MobileMenue({blok}:{blok:any}){
                         }
                         <Link onClick={()=>(dispatch(menue_close()))} href={n.link.cached_url=="home"?"/":"/"+capitalizeFirstLetter(n.link.cached_url)} className=" justify-self-start ">{n.lable}</Link>
                         </div>
-                        <AccordionPanel className=" flex flex-col ">
+                        <AccordionPanel className=" flex flex-col w-full ">
                         {
                             n.items.map((item:any)=>(
-                                <div className="grid grid-cols-2 w-full  border-b border-white">
+                                <div className="grid grid-cols-2 w-full  border-b border-white pr-[10%]">
                                     <div className=" w-full"></div>
                                 <Link onClick={()=>(dispatch(menue_close()))} href={item.url.linktype=="story"?"/"+item.url.cached_url:"/"+capitalizeFirstLetter(n.link.cached_url.split("/")[0])+item.url.url} className=" text-start justify-self-start py-[8px] " key={item._uid}>{item.Lable}</Link>
                                 </div>

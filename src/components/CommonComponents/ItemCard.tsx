@@ -33,7 +33,7 @@ export default function ItemsCard({blok,buttontext,link_variant,divider_color}:{
               const stop=blok.content.blocks.filter((b:any)=>b.component=="stop")[0]
               return(
                 <Skeleton isLoaded={!isLoading} fitContent={true}  > 
-                    <div className=' flex flex-col  w-full md:w-[330px] lg:w-[550px] xl:w-[900px] min-h-[400px] md:min-h-[600px] lg:h-[936px] xl:h-auto justify-stretch gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
+                    <div className=' flex flex-col w-full md:w-[90%] lg:w-[550px] xl:w-[900px] min-h-[400px] md:min-h-[600px] lg:h-[936px] xl:h-auto justify-stretch gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
                     <div className=' relative w-full min-h-[358px] lg:min-h-[450px]'>
                         <Image src={stop.image.filename} placeholder='empty' objectFit='cover' alt={stop.image.alt} fill />
                     </div>
