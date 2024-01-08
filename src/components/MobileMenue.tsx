@@ -1,13 +1,6 @@
 "use state"
 
 import { Button } from "@/components/ui/button"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
-
 
 import {
   Popover,
@@ -25,11 +18,7 @@ import {
     AccordionPanel,
     AccordionIcon,
   } from '@chakra-ui/react'
-  import {
-    Collapsible,
-    CollapsibleContent,
-    CollapsibleTrigger,
-  } from "@/components/ui/collapsible"
+
 import { storyblokEditable } from "@storyblok/react"
 import {  IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
@@ -41,15 +30,13 @@ import { menue_close, mobile_state_toggle } from "@/state_stores/Mobile_Menue_Sl
 
 
 export function MobileMenue({blok}:{blok:any}){
-    //const [isOpen,setIsOpen]=useState(false);
+
     const [expanded,setExpanded]=useState(-99)
     const dispatch=useDispatch()
     const mobile_state=useSelector((state:RootState)=>state.Mobile_Menue_Slice.opened);
 
     const {background_color}=blok;
     const {text_color}=blok;
-    //console.log("Redux State", mobile_state)
-    //const mobile_menue_state
 
     return <div className={`w-full sticky flex justify-between z-50 top-0 min-h-[37px] lg:invisible  lg:hidden `} style={{backgroundColor:mobile_state?background_color:""}} {...storyblokEditable(blok)}>
             <Link href={blok.logo_link.cached_url=="home"?"/":blok.logo_link.url}><Image className=" drop-shadow-2xl z-40" height={35} width={166} src={blok.logo.filename} alt={blok.logo.alt} /></Link>
@@ -105,34 +92,3 @@ export function MobileMenue({blok}:{blok:any}){
                                 ))
                         }
  */
-
-
-function ExpandComponent({n}:{n:any}){
-    const [expand,setExpand]=useState(false)
-    return(
-        <Collapsible
-            open={expand}
-            onOpenChange={setExpand}
-            className="w-[350px] space-y-2"
-            key={n._uid}
-            >
-            <div className="flex items-center justify-between space-x-4 px-4">
-                <CollapsibleTrigger asChild>
-                <Button variant="outline" size="sm">
-                    <span className="">Toggle</span>
-                </Button>
-                </CollapsibleTrigger>
-                <Link href={n.link.cached_url=="home"?"/":"/"+capitalizeFirstLetter(n.link.cached_url)} className="">{n.lable}</Link>
-            </div>
-            
-            <CollapsibleContent className="space-y-2">
-                <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-                @radix-ui/colors
-                </div>
-                <div className="rounded-md border px-4 py-2 font-mono text-sm shadow-sm">
-                @stitches/react
-                </div>
-            </CollapsibleContent>
-        </Collapsible>
-    )
-}
