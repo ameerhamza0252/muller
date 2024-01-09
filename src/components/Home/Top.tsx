@@ -13,6 +13,13 @@ export default function top({blok}:{blok:any}){
   const [title,setTitle]=useState(false)
   const [description,setDescription]=useState(false)
   
+
+  let {heading_tags}=blok;
+    if(!heading_tags){
+        heading_tags=[]
+        heading_tags.push({primary_heading:"h1",secondary_heading:"h2"});
+    }
+    heading_tags=heading_tags[0]
     return(
       <div className={` relative flex flex-col min-h-screen justify-end text-white  `} /*style={{backgroundImage:`url(${blok.image.filename})`}} */ >
         <div className=" absolute w-[100%] h-[100%] pointer-events-none "  onPlay={()=>console.log('Playing')} >
@@ -26,19 +33,19 @@ export default function top({blok}:{blok:any}){
         </div>
         <div className={` flex flex-col min-h-[50%] lg:w-[60%] gap-[30px] mx-[10px] md:mx-[31px] z-30 mb-3`} id="home-top">
           
-          <text className=' heading1 '><Typewriter
+          <heading_tags.primary_heading className=' heading1 '><Typewriter
           onInit={(typewriter)=>{
             typewriter.typeString(blok.Title).callFunction(()=>{setTitle(true)}).changeDelay(5).start()
           }}
           options={{cursor:""}}
-          /></text>
+          /></heading_tags.primary_heading>
           {
-            title&&<text className=" h-[150px] md:max-h-[310px] overflow-hidden "><Typewriter
+            title&&<heading_tags.secondary_heading className=" h-[150px] md:max-h-[310px] overflow-hidden "><Typewriter
             onInit={(typewriter)=>{
               typewriter.typeString(blok.description).callFunction(()=>{setDescription(true)}).changeDelay(10).start()
             }}
             options={{cursor:""}}
-            /></text>
+            /></heading_tags.secondary_heading>
           }
           {
             title&&description&&blok.link.map((link:any)=>(

@@ -15,11 +15,12 @@ export async function generateMetadata({params,searchParams}:Props,parent:Resolv
       title:"Muller"
     }
   }
-  console.log(meta_data)
+  const keywords=meta_data[0].keywords.map((w:any)=>w.name)
+
   return{
     title:meta_data[0].title,
     description:meta_data[0].description,
-    keywords:meta_data[0].keywords,
+    keywords:keywords,
     openGraph:{
       images:[meta_data[0].image.filename]
     }

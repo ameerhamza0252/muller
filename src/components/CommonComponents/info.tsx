@@ -7,6 +7,8 @@ export default function Info({blok}:{blok:any}){
     if(!colors){
         colors=[{}];
     }
+
+
     return(
         <div className=" min-h-screen flex flex-col items-center px-[10px] md:px-[20px] lg:px-[64px] xl:px-[94px] py-[36px] md:py-[66px] lg:py-[112px] xl:[150px] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <div className=" lg:w-[70%] h-full flex flex-col justify-center gap-4 md:gap-7 lg:gap-[24px]">

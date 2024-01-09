@@ -20,7 +20,7 @@ export function AboutTop({blok}:{blok:any}){
             </div>
             {/**Dark overlay <div className=" w-[100%] h-[100%] bg-black/30 absolute z-20 "></div> */}
             <div className=" flex flex-col z-30 gap-[20px] mx-[20px] mb-[20px] lg:mb-[32px]">
-                <text className=" md:w-[40%] heading1 ">{blok.title}</text>
+                <h1 className=" md:w-[40%] ">{blok.title}</h1>
                 <text className=" md:w-[40%] self-end mb-3 ">{blok.overview}</text>
             </div>
         </div>
