@@ -40,7 +40,7 @@ export default function Tagline({blok}:{blok:any}){
         <div className=" min-h-screen flex flex-col md:px-[64px] py-[112px] gap-[80px] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
             <div className=" grid grid-cols-1 px-[10px] md:px-0">
                 <text>{blok.title}</text>
-                <text className=" mt-[16px] mb-[24px] heading2">{blok.title}</text>
+                <text className=" mt-[16px] mb-[24px] heading2">{blok.heading}</text>
                 <text>{blok.tagline}</text>
             </div>
             <div className=" flex flex-col md:flex-row gap-10 lg:gap-0  md:justify-between ">
