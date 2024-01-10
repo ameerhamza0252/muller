@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 export function useTypingEffect({textToType,duration,startTyping}:{textToType:string,duration:number,startTyping:boolean}){
     const textArray:string[]=textToType.split(" ");
     const [currentIndex,setCurrentIndex]=useState(0)
+    const currentPositionRef=useRef(0);
     const intervalRef = useRef<number>();
 
     useEffect(()=>{
@@ -13,7 +14,8 @@ export function useTypingEffect({textToType,duration,startTyping}:{textToType:st
         if(startTyping){
             intervalRef.current = setInterval(()=>{
                 setCurrentIndex((value)=>value+1)
-                if(currentIndex>=textArray.length){
+                currentPositionRef.current+=1;
+                if(currentPositionRef.current>=textArray.length){
                     clearInterval(intervalRef.current);
                 }
             },duration,textToType)
@@ -24,7 +26,7 @@ export function useTypingEffect({textToType,duration,startTyping}:{textToType:st
     returningArray=returningArray.map((e)=>e+" ");
     
 
-    if(currentIndex>=textArray.length){
+    if(currentPositionRef.current>=textArray.length){
         return {text:returningArray,isFinished:true};
     }else{
         return {text:returningArray,isFinished:false};

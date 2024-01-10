@@ -19,8 +19,8 @@ export default function top({blok}:{blok:any}){
   
 
   
-  let {heading_tags}=blok;
-    
+    let {heading_tags}=blok;
+    //console.log(blok)
     heading_tags=HandleMissingTags(heading_tags);
     const {Primary,Secondary}=heading_tags;
     return(
