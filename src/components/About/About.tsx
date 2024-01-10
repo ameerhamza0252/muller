@@ -4,12 +4,6 @@ import { storyblokEditable } from "@storyblok/react"
 import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider';
 
 export function AboutTop({blok}:{blok:any}){
-    //console.log(blok.leftmedia[0])
-    /**
-     * <text className=" mt-[40%] mx-3 text-[40px] leading-[24px] sm:max-xl:w-[80%] lg:w-[80%] lg:text-[80px] lg:leading-[84px]">{blok.title}</text>
-     * <text className=" w-[60%] mb-3 md:mb-8 mr-3 md:mr-8 xl:mr-14">{blok.overview}</text>
-     * 
-     */
     let {heading_tags}=blok;
     const {Primary,Secondary}=HandleMissingTags(heading_tags);
     
@@ -32,9 +26,7 @@ export function AboutTop({blok}:{blok:any}){
 
 export function Philosophy({blok}:{blok:any}){
     let {colors}=blok;
-    if(!colors){
-        colors=[]
-    }
+    colors=handleMissingColors(colors)
     return(
         <div className=" min-h-screen flex flex-col py-[10px] px-[15px] lg:px-0 lg:pl-[32px] xl:pl-[5%] lg:pr-[72px] xl:pr-[10%] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <text className=" mt-[10px] md:mt-[20px] lg:mt-[40px] xl:mt-[70px]" style={{color:colors[0].text_color}}>{blok.title}</text>
@@ -48,9 +40,7 @@ export function Philosophy({blok}:{blok:any}){
 
 export function History({blok}:{blok:any}){
     let {colors}=blok;
-    if(!colors){
-        colors=[]
-    }
+    colors=handleMissingColors(colors)
     const link=blok.link;
     return(
         <div className=" min-h-screen p-[20px] lg:p-none lg:pt-[40px] lg:px-[64px] flex flex-col gap-[20px] md:gap-[40px] lg:gap-[80px] xl:gap-[120px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
@@ -80,14 +70,12 @@ export function History({blok}:{blok:any}){
 
 
 import MediaRenderer  from "../MediaComponent"
-import { HandleMissingTags } from "@/utils";
+import { HandleMissingTags, handleMissingColors } from "@/utils";
 
 export async function Achievements({blok}:{blok:any}){
     //console.log(blok)
     let {colors}=blok;
-    if(!colors){
-        colors=[]
-    }
+    colors=handleMissingColors(colors)
     return(
         <div className=" flex flex-col md:max-lg:min-h-screen pb-[100px] xl:pb-[200px] px-[20px] lg:px-[61px] py-[34px] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <text className="">{blok.title}</text>

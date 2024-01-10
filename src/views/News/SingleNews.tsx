@@ -1,15 +1,19 @@
 import { HeadingsDescription } from "@/components/News/SingleNews/Components";
+import { handleMissingColors } from "@/utils";
 import { StoryblokComponent } from "@storyblok/react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function SingleNews({blok}:{blok:any}){
-    //console.log(blok)
     const content=blok;
-    const {TopColors}=blok;
+    let {TopColors}=blok;
+    TopColors=handleMissingColors(TopColors);
     const {top_tag_color}=blok;
     const {top_tag_text_color}=blok;
-    const {HeadingsColors}=blok;
+    
+    let {HeadingsColors}=blok;
+    HeadingsColors=handleMissingColors(HeadingsColors)
+
     const {heading_selected_color}=blok;
     return(
         <>

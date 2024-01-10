@@ -1,9 +1,10 @@
 import { storyblokEditable } from "@storyblok/react";
 import Pagelink from "../link";
+import { handleMissingColors } from "@/utils";
 
 export default async function MarketTop({blok}:{blok:any}) {
-    //console.log(blok.link)
-    const {colors}=blok;
+    let {colors}=blok;
+    colors=handleMissingColors(colors)
     return(
         <div className=" flex items-end justify-start  lg:h-[500px] xl:h-[800px] px-[20px] lg:px-[64px] py-[40px] lg:py-[112px] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
             <div className=" flex flex-col gap-[24px]">

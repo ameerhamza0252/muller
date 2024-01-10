@@ -1,10 +1,11 @@
+import { handleMissingColors } from "@/utils";
 import { storyblokEditable } from "@storyblok/react"
 import Image from "next/image"
 import { render } from "storyblok-rich-text-react-renderer"
 
 export async function CareerTop({blok}:{blok:any}){
-    //console.log(blok)
-    const {colors}=blok;
+    let {colors}=blok;
+    colors=handleMissingColors(colors)
     const {social_media_bg_color}=blok;
     return(
         <div className=" min-h-screen flex flex-col items-center gap-[30px] lg:gap-[80px] py-[50px] lg:py-[112px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
@@ -31,8 +32,8 @@ export async function CareerTop({blok}:{blok:any}){
 }
 
 export async function CareerDescription({blok}:{blok:any}){
-    //console.log(blok)
-    const {colors}=blok;
+    let {colors}=blok;
+    colors=handleMissingColors(colors)
     const {social_tag_background_color}=blok;
     const {tag_text_color}=blok;
     return(

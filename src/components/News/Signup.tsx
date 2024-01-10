@@ -1,9 +1,10 @@
 import { storyblokEditable } from "@storyblok/react";
 import Pagelink from "../link";
+import { handleMissingColors } from "@/utils";
 
 export default async function Signup({blok}:{blok:any}) {
-    //console.log(blok)
-    const {colors}=blok;
+    let {colors}=blok;
+    colors=handleMissingColors(colors)
     return(
         <div className=" h-screen flex items-center justify-center text-center " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
             <div className=" flex flex-col gap-[24px] px-[20px] md:px-0 md:w-3/4 ">

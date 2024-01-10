@@ -1,11 +1,13 @@
 "use client"
+import { handleMissingColors } from "@/utils";
 import { storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
 import { useRef, useState } from "react";
 
 export default function Projects({blok}:{blok:any}){
     const {projects}=blok;
-    const {colors}=blok;
+    let {colors}=blok;
+    colors=handleMissingColors(colors)
 
     const xl=310;
     const lg=63;

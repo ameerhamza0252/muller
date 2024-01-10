@@ -1,4 +1,5 @@
 "use client"
+import { handleMissingColors } from "@/utils";
 import { useInterval } from "@chakra-ui/react";
 import { storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
@@ -6,36 +7,17 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Tagline({blok}:{blok:any}){
-    //console.log(blok)
     const [value,setValue]=useState(0);
     const [current,setCurrent]=useState(0)
-    //const [isHovered,setIsHovered]=useState(false)
     const locations=blok.locations[0].locationlist
-    const {colors}=blok;
+    let {colors}=blok;
+    colors=handleMissingColors(colors)
 
     function handleLocationChange(index:number){
-        console.log("Location changed")
         setValue(index);
         setCurrent(0)
     }
 
-    /**
-     * useEffect(() => {
-        let interval: NodeJS.Timeout;
-        if (isHovered) {
-            interval = setInterval(() => {
-                setCurrent(prevCurrent => (prevCurrent + 1) % locations[value].image.length);
-                console.log("Image Changed");
-            }, 1500);
-        }
-        return () => clearInterval(interval); // This is important to clear the interval when the component unmounts
-    }, [isHovered]); // The effect will run again if `isHovered`, `value`, or `locations` changes
-     * 
-     */
-    
-    
-
-    //console.log(locations[0])
     return(
         <div className=" min-h-screen flex flex-col md:px-[64px] py-[112px] gap-[80px] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
             <div className=" grid grid-cols-1 px-[10px] md:px-0">

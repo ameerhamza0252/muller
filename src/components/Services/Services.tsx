@@ -1,16 +1,12 @@
-import { Card } from "@/components/CommonComponents/Card";
-import { StoryblokComponent, getStoryblokApi, storyblokEditable } from "@storyblok/react";
-import Image from "next/image";
-import Link from "next/link";
-import Pagelink from "../link";
-import { render } from "storyblok-rich-text-react-renderer";
+import {  getStoryblokApi, storyblokEditable } from "@storyblok/react";
+
 import ItemsCard from "../CommonComponents/ItemCard";
+import { handleMissingColors } from "@/utils";
 
 export default async function ServicesList({blok}:{blok:any}){
-  //console.log(blok)
-  //console.log('Services')
-  //console.log(blok)
-  const {colors}=blok;
+  let {colors}=blok;
+    colors=handleMissingColors(colors)
+
     return(
         <div className=" flex flex-col h-auto py-[30px] lg:py-[95px] md:px-[24px] xl:px-[34px] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
           <text className=' text-[21px]'>{blok.title}</text>

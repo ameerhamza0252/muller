@@ -13,6 +13,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import { handleMissingColors } from "@/utils";
 
 
 export function Organization({blok}:{blok:any}){
@@ -21,7 +22,8 @@ export function Organization({blok}:{blok:any}){
     const {countries}=blok;
     const {departments}=countries[value]?countries[value]:countries[0];
     const {hiring}=blok
-    const {colors}=blok;
+    let {colors}=blok;
+    colors=handleMissingColors(colors)
     const {jobrole_text_color}=blok;
 
     return(
@@ -40,7 +42,7 @@ export function Organization({blok}:{blok:any}){
                             departments.map((dep:any,index:number)=>(
                                     <Dialog>
                                         <DialogTrigger>
-                                            <EmployeeCard employee={dep.department_head[0]} jobrole_color={jobrole_text_color} />
+                                            {dep.department_head.map((head:any)=>(<EmployeeCard employee={head} jobrole_color={jobrole_text_color} />))}
                                         </DialogTrigger>
                                         <DialogContent className=" overflow-auto max-h-screen max-w-none flex flex-wrap gap-[5px] md:gap-[10px] justify-center hide-scroll " style={{backgroundColor:blok.popup_background_color,color:colors[0].text_color}}>
                                             {

@@ -8,12 +8,12 @@ import Image from "next/image";
 import Pagelink from "@/components/link";
 import useSWR from "swr";
 import { Skeleton } from "@chakra-ui/react";
+import { handleMissingColors } from "@/utils";
 
 export function HeadingsDescription({blok,Colors,SelectedColor}:{blok:any,Colors:any,SelectedColor:any}){
     const content=blok;
     const [value,setValue]=useState(0)
     const [hovered,setHovered]=useState<number|null>(null)
-
     return (
         <>
             <div className=" grid grid-cols-3 py-[20px] md:py-[40px] px-[30px] lg:px-[64px]" style={{backgroundColor:Colors[0].background_color,color:Colors[0].text_color}} {...storyblokEditable(blok)} id={blok.anchor_id}>
@@ -46,8 +46,8 @@ export function DiscoverNews({blok}:{blok:any}){
     if(error){
         return <div className="flex text-center min-h-[300px] items-center " style={{backgroundColor:'red',opacity:.5}}>Error</div>
     }
-    //console.log(blok)
-    const {colors}=blok;
+    let {colors}=blok;
+    colors=handleMissingColors(colors)
     return(
         <div className=" min-h-screen flex flex-col px-[20px] lg:px-[64px] py-[40px] lg:py-[112px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)} >
             <text className=" mb-[16px] Text-16 ">{blok.title}</text>
@@ -68,9 +68,7 @@ export function DiscoverNews({blok}:{blok:any}){
 
 export function DiscoverNewsCard({blok,link_variant,tag_color,tag_text_color}:{blok:any,link_variant:string,tag_color:string,tag_text_color:string}){
     
-    //console.log(blok)
     const {content}=blok;
-    //console.log(blok.slug)
     return(
         <div className={`flex flex-col md:w-[336px] gap-[24px] `} id={blok.anchor_id}>
             <div className=" relative h-[300px]">

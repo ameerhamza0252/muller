@@ -3,17 +3,13 @@ import { storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import Premade_Slider from "../Solutions/ClientComponents";
+import { handleMissingColors } from "@/utils";
 
 export default function Contact({blok}:{blok:any}) {
-    //console.log('CONTACTS OPEN')
     const {contacts}=blok;
-    //console.log(contacts[0])
     const [count,setCount]=useState(0)
     let {colors}=blok;
-    if(!colors){
-        colors=[{}];
-    }
+    colors=handleMissingColors(colors)
     return(
         <>
             <div className=" min-h-screen flex flex-col px-[20px] lg:px-[64px] py-[40px] lg:py-[112px] gap-[30px] lg:gap-[80px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>

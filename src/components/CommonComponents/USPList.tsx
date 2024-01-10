@@ -1,4 +1,5 @@
 import Pagelink from "@/components/link";
+import { handleMissingColors } from "@/utils";
 import { storyblokEditable } from "@storyblok/react";
 
 export default function USPList({blok}:{blok:any}){
@@ -6,7 +7,8 @@ export default function USPList({blok}:{blok:any}){
   //console.log(blok.link)
   const links=blok.link
   const {usplist}=blok;
-  const {colors}=blok;
+  let {colors}=blok;
+    colors=handleMissingColors(colors)
   
     return(
         <div className={` relative flex flex-col h-auto py-[40px] md:py-[95px] px-[10px] md:px-[20px] lg:px-[41px] font-[300]`} style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}}  id={blok.anchor_id} {...storyblokEditable(blok)}>

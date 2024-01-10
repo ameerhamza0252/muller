@@ -1,101 +1,12 @@
 "use client"
 
+import { handleMissingColors } from "@/utils";
 import { Skeleton } from "@chakra-ui/react";
 import { getStoryblokApi, storyblokEditable } from "@storyblok/react";
 import Image from "next/image"
 import Link from "next/link";
-import { useState } from "react"
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi"
 
-
-/**
-const slides=[{url:"https://a.storyblok.com/f/263886/3998x2671/46132ccecc/muller_l2183997.webp",alt:"alt_name"},
-{url:"https://a.storyblok.com/f/263886/3998x2671/46132ccecc/muller_l2183997.webp",alt:"alt_name"},
-{url:"https://a.storyblok.com/f/263886/3998x2671/46132ccecc/muller_l2183997.webp",alt:"alt_name"},
-{url:"https://a.storyblok.com/f/263886/3998x2671/46132ccecc/muller_l2183997.webp",alt:"alt_name"},
-{url:"https://a.storyblok.com/f/263886/3998x2671/46132ccecc/muller_l2183997.webp",alt:"alt_name"},
-{url:"https://a.storyblok.com/f/263886/3998x2671/46132ccecc/muller_l2183997.webp",alt:"alt_name"},
-{url:"https://a.storyblok.com/f/263886/3998x2671/46132ccecc/muller_l2183997.webp",alt:"alt_name"},
-{url:"https://a.storyblok.com/f/263886/3998x2671/46132ccecc/muller_l2183997.webp",alt:"alt_name"},
-{url:"https://a.storyblok.com/f/263886/3998x2671/46132ccecc/muller_l2183997.webp",alt:"alt_name"},
-{url:"https://a.storyblok.com/f/263886/3998x2671/46132ccecc/muller_l2183997.webp",alt:"alt_name"},
-{url:"https://a.storyblok.com/f/263886/3998x2671/46132ccecc/muller_l2183997.webp",alt:"alt_name"},];
-
-export function SolutionsThatWorkTogether({ blok }: { blok: any }) {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const length = slides.length;
-    const slidesToShow = 3; // change this to the number of slides you want to show at a time
-    const slideWidth = 100 / slidesToShow; // calculate the slide width as a percentage of the container width
-  
-    function handleValueChange(operation: "+" | "-") {
-      if (operation == "+") {
-        setCurrentIndex((currentIndex + 1) % length); // increment the currentIndex and wrap it around the length
-      } else if (operation == "-") {
-        setCurrentIndex((currentIndex - 1 + length) % length); // decrement the currentIndex and wrap it around the length
-      }
-    }
-  
-    return (
-      <div className="flex flex-col px-[20px] lg:px-[64px] py-[40px] lg:py-[112px] gap-[80px]">
-        <div className="flex flex-col gap-[16px] mb-[40px]">
-          <text>Solutions</text>
-          <text className="heading3">Solutions that work together</text>
-          <div className="flex justify-between">
-            <text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </text>
-            <button className="px-[24px] py-[12px] border-b border-b-brand">
-              S_Button
-            </button>
-          </div>
-        </div>
-        <div className="flex justify-center gap-[48px] overflow-hidden">
-          <div
-            className="flex flex-wrap flex-row transition-transform duration-700"
-            style={{
-              transform: `translateX(${-slideWidth * currentIndex}%)`, // translate the slides based on the currentIndex and the slideWidth
-            }}
-          >
-            {slides.map((slide, index) => (
-              <div
-                className="relative flex-shrink-0"
-                style={{
-                  width: `${slideWidth}%`, // set the slide width based on the slideWidth
-                  order: (index + currentIndex) % length, // set the slide order based on the index and the currentIndex
-                }}
-                key={index}
-              >
-                <Image src={slide.url} alt={slide.alt} layout="fill" />
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="flex justify-between mt-[48px]">
-          <div className="flex gap-[8px]">
-            <div className="rounded-full w-[8px] h-[8px] border-B-Yellow bg-B-Yellow"></div>
-            <div className="rounded-full w-[8px] h-[8px] border-B-Yellow border"></div>
-          </div>
-          <div className="flex gap-[15px] items-baseline">
-            <button
-              onClick={() => handleValueChange("-")}
-              className="flex w-[48px] h-[48px] rounded-full border-[1px] text-brand border-brand items-center justify-center"
-            >
-              <div className="scale-150">
-                <BiLeftArrowAlt />
-              </div>
-            </button>
-            <button
-              onClick={() => handleValueChange("+")}
-              className="flex w-[48px] h-[48px] rounded-full border-[1px] text-brand border-brand items-center justify-center"
-            >
-              <div className="scale-150">
-                <BiRightArrowAlt />
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-*/
 
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
@@ -133,7 +44,8 @@ const responsiveSettings = [
 
 const Premade_Slider = ({blok}:{blok:any}) => {
 
-  const {colors}=blok;
+  let {colors}=blok;
+    colors=handleMissingColors(colors)
   
     const props={
         prevArrow:<button className=" flex w-[48px] h-[48px] rounded-full border-[1px] items-center justify-center" style={{borderColor:colors[0].border_color,color:colors[0].border_color}}>

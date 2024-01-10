@@ -1,9 +1,10 @@
 import { storyblokEditable } from "@storyblok/react";
 import Pagelink from "../link";
+import { handleMissingColors } from "@/utils";
 
 export default function SignUpMarkets({blok}:{blok:any}){
-    //console.log(blok.link)
-    const {colors}=blok;
+    let {colors}=blok;
+    colors=handleMissingColors(colors)
     return(
         <div className="  grid grid-cols-1 md:grid-cols-2 px-[20px] py-[40px] lg:px-[64px] lg:py-[112px] gap-[20px] md:gap-0 md:justify-between items-center md:items-start " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
             <text className=" heading2">{blok.heading}</text>

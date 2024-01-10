@@ -3,15 +3,14 @@ import Image from "next/image";
 import { useState } from "react";
 import Pagelink from "../link";
 import { storyblokEditable } from "@storyblok/react";
+import { handleMissingColors } from "@/utils";
 
 export default function Benefits({blok}:{blok:any}){
     const benefits=blok.benefits
     //console.log(benefits)
     const [count,setCount]=useState(0)
     let {colors}=blok;
-    if(!colors){
-        colors=[{}];
-    }
+    colors=handleMissingColors(colors)
     let {link}=blok;
     if(!link){
         link=[{}]

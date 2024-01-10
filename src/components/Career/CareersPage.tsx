@@ -11,17 +11,19 @@ import MediaRenderer from "../MediaComponent";
 import Link from "next/link";
 import { capitalizeFirstLetter } from "../navbar";
 import { storyblokEditable } from "@storyblok/react";
+import { handleMissingColors } from "@/utils";
 
 export default function CareersList({blok}:{blok:any}){
     const [value,setValue]=useState(0)
-    //console.log(blok)
     const {countries}=blok;
     const {departments}=countries[value];
     const {button_text}=countries[value]
-    //console.log(departments[0].jobs[0].buttonlink)
-    const {colors}=blok;
+    
     const {selected_color}=blok
     const {button_border_color}=blok;
+
+    let {colors}=blok;
+    colors=handleMissingColors(colors)
     return(
         <>
             
