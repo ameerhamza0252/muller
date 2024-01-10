@@ -10,6 +10,9 @@ export function AboutTop({blok}:{blok:any}){
      * <text className=" w-[60%] mb-3 md:mb-8 mr-3 md:mr-8 xl:mr-14">{blok.overview}</text>
      * 
      */
+    let {heading_tags}=blok;
+    const {Primary,Secondary}=HandleMissingTags(heading_tags);
+    
     return(
         <div className=" relative flex flex-col w-full bg-brand h-screen md:h-[400px] lg:h-[650px] xl:h-[800px] justify-end text-white" id={blok.anchor_id} {...storyblokEditable(blok)}>
             <div className=" absolute w-[100%] h-[100%] ">
@@ -20,8 +23,8 @@ export function AboutTop({blok}:{blok:any}){
             </div>
             {/**Dark overlay <div className=" w-[100%] h-[100%] bg-black/30 absolute z-20 "></div> */}
             <div className=" flex flex-col z-30 gap-[20px] mx-[20px] mb-[20px] lg:mb-[32px]">
-                <h1 className=" md:w-[40%] ">{blok.title}</h1>
-                <text className=" md:w-[40%] self-end mb-3 ">{blok.overview}</text>
+                <Primary className=" md:w-[40%] ">{blok.title}</Primary>
+                <Secondary className=" md:w-[40%] self-end mb-3 ">{blok.overview}</Secondary>
             </div>
         </div>
     )
@@ -77,6 +80,7 @@ export function History({blok}:{blok:any}){
 
 
 import MediaRenderer  from "../MediaComponent"
+import { HandleMissingTags } from "@/utils";
 
 export async function Achievements({blok}:{blok:any}){
     //console.log(blok)
