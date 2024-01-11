@@ -14,7 +14,7 @@ export default function ServicesList({blok}:{blok:any}){
 
   const {card_divider_color}=blok;
   const {buttontext}=blok;
-  const {solutions}=blok;
+  const {services}=blok;
   let {colors}=blok;
   colors=handleMissingColors(colors)
 
@@ -24,7 +24,7 @@ export default function ServicesList({blok}:{blok:any}){
           {isInView&&<motion.h2 variants={ImageFromLeft} initial={ImageFromLeft.start} animate={ImageFromLeft.finish} transition={{delay:0.5,duration:0.5}} className=" w-auto lg:max-w-[50%] mt-[30px]" >{blok.heading}</motion.h2>}
           <div className=' grid grid-cols-1 md:grid-cols-2 w-full justify-center gap-[20px] lg:px-[10px] mt-[30px] lg:mt-[65px]'>
              
-                <ItemsCard isInView={isInView} divider_color={card_divider_color} link_variant={colors[0].link_variant} buttontext={buttontext} blok={solutions}/>
+                <ItemsCard isInView={isInView} divider_color={card_divider_color} link_variant={colors[0].link_variant} buttontext={buttontext} blok={services}/>
              
           </div>
         </div>
