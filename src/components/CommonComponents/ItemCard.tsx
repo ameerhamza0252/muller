@@ -6,7 +6,7 @@ import Pagelink from "../link"
 import { Skeleton } from '@chakra-ui/react'
 import {inView, motion} from 'framer-motion'
 import { useInView } from "framer-motion"
-import { AppearFromBelow, ImageFromLeft, ImageFromRight, transition } from '@/AnimationUtils'
+import { AppearFromBelow, AppearFromBottom, ImageFromLeft, ImageFromRight, transition } from '@/AnimationUtils'
 import { useEffect, useRef } from 'react'
 
 
@@ -50,10 +50,14 @@ export default function ItemsCard({blok,buttontext,link_variant,divider_color,is
                         <Image src={stop.image.filename} placeholder='empty' objectFit='cover' alt={stop.image.alt} fill></Image>
                       </motion.div>
                     }
-                    <text className=' heading2 max-h-[200px] overflow-hidden '>{stop.heading}</text>
-                    <div className={`w-[90%] border-b-[1px] `} style={{borderColor:divider_color}} ></div>
-                    <text className={`w-[90%] h-[150px] overflow-hidden my-[8px]`}>{stop.description}</text>
-                    <Pagelink variant={link_variant} url={blok.full_slug} text={buttontext!=''?buttontext:'View more'} />
+                    {
+                      isInView&&<motion.div className=' h-full flex flex-col ' variants={AppearFromBottom} initial={AppearFromBottom.start} animate={AppearFromBottom.finish} transition={transition} >
+                          <h2 className='max-h-[200px] overflow-hidden '>{stop.heading}</h2>
+                        <div className={`w-[90%] border-b-[1px] `} style={{borderColor:divider_color}} ></div>
+                        <text className={`w-[90%] h-[150px] overflow-hidden my-[8px]`}>{stop.description}</text>
+                        <Pagelink variant={link_variant} url={blok.full_slug} text={buttontext!=''?buttontext:'View more'} />
+                      </motion.div>
+                    }
                   </div>
                 </Skeleton>
               )

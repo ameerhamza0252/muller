@@ -5,6 +5,7 @@ export const AppearFromBelow={
     finish:{opacity:1,y:0}
   }
 
+export const AppearFromBottom={start:{opacity:0,y:400},finish:{opacity:1,y:0}};
 export const ImageFromLeft={
   start:{x:-200},
   finish:{x:0}
@@ -15,7 +16,8 @@ export const ImageFromRight={
   finish:{x:0}
 }
 
-export const transition={duration:0.5,delay:0.25}
+export const transition={duration:0.5,delay:0.3}
+export const slightlyLongerTransition={duration:1,delay:0.6}
 
 export function textToWordsChunksArray({text,chunkSize}:{text:string,chunkSize:number}){
   const titleArray:string[]=text.split(" ").map((e:string)=>e+" ");

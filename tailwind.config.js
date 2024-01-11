@@ -15,7 +15,7 @@ module.exports = {
         'sm':'400px',
         'md':'800px',
         'lg':'1180px',
-        'xl':'1900px',
+        'xl':'1890px',
       },
       animation: {
         typewriter: "typewriter 4s steps(40) forwards", // Adjust the duration and steps as needed
