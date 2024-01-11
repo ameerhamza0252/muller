@@ -1,30 +1,28 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import { BiRightArrowAlt } from "react-icons/bi";
 import Pagelink from "../link";
 import MediaRenderer from "../MediaComponent";
-import Typewriter from 'typewriter-effect';
-import { useEffect, useState } from "react";
-import { useTypingEffect } from "@/hooks";
 import { HandleMissingTags } from "@/utils";
+import { animate, motion, useAnimate } from "framer-motion"
+import { useEffect, useState } from "react";
+import { AppearFromBelow, textToWordsChunksArray } from "@/AnimationUtils";
 
 
 export default function top({blok}:{blok:any}){
-  //console.log(blok.Title.split('').map((i:string)=>{setTimeout(()=>{ return i;},500);return i;})) 
+  const [isTitleDone,setIsTitleDone]=useState(false)
+  const [isDescriptionDone,setIsDescriptionDone]=useState(false)
   const {Title}=blok;
+  const titleAnimationArray=textToWordsChunksArray({text:Title,chunkSize:3})
 
-  const titleAnimated=useTypingEffect({textToType:Title,duration:500,startTyping:true})
-  const descriptionAnimated=useTypingEffect({textToType:blok.description,duration:100,startTyping:titleAnimated.isFinished});
-  
+  const {description}=blok;
 
   
     let {heading_tags}=blok;
-    //console.log(blok)
     heading_tags=HandleMissingTags(heading_tags);
     const {Primary,Secondary}=heading_tags;
     return(
-      <div className={` relative flex flex-col min-h-screen justify-end text-white  `} /*style={{backgroundImage:`url(${blok.image.filename})`}} */ >
+      <div className={` relative flex flex-col min-h-screen justify-end text-white `} id="home-top" /*style={{backgroundImage:`url(${blok.image.filename})`}} */ >
         <div className=" absolute w-[100%] h-[100%] pointer-events-none "  onPlay={()=>console.log('Playing')} >
         {
             blok.media&&blok.media.map((m:any)=>(
@@ -34,12 +32,32 @@ export default function top({blok}:{blok:any}){
         {/**Dark overlay */}
         <div className="absolute w-[100%] h-[100%] inner-darker bg-black/30 z-20"></div>
         </div>
-        <div className={` flex flex-col min-h-[50%] lg:w-[60%] gap-[30px] mx-[10px] md:mx-[31px] z-30 mb-3`} id="home-top">
-          <Primary>{titleAnimated.text}</Primary>
-          <Secondary>{descriptionAnimated.text}</Secondary>
+        <div className={`min-h-[300px] md:min-h-[500px] lg:w-[80%] xl:w-[60%] flex flex-col gap-[30px] mx-[10px] md:mx-[31px] z-30 mb-3`} id="home-top">
+        <Primary className="flex flex-wrap gap-1 md:gap-2 ">
           {
-            titleAnimated.isFinished&&descriptionAnimated.isFinished&&blok.link.map((link:any)=>(
-              <Pagelink url={link.url.url} text={link.Lable} variant="white" />
+            titleAnimationArray.map((arrayItem:string[],index)=>(
+              <motion.text variants={AppearFromBelow}
+              initial="start"
+              animate="finish"
+              transition={{duration:0.5,delay:index*0.25}}
+              onAnimationComplete={()=> index==titleAnimationArray.length-1?setIsTitleDone(true):null}
+              >{arrayItem}</motion.text>
+            ))
+          }
+          </Primary>
+
+          {isTitleDone&&<Secondary className={` max-h-[150px overflow-hidden] `} ><motion.text
+            variants={AppearFromBelow}
+            initial={AppearFromBelow.start}
+            animate={AppearFromBelow.finish}
+            transition={{duration:0.5,delay:0.25}}
+            onAnimationComplete={()=>setIsDescriptionDone(true)}
+          >{description}</motion.text></Secondary>}
+          {
+            isTitleDone&&isDescriptionDone&&blok.link.map((link:any)=>(
+              <motion.div variants={AppearFromBelow} initial={AppearFromBelow.start} animate={AppearFromBelow.finish} transition={{duration:0.5,delay:0.25}}>
+                <Pagelink url={link.url.url} text={link.Lable} variant="white" />
+              </motion.div>
             ))
           }
         </div>     

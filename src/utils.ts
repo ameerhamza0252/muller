@@ -12,3 +12,9 @@ export function handleMissingColors(colors:any){
   }
   return colors;
 }
+
+export const screenSizes={
+  md:800,
+  lg:1180,
+  xl:1900,
+}

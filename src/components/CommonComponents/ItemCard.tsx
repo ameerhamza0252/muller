@@ -1,14 +1,19 @@
+"use client"
 import useSWR from 'swr'
 import { getStoryblokApi } from "@storyblok/react"
 import Image from "next/image"
 import Pagelink from "../link"
 import { Skeleton } from '@chakra-ui/react'
+import {inView, motion} from 'framer-motion'
+import { useInView } from "framer-motion"
+import { AppearFromBelow, ImageFromLeft, ImageFromRight, transition } from '@/AnimationUtils'
+import { useEffect, useRef } from 'react'
 
-export default function ItemsCard({blok,buttontext,link_variant,divider_color}:{blok:any,buttontext:string,link_variant:string,divider_color:string}) {
-  //console.log("Inside Card")
-  //const divider_color=divider_color;
+
+export default function ItemsCard({blok,buttontext,link_variant,divider_color,isInView}:{blok:any,buttontext:string,link_variant:string,divider_color:string,isInView:boolean}) {
+  
   const { data, error, isLoading }=useSWR(blok,getDataList)
-  //console.log('ItemsCards Fetched')
+  
   if(isLoading){
     return(
       <>
@@ -26,17 +31,25 @@ export default function ItemsCard({blok,buttontext,link_variant,divider_color}:{
     )
   }
   if (error) return "An error has occurred"
+  let animationDirection=ImageFromLeft;
     return(
         <>
           {
-            data&&data.map((blok:any)=>{
+            data&&data.map((blok:any,index)=>{
               const stop=blok.content.blocks.filter((b:any)=>b.component=="stop")[0]
+              if(index%2!=0){
+                animationDirection=ImageFromRight
+              }else{
+                animationDirection=ImageFromLeft
+              }
               return(
                 <Skeleton isLoaded={!isLoading} fitContent={true}  > 
                     <div className=' flex flex-col w-full md:w-[90%] lg:w-[550px] xl:w-[900px] min-h-[400px] md:min-h-[600px] lg:h-[936px] xl:h-auto justify-stretch gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
-                    <div className=' relative w-full min-h-[358px] lg:min-h-[450px]'>
-                        <Image src={stop.image.filename} placeholder='empty' objectFit='cover' alt={stop.image.alt} fill />
-                    </div>
+                    {
+                      isInView&&<motion.div variants={animationDirection} initial={animationDirection.start} animate={animationDirection.finish} transition={{duration:1,delay:0.5}} className=' relative w-full min-h-[358px] lg:min-h-[450px]'>
+                        <Image src={stop.image.filename} placeholder='empty' objectFit='cover' alt={stop.image.alt} fill></Image>
+                      </motion.div>
+                    }
                     <text className=' heading2 max-h-[200px] overflow-hidden '>{stop.heading}</text>
                     <div className={`w-[90%] border-b-[1px] `} style={{borderColor:divider_color}} ></div>
                     <text className={`w-[90%] h-[150px] overflow-hidden my-[8px]`}>{stop.description}</text>

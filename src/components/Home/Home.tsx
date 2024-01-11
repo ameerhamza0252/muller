@@ -7,12 +7,12 @@ export default async function Home({blok}:{blok:any}){
   //console.log(blok)
   
     return(
-        <>
+        <div className=" flex flex-col gap-[0.5px]">
           {
             blok.block.map((b:any)=>(
               <StoryblokComponent blok={b} key={b._uid} />
             ))
           }
-        </>
+        </div>
     )
 }
