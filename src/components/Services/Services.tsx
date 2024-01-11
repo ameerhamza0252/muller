@@ -2,8 +2,13 @@ import {  getStoryblokApi, storyblokEditable } from "@storyblok/react";
 
 import ItemsCard from "../CommonComponents/ItemCard";
 import { handleMissingColors } from "@/utils";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 export default async function ServicesList({blok}:{blok:any}){
+  const ref = useRef(null)
+  const isInView = useInView(ref)
+
   let {colors}=blok;
     colors=handleMissingColors(colors)
 
@@ -12,7 +17,7 @@ export default async function ServicesList({blok}:{blok:any}){
           <text className=' text-[21px]'>{blok.title}</text>
           <text className="max-w-[620px] heading2 mt-[30px]" >{blok.heading}</text>
           <div className=' grid grid-cols-1 md:grid-cols-2 justify-center gap-[20px] lg:px-[10px] mt-[30px] lg:mt-[65px]'>
-            <ItemsCard divider_color={blok.card_divider_color} link_variant={colors[0].link_variant} buttontext={blok.buttontext} blok={blok.services} />
+            <ItemsCard isInView={isInView} divider_color={blok.card_divider_color} link_variant={colors[0].link_variant} buttontext={blok.buttontext} blok={blok.services} />
           </div>
         </div>
     )
