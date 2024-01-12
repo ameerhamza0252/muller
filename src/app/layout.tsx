@@ -7,7 +7,6 @@ export const dynamic = 'force-dynamic'
 import { storyblokInit, apiPlugin, StoryblokStory, getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokProvider from '@/components/StoryblokProvider'
 import { Providers } from './providers'
-import cloneDeep from "clone-deep";
 import Redux_Providers from '@/components/Provider'
 
 
@@ -32,13 +31,12 @@ export default async function RootLayout({
 }) {
   const header = (await fetchData('navigation')).data;
   const footer = (await fetchData('footer')).data; 
-  //console.log(footer) 
-  
+ 
   return (
     
       <html lang="en" >
         <StoryblokProvider>
-      <body className={inter.className+ " -top-[36px] lg:top-0"}>
+      <body className={inter.className+ " -top-[40px] lg:-top-[70px]"}>
         <Redux_Providers>
           <Providers>
             <StoryblokStory story={header.story} />

@@ -37,8 +37,9 @@ export function MobileMenue({blok}:{blok:any}){
 
     const {background_color}=blok;
     const {text_color}=blok;
+    console.log(blok)
 
-    return <div className={`w-full sticky flex justify-between z-50 top-0 min-h-[37px] lg:invisible  lg:hidden `} style={{backgroundColor:mobile_state?background_color:""}} {...storyblokEditable(blok)}>
+    return <div className={`w-full sticky flex justify-between z-50 top-0 h-[40px] lg:invisible lg:hidden `} style={{backgroundColor:mobile_state?background_color:""}} {...storyblokEditable(blok)}>
             <Link href={blok.logo_link.cached_url=="home"?"/":blok.logo_link.url}><Image className=" drop-shadow-2xl z-40" height={35} width={166} src={blok.logo.filename} alt={blok.logo.alt} /></Link>
             <div className={` flex flex-row-reverse items-center gap-[10px] md:gap-[20px]  px-[20px] rounded-bl-[8px] `} style={{backgroundColor:background_color}}>
             {
@@ -50,7 +51,7 @@ export function MobileMenue({blok}:{blok:any}){
             <PopoverTrigger onClick={()=>(dispatch(mobile_state_toggle()))} style={{backgroundColor:background_color}} asChild>
                 <Button className=" flex flex-col gap-[6px] items-end text-white ">{mobile_state?<RxCross1/>:<><hr className=" w-[35px]"/><hr className=" w-[20px]"/></>}</Button>
             </PopoverTrigger>
-            <PopoverContent className=" sticky w-screen min-h-screen flex flex-col text-center -mt-2 border-0 bg-cover" style={{backgroundColor:background_color,color:text_color}}>
+            <PopoverContent className=" w-screen min-h-screen flex flex-col text-center -mt-2 border-0 bg-cover" style={{backgroundColor:background_color,color:text_color}}>
             <Accordion className=" flex flex-col gap-[10px] text-center " allowToggle>
             {
                 blok.name.map((n:any,index:number)=>(
