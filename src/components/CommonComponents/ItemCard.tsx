@@ -44,9 +44,9 @@ export default function ItemsCard({blok,buttontext,link_variant,divider_color,is
               }
               return(
                 <Skeleton isLoaded={!isLoading} fitContent={true}  > 
-                    <div className=' flex flex-col w-full md:w-[90%] lg:w-[550px] xl:w-[900px] min-h-[400px] md:min-h-[600px] lg:h-[936px] xl:h-auto justify-stretch gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
+                    <div className=' flex flex-col w-full md:w-[90%] lg:w-[85%] xl:w-[900px] min-h-[400px] md:min-h-[700px] lg:h-[936px] xl:h-auto justify-stretch gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
                     {
-                      isInView&&<motion.div variants={animationDirection} initial={animationDirection.start} animate={animationDirection.finish} transition={{duration:1,delay:0.5}} className=' relative w-full min-h-[358px] lg:min-h-[450px]'>
+                      isInView&&<motion.div variants={animationDirection} initial={animationDirection.start} animate={animationDirection.finish} transition={{duration:1,delay:0.5}} className=' relative w-full h-[358px] lg:min-h-[450px] xl:min-h-[600px]'>
                         <Image src={stop.image.filename} placeholder='empty' objectFit='cover' alt={stop.image.alt} fill></Image>
                       </motion.div>
                     }

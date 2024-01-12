@@ -61,7 +61,7 @@ export default function top({blok}:{blok:any}){
             ))
           }
         </div>     
-        <Link href="#solutuions" className=' self-center z-20 mb-5 ' ><Image src="/Icon/down.svg" alt='scroll' className=" scale-75 md:scale-100 self-end" width={50} height={50} /></Link>
+        <Link href="#solutions" className=' self-center z-20 mb-5 ' ><Image src="/Icon/down.svg" alt='scroll' className=" scale-75 md:scale-100 self-end" width={50} height={50} /></Link>
     </div>
     )
 }

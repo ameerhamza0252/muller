@@ -9,7 +9,7 @@ import { AppearFromBottom, ImageFromLeft } from "@/AnimationUtils";
 export default function SolutionsList({blok}:{blok:any}){
 
   const ref = useRef(null)
-  const isInView = useInView(ref,{once:true,margin:'-10px'})
+  const isInView = useInView(ref,{once:true,margin:'-1px'})
 
     const {card_divider_color}=blok;
     const {buttontext}=blok;
