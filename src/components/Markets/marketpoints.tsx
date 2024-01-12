@@ -21,3 +21,4 @@ export default function MarketPoints({blok}:{blok:any}){
         </div>
     )
 }
+
