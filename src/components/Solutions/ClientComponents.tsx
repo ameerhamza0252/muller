@@ -84,13 +84,12 @@ const Premade_Slider = ({blok}:{blok:any}) => {
     return <div>Error .....</div>
   }
 
-  //console.log(data)
   
     return (
         <div className="flex flex-col lg:px-[64px] py-[40px] lg:py-[112px] gap-[40px] md:gap-[80px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)} >
             <div className="flex flex-col gap-[16px] mb-[40px]">
             <text>{blok.title}</text>
-            <text className="heading3">{blok.heading}</text>
+            <h3 className="">{blok.heading}</h3>
             <div className="flex flex-col md:flex-row px-2 justify-between gap-[10px]">
                 <text>{blok.overview}</text>
                 <Link href={blok.button_link.fieldtype=="story"?blok.button_link.cached_url:blok.button_link.url} className=" max-w-[150px] md:w-auto px-[24px] py-[12px] border-b " style={{borderBottomColor:colors[0].border_color}}>
@@ -110,7 +109,7 @@ const Premade_Slider = ({blok}:{blok:any}) => {
                                 <Image src={s.content.cardimage?s.content.cardimage.filename:''} alt={s.content.cardimage?s.content.cardimage.alt:""} fill objectFit="contain" />
                             </div>
                             <div className=" grid grid-cols-1">
-                                <text className=" heading4">{stop.heading}</text>
+                                <h4 className=" ">{stop.heading}</h4>
                                 <text className=" text-[16px]">{stop.description}</text>
                             </div>
                             <Link href={"/"+s.full_slug} className=" text-center text-[18px] font-[500] font-DM_Mono leading-[28.8px] border-b py-2 " style={{borderColor:colors[0].border_color}}>{blok.Card_Button_Text}</Link>
@@ -133,6 +132,5 @@ async function fetchData(s_uuid:any) {
   async function getDataList(solutions:string[]){
     const promisList=solutions.map(async(s_uuid:string) =>(await fetchData(s_uuid)).data.stories[0])
       const dataResults = await Promise.all(promisList).then((data)=>{return data});
-      //console.log(dataResults)
       return dataResults;
   }

@@ -9,8 +9,8 @@ export default async function BlogSection({blok}:{blok:any}) {
         <div className=" flex flex-col px-[20px] lg:px-[68px] pt-[13px] pb-[40px] lg:pb-[113px] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
             <text className=" pl-2">{blok.title}</text>
             <div className=" flex flex-col self-center md:text-center ">
-                <text className=" heading1">{blok.heading}</text>
-                <text>{blok.overview}</text>
+                <h1 className=" ">{blok.heading}</h1>
+                <p>{blok.overview}</p>
             </div>
             <div className=" flex flex-wrap mt-[50px] lg:mt-[105px]">
                 {
@@ -25,8 +25,8 @@ export default async function BlogSection({blok}:{blok:any}) {
                                 <text className=" font-[500]">{blog.time}</text>
                             </div>
                             <div className="flex flex-col gap-[8px]">
-                                <text className=" heading4">{blog.name}</text>
-                                <text className=" text-[16px] leading-[25.6px]">{blog.overview}</text>
+                                <h4 className=" ">{blog.name}</h4>
+                                <p className=" text-[16px] leading-[25.6px]">{blog.overview}</p>
                             </div>
                         </div>
                         </Link>

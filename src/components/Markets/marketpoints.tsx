@@ -3,7 +3,6 @@ import { storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
 
 export default function MarketPoints({blok}:{blok:any}){
-    //console.log(blok.points[0])
     const {points}=blok
     let {colors}=blok;
     colors=handleMissingColors(colors)
@@ -14,8 +13,8 @@ export default function MarketPoints({blok}:{blok:any}){
                     points.map((point:any)=>(
                         <div className=" lg:w-[325px] flex flex-col gap-[24px]" key={point._uid}>
                             <Image src={blok.icon.filename} width={100} height={100} objectFit="cover" alt={blok.icon.alt} />
-                            <text className=" heading4">{point.heading}</text>
-                            <text>{point.description}</text>
+                            <h4 className=" ">{point.heading}</h4>
+                            <p>{point.description}</p>
                         </div>
                     ))
                 }

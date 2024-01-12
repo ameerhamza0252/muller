@@ -108,8 +108,8 @@ export function IndividualsApply({blok}:{blok:any}){
                     }
                 </div>
                 <div className="  w-full md:w-3/4 grid grid-cols-1 gap-[24px] p-5 z-10 ">
-                    <text className=" heading2">{blok.heading}</text>
-                    <text>{blok.overview}</text>
+                    <h2 className="">{blok.heading}</h2>
+                    <p>{blok.overview}</p>
                     <Pagelink text={link.Lable} url={link.url.url} variant={link_variant} />
                 </div>
             </div>

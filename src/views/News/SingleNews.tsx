@@ -22,7 +22,7 @@ export default function SingleNews({blok}:{blok:any}){
                     <text className=" px-[8px] py-[4px]" style={{backgroundColor:top_tag_color,color:top_tag_text_color}}>{content.category}</text>
                     <text>{content.readtime}</text>
                 </div>
-                <text className=" heading1 mb-[40px] lg:mb-[80px] ">{content.name}</text>
+                <h1 className=" mb-[40px] lg:mb-[80px] ">{content.name}</h1>
                 <div className=" relative h-[300px] lg:h-[600px] xl:h-[900px] " ><Image src={content.image.filename} alt={content.image.alt} objectFit="cover" fill /> </div>
                 <div className=" flex justify-between mt-[32px]">
                     <div className=" flex gap-[48px] text-[16px]"><text className=" font-[400]">Published on</text><text className="">{content.published_on}</text></div>

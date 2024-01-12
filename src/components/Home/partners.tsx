@@ -8,8 +8,8 @@ export default function partners({blok}:{blok:any}){
     return(
         <div className=" min-h-screen flex flex-col px-[30px] lg:px-[42px] xxl:px-[60px] py-[119px] " style={{backgroundColor:blok.background_color,color:blok.text_color}} id={blok.anchor_id} {...storyblokEditable(blok)} key={blok._uid} data-test="feature">
             
-                <text className=" heading2 ">{blok.heading}</text>
-                <text className=" md:w-[592px] xl:[700px] mt-[40px] ">{blok.description}</text>
+                <h2 className=" ">{blok.heading}</h2>
+                <p className=" md:w-[592px] xl:[700px] mt-[40px] ">{blok.description}</p>
                 <div className="h-full mt-[350px] flex flex-wrap justify-center gap-[53px] px-[80px]">
                     {
                         blok.partners.map((p:any)=>(

@@ -5,8 +5,6 @@ import Link from "next/link";
 import useSWR from "swr";
 
 export default function NewsSection({blok}:{blok:any}) {
-    //console.log(blok)
-    //console.log("News Section Start")
     const {colors}=blok;
     const button=blok.button[0]
 
@@ -15,10 +13,6 @@ export default function NewsSection({blok}:{blok:any}) {
     if(error){
         <div>Error ....</div>
     }
-
-    //console.log(newslist);
-    //console.log("NewsList Fetched");
-    //console.log(blok)
     
     return(
         
@@ -28,8 +22,8 @@ export default function NewsSection({blok}:{blok:any}) {
                 
                 <div className=" flex justify-between ">
                     <div className=" flex flex-col w-3/4">
-                        <text className=" heading2">{blok.heading}</text>
-                        <text className=" mt-2">{blok.overview}</text>
+                        <h2 className=" ">{blok.heading}</h2>
+                        <p className=" mt-2">{blok.overview}</p>
                     </div>
                     <Link href={button.link.url} className=" self-end px-[24px] py-[12px] border-b-[1px]" style={{borderBottomColor:button.button_border_color}}>{button.text}</Link>
                 </div>
@@ -51,7 +45,6 @@ export default function NewsSection({blok}:{blok:any}) {
 
 export function NewsCard({blok,tag_color,tag_text_color}:{blok:any,tag_color:string,tag_text_color:string}){
     
-    //console.log(blok)
     const {content}=blok;
     
     return(
@@ -65,8 +58,8 @@ export function NewsCard({blok,tag_color,tag_text_color}:{blok:any,tag_color:str
                 <text className=" font-[500]">{content.readtime}</text>
             </div>
             <div className="flex flex-col gap-[8px]">
-                <text className=" heading4">{content.name}</text>
-                <text className=" text-[16px] leading-[25.6px]">{content.overview}</text>
+                <h4 className=" ">{content.name}</h4>
+                <p className=" text-[16px] leading-[25.6px]">{content.overview}</p>
             </div>
         </div></Link>
     )

@@ -57,7 +57,7 @@ export function Organization({blok}:{blok:any}){
                     </div>
                 </div>
                 <div className=" flex flex-col mt-[40px] lg:mt-[97px] gap-[19px] self-center text-center items-center  ">
-                    <text className=" heading4">{hiring[0].title}</text>
+                    <h4 className=" ">{hiring[0].title}</h4>
                     <text>{hiring[0].overview}</text>
                     <Pagelink text={hiring[0].link_text} variant={colors[0].link_variant} url={hiring[0].link.url} />
                 </div>

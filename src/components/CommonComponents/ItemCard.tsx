@@ -52,7 +52,7 @@ export default function ItemsCard({blok,buttontext,link_variant,divider_color,is
                     }
                     {
                       isInView&&<motion.div className=' h-full flex flex-col ' variants={AppearFromBottom} initial={AppearFromBottom.start} animate={AppearFromBottom.finish} transition={transition} >
-                          <h2 className='max-h-[200px] overflow-hidden '>{stop.heading}</h2>
+                          <h3 className='max-h-[200px] overflow-hidden '>{stop.heading}</h3>
                         <div className={`w-[90%] border-b-[1px] `} style={{borderColor:divider_color}} ></div>
                         <text className={`w-[90%] h-[150px] overflow-hidden my-[8px]`}>{stop.description}</text>
                         <Pagelink variant={link_variant} url={blok.full_slug} text={buttontext!=''?buttontext:'View more'} />

@@ -19,8 +19,8 @@ export default function Projects({blok}:{blok:any}){
         <div className=" flex flex-col px-[20px] xl:px-[40px] pt-[20px] pb-[40px] lg:pb-[112px] gap-[30px] lg:gap-y-[90px] items-center " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
             <text className=" self-start">{blok.title}</text>
             <div className=" flex flex-col text-center gap-[24px]">
-                <text className=" heading2">{blok.heading}</text>
-                <text>{blok.overview}</text>
+                <h2 className=" ">{blok.heading}</h2>
+                <p>{blok.overview}</p>
             </div>
             {
                 projects.map((project:any)=>{
@@ -32,7 +32,7 @@ export default function Projects({blok}:{blok:any}){
                             </div>
                             <div className={`grid grid-cols-1 md:grid-cols-2  transition-all animate-out ease-in-out duration-1000 } `}>
                                 <div>
-                                    <text className=" heading4 ">{project.name}</text>
+                                    <h4 className="  ">{project.name}</h4>
                                     <div className=" flex flex-wrap gap-[8px] font-[DM Mono] text-[14px] leading-[22.4px] font-[500] mt-[16px] " style={{color:blok.tag_text_color}}>
                                         {
                                             project.tags.map((tag:any)=>(

@@ -39,7 +39,7 @@ const Testimonials=({blok}:{blok:any})=>{
         
             <Suspense fallback={<div>Hehehe,,, an error</div>} >
             <div className=" min-h-screen flex flex-col py-[27px] lg:py-[35px] px-[10px] md:pl-[39px] md:pr-[92px] justify-evenly" style={{backgroundColor:blok.background_color,color:blok.text_color}} id={blok.anchor_id} {...storyblokEditable(blok)} >
-            <text className=" text-grey-2">{blok.title}</text>
+            <p className=" ">{blok.title}</p>
             <div className="flex flex-col justify-between w-full lg:w-[580px] py-[85px] gap-[45px] self-end ">
                 <text className="h-max-[580px] text-[35px] overflow-hidden leading-[39px]">
                     {blok.testimonials[value].testimonial}

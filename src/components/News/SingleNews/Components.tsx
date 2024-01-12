@@ -26,10 +26,9 @@ export function HeadingsDescription({blok,Colors,SelectedColor}:{blok:any,Colors
                     ))}
                 </div>
                 <div className=" flex flex-col col-span-1 " >
-                    <text className=" heading4">Contents</text>
+                    <h4 className=" ">Contents</h4>
                     {
                         content.headings.map((h:any,index:number)=>{
-                            //console.log(value)
                             return (
                             <Link onMouseOver={()=>setHovered(index)} onMouseLeave={()=>setHovered(null)} onClick={()=>setValue(index)} className={`ml-[${index*20}px] px-[16px] py-[12px]`} style={{backgroundColor:index==value||index==hovered?SelectedColor:""}} href={"#"+h.heading} key={h._uid}>{h.heading}</Link>
                         )})
@@ -51,7 +50,7 @@ export function DiscoverNews({blok}:{blok:any}){
     return(
         <div className=" min-h-screen flex flex-col px-[20px] lg:px-[64px] py-[40px] lg:py-[112px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)} >
             <text className=" mb-[16px] Text-16 ">{blok.title}</text>
-            <text className=" heading2 mb-[24px] ">{blok.heading}</text>
+            <h2 className=" mb-[24px] ">{blok.heading}</h2>
             <text className=" mb-[80px]">{blok.overview}</text>
             <Skeleton className=" min-h-[300px]" isLoaded={!isLoading}>
             <div className=" flex flex-wrap gap-5">
@@ -79,7 +78,7 @@ export function DiscoverNewsCard({blok,link_variant,tag_color,tag_text_color}:{b
                 <text className=" font-[500]">{content.readtime}</text>
             </div>
             <div className="flex flex-col gap-[8px]">
-                <text className=" heading4">{content.name}</text>
+                <h4 className=" heading4">{content.name}</h4>
                 <text className=" text-[16px] leading-[25.6px]">{content.overview}</text>
             </div>
             <Pagelink url={blok.slug} variant={link_variant} width="200px" />

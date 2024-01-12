@@ -20,19 +20,19 @@ export default function STop({blok}:{blok:any}){
                 {
                     variant=='right'||variant=='left'?(
                         <div className={`m-2 md:m-8 md:w-[40%] flex flex-col ${variant=='right'?'self-end':variant=='left'?'':''} `}>
-                            <text className="m-2 md:m-8  heading1 ">{blok.heading}</text>
-                            <text className="m-2 md:m-8 lg:max-w-[80%]  " >{blok.description}</text>
+                            <h1 className="m-2 md:m-8  heading1 ">{blok.heading}</h1>
+                            <p className="m-2 md:m-8 lg:max-w-[80%]  " >{blok.description}</p>
                         </div>
                     ):
                     variant=='left-right'?(
                         <>
-                            <text className=" md:w-[40%] m-2 md:m-8 self-start  heading1 ">{blok.heading}</text>
-                            <text className=" md:w-[30%] m-2 md:m-8 self-end  " >{blok.description}</text>
+                            <h1 className=" md:w-[40%] m-2 md:m-8 self-start  heading1 ">{blok.heading}</h1>
+                            <p className=" md:w-[30%] m-2 md:m-8 self-end  " >{blok.description}</p>
                         </>
                     ):(
                         <>
-                            <text className=" md:w-[40%] m-2 md:m-8 self-end   heading1 ">{blok.heading}</text>
-                            <text className=" md:w-[30%] m-2 md:m-8 self-start  " >{blok.description}</text>
+                            <h1 className=" md:w-[40%] m-2 md:m-8 self-end   heading1 ">{blok.heading}</h1>
+                            <p className=" md:w-[30%] m-2 md:m-8 self-start  " >{blok.description}</p>
                         </>
                     )
                 }

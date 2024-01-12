@@ -11,7 +11,7 @@ export async function CareerTop({blok}:{blok:any}){
         <div className=" min-h-screen flex flex-col items-center gap-[30px] lg:gap-[80px] py-[50px] lg:py-[112px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
                 <div className=" w-full lg:w-3/5 flex flex-col gap-[24px] px-[30px] lg:px-[64px]">
                     <text className=" text-[16px] leading-[25.6px]">{blok.category}</text>
-                    <text className=" heading1">{blok.title}</text>
+                    <h1 className=" ">{blok.title}</h1>
                     <div className=" flex flex-col md:flex-row items-center justify-between mt-[24px]">
                         <div className=" flex items-center text-[14px] leading-[22.4px] font-DM_Mono">
                             <Image className=" rounded-full" width={56} height={56} src={blok.circledImage.filename} alt={blok.circledImage.alt} />
