@@ -1,10 +1,11 @@
 "use client"
 import { storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
-import { Suspense, useState } from "react";
+import { useRef, useState } from "react";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
-import MediaRenderer from "../MediaComponent";
 import ReactPlayer from "react-player";
+import {motion, useInView} from 'framer-motion'
+import { AppearFromBelow, ImageFromLeft, ImageFromRightFar, transition } from "@/AnimationUtils";
 
 import {
     Dialog,
@@ -14,11 +15,14 @@ import {
     DialogTitle,
     DialogTrigger,
   } from "@/components/ui/dialog"
+
   
 
-const Testimonials=({blok}:{blok:any})=>{
+export default function Testimonials({blok}:{blok:any}){
+    const ref=useRef(null)
+    const isInView=useInView(ref,{once:true,margin:"-1px"})
     const [value,setValue]=useState(0);
-    //const [play,setPlay]=useState(false)
+
     function handleValue(operation:'+'|'-'){
         if(operation=='+'){
            if(value>=blok.testimonials.length-1){
@@ -36,22 +40,23 @@ const Testimonials=({blok}:{blok:any})=>{
     }
     const {video}=blok.testimonials[value];
     return(
-        
-            <Suspense fallback={<div>Hehehe,,, an error</div>} >
-            <div className=" min-h-screen flex flex-col py-[27px] lg:py-[35px] px-[10px] md:pl-[39px] md:pr-[92px] justify-evenly" style={{backgroundColor:blok.background_color,color:blok.text_color}} id={blok.anchor_id} {...storyblokEditable(blok)} >
+            <div ref={ref} className=" min-h-screen flex flex-col py-[27px] lg:py-[35px] px-[10px] md:pl-[39px] md:pr-[92px] justify-evenly"  style={{backgroundColor:blok.background_color,color:blok.text_color}} id={blok.anchor_id} {...storyblokEditable(blok)} >
             <p className=" ">{blok.title}</p>
             <div className="flex flex-col justify-between w-full lg:w-[580px] py-[85px] gap-[45px] self-end ">
-                <text className="h-max-[580px] text-[35px] overflow-hidden leading-[39px]">
+                {
+                    isInView&&
+                    <motion.text variants={AppearFromBelow} initial={AppearFromBelow.start} animate={AppearFromBelow.finish} transition={transition} className="h-max-[580px] text-[35px] overflow-hidden leading-[39px]">
                     {blok.testimonials[value].testimonial}
-                </text>
+                    </motion.text>
+                }
                 <div className=" flex flex-col h-[50px] self-end">
                     <text className=" font-medium">{blok.testimonials[value].name}</text>
                     <text>{blok.testimonials[value].position}</text>
                 </div>
             </div>
             {
-                video&&video.filename!=""?
-                <div className=" absolute self-center">
+                isInView&&video&&video.filename!=""?
+                <motion.div variants={ImageFromRightFar} initial={ImageFromRightFar.start} animate={ImageFromRightFar.finish} transition={{duration:1, stiffness: 120}} className=" absolute self-center">
                     <Dialog>
                         <DialogTrigger>
                         <div className=" w-[70px] md:w-[110px] h-[70px] md:h-[110px] flex items-center justify-center rounded-full border-[1px] border-brand -left-10">
@@ -73,10 +78,12 @@ const Testimonials=({blok}:{blok:any})=>{
                             controls={false} muted={true} loop playing={true}  style={{position:'absolute',pointerEvents:'none'}} width={'100%'} height={'100%'} url={video.filename} />
                         </DialogContent>
                     </Dialog>
-                </div>
+                </motion.div>
               :null
             }
-            <div className=" flex gap-[20px] items-baseline">
+            {
+                isInView&&
+            <motion.div variants={ImageFromLeft} initial={ImageFromLeft.start} animate={ImageFromLeft.finish} transition={transition} className=" flex gap-[20px] items-baseline">
                 <button onClick={()=>handleValue('-')} className=" flex w-[30px] md:w-[65px] h-[30px] md:h-[65px] rounded-full border-[1px] items-center justify-center" style={{color:blok.button_color,borderColor:blok.button_color}}>
                     <div className=" md:scale-150"><BiLeftArrowAlt /></div>
                 </button>
@@ -86,11 +93,9 @@ const Testimonials=({blok}:{blok:any})=>{
                 <text className=" ml-[20px] text-[22px] font-medium text-black ">
                     {value+1}/{blok.testimonials.length}
                 </text>
-            </div>
+            </motion.div>
+            }
         </div>
-        </Suspense>
-        
     )
 }
 
-export default Testimonials

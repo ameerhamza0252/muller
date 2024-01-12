@@ -37,7 +37,6 @@ export function MobileMenue({blok}:{blok:any}){
 
     const {background_color}=blok;
     const {text_color}=blok;
-    console.log(blok)
 
     return <div className={`w-full sticky flex justify-between z-50 top-0 h-[40px] lg:invisible lg:hidden `} style={{backgroundColor:mobile_state?background_color:""}} {...storyblokEditable(blok)}>
             <Link href={blok.logo_link.cached_url=="home"?"/":blok.logo_link.url}><Image className=" drop-shadow-2xl z-40" height={35} width={166} src={mobile_state?blok.mobile_menue_open_logo.filename:blok.logo.filename} alt={blok.logo.alt} /></Link>
