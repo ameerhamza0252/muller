@@ -45,3 +45,61 @@ export function textToWordsChunksArray({text,chunkSize}:{text:string,chunkSize:n
 
   return titleArrayList;
 }
+
+
+export function AnimateFromBelowComponent({children,className}:{children:JSX.Element,className:string}){
+  return(
+    <motion.div className={className} variants={AppearFromBelow} initial={AppearFromBelow.start} animate={AppearFromBelow.finish} transition={transition}>
+      {children}
+    </motion.div>
+  )
+}
+
+
+export function AnimateFromLeftComponent({ children,className}:{children:JSX.Element,className:string}){
+  return(
+    <motion.div className={className} variants={ImageFromLeft} initial={ImageFromLeft.start} animate={ImageFromLeft.finish} transition={transition}>
+      {children}
+    </motion.div>
+  )
+}
+
+export function AnimateFromRightComponent({ children,className}:{children:JSX.Element,className:string}){
+  return(
+    <motion.div className={className} variants={ImageFromRight} initial={ImageFromRight.start} animate={ImageFromRight.finish} transition={transition}>
+      {children}
+    </motion.div>
+  )
+}
+
+export function AnimateFromFarRightComponent({ children,className}:{children:JSX.Element,className:string}) {
+  return(
+    <motion.div className={className} variants={ImageFromRightFar} initial={ImageFromRightFar.start} animate={ImageFromRightFar.finish} transition={transition}>
+      {children}
+    </motion.div>
+  )
+}
+
+export function AnimateFromAboveComponent({children,className}:{children:JSX.Element,className:string}){
+  return(
+    <motion.div className={className} variants={AppearFromAbove} initial={AppearFromAbove.start} animate={AppearFromAbove.finish} transition={transition}>
+      {children}
+    </motion.div>
+  )
+}
+
+export function AnimateYAxisComponent({children,Y,className}:{children:JSX.Element,Y:number,className:string}){
+  return(
+    <motion.div className={className} variants={{start:{y:Y,opacity:0},finish:{y:0,opacity:1}}} initial="start" animate="finish" transition={transition}>
+      {children}
+    </motion.div>
+  )
+}
+
+export function AnimateXAxisComponent({children,X,className}:{children:JSX.Element,X:number,className:string}){
+  return(
+    <motion.div className={className} variants={{start:{x:X,opacity:0},finish:{x:0,opacity:1}}} initial="start" animate="finish" transition={transition}>
+      {children}
+    </motion.div>
+  )
+}

@@ -1,10 +1,13 @@
 "use client"
 
+import { AnimateFromBelowComponent, AnimateFromFarRightComponent } from "@/AnimationUtils";
 import { handleMissingColors } from "@/utils";
 import { Skeleton } from "@chakra-ui/react";
 import { getStoryblokApi, storyblokEditable } from "@storyblok/react";
 import Image from "next/image"
 import Link from "next/link";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi"
 
 
@@ -42,7 +45,9 @@ const responsiveSettings = [
     }
 ];
 
-const Premade_Slider = ({blok}:{blok:any}) => {
+export default function Premade_Slider ({blok}:{blok:any}){
+    const ref=useRef(null);
+    const isInView=useInView(ref,{once:true})
 
   let {colors}=blok;
     colors=handleMissingColors(colors)
@@ -58,10 +63,9 @@ const Premade_Slider = ({blok}:{blok:any}) => {
 
 
     const { data, error, isLoading }=useSWR(blok.solutions,getDataList)
-  //console.log('ItemsCards Fetched')
   if(isLoading){
     return(
-      <div className=" flex gap-[20px] overflow-hidden">
+      <div ref={ref} className=" flex gap-[20px] overflow-hidden">
         <Skeleton isLoaded={!isLoading} fitContent={true}  > 
       <div className=' flex flex-col h-[310px] w-[304px]' key={blok.uuid} >
       
@@ -86,22 +90,29 @@ const Premade_Slider = ({blok}:{blok:any}) => {
 
   
     return (
-        <div className="flex flex-col lg:px-[64px] py-[40px] lg:py-[112px] gap-[40px] md:gap-[80px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)} >
-            <div className="flex flex-col gap-[16px] mb-[40px]">
-            <text>{blok.title}</text>
-            <h3 className="">{blok.heading}</h3>
-            <div className="flex flex-col md:flex-row px-2 justify-between gap-[10px]">
-                <text>{blok.overview}</text>
-                <Link href={blok.button_link.fieldtype=="story"?blok.button_link.cached_url:blok.button_link.url} className=" max-w-[150px] md:w-auto px-[24px] py-[12px] border-b " style={{borderBottomColor:colors[0].border_color}}>
-                  {blok.button_text}
-                </Link>
-            </div>
-            </div>
-            <Slide indicators={(index)=><div className=" indicator"></div>} {...props} autoplay={false} responsive={responsiveSettings} >
+        <div ref={ref} className="flex flex-col lg:px-[64px] py-[40px] lg:py-[112px] gap-[40px] md:gap-[80px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)} >
+            {
+                isInView&&
+                <AnimateFromBelowComponent className="">
+                <div className="flex flex-col gap-[16px] mb-[40px]">
+                <text>{blok.title}</text>
+                <h3 className="">{blok.heading}</h3>
+                <div className="flex flex-col md:flex-row px-2 justify-between gap-[10px]">
+                    <text>{blok.overview}</text>
+                    <Link href={blok.button_link.fieldtype=="story"?blok.button_link.cached_url:blok.button_link.url} className=" max-w-[150px] md:w-auto px-[24px] py-[12px] border-b " style={{borderBottomColor:colors[0].border_color}}>
+                    {blok.button_text}
+                    </Link>
+                </div>
+                </div>
+                </AnimateFromBelowComponent>
+            }
+           {
+            isInView&&
+            <AnimateFromFarRightComponent className="">
+                 <Slide indicators={(index)=><div className=" indicator"></div>} {...props} autoplay={false} responsive={responsiveSettings} >
                 {
-                    data&&data.map((s:any)=>{
+                    isInView&&data&&data.map((s:any)=>{
                         const stop=s.content.blocks.filter((b:any)=>b.component=="stop")[0]
-                        //const cardimage=s.content.cardimage?s.content.cardimage:null;
                     return (
                         <div className=" flex w-full justify-center " key={s.uuid}>
                             <div className=" flex w-[310px] flex-col gap-4 ">
@@ -118,11 +129,12 @@ const Premade_Slider = ({blok}:{blok:any}) => {
                     )})
                 }
             </Slide>
+            </AnimateFromFarRightComponent>
+           }
         </div>
     );
 };
 
-export default Premade_Slider;
 
 async function fetchData(s_uuid:any) {
     const storyblokApi = getStoryblokApi();
