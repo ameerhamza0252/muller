@@ -102,59 +102,79 @@ import {
   } from "@/components/ui/accordion"
 import { storyblokEditable } from "@storyblok/react"
 import { handleMissingColors } from "@/utils"
+import { useRef } from "react"
+import { useInView } from "framer-motion"
+import { AnimateFromBelowComponent, AnimateMultipleFromBelow } from "@/AnimationUtils"
 
   export function FAQs({blok}:{blok:any}){
+    const ref=useRef(null);
+    const isInView=useInView(ref,{once:true,margin:'-1px'});
     const link=blok.link[0]
     let {colors}=blok;
     colors=handleMissingColors(colors)
     return(
-        blok.variant=="vertical"?(<div className=" flex flex-col gap-[20px] md:gap-[80px] px-[10px] md:px-[64px] py-[40px] md:py-[112px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
-            <div className=" grid grid-cols-1 gap-[24px]">
-                <h2 className=" ">{blok.title}</h2>
-                <text>{blok.overview}</text>
-            </div>
+        blok.variant=="vertical"?(<div ref={ref} className=" flex flex-col gap-[20px] md:gap-[80px] px-[10px] md:px-[64px] py-[40px] md:py-[112px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
+            {
+                isInView&&
+                <AnimateMultipleFromBelow className=" grid grid-cols-1 gap-[24px]">
+                    <h2 className=" ">{blok.title}</h2>
+                    <text>{blok.overview}</text>
+                </AnimateMultipleFromBelow>
+            }
             <Accordion type="single" className=" w-full " collapsible>
                 {
-                    blok.questions.map((question:any)=>(
-                        <AccordionItem value={question._uid} className=" gap-0" key={question._uid}>
-                            <AccordionTrigger className=" py-[20px] ">{question.heading}</AccordionTrigger>
-                            <AccordionContent >
-                                <text>{question.description}</text>
-                            </AccordionContent>
-                        </AccordionItem>
-                    ))
-                }
-            </Accordion>
-            <div className=" flex flex-col gap-[16px]">
-                <h3 className=" ">{link.heading}</h3>
-                <text>{link.subheading}</text>
-                {
-                    blok.link&&blok.link.length>0?<Pagelink variant={colors[0].link_variant} text={link.Lable} url={link.link.url} />:null
-                }
-            </div>
-        </div>)
-        :(
-            <div className=" grid grid-cols-1 lg:grid-cols-2 px-[20] lg:px-[64px] py-[50px] lg:py-[112px] gap-[50px] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
-                <div className=" flex flex-col">
-                    <h2 className="  mb-[24px]">{blok.title}</h2>
-                    <text className=" mb-[32px]">{blok.overview}</text>
-                    <Pagelink variant={colors[0].link_variant} />
-                </div>
-                <div className=" flex flex-col ">
-                    <Accordion type="single" collapsible>
-                    {
-                        blok.questions.map((question:any)=>(
-                            <AccordionItem value={question._uid} className=" gap-0  " key={question._uid}>
-                                <AccordionTrigger className=" py-[20px] text-[18px] leading-[28.8px] font-[500] font-DM_Mono">{question.heading}</AccordionTrigger>
-                                <AccordionContent className=" flex flex-col py-[32px] gap-[32px] lg:gap-[64px]" >
+                    isInView&&blok.questions.map((question:any,index:number)=>(
+                        <AnimateFromBelowComponent className="" >
+                            <AccordionItem value={question._uid} className=" gap-0" key={question._uid}>
+                                <AccordionTrigger className=" py-[20px] ">{question.heading}</AccordionTrigger>
+                                <AccordionContent >
                                     <text>{question.description}</text>
                                 </AccordionContent>
                             </AccordionItem>
-                        ))
+                        </AnimateFromBelowComponent>
+                    ))
+                }
+            </Accordion>
+            {
+                isInView&&
+                <AnimateMultipleFromBelow className=" flex flex-col gap-[16px]">
+                    <h3 className=" ">{link.heading}</h3>
+                    <text>{link.subheading}</text>
+                    <>
+                    {
+                        blok.link&&blok.link.length>0?<Pagelink variant={colors[0].link_variant} text={link.Lable} url={link.link.url} />:null
                     }
-                    
-                    </Accordion>
-                </div>
+                    </>
+                </AnimateMultipleFromBelow>
+            }
+        </div>)
+        :(
+            <div ref={ref} className=" grid grid-cols-1 lg:grid-cols-2 px-[20] lg:px-[64px] py-[50px] lg:py-[112px] gap-[50px] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
+                {
+                    isInView&&
+                    <AnimateMultipleFromBelow className=" flex flex-col">
+                        <h2 className="  mb-[24px]">{blok.title}</h2>
+                        <text className=" mb-[32px]">{blok.overview}</text>
+                        <Pagelink variant={colors[0].link_variant} />
+                    </AnimateMultipleFromBelow>
+                }
+                {
+                    isInView&&
+                    <AnimateFromBelowComponent className=" flex flex-col ">
+                        <Accordion type="single" collapsible>
+                        {
+                            blok.questions.map((question:any)=>(
+                                <AccordionItem value={question._uid} className=" gap-0  " key={question._uid}>
+                                    <AccordionTrigger className=" py-[20px] text-[18px] leading-[28.8px] font-[500] font-DM_Mono">{question.heading}</AccordionTrigger>
+                                    <AccordionContent className=" flex flex-col py-[32px] gap-[32px] lg:gap-[64px]" >
+                                        <text>{question.description}</text>
+                                    </AccordionContent>
+                                </AccordionItem>
+                            ))
+                        }
+                        </Accordion>
+                    </AnimateFromBelowComponent>
+                }
             </div>
         )
     )

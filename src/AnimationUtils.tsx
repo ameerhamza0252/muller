@@ -1,4 +1,5 @@
-import {motion} from 'framer-motion'
+import {MotionStyle, motion} from 'framer-motion'
+import React, { CSSProperties } from 'react';
 
 export const AppearFromBelow={
     start:{opacity:0,y:75},
@@ -47,9 +48,9 @@ export function textToWordsChunksArray({text,chunkSize}:{text:string,chunkSize:n
 }
 
 
-export function AnimateFromBelowComponent({children,className}:{children:JSX.Element,className:string}){
+export function AnimateFromBelowComponent({children,className,delay}:{children:React.ReactNode,className:string,delay?:number}){
   return(
-    <motion.div className={className} variants={AppearFromBelow} initial={AppearFromBelow.start} animate={AppearFromBelow.finish} transition={transition}>
+    <motion.div className={className} variants={AppearFromBelow} initial={AppearFromBelow.start} animate={AppearFromBelow.finish} transition={{duration:0.5,delay:delay?delay:0.25}}>
       {children}
     </motion.div>
   )
@@ -101,5 +102,21 @@ export function AnimateXAxisComponent({children,X,className}:{children:JSX.Eleme
     <motion.div className={className} variants={{start:{x:X,opacity:0},finish:{x:0,opacity:1}}} initial="start" animate="finish" transition={transition}>
       {children}
     </motion.div>
+  )
+}
+
+export function AnimateMultipleFromBelow({children,className,style}:{children:JSX.Element[],className:string,style?:CSSProperties}){
+  return(
+    <div className={className} style={style}>
+      {
+      children.map((child,index)=>{
+        return(
+          <motion.div variants={{start:{opacity:0,y:100},finish:{opacity:1,y:0}}} initial="start" animate="finish" transition={{delay:index*0.25,duration:0.5}} >
+            {child}
+          </motion.div>
+        )
+      })
+    }
+    </div>
   )
 }

@@ -1,10 +1,15 @@
+import { AnimateFromBelowComponent, AnimateFromFarRightComponent, AnimateFromLeftComponent } from "@/AnimationUtils";
 import { Skeleton, SkeletonText } from "@chakra-ui/react";
 import { getStoryblokApi, storyblokEditable } from "@storyblok/react";
+import { useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
 import useSWR from "swr";
 
 export default function NewsSection({blok}:{blok:any}) {
+    const ref=useRef(null);
+    const isInView=useInView(ref,{once:true});
     const {colors}=blok;
     const button=blok.button[0]
 
@@ -16,24 +21,41 @@ export default function NewsSection({blok}:{blok:any}) {
     
     return(
         
-            <div className=" flex flex-col py-[40px] lg:py-[112px] px-[20px] lg:px-[64px] gap-[80px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
+            <div ref={ref} className=" flex flex-col py-[40px] lg:py-[112px] px-[20px] lg:px-[64px] gap-[80px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
             <div className=" flex flex-col gap-[16px]">
-                <text>{blok.title}</text>
+                {
+                    isInView&&
+                    <AnimateFromLeftComponent className="">
+                        <text>{blok.title}</text>
+                    </AnimateFromLeftComponent>
+                }
                 
                 <div className=" flex justify-between ">
-                    <div className=" flex flex-col w-3/4">
-                        <h2 className=" ">{blok.heading}</h2>
-                        <p className=" mt-2">{blok.overview}</p>
-                    </div>
-                    <Link href={button.link.url} className=" self-end px-[24px] py-[12px] border-b-[1px]" style={{borderBottomColor:button.button_border_color}}>{button.text}</Link>
+                    {
+                        isInView&&
+                        <AnimateFromBelowComponent className=" flex flex-col w-3/4">
+                            <div >
+                                <h2 className=" ">{blok.heading}</h2>
+                                <p className=" mt-2">{blok.overview}</p>
+                            </div>
+                        </AnimateFromBelowComponent>
+                    }
+                    {
+                        isInView&&
+                        <AnimateFromBelowComponent className="">
+                            <Link href={button.link.url} className=" self-end px-[24px] py-[12px] border-b-[1px]" style={{borderBottomColor:button.button_border_color}}>{button.text}</Link>
+                        </AnimateFromBelowComponent>
+                    }
                 </div>
             
             </div>
             <Skeleton className=" min-h-[300px]" isLoaded={!isLoading}>
             <div className=" flex  flex-wrap gap-5">
                 {
-                    data&&data.map((news)=>(
-                        <NewsCard tag_color={blok.card_tag_color} tag_text_color={blok.card_tag_text_color} blok={news} key={news.uuid} />
+                    isInView&&data&&data.map((news)=>(
+                        <AnimateFromFarRightComponent className="">
+                            <NewsCard tag_color={blok.card_tag_color} tag_text_color={blok.card_tag_text_color} blok={news} key={news.uuid} />
+                        </AnimateFromFarRightComponent>
                     ))
                 }
             </div>
