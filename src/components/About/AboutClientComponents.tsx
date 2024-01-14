@@ -38,7 +38,7 @@ export function Organization({blok}:{blok:any}){
                 {
                     isInView&&
                     <AnimateFromBelowComponent className="">
-                        <text >{blok.title}</text>
+                        <h3>{blok.title}</h3>
                     </AnimateFromBelowComponent>
                 }
                 <div className=" grid grid-cols-1 self-center md:self-start justify-center md:justify-normal md:grid-cols-3 lg:grid-cols-4 gap-[10px] md:gap-[24px] mt-[40px] lg:mt-[108px]">
