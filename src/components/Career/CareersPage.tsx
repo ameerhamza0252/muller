@@ -13,7 +13,7 @@ import { capitalizeFirstLetter } from "../navbar";
 import { storyblokEditable } from "@storyblok/react";
 import { handleMissingColors } from "@/utils";
 import { useInView } from "framer-motion";
-import { AnimateFromBelowComponent } from "@/AnimationUtils";
+import { AnimateFromBelowComponent, AnimateMultipleFromBelow } from "@/AnimationUtils";
 
 export default function CareersList({blok}:{blok:any}){
     const ref=useRef(null);
@@ -33,23 +33,14 @@ export default function CareersList({blok}:{blok:any}){
         <>
             
             <div ref={ref} className=" flex flex-col px-[20] lg:px-[64px] py-[50px] lg:py-[112px] gap-[50px]" style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
-                <div className="grid grid-cols-1">
-                    {
-                        isInView&&
-                        <AnimateFromBelowComponent className="">
-                            <text className=" mb-[16px]">{blok.title}</text>
-                        </AnimateFromBelowComponent>
-                    }
-                    {
-                        isInView&&
-                        <AnimateFromBelowComponent className="">
-                            <>
-                                <h2 >{blok.heading}</h2>
-                                <p className="">{blok.overview}</p>
-                            </>
-                        </AnimateFromBelowComponent>
-                    }
-                </div>
+                {
+                    isInView&&
+                    <AnimateMultipleFromBelow stepAnimation={false} className="grid grid-cols-1">
+                        <text className=" mb-[16px]">{blok.title}</text>
+                        <h2 >{blok.heading}</h2>
+                        <p className="">{blok.overview}</p> 
+                    </AnimateMultipleFromBelow>
+                }
                 {
                     isInView&&
                     <AnimateFromBelowComponent delay={0.5} className=" flex flex-col md:flex-row justify-between md:justify-normal md:gap-[24px] mt-[40px] lg:mt-[108px]">
@@ -108,8 +99,8 @@ export function CareersTop({blok}:{blok:any}){
             </div>
             {
                 isInView&&
-                <AnimateFromBelowComponent className=" flex flex-col lg:w-3/4 text-center justify-center items-center gap-[24px] z-10 ">
-                    <>
+                <AnimateMultipleFromBelow className=" flex flex-col lg:w-3/4 text-center justify-center items-center gap-[24px] z-10 ">
+                    
                     <h1>{blok.heading}</h1>
                     <p>{blok.overview}</p>
                     {
@@ -117,8 +108,8 @@ export function CareersTop({blok}:{blok:any}){
                             <Pagelink url={link.url.url} text={link.Lable} variant="white" />
                         ))
                     }
-                    </>
-                </AnimateFromBelowComponent>
+                    
+                </AnimateMultipleFromBelow>
             }
         </div>
     )
@@ -141,11 +132,11 @@ export function IndividualsApply({blok}:{blok:any}){
                 </div>
                 {
                     isInView&&
-                    <AnimateFromBelowComponent className="  w-full md:w-3/4 grid grid-cols-1 gap-[24px] p-5 z-10 ">
+                    <AnimateMultipleFromBelow className="  w-full md:w-3/4 grid grid-cols-1 gap-[24px] p-5 z-10 ">
                         <h2 className="">{blok.heading}</h2>
                         <p>{blok.overview}</p>
                         <Pagelink text={link.Lable} url={link.url.url} variant={link_variant} />
-                    </AnimateFromBelowComponent>
+                    </AnimateMultipleFromBelow>
                 }
             </div>
     )

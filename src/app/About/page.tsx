@@ -1,3 +1,4 @@
+import { returnMetaData } from "@/utils";
 import { getStoryblokApi } from "@storyblok/react";
 import StoryblokStory from "@storyblok/react/story";
 
@@ -9,23 +10,9 @@ type Props = {
   
 export const generateMetadata=async():Promise<Metadata>=>{
   const {data}= await fetchData();
-  //console.log(data)
   const {meta_data}=data.story.content
-  if(!meta_data){
-    return{
-      title:"Muller"
-    }
-  }
-  const keywords=meta_data[0].keywords.map((w:any)=>w.name)
-
-  return{
-    title:meta_data[0].title,
-    description:meta_data[0].description,
-    keywords:keywords,
-    openGraph:{
-      images:[meta_data[0].image.filename]
-    }
-  }
+  
+  return returnMetaData(meta_data)
 }
 
 export default async function Aboutus() {

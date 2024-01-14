@@ -5,14 +5,16 @@ import { useRef } from "react";
 import { useInView } from "framer-motion";
 import { AnimateFromBelowComponent } from "@/AnimationUtils";
 
-export default async function Signup({blok}:{blok:any}) {
+export default function Signup({blok}:{blok:any}) {
     const ref=useRef(null);
-    const isInView=useInView(ref,{once:true});
+    const isInView=useInView(ref,{once:true, margin:"-10px"});
     let {colors}=blok;
     colors=handleMissingColors(colors)
     return(
         <div ref={ref} className=" max-h-screen flex items-center justify-center text-center lg:py-[80px] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
-            <AnimateFromBelowComponent className=" flex flex-col gap-[24px] px-[20px] md:px-0 md:w-3/4 ">
+            {
+                isInView&&
+                <AnimateFromBelowComponent className=" flex flex-col gap-[24px] px-[20px] md:px-0 md:w-3/4 ">
                 <>
                     <h4 className="">{blok.heading}</h4>
                     <p className=" ">{blok.overview}</p>
@@ -27,6 +29,7 @@ export default async function Signup({blok}:{blok:any}) {
                     </div>
                 </>
             </AnimateFromBelowComponent>
+            }
         </div>
     )
 }

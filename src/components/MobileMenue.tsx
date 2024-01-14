@@ -43,7 +43,7 @@ export function MobileMenue({blok}:{blok:any}){
             <div className={` flex flex-row-reverse items-center gap-[10px] md:gap-[20px]  px-[20px] rounded-bl-[8px] `} style={{backgroundColor:background_color}}>
             {
                 blok.socials.map((social:any)=>(
-                    <Link href={social.url.url} target="_blank"><Image src={social.image.filename} alt={social.image.alt} width={24} height={24} key={social._uid} /></Link>
+                    <Link href={social.url.url} target="_blank" key={social._uid}><Image src={social.image.filename} alt={social.image.alt} width={24} height={24} /></Link>
                 ))
             }
             <Popover open={mobile_state}>
@@ -58,7 +58,7 @@ export function MobileMenue({blok}:{blok:any}){
                         <div className=" grid grid-cols-2 items-center justify-center pr-[5%] ">
                         {
                             n.items.length>0?
-                                <AccordionButton w={"auto"} justifySelf={'end'}  alignSelf={"self-start"} onClick={()=>expanded==index?setExpanded(-99):setExpanded(index)} className="  ">
+                                <AccordionButton w={"auto"} justifySelf={'end'}  alignSelf={"self-start"} onClick={()=>expanded==index?setExpanded(-99):setExpanded(index)} key={index}>
                                 {expanded==index?<IoIosArrowDown/>:<IoIosArrowForward />}
                                 </AccordionButton>
                                 :<div className=" w-full invisible"><IoIosArrowDown/></div>
@@ -68,7 +68,7 @@ export function MobileMenue({blok}:{blok:any}){
                         <AccordionPanel className=" flex flex-col w-full ">
                         {
                             n.items.map((item:any)=>(
-                                <div className="grid grid-cols-2 w-full  border-b border-white pr-[5%]">
+                                <div className="grid grid-cols-2 w-full  border-b border-white pr-[5%]" key={item._uid}>
                                     <div className=" w-full"></div>
                                 <Link onClick={()=>(dispatch(menue_close()))} href={item.url.linktype=="story"?"/"+item.url.cached_url:"/"+capitalizeFirstLetter(n.link.cached_url.split("/")[0])+item.url.url} className=" text-start justify-self-start py-[8px] " key={item._uid}>{item.Lable}</Link>
                                 </div>

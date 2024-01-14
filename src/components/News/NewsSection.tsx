@@ -9,7 +9,7 @@ import useSWR from "swr";
 
 export default function NewsSection({blok}:{blok:any}) {
     const ref=useRef(null);
-    const isInView=useInView(ref,{once:true});
+    const isInView=useInView(ref,{once:true,margin:"-10px"});
     const {colors}=blok;
     const button=blok.button[0]
 

@@ -31,7 +31,7 @@ export function ContactTopGrid({blok}:{blok:any}){
                         <div className=" flex flex-col gap-[0] animate-upward">
                         {
                         blok.image_list1&&blok.image_list1.map((image:any)=>(
-                            <div className=" relative snap-always snap-center w-full md:w-[264px] min-h-[250px] md:min-h-[340px]">
+                            <div className=" relative snap-always snap-center w-full md:w-[264px] min-h-[250px] md:min-h-[340px]" key={image._uid}>
                                 <Image src={image.filename} priority fill alt={image.alt} key={image._uid} />
                             </div>
                         ))
@@ -40,7 +40,7 @@ export function ContactTopGrid({blok}:{blok:any}){
                         <div className=" flex flex-col gap-[0] animate-upward">
                         {
                         blok.image_list1&&blok.image_list1.map((image:any)=>(
-                            <div className=" relative  snap-always snap-center w-full md:w-[264px] min-h-[250px] md:min-h-[340px]">
+                            <div className=" relative  snap-always snap-center w-full md:w-[264px] min-h-[250px] md:min-h-[340px]" key={image._uid}>
                                 <Image src={image.filename} priority fill alt={image.alt} key={image._uid} />
                             </div>
                         ))
@@ -52,7 +52,7 @@ export function ContactTopGrid({blok}:{blok:any}){
                         <div className=" flex flex-col gap-[0] animate-downward">
                         {
                         blok.image_list1&&blok.image_list1.map((image:any)=>(
-                            <div className=" relative snap-always snap-center w-full md:w-[264px] min-h-[250px] md:min-h-[340px]">
+                            <div className=" relative snap-always snap-center w-full md:w-[264px] min-h-[250px] md:min-h-[340px]" key={image._uid}>
                                 <Image src={image.filename} priority fill alt={image.alt} key={image._uid} />
                             </div>
                         ))
@@ -61,7 +61,7 @@ export function ContactTopGrid({blok}:{blok:any}){
                         <div className=" flex flex-col gap-[0] animate-downward">
                         {
                         blok.image_list1&&blok.image_list1.map((image:any)=>(
-                            <div className=" relative  snap-always snap-center w-full md:w-[264px] min-h-[250px] md:min-h-[340px]">
+                            <div className=" relative  snap-always snap-center w-full md:w-[264px] min-h-[250px] md:min-h-[340px]" key={image._uid}>
                                 <Image src={image.filename} priority fill alt={image.alt} key={image._uid} />
                             </div>
                         ))

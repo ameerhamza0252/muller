@@ -3,6 +3,7 @@ import { getStoryblokApi } from "@storyblok/react";
 import {render} from 'storyblok-rich-text-react-renderer-ts';
 
 import type { Metadata, ResolvingMetadata } from 'next'
+import { returnMetaData } from "@/utils";
 
 type Props = {
     params: { slug: string }
@@ -12,22 +13,8 @@ type Props = {
 export async function generateMetadata({params,searchParams}:Props,parent:ResolvingMetadata):Promise<Metadata>{
   const {data}= await fetchData(params.slug);
   const {meta_data}=data.stories[0].content
-  if(!meta_data){
-    return{
-      title:"Muller"
-    }
-  }
-  const keywords=meta_data[0].keywords.map((w:any)=>w.name)
-
-  return{
-    title:meta_data[0].title,
-    description:meta_data[0].description,
-    keywords:keywords,
-    openGraph:{
-      images:[meta_data[0].image.filename]
-    },
-    
-  }
+  
+  return returnMetaData(meta_data)
 }
 
 export default async function Page({params:{slug}}:{params:{slug:any}}){

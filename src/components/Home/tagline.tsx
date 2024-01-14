@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import {motion, useInView} from 'framer-motion'
-import { AppearFromAbove, AppearFromBelow, ImageFromLeft, ImageFromRight, ImageFromRightFar, transition } from "@/AnimationUtils";
+import { AnimateXAxisComponent, AppearFromAbove, AppearFromBelow, ImageFromLeft, ImageFromRight, ImageFromRightFar, transition } from "@/AnimationUtils";
 
 export default function Tagline({blok}:{blok:any}){
     const ref=useRef(null)
@@ -24,7 +24,7 @@ export default function Tagline({blok}:{blok:any}){
     }
 
     return(
-        <div ref={ref} className=" min-h-screen lg:h-auto flex flex-col justify-center md:px-[64px] gap-[80px] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
+        <div ref={ref} className=" overflow-hidden min-h-screen lg:h-auto flex flex-col justify-center md:px-[64px] gap-[80px] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
             {
                 isInView&&
                 <motion.div variants={AppearFromBelow} initial={AppearFromBelow.start} animate={AppearFromBelow.finish} transition={transition} className=" grid grid-cols-1 px-[10px] md:px-0">
@@ -51,9 +51,10 @@ export default function Tagline({blok}:{blok:any}){
                         </button>
                     ))}
                 </div>
-                {isInView&&<motion.div variants={ImageFromRight} initial={ImageFromRight.start} animate={ImageFromRight.finish} transition={transition} onMouseOver={()=>setCurrent((current+1)%locations[value].image.length)} className=" h-[300px] relative md:w-[542px] md:h-[440px]">
-                    <Image src={locations[value].image[current]&&locations[value].image[current].filename} fill objectFit="contain" alt={locations[value].image[current].alt} />
-                </motion.div>}
+                {isInView&&
+                <AnimateXAxisComponent key={value} X={400} className=" h-[300px] relative md:w-[542px] md:h-[440px]">
+                    <Image src={locations[value].image[current]&&locations[value].image[current].filename} fill objectFit="contain" alt={locations[value].image[current].alt} onMouseOver={()=>setCurrent((current+1)%locations[value].image.length)} />
+                </AnimateXAxisComponent>}
             </div>
         </div>
     )

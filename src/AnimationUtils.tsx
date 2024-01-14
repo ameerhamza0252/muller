@@ -105,13 +105,13 @@ export function AnimateXAxisComponent({children,X,className}:{children:JSX.Eleme
   )
 }
 
-export function AnimateMultipleFromBelow({children,className,style}:{children:JSX.Element[],className:string,style?:CSSProperties}){
+export function AnimateMultipleFromBelow({children,className,style,stepAnimation=true}:{children:JSX.Element[],className:string,style?:CSSProperties,stepAnimation?:boolean}){
   return(
     <div className={className} style={style}>
       {
       children.map((child,index)=>{
         return(
-          <motion.div variants={{start:{opacity:0,y:100},finish:{opacity:1,y:0}}} initial="start" animate="finish" transition={{delay:index*0.25,duration:0.5}} >
+          <motion.div key={index} variants={{start:{opacity:0,y:100},finish:{opacity:1,y:0}}} initial="start" animate="finish" transition={{delay:stepAnimation?index*0.25:0.25,duration:0.5}} >
             {child}
           </motion.div>
         )

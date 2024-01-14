@@ -8,7 +8,7 @@ import { useRef, useState } from "react";
 
 export default function Projects({blok}:{blok:any}){
     const ref=useRef(null);
-    const isInView=useInView(ref,{})
+    const isInView=useInView(ref,{once:true,margin:'-10px'})
     const {projects}=blok;
     let {colors}=blok;
     colors=handleMissingColors(colors)
@@ -44,9 +44,9 @@ export default function Projects({blok}:{blok:any}){
                             {
                                 isInView&&
                                 <AnimateFromFarRightComponent className=" relative w-full h-[400px] lg:h-[640px] xl:h-[900px] z-10">
-                                    <div >
+                                    
                                         <Image src={project.image.filename} fill alt={project.image.alt} />
-                                    </div>
+                                    
                                 </AnimateFromFarRightComponent>
                             }
                             {
