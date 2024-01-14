@@ -43,16 +43,16 @@ export default function ItemsCard({blok,buttontext,link_variant,divider_color,is
                 animationDirection=ImageFromLeft
               }
               return(
-                <Skeleton isLoaded={!isLoading} fitContent={true}  > 
+                <Skeleton isLoaded={!isLoading} fitContent={true} key={blok._uid} > 
                     <div className=' flex flex-col w-full md:w-[90%] lg:w-[85%] xl:w-[900px] min-h-[400px] md:min-h-[700px] lg:h-[936px] xl:h-auto justify-stretch gap-[20px] py-[18px] xl:py-[30px]' key={blok.uuid} >
                     {
                       isInView&&<motion.div variants={animationDirection} initial={animationDirection.start} animate={animationDirection.finish} transition={{duration:1,delay:0.5}} className=' relative w-full h-[358px] lg:min-h-[450px] xl:min-h-[600px]'>
-                        <Image src={stop.image.filename} placeholder='empty' objectFit='cover' alt={stop.image.alt} fill></Image>
+                        <Image src={stop.image.filename} placeholder='empty' objectFit='cover' alt={stop.image.alt} fill priority sizes='(min-width: 800px) 90vw,(min-width: 1180px) min-h-[450px] 85vw, (min-width:1880px) min-h-[600px] w-[900px]'/>
                       </motion.div>
                     }
                     {
                       isInView&&<motion.div className=' h-full flex flex-col ' variants={AppearFromBottom} initial={AppearFromBottom.start} animate={AppearFromBottom.finish} transition={transition} >
-                          <h3 className='max-h-[200px] overflow-hidden '>{stop.heading}</h3>
+                        <h3 className='max-h-[200px] overflow-hidden '>{stop.heading}</h3>
                         <div className={`w-[90%] border-b-[1px] `} style={{borderColor:divider_color}} ></div>
                         <text className={`w-[90%] h-[150px] overflow-hidden my-[8px]`}>{stop.description}</text>
                         <Pagelink variant={link_variant} url={blok.full_slug} text={buttontext!=''?buttontext:'View more'} />

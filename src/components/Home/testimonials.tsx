@@ -40,7 +40,7 @@ export default function Testimonials({blok}:{blok:any}){
     }
     const {video}=blok.testimonials[value];
     return(
-            <div ref={ref} className=" min-h-screen flex flex-col py-[27px] lg:py-[35px] px-[10px] md:pl-[39px] md:pr-[92px] justify-evenly"  style={{backgroundColor:blok.background_color,color:blok.text_color}} id={blok.anchor_id} {...storyblokEditable(blok)} >
+            <div ref={ref} className=" min-h-screen flex flex-col py-[27px] lg:py-[35px] px-[10px] md:pl-[39px] md:pr-[92px] justify-evenly overflow-hidden"  style={{backgroundColor:blok.background_color,color:blok.text_color}} id={blok.anchor_id} {...storyblokEditable(blok)} >
             <p className=" ">{blok.title}</p>
             <div className="flex flex-col justify-between w-full lg:w-[580px] py-[85px] gap-[45px] self-end ">
                 {
@@ -56,7 +56,7 @@ export default function Testimonials({blok}:{blok:any}){
             </div>
             {
                 isInView&&video&&video.filename!=""?
-                <motion.div variants={ImageFromRightFar} initial={ImageFromRightFar.start} animate={ImageFromRightFar.finish} transition={{duration:1, stiffness: 120}} className=" absolute self-center">
+                <motion.div variants={ImageFromRightFar} initial={ImageFromRightFar.start} animate={ImageFromRightFar.finish} transition={{duration:1, stiffness: 120}} className=" absolute self-center overflow-x-hidden ">
                     <Dialog>
                         <DialogTrigger>
                         <div className=" w-[70px] md:w-[110px] h-[70px] md:h-[110px] flex items-center justify-center rounded-full border-[1px] border-brand -left-10">
@@ -65,7 +65,7 @@ export default function Testimonials({blok}:{blok:any}){
                             </div>
                         </div>
                         </DialogTrigger>
-                        <DialogContent className=" p-0 h-[300px]">
+                        <DialogContent className=" p-0 max-w-none min-h-[300px] md:min-h-[400px] lg:min-h-[600px] xl:min-h-[800px] w-[60%]" style={{overflow:'auto'}}>
                         <ReactPlayer config={{
                             youtube: {
                                 playerVars: { 

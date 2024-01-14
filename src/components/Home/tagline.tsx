@@ -53,7 +53,7 @@ export default function Tagline({blok}:{blok:any}){
                 </div>
                 {isInView&&
                 <AnimateXAxisComponent key={value} X={400} className=" h-[300px] relative md:w-[542px] md:h-[440px]">
-                    <Image src={locations[value].image[current]&&locations[value].image[current].filename} fill objectFit="contain" alt={locations[value].image[current].alt} onMouseOver={()=>setCurrent((current+1)%locations[value].image.length)} />
+                    <Image src={locations[value].image[current]&&locations[value].image[current].filename} fill objectFit="contain" sizes="(min-width: 800px) 542px" alt={locations[value].image[current].alt} onMouseOver={()=>setCurrent((current+1)%locations[value].image.length)} />
                 </AnimateXAxisComponent>}
             </div>
         </div>

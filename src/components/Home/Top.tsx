@@ -33,7 +33,7 @@ export default function top({blok}:{blok:any}){
         <div className="absolute w-[100%] h-[100%] inner-darker bg-black/30 z-20"></div>
         </div>
         <div className={`min-h-[300px] md:min-h-[500px] lg:w-[80%] xl:w-[60%] flex flex-col gap-[30px] mx-[10px] md:mx-[31px] z-30 mb-3`} id="home-top">
-        <Primary className="flex flex-wrap gap-1 md:gap-2 ">
+        <h1 className="flex flex-wrap gap-1 md:gap-2 ">
           {
             titleAnimationArray.map((arrayItem:string[],index)=>(
               <motion.text variants={AppearFromBelow}
@@ -41,21 +41,22 @@ export default function top({blok}:{blok:any}){
               animate="finish"
               transition={{duration:0.5,delay:index*0.25}}
               onAnimationComplete={()=> index==titleAnimationArray.length-1?setIsTitleDone(true):null}
+              key={index}
               >{arrayItem}</motion.text>
             ))
           }
-          </Primary>
+          </h1>
 
-          {isTitleDone&&<Secondary className={` max-h-[150px overflow-hidden] `} ><motion.text
+          {isTitleDone&&<motion.text className={` max-h-[150px] overflow-hidden Text-18`}
             variants={AppearFromBelow}
             initial={AppearFromBelow.start}
             animate={AppearFromBelow.finish}
             transition={{duration:0.5,delay:0.25}}
             onAnimationComplete={()=>setIsDescriptionDone(true)}
-          >{description}</motion.text></Secondary>}
+          >{description}</motion.text>}
           {
             isTitleDone&&isDescriptionDone&&blok.link.map((link:any)=>(
-              <motion.div variants={AppearFromBelow} initial={AppearFromBelow.start} animate={AppearFromBelow.finish} transition={{duration:0.5,delay:0.25}}>
+              <motion.div variants={AppearFromBelow} initial={AppearFromBelow.start} animate={AppearFromBelow.finish} transition={{duration:0.5,delay:0.25}} key={link._uid}>
                 <Pagelink url={link.url.url} text={link.Lable} variant="white" />
               </motion.div>
             ))

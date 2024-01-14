@@ -1,8 +1,7 @@
-"use client"
 import ItemsCard from "@/components/CommonComponents/ItemCard";
 import { handleMissingColors } from "@/utils";
 import { inView, useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import {motion} from 'framer-motion'
 import { AppearFromBottom, ImageFromLeft } from "@/AnimationUtils";
 

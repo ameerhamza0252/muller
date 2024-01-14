@@ -3,7 +3,7 @@ import Pagelink from "../link";
 import { GetInTouch } from "../Career/SingleCareerClient";
 import MediaRenderer from "../MediaComponent";
 import { storyblokEditable } from "@storyblok/react";
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 import { useInView } from "framer-motion";
 import { AnimateFromBelowComponent, AnimateFromFarRightComponent, AnimateXAxisComponent } from "@/AnimationUtils";
 import { handleMissingColors } from "@/utils";
@@ -26,13 +26,15 @@ export function ContactTopGrid({blok}:{blok:any}){
                         <Pagelink url={link.url.url} text={link.Lable} variant={colors[0].link_variant} />
                     </AnimateFromBelowComponent>
                 }
-                <div className="grid h-screen w-full md:w-auto grid-cols-2 overflow-auto gap-[10px] pointer-events-none ">
+                <div className="grid h-screen w-full md:w-auto grid-cols-2 overflow-auto pointer-events-none ">
                     <div className=" md:h-screen flex flex-col  w-full overflow-auto gap-[0] hide-scroll ">
                         <div className=" flex flex-col gap-[0] animate-upward">
                         {
                         blok.image_list1&&blok.image_list1.map((image:any)=>(
                             <div className=" relative snap-always snap-center w-full md:w-[264px] min-h-[250px] md:min-h-[340px]" key={image._uid}>
-                                <Image src={image.filename} priority fill alt={image.alt} key={image._uid} />
+                                <Suspense fallback="Hehe">
+                                <Image src={image.filename} priority fill alt={image.alt} key={image._uid} quality={80} sizes="(min-width:800px)w-[264px] min-h-[250px] md:min-h-[340px]" />
+                                </Suspense>
                             </div>
                         ))
                         }
@@ -41,7 +43,7 @@ export function ContactTopGrid({blok}:{blok:any}){
                         {
                         blok.image_list1&&blok.image_list1.map((image:any)=>(
                             <div className=" relative  snap-always snap-center w-full md:w-[264px] min-h-[250px] md:min-h-[340px]" key={image._uid}>
-                                <Image src={image.filename} priority fill alt={image.alt} key={image._uid} />
+                                <Image src={image.filename} priority fill alt={image.alt} key={image._uid} quality={80} sizes="(min-width:800px)w-[264px] min-h-[250px] md:min-h-[340px]" />
                             </div>
                         ))
                         }
@@ -53,7 +55,7 @@ export function ContactTopGrid({blok}:{blok:any}){
                         {
                         blok.image_list1&&blok.image_list1.map((image:any)=>(
                             <div className=" relative snap-always snap-center w-full md:w-[264px] min-h-[250px] md:min-h-[340px]" key={image._uid}>
-                                <Image src={image.filename} priority fill alt={image.alt} key={image._uid} />
+                                <Image src={image.filename} priority fill alt={image.alt} key={image._uid} quality={80} sizes="(min-width:800px)w-[264px] min-h-[250px] md:min-h-[340px]" />
                             </div>
                         ))
                         }
@@ -62,7 +64,7 @@ export function ContactTopGrid({blok}:{blok:any}){
                         {
                         blok.image_list1&&blok.image_list1.map((image:any)=>(
                             <div className=" relative  snap-always snap-center w-full md:w-[264px] min-h-[250px] md:min-h-[340px]" key={image._uid}>
-                                <Image src={image.filename} priority fill alt={image.alt} key={image._uid} />
+                                <Image src={image.filename} priority fill alt={image.alt} key={image._uid} sizes="(min-width:800px)w-[264px] min-h-[250px] md:min-h-[340px]" />
                             </div>
                         ))
                         }

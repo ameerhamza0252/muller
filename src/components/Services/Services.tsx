@@ -1,4 +1,3 @@
-"use client"
 import {  getStoryblokApi, storyblokEditable } from "@storyblok/react";
 
 import ItemsCard from "../CommonComponents/ItemCard";

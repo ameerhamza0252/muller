@@ -206,12 +206,11 @@ h4{
 }
 
 .Text-18{
-  font-family: 'Helvetica Neue';
-  font-size: 21px;
-  font-weight: 400;
-  line-height: 34px;
-  letter-spacing: 0em;
-  text-align: left;
+font-family: 'Helvetica Neue';
+font-size: 21px;
+font-weight: 400;
+line-height: 34px;
+letter-spacing: 0em;
 }
 
 /* For screens smaller than 600px */

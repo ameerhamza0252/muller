@@ -8,7 +8,7 @@ import { useRef, useState } from "react";
 
 export default function Projects({blok}:{blok:any}){
     const ref=useRef(null);
-    const isInView=useInView(ref,{once:true,margin:'-10px'})
+    const isInView=useInView(ref,{once:true,margin:'-20px'})
     const {projects}=blok;
     let {colors}=blok;
     colors=handleMissingColors(colors)
@@ -20,7 +20,7 @@ export default function Projects({blok}:{blok:any}){
     let max_words:number=sm;
     
     return(
-        <div ref={ref} className=" flex flex-col px-[20px] xl:px-[40px] pt-[20px] pb-[40px] lg:pb-[112px] gap-[30px] lg:gap-y-[90px] items-center " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
+        <div className=" flex flex-col px-[20px] xl:px-[40px] pt-[20px] pb-[40px] lg:pb-[112px] gap-[30px] lg:gap-y-[90px] items-center " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
             {
                 isInView&&
                 <AnimateFromLeftComponent className=" self-start" >
@@ -37,22 +37,22 @@ export default function Projects({blok}:{blok:any}){
                 </AnimateFromBelowComponent>
             }
             {
-                projects.map((project:any)=>{
+                projects.map((project:any,index:number)=>{
                     const [isExpanded,setIsExpanded]=useState(false)
                     return (
-                        <div className=" lg:w-[90%] xl:w-full flex flex-col items-center gap-[24px] xl:px-[20px] py-5" id={project.anchor_id}  key={project._uid}>
+                        <div ref={ref} className=" lg:w-[90%] xl:w-full flex flex-col items-center gap-[24px] xl:px-[20px] py-5 overflow-hidden" id={project.anchor_id}  key={project._uid}>
                             {
                                 isInView&&
-                                <AnimateFromFarRightComponent className=" relative w-full h-[400px] lg:h-[640px] xl:h-[900px] z-10">
+                                <AnimateFromFarRightComponent className=" relative w-full h-[400px] lg:h-[640px] xl:h-[900px] z-10" key={index}>
                                     
-                                        <Image src={project.image.filename} fill alt={project.image.alt} />
+                                        <Image src={project.image.filename} fill alt={project.image.alt} priority sizes="(min-width:1180px) h-[640px] 90vw ,(min-width:1880px) h-[900px] 100vw" />
                                     
                                 </AnimateFromFarRightComponent>
                             }
                             {
                                 isInView&&
-                                <AnimateFromBelowComponent className="">
-                                    <div className={`grid grid-cols-1 md:grid-cols-2  transition-all animate-out ease-in-out duration-1000 } `}>
+                                <AnimateFromBelowComponent className="" key={index}>
+                                    <div className={`grid grid-cols-1 md:grid-cols-2  transition-all animate-out ease-in-out duration-1000 `}>
                                         <div>
                                             <h4 className="  ">{project.name}</h4>
                                             <div className=" flex flex-wrap gap-[8px] font-[DM Mono] text-[14px] leading-[22.4px] font-[500] mt-[16px] " style={{color:blok.tag_text_color}}>

@@ -59,10 +59,10 @@ export function Organization({blok}:{blok:any}){
                                         <DialogTrigger>
                                             {dep.department_head.map((head:any)=>(<EmployeeCard employee={head} jobrole_color={jobrole_text_color} />))}
                                         </DialogTrigger>
-                                        <DialogContent className=" overflow-auto max-h-screen max-w-none flex flex-wrap gap-[5px] md:gap-[10px] justify-center hide-scroll " style={{backgroundColor:blok.popup_background_color,color:colors[0].text_color}}>
+                                        <DialogContent className=" overflow-auto max-h-screen max-w-[95%] flex flex-wrap justify-evenly md:grid md:grid-cols-3 lg:grid-cols-6 gap-[5px] hide-scroll " style={{backgroundColor:blok.popup_background_color,color:colors[0].text_color}}>
                                             {
-                                                dep.employees.map((emp:any)=>(
-                                                    <EmployeeCard employee={emp} jobrole_color={jobrole_text_color} />
+                                                dep.employees.map((emp:any,index:number)=>(
+                                                    <EmployeeCard employee={emp} jobrole_color={jobrole_text_color} className={index<3?" lg:col-span-2":""}  />
                                                 ))
                                             }
                                         </DialogContent>
@@ -87,10 +87,10 @@ export function Organization({blok}:{blok:any}){
 }
 
 
-const EmployeeCard=({employee,jobrole_color}:{employee:any,jobrole_color:string})=>{
+const EmployeeCard=({employee,jobrole_color,className}:{employee:any,jobrole_color:string,className?:string})=>{
     const emp=employee;
     return(
-        <div className=" w-[250px] min-h-[300px] flex flex-col items-center gap-[24px] " key={emp._uid}>
+        <div className={`sm:w-[250px] md:max-w-[250px] min-h-[300px] flex flex-col items-center gap-[24px] `+className} key={emp._uid}>
             <Image src={emp.profileimage.filename} width={150} height={150} alt={emp.profileimage.alt} className=" justify-self-center" />
             <div className=" flex flex-col text-center font-[Roboto]">
                 <text className=" text-[20px] leading-[30px] font-[600]">{emp.name}</text>

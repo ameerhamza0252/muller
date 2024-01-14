@@ -3,8 +3,6 @@ import { StoryblokComponent } from "@storyblok/react";
 
 
 export default async function Home({blok}:{blok:any}){
-  console.log('Home page')
-  //console.log(blok)
   
     return(
         <>
