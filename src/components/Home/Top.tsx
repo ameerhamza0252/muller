@@ -20,7 +20,6 @@ export default function top({blok}:{blok:any}){
   
     let {heading_tags}=blok;
     heading_tags=HandleMissingTags(heading_tags);
-    const {Primary,Secondary}=heading_tags;
     return(
       <div className={` relative flex flex-col min-h-screen justify-end text-white `} id="home-top" /*style={{backgroundImage:`url(${blok.image.filename})`}} */ >
         <div className=" absolute w-[100%] h-[100%] pointer-events-none "  onPlay={()=>console.log('Playing')} >
