@@ -7,8 +7,6 @@ export default async function Home({blok}:{blok:any}){
   
     return(
         <>
-
-          <Image src={"/loading_image.svg"} alt="loading" fill />
           {
             blok.block.map((b:any)=>(
               <StoryblokComponent blok={b} key={b._uid} />
