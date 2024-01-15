@@ -11,7 +11,7 @@ export default function Signup({blok}:{blok:any}) {
     let {colors}=blok;
     colors=handleMissingColors(colors)
     return(
-        <div ref={ref} className=" max-h-screen flex items-center justify-center text-center lg:py-[80px] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
+        <div ref={ref} className=" max-h-screen flex items-center justify-center text-center py-[30px] lg:py-[80px] " style={{backgroundColor:colors[0].background_color,color:colors[0].text_color}} id={blok.anchor_id} {...storyblokEditable(blok)}>
             {
                 isInView&&
                 <AnimateFromBelowComponent className=" flex flex-col gap-[24px] px-[20px] md:px-0 md:w-3/4 ">

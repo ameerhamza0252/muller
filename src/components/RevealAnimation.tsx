@@ -1,6 +1,5 @@
 "use client"
 import {motion} from 'framer-motion'
-import Image from "next/image";
 import { useState, useEffect } from "react";
 
 
@@ -17,8 +16,10 @@ export function RevealAnimationComponent(){
     }, []);
 
 
-    return isLoading &&
-    <div className={`h-screen flex w-screen absolute bg-cover overflow-hidden hide-scroll z-[100] `} >
-      <Image className={isLoading ? 'zoom' :""} alt="" style={{position:"absolute"}} fill src={"/loading_image.svg"} />
-    </div>
+    return isLoading && 
+      <div className=' w-screen h-screen overflow-hidden'>
+        <motion.div key={1} className={`w-screen h-screen bg-cover bg-center overflow-hidden hide-scroll`} style={{backgroundImage: `url(/loading_image.svg)`}} viewport={{once:true}} initial={{scale:1}} animate={{scale:[1,3,5,7,11,20],zIndex:100,position:"absolute"}} exit={{zIndex:-100,position:"unset",display:"none"}} transition={{duration:5,ease:"easeInOut"}} >
+      </motion.div>
+      </div>
+    
   }

@@ -8,6 +8,7 @@ import { storyblokInit, apiPlugin, StoryblokStory, getStoryblokApi } from "@stor
 import StoryblokProvider from '@/components/StoryblokProvider'
 import { Providers } from './providers'
 import Redux_Providers from '@/components/Provider'
+import { RevealAnimationComponent } from '@/components/RevealAnimation';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -36,7 +37,7 @@ export default async function RootLayout({
     
       <html lang="en" >
         <StoryblokProvider>
-      <body className={inter.className+ " -top-[40px] lg:-top-[70px]"}>
+      <body className={inter.className+ " -top-[40px] lg:-top-[70px] "}>
         <Redux_Providers>
           <Providers>
             <StoryblokStory story={header.story} />
